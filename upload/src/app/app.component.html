@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h3>Välj eller ladda upp bild</h3>
+          <form (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                  <input class="upload take-picture" type="file" accept="image/*" name="image" capture>
+                  <input class="upload" type="file" accept="image/*" name="image">
+              </div>
+              <div class="form-group">
+                  <button class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+        </div>
+    </div>
+</div>
