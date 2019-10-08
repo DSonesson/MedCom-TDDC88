@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { UploadComponent } from './upload/upload.component';
-
+import {ConfirmationComponent} from './confirmation/confirmation.component';
 
 const routes: Routes = [
-  { path: 'upload', component: UploadComponent }
+  { path: 'upload', component: UploadComponent },
+  { path: 'confirmation', component: ConfirmationComponent }
+
 ];
 
 
@@ -16,4 +18,4 @@ const routes: Routes = [
 
 
 export class AppRoutingModule { }
-export const routingComponents = [UploadComponent]
+export const routingComponents = [UploadComponent, ConfirmationComponent]
