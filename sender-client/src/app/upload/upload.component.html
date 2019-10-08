@@ -1,16 +1,7 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 offset-md-3">
-            <h3>Välj eller ladda upp bild</h3>
-          <form (ngSubmit)="onSubmit()">
-              <div class="form-group">
-                  <input class="upload take-picture" type="file" accept="image/*" name="image" capture>
-                  <input class="upload" type="file" accept="image/*" name="image">
-              </div>
-              <div class="form-group">
-                  <button routerLink="/confirmation">Submit</button>
-              </div>
-            </form>
-        </div>
+<div class="button" (click)="myEventHandler()">
+    <span class="button-text">Ta bild</span>
     </div>
-</div>
+    
+    <span style="color:red;" *ngIf="message">{{message}}</span>
+    <input class="test" #file type="file" accept='image/*' (change)="preview(file.files)" capture/>
+    <img [src]="imgURL" width="500" *ngIf="imgURL">
