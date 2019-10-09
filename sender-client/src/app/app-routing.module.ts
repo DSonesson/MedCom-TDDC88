@@ -6,7 +6,7 @@ import {ConfirmationComponent} from './confirmation/confirmation.component';
 
 const routes: Routes = [
   { path: 'upload', component: UploadComponent },
-  { path: 'confirmation', component: ConfirmationComponent }
+  { path: 'confirmation/:image', component: ConfirmationComponent }
 
 ];
 

@@ -9,6 +9,7 @@ export class UploadComponent implements OnInit {
   public imagePath;
   imgURL: any;
   public message: string;
+  hej: string = "hej2";
 
   @Input()
   public data: string

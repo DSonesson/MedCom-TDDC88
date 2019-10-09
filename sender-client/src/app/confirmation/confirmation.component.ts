@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { UploadComponent } from '../upload/upload.component';
 
 @Component({
   selector: 'app-confirmation',
@@ -8,11 +10,14 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ConfirmationComponent implements OnInit {
 
   @Input()
-  public data: string
-
-  constructor() { }
+  public data: string;
+  constructor( private route: ActivatedRoute
+    ) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      this.data = UploadComponent[+params.get('image')];
+    });
   }
 
 }

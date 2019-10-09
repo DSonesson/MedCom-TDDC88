@@ -6,4 +6,6 @@
     <input class="test" #file type="file" accept='image/*' (change)="preview(file.files)" capture/>
     <img [src]="imgURL" width="500" *ngIf="imgURL">
 
-    <button style="display: block" *ngIf="imgURL" (click)="updateData()">Gå vidare</button>
+    <button style="display: block" *ngIf="imgURL" (click)="updateData()">Skicka bild till parent</button>
+
+    <a [routerLink]="['/confirmation', hej]">confirmation</a>
