@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'sender-client';
   public data: any;
 
-  updateData(event) {
-    this.data = event;
+  updateData($event) {
+    this.data = $event;
   }
 }
