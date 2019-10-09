@@ -9,7 +9,7 @@ export class UploadComponent implements OnInit {
   public imagePath;
   imgURL: any;
   public message: string;
-  
+
   constructor() { }
 
   ngOnInit() {
