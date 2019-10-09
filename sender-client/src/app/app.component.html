@@ -1,11 +1,7 @@
 <div>App component</div>
-
-<app-upload-component 
-      [data]="data" (onData)="updateData($event)"></app-first-component></app-upload-component>
-
 <div>{{data}}</div>
 <div>-------------</div>
-
+<app-upload [data]="data" (onData)="updateData($event)"></app-upload>
 <router-outlet></router-outlet>
 
 

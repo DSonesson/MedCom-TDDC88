@@ -3,7 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-upload',
   templateUrl: './upload.component.html',
-  styleUrls: ['./upload.component.css'],
+  styleUrls: ['./upload.component.css']
 })
 export class UploadComponent implements OnInit {
   public imagePath;
@@ -51,7 +51,7 @@ export class UploadComponent implements OnInit {
     //send data back to parent
     //data could be coming from a service/async http request as well.
     this.data = this.imgURL;
-    this.onData.emit(this.data)
+    this.onData.emit(this.data);
   }
 
 }
