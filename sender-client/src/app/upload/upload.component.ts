@@ -1,14 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-upload',
   templateUrl: './upload.component.html',
-  styleUrls: ['./upload.component.css']
+  styleUrls: ['./upload.component.css'],
 })
 export class UploadComponent implements OnInit {
   public imagePath;
   imgURL: any;
   public message: string;
+
+  @Input()
+  public data: string
+
+  @Output()
+  public onData: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
@@ -39,6 +45,13 @@ export class UploadComponent implements OnInit {
     }
 
   onSubmit() {
+  }
+
+  updateData() {
+    //send data back to parent
+    //data could be coming from a service/async http request as well.
+    this.data = this.imgURL;
+    this.onData.emit(this.data)
   }
 
 }

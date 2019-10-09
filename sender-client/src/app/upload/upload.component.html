@@ -5,3 +5,5 @@
     <span style="color:red;" *ngIf="message">{{message}}</span>
     <input class="test" #file type="file" accept='image/*' (change)="preview(file.files)" capture/>
     <img [src]="imgURL" width="500" *ngIf="imgURL">
+
+    <button style="display: block" *ngIf="imgURL">Gå vidare</button>
