@@ -39,11 +39,38 @@ export class UploadComponent implements OnInit {
       this.imgURL = reader.result; 
     }
   }
-  myEventHandler(){
+
+  preview2(files) {
+    if (files.length === 0)
+      return;
+ 
+    var mimeType = files[0].type;
+    if (mimeType.match(/image\/*/) == null) {
+      this.message = "Only images are supported.";
+      return;
+    }
+ 
+    var reader = new FileReader();
+    this.imagePath = files;
+    reader.readAsDataURL(files[0]); 
+    reader.onload = (_event) => { 
+      this.imgURL = reader.result; 
+    }
+  }
+
+  takePicture(){
     console.log("Hello1");
     let element: HTMLElement = document.getElementsByClassName('test')[0] as HTMLElement;
+    element.setAttribute("capture", "");
     element.click();
     }
+  
+    upload(){
+      console.log("Hello1");
+      let element: HTMLElement = document.getElementsByClassName('test')[0] as HTMLElement;
+      element.removeAttribute("capture");
+      element.click();
+      }
 
   onSubmit() {
   }
