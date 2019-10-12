@@ -65,6 +65,22 @@ export class HttpService {
 
   upload() {
     console.log("upload")
+    const req = this.url + '/core/upload'
+
+    const headers = new HttpHeaders({
+      'Content-Type':  'application/x-www-form-urlencoded',
+      'Accept':  'application/xml',
+      'Response-Type': 'text',
+      'Access-Control-Allow-Origin': '*',
+    })
+
+    const params = {
+      'path':'/company3/test','offset':'0', 'complete':'1','filename':'http.service.ts','appname':'explorer'
+    }
+
+    this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
+      console.log(resp)
+    })
   }
 
 }
