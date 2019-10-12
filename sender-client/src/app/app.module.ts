@@ -7,6 +7,9 @@ import { AppComponent } from './app.component';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import {FormsModule} from "@angular/forms";
 
+import { CookieService } from 'ngx-cookie-service';
+
+
 
 @NgModule({
   declarations: [
@@ -19,7 +22,9 @@ import {FormsModule} from "@angular/forms";
     HttpClientJsonpModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    CookieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

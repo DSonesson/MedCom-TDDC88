@@ -29,6 +29,7 @@ export class AppComponent {
   }
 
   OnSubmit(Caption,Image){
+<<<<<<< HEAD
    this.httpService.postFile(Caption.value,this.fileToUpload).subscribe(
      data =>{
        console.log('done');
@@ -37,6 +38,17 @@ export class AppComponent {
        this.imageUrl = "/assets/img/default-image.png";
      }
    );
+=======
+   this.httpService.postFile(Caption.value,this.fileToUpload)
+  //  .subscribe(
+  //    data =>{
+  //      console.log('done');
+  //      Caption.value = null;
+  //      Image.value = null;
+  //      this.imageUrl = "/assets/img/default-image.png";
+  //    }
+  //  );
+>>>>>>> master
   }
 
 
