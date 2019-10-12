@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { UploadComponent } from './upload/upload.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
+import { ImageshareService } from './imageshare.service';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ImageshareService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

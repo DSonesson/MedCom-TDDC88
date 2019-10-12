@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ImageshareService } from '../imageshare.service';
 
 @Component({
   selector: 'app-upload',
@@ -9,7 +10,19 @@ export class UploadComponent implements OnInit {
   public imagePath;
   imgURL: any;
   public message: string;
-  hej: string = "hej2";
+  hej: string = "Hej4";
+  
+  
+
+  constructor(private _Imageshareservice: ImageshareService) { }
+  
+  
+
+  ngOnInit() {
+
+    this._Imageshareservice.Setimage(this.hej);
+
+  }
 
   @Input()
   public data: string
@@ -17,10 +30,7 @@ export class UploadComponent implements OnInit {
   @Output()
   public onData: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  
 
   preview(files) {
     if (files.length === 0)
