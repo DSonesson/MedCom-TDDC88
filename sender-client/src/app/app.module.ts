@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+import {FormsModule} from "@angular/forms";
+import { CookieService } from 'ngx-cookie-service';
 
 
 @NgModule({
@@ -15,9 +17,12 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpClientJsonpModule
+    HttpClientJsonpModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    CookieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
