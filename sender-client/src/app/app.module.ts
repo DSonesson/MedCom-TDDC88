@@ -25,3 +25,4 @@ import { UploadComponent } from './upload/upload.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
