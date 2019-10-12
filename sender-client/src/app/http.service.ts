@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpParams} from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -13,7 +13,7 @@ export class HttpService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/x-www-form-urlencoded',
-      // 'Accept':  'application/xml',
+      'Accept':  'application/xml',
       'Response-Type': 'text',
       'Access-Control-Allow-Origin': '*',
       // 'Access-Control-Allow-Methods': 'PUT, GET, POST, DELETE, OPTIONS',
@@ -30,7 +30,7 @@ export class HttpService {
     const req = this.url + '/admin/'
     this.http.post(req, {'op':'adminlogin','adminuser':'admin','adminpassword':'DkGHI08l'}, this.httpOptions)
     .subscribe(resp => {
-      console.log(resp);
+      // console.log(resp);
     })
   }
 
@@ -38,9 +38,28 @@ export class HttpService {
     console.log("userLogin")
     
     const req = this.url + '/core/loginguest'
-    this.http.post(req, {'userid':'liali209','password':'J1qF7BfY'}, this.httpOptions)
-    .subscribe(resp => {
-      console.log(resp);
+    // this.http.post(req, {'userid':'liali209','password':'J1qF7BfY'}, this.httpOptions)
+    // .subscribe(resp => {
+    //   console.log(resp);
+    // })
+
+    const headers = new HttpHeaders({
+      'Content-Type':  'application/x-www-form-urlencoded',
+      'Accept':  'application/xml',
+      'Response-Type': 'text',
+      'Access-Control-Allow-Origin': '*',
+      // 'Access-Control-Allow-Methods': 'PUT, GET, POST, DELETE, OPTIONS',
+      // 'Access-Control-Allow-Headers': 'Content-Type',
+      // 'Cookie': 'X-XSRF-TOKEN=xhjnh030gsbvbyfp8urj'
+      // "User-Agent":"Chrome/56.0.2924.87"
+    })
+
+    const params = {
+      'userid':'liali209','password':'J1qF7BfY'
+    }
+  
+    this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
+      console.log(resp)
     })
   }
 
