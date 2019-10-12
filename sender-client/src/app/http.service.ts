@@ -66,19 +66,6 @@ export class HttpService {
     })
 
 
-    /*
-    this.http.request('POST', req, {headers, params, 'responseType':"arraybuffer"}).subscribe(response: Response => {
-      console.log(typeof resp);
-      console.log(resp);
-
-    })
-    */
-
-
-  }
-
-  public upload() {
-    console.log("upload")
 
 
   }
@@ -89,17 +76,17 @@ export class HttpService {
 
 
     const appname = "Chrome/56.0.2924.87";
-    const path = "/company3";
+    const path = "/liali209";
     const filename = "";
 
-    const endpoint = this.url + '/core/upload?appname=' + appname + '&path=' + path + '&offset=0&complete=1&filename=' + fileToUpload.name;
-
-    console.log
+    const endpoint = this.url + '/core/upload' + '?appname=' + appname + '&path=' + path + '&offset=0&complete=1&filename=' + fileToUpload.name;
 
     const formData: FormData = new FormData();
     formData.append('Image', fileToUpload, fileToUpload.name);
-   // formData.append('ImageCaption', caption);
-    return this.http.request('POST', endpoint, formData);
+    formData.append('ImageCaption', caption);
+
+    // todo: change to http.request
+    return this.http.post(endpoint, formData);
   }
 
 

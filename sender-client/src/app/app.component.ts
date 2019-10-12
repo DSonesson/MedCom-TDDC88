@@ -34,7 +34,7 @@ export class AppComponent {
        console.log('done');
        Caption.value = null;
        Image.value = null;
-       this.imageUrl = "/assets/img/default-image.png";
+
      }
    );
   }

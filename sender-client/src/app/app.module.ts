@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import {FormsModule} from "@angular/forms";
+import { UploadComponent } from './upload/upload.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,
