@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import {FormsModule} from "@angular/forms";
-import { UploadComponent } from './upload/upload.component';
+import { StartComponent } from './start/start.component';
+import { SummaryComponent } from './summary/summary.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UploadComponent
+    StartComponent,
+    SummaryComponent,
+    ConfirmationComponent
   ],
   imports: [
     BrowserModule,

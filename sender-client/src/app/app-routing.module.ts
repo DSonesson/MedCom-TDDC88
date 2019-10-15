@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { UploadComponent} from "./upload/upload.component";
+import { StartComponent } from "./start/start.component";
+import { ConfirmationComponent} from "./confirmation/confirmation.component";
+import { SummaryComponent } from "./summary/summary.component";
 
 
 const routes: Routes = [
-  { path: '', component: UploadComponent}
+  { path: '', component: StartComponent},
+  { path: 'summary', component: SummaryComponent},
+  { path: 'confirmation', component: ConfirmationComponent}
 ];
 
 @NgModule({
@@ -13,4 +17,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-

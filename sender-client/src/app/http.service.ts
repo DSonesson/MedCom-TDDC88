@@ -8,7 +8,6 @@ import { HttpHeaders } from '@angular/common/http';
 export class HttpService {
 
   url = 'https://company3.filecloudonline.com';
-
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/x-www-form-urlencoded',
@@ -19,12 +18,10 @@ export class HttpService {
   };
 
   constructor(private http: HttpClient) {
-
   }
 
+  //TODO: Figure out where this should be called.
   userLogin() {
-    console.log("userLogin")
-
     const req = this.url + '/core/loginguest'
     const headers = new HttpHeaders({
       'Content-Type':  'application/x-www-form-urlencoded',
@@ -43,27 +40,23 @@ export class HttpService {
 
     this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
       console.log(resp);
-
     })
-
   }
 
+  //TODO: Add uploadPath as parameter.
   postFile(fileToUpload: File) {
-
-    console.log(fileToUpload);
-
     const appname = "Chrome/56.0.2924.87";
     const path = "/liali209";
-
     const endpoint = this.url + '/core/upload' + '?appname=' + appname + '&path=' + path + '&offset=0&complete=1&filename=' + fileToUpload.name;
-
     const formData: FormData = new FormData();
+
     formData.append('Image', fileToUpload, fileToUpload.name);
 
     // todo: change to http.request
     return this.http.post(endpoint, formData);
   }
 
-
+  //TODO: Implement
+  createFolder(caseNumber: string) { }
 
 }
