@@ -213,7 +213,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="23485000" />
+=======
+    <option name="totallyTimeSpent" value="15201000" />
+>>>>>>> b455dc1f4e156540c0a0bf6f34188500315e1318
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1513" height="973" extended-state="6" />

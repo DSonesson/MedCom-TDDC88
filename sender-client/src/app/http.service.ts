@@ -15,25 +15,17 @@ export class HttpService {
       'Accept':  'application/xml',
       'Response-Type': 'text',
       'Access-Control-Allow-Origin': '*',
-      // 'Access-Control-Allow-Methods': 'PUT, GET, POST, DELETE, OPTIONS',
-      // 'Access-Control-Allow-Headers': 'Content-Type',
-      // 'Cookie': 'X-XSRF-TOKEN=xhjnh030gsbvbyfp8urj'
-      // "User-Agent":"Chrome/56.0.2924.87"
     })
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
 
+  }
 
   userLogin() {
     console.log("userLogin")
-    
-    const req = this.url + '/core/loginguest'
-    // this.http.post(req, {'userid':'liali209','password':'J1qF7BfY'}, this.httpOptions)
-    // .subscribe(resp => {
-    //   console.log(resp);
-    // })
 
+    const req = this.url + '/core/loginguest'
     const headers = new HttpHeaders({
       'Content-Type':  'application/x-www-form-urlencoded',
       'Accept':  'application/xml',
@@ -45,7 +37,6 @@ export class HttpService {
       //'Cookie': 'X-XSRF-TOKEN=aqt1uuezrl4q9uu03ipl'
       // "User-Agent":"Chrome/56.0.2924.87"
     })
-
     const params = {
       'userid':'liali209','password':'J1qF7BfY'
     }
@@ -76,5 +67,3 @@ export class HttpService {
 
 
 }
-
-

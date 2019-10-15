@@ -21,8 +21,6 @@ import { UploadComponent } from './upload/upload.component';
     HttpClientJsonpModule,
     FormsModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
