@@ -5,10 +5,10 @@ import { Injectable } from '@angular/core';
 })
 export class UploadService {
 
-  name: string;   //TODO: Should be implemented as observable variables
-  email: string;  //TODO: Should be implemented as observable variables
-  phone: string;  //TODO: Should be implemented as observable variables
-  images: [];     //TODO: Should be implemented as observable variables
+  name: string;
+  email: string;
+  phone: string;
+  images: [];
   caseNumber: string; //TODO: Should be implemented as observable variables
 
   uploadPath: string; //TODO: implement
@@ -17,9 +17,9 @@ export class UploadService {
   constructor() { }
 
   //TODO: Implement
-  startUpload() { }
+  startUpload(name: string, email: string, phone: string, images: []) { }
 
   //TODO: Implement
   generateYML() { }
-  
+
 }

@@ -8,10 +8,10 @@ import { HttpService} from "../http.service";
 })
 export class StartComponent implements OnInit {
 
-  name: string; //TODO: Implement as observable variable from uploadService
-  email: string; //TODO: Implement as observable variable from uploadService
-  phone: string; //TODO: Implement as observable variable from uploadService
-  images: []; //TODO: Implement as observable variable from uploadService
+  name: string;
+  email: string;
+  phone: string;
+  images: []; 
 
 
   imageUrl: string = "/assets/img/default-image.png";
