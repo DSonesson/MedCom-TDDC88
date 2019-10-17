@@ -1,0 +1,9 @@
+{
+  "/api/*": {
+    "target": "https://company3.filecloudonline.com",
+    "protocol": "https:",
+    "secure": false,
+    "pathRewrite": {"^/api" : ""},
+    "changeOrigin": true
+  }
+}
