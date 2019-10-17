@@ -7,7 +7,7 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class HttpService {
 
-  url = 'https://company3.filecloudonline.com';
+  url = 'http://localhost:4200/api';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/x-www-form-urlencoded',
@@ -46,7 +46,7 @@ export class HttpService {
   //TODO: Add uploadPath as parameter.
   postFile(fileToUpload: File) {
     const appname = "Chrome/56.0.2924.87";
-    const path = "/liali209";
+    const path = "/liali209/";
     const endpoint = this.url + '/core/upload' + '?appname=' + appname + '&path=' + path + '&offset=0&complete=1&filename=' + fileToUpload.name;
     const formData: FormData = new FormData();
 
