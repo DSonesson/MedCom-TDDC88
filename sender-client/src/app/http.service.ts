@@ -69,7 +69,7 @@ export class HttpService {
 
     const params = {
       'name': caseNumber,
-      'path': 'test'
+      'path': 'jammy'
     }
 
     this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
