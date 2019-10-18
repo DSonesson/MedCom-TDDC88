@@ -57,6 +57,25 @@ export class HttpService {
   }
 
   //TODO: Implement
-  createFolder(caseNumber: string) { }
+  createFolder(caseNumber: string) { 
+    const req = this.url + '/app/explorer/createfolder'
+
+    const headers = new HttpHeaders({
+      'Content-Type':  'application/x-www-form-urlencoded',
+      'Accept':  'application/xml',
+      'Response-Type': 'text',
+      'Access-Control-Allow-Origin': '*',
+    })
+
+    const params = {
+      'name': caseNumber,
+      'path': 'test'
+    }
+
+    this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
+      console.log(resp)
+    })
+
+  }
 
 }
