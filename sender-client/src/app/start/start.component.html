@@ -8,5 +8,9 @@
         <button type="submit" class="btn-large btn-submit" [disabled]="Image.value=='' || !imageForm.valid">Submit</button>
       </form>
     </div>
+
+    <br/>
+    <input type="text" placeholder="case number" #caseNumber/>
+    <button (click)='httpService.createFolder(caseNumber.value)'>Create Folder</button>
   </div>
 </div>

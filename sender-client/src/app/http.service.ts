@@ -58,6 +58,7 @@ export class HttpService {
 
   //TODO: Implement
   createFolder(caseNumber: string) { 
+    // const req = 'https://company3.filecloudonline.com' + '/app/explorer/createfolder'
     const req = this.url + '/app/explorer/createfolder'
 
     const headers = new HttpHeaders({
@@ -69,9 +70,10 @@ export class HttpService {
 
     const params = {
       'name': caseNumber,
-      'path': 'jammy'
+      'path': '/liali209'
     }
 
+    console.log(caseNumber)
     this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
       console.log(resp)
     })
