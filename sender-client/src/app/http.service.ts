@@ -73,7 +73,6 @@ export class HttpService {
       'path': '/liali209'
     }
 
-    console.log(caseNumber)
     this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
       console.log(resp)
     })
