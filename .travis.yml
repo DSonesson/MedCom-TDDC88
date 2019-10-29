@@ -6,6 +6,7 @@ sudo: required
 branches:
   only:
   - travis-setup
+  - development
 before_script:
   - cd sender-client
   - npm install -g @angular/cli
