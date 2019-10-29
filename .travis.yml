@@ -9,5 +9,6 @@ branches:
 before_script:
   - npm install -g @angular/cli
 script:
-- ng lint --base-href https://DSonesson.github.io/MedCom-TDDC88/sender-client/
+- cd sender-client
+- ng lint
 - ng build --prod --base-href https://DSonesson.github.io/MedCom-TDDC88/sender-client/
