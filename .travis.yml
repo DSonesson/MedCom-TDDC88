@@ -13,6 +13,6 @@ before_script:
   - npm install --save-dev @angular-devkit/build-angular
   - npm install -g tslint typescript
 script:
-- ng lint
+# - ng lint Checks coding conventions, discuss with rest of devs if we want this.
 - ng build --prod --base-href https://DSonesson.github.io/MedCom-TDDC88/sender-client/
 
