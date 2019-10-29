@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - "10.15.3"
+dist: trusty
+sudo: required
+branches:
+  only:
+  - travis-setup
+  - development
+before_script:
+  - cd sender-client
+  - npm install -g @angular/cli
+  - npm install --save-dev @angular-devkit/build-angular
+  - npm install -g tslint typescript
+script:
+- ng lint
+- ng build --prod --base-href https://DSonesson.github.io/MedCom-TDDC88/sender-client/
+

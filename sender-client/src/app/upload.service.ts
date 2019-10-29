@@ -9,7 +9,7 @@ export class UploadService {
   email: string;
   phone: string;
   images: [];
-  caseNumber: string; //TODO: Should be implemented as observable variables
+  caseNumber: string; // TODO: Should be implemented as observable variables
 
   uploadPath: string; //TODO: implement
   ymlFiles: any; //TODO: Should be implemented, and be a ymlFile
