@@ -9,5 +9,6 @@ branches:
 before_script:
   - npm install -g @angular/cli
 script:
+- ng update @angular/cli --migrate-only --from=8.3.7
 - ng lint sender-client --fix
 - ng build --prod --base-href https://DSonesson.github.io/MedCom-TDDC88/sender-client/
