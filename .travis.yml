@@ -8,7 +8,8 @@ branches:
   - travis-setup
 before_script:
   - npm install -g @angular/cli
+  - npm install --save-dev @angular-devkit/build-angular
 script:
-- cd sender-client/
+- cd sender-client
 - ng lint
 - ng build --prod --base-href https://DSonesson.github.io/MedCom-TDDC88/sender-client/
