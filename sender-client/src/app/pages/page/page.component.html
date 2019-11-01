@@ -1,0 +1,34 @@
+<!-- This is an sample page to illustrate, each new "page" will have a new folder for instance "startsida", "upload image" and so on -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title"><p>Titel</p></h5>
+                <p class="card-description">Beskrivning</p>
+            </div>
+            <div class="card-body">
+                <section>
+                    <div class="col-md-12 px-1">
+                        <div class="form-group editable" [hidden]="!outboundClick " >
+                            <label>Namn</label>
+                            <p>Alexander</p>
+                        </div>
+
+                        <div class="form-group editable" [hidden]="outboundClick ">
+                            <label>Namn</label>
+                            <input type="text" class="form-control" placeholder="Ditt namn" value="Alexander">
+                        </div>
+
+                        <div class="row">
+                            <div class="update ml-auto mr-auto">
+                               
+                                <button type="submit" class="btn btn-primary btn-round" (click)="outboundClick = !outboundClick" >Redigera Formular</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

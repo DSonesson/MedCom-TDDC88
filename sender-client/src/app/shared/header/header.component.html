@@ -1,0 +1,32 @@
+<!-- 3. Header Start  -->
+<nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+  <div class="container-fluid">
+    <!-- Title of the page !-->
+    <div class="navbar-wrapper">
+        <!-- Gets the title of the current page based on the menu selection !-->
+      <a class="navbar-title" href="javascript:void(0)">Brännskador - {{getTitle()}}</a>
+    </div>
+    <!-- Button that opens/collapses the menu !-->
+    <button class="navbar-toggler" type="button" (click)="collapse()"
+      [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+          <!-- These spans gives three "bars" that illustrates the menu icon using boostraps icons !-->
+          <span class="navbar-toggler-bar bar1"></span>
+          <span class="navbar-toggler-bar bar2"></span>
+          <span class="navbar-toggler-bar bar3"></span>
+    </button>
+    <!-- Menu !-->
+    <div class="collapse navbar-collapse justify-content-end" id="collapseExample" [ngbCollapse]="isCollapsed">
+      <ul class="navbar-nav">
+           <!-- For each menu items that we speficies in the routers obeject it will generate menu items 
+                Each menu item has a url, icon and title (the page id)
+            !-->
+        <li *ngFor="let menuItem of menuItems" routerLinkActive="active"  class="nav-item">
+             <a [routerLink]="[menuItem.path]" class="nav-link btn-rotate">
+                <i class="nc-icon {{menuItem.icon}}"></i>
+                <p class="d-lg-none">{{menuItem.title}}</p>
+            </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

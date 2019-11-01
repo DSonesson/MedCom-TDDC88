@@ -1,0 +1,50 @@
+/*!
+
+=========================================================
+* Boostrap main files and custom files
+=========================================================
+
+*/
+
+@import 'variables';
+@import 'mixins';
+
+// Plugins CSS
+@import "plugins/plugin-animate-bootstrap-notify";
+@import "plugins/plugin-perfect-scrollbar";
+
+// Core CSS
+@import "buttons";
+@import "inputs";
+@import "typography";
+@import "misc";
+@import "checkboxes-radio";
+
+
+// components
+@import "navbar";
+@import "page-header";
+@import "dropdown";
+@import "alerts";
+@import "images";
+@import "nucleo-outline";
+@import "tables";
+@import "sidebar-and-main-panel";
+@import "footers";
+@import "fixed-plugin";
+
+// cards
+@import "cards";
+@import "cards/card-plain";
+
+
+// angular differences
+@import "angular/plugin-ngx-toastr";
+@import "angular/sidebar-and-main-panel";
+@import "angular/dropdown";
+@import "angular/inputs";
+@import "angular/fixed-plugin";
+
+@import "responsive";
+
+

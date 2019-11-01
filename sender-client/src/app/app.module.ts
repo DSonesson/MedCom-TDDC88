@@ -1,30 +1,40 @@
-import { BrowserModule } from '@angular/platform-browser';
+/**
+ * Module File for App
+ * @version 1.0
+ * @author Alexander Anserud <alean378@student.liu.se>
+ */
+/* Imports */
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { ToastrModule } from "ngx-toastr";
 
-import { AppRoutingModule } from './app-routing.module';
+/* Import modules */
+import { FooterModule } from './shared/footer/footer.module';
+import { HeaderModule} from './shared/header/header.module';
+
+/* Import App Files */
 import { AppComponent } from './app.component';
+import { AppRoutes } from './app.routing';
+import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 
-import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
-import {FormsModule} from "@angular/forms";
-import { StartComponent } from './start/start.component';
-import { SummaryComponent } from './summary/summary.component';
-import { ConfirmationComponent } from './confirmation/confirmation.component';
-
-
+/* Meta Data for App Files */
 @NgModule({
   declarations: [
     AppComponent,
-    StartComponent,
-    SummaryComponent,
-    ConfirmationComponent
+    MainLayoutComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    HttpClientJsonpModule,
-    FormsModule
+    BrowserAnimationsModule,
+    RouterModule.forRoot(AppRoutes,{
+      useHash: true
+    }),
+    HeaderModule,
+    ToastrModule.forRoot(),
+    FooterModule,
   ],
   bootstrap: [AppComponent]
 })
+
+/* Module Class Holder */
 export class AppModule { }
