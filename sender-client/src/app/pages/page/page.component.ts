@@ -17,7 +17,23 @@ import { Component } from '@angular/core';
 
 /* Component Class Holder */
 export class PageComponent {
-
+    
+    public saveButton1=false;
     ngOnInit() { };
+    
+     onSave($event){    
+        this.saveButton1 = !$event;
+        
+         
+        if (this.saveButton1) {
+            console.log("Open the form", $event);
+            
+            
+            
+        }else{
+            console.log("Save the form data", $event);  
+        }
+     }    
+    
     
 }

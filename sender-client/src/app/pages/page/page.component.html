@@ -12,16 +12,16 @@
                         
                         <div class="form-group editable">
                             <label>Namn</label>
-                            <p [hidden]="outboundClick">Alexander</p>
-                            <input type="text" class="form-control" placeholder="Ditt namn" value="Alexander" [hidden]="!outboundClick">
+                            <p [hidden]="saveButton1">Alexander</p>
+                            <input [hidden]="!saveButton1" type="text" class="form-control" placeholder="Ditt namn" value="Alexander">
                         </div>
 
                         <div class="row">
                             <div class="update ml-auto mr-auto">
-                                <button type="submit" class="btn btn-info  btn-round" (click)="outboundClick = !outboundClick" >
+                                <button type="submit" class="btn btn-info  btn-round"  (click)="onSave(saveButton1)" >
                                     <i class="nc-icon nc-ruler-pencil"></i>
-                                    <span [hidden]="outboundClick"> Redigera</span>
-                                    <span [hidden]="!outboundClick"> Spara</span>
+                                    <span [hidden]="saveButton1"> Redigera</span>
+                                    <span [hidden]="!saveButton1"> Spara</span>
                                 </button>
                             </div>
                         </div>
