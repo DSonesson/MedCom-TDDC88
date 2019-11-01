@@ -4,6 +4,14 @@ nucleo-icons Web Font - built using nucleoapp.com
 License - nucleoapp.com/license/
 
 -------------------------------- */
+
+.circle-icon {
+    background: white;
+    color:$info-color;
+    padding:10px;
+    border-radius: 50%;
+}
+
 @font-face {
   font-family: 'nucleo-icons';
   src: url('./../fonts/nucleo-icons.eot');

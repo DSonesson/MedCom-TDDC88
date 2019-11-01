@@ -94,6 +94,8 @@
     }
 }
 
+
+
 // Apply the mixin to the buttons
 // .btn-default { @include btn-styles($default-color, $default-states-color); }
 .btn-primary { @include btn-styles($primary-color, $primary-states-color); }
@@ -231,4 +233,8 @@
   &.dropdown-toggle::after {
     display: none;
   }
+}
+
+.btn {
+    span {font-size:16px}
 }
