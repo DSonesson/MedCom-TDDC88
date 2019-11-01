@@ -10,28 +10,19 @@
                 <section>
                     <div class="col-md-12 px-1">
                         
-                        <div class="form-group editable" [hidden]="outboundClick" >
+                        <div class="form-group editable">
                             <label>Namn</label>
-                            <p>Alexander</p>
-                        </div>
-
-                        <div class="form-group editable" [hidden]="!outboundClick">
-                            <label>Namn</label>
-                            <input type="text" class="form-control" placeholder="Ditt namn" value="Alexander">
+                            <p [hidden]="outboundClick">Alexander</p>
+                            <input type="text" class="form-control" placeholder="Ditt namn" value="Alexander" [hidden]="!outboundClick">
                         </div>
 
                         <div class="row">
                             <div class="update ml-auto mr-auto">
-                               
-                                <button type="submit" class="btn btn-info  btn-round" [hidden]="outboundClick" (click)="outboundClick = !outboundClick" >
+                                <button type="submit" class="btn btn-info  btn-round" (click)="outboundClick = !outboundClick" >
                                     <i class="nc-icon nc-ruler-pencil"></i>
-                                    Redigera
+                                    <span [hidden]="outboundClick"> Redigera</span>
+                                    <span [hidden]="!outboundClick"> Spara</span>
                                 </button>
-                                <button type="submit" class="btn btn-info  btn-round" [hidden]="!outboundClick" (click)="outboundClick = !outboundClick" >
-                                    <i class="nc-icon nc-ruler-pencil"></i>
-                                    Spara
-                                </button>                          
-                                
                             </div>
                         </div>
 
@@ -41,3 +32,5 @@
         </div>
     </div>
 </div>
+
+
