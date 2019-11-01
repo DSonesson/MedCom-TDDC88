@@ -12,5 +12,7 @@ import { PageComponent } from '../../pages/page/page.component';
 
 /* Imports */
 export const MainLayoutRoutes: Routes = [
+    
+ /* Routing Specification, place all "pages" that will be created here under the right alias and path */    
  { path: '',  component: PageComponent },
 ];
