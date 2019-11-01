@@ -25,7 +25,9 @@ export class HeaderComponent implements OnInit{
     location: Location;
     private nativeElement: Node;
     private toggleButton;
-    public isCollapsed = true;
+    private isCollapsed = false;
+    
+    public  = true;
     @ViewChild("header-cmp", {static: false}) button;
     
     /**
