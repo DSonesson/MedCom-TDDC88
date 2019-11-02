@@ -10,10 +10,10 @@
                 <section>
                     <div class="col-md-12 px-1">
                         
-                        <div class="form-group editable">
+                        <div class="form-group editable card-form">
                             <label>Namn</label>
-                            <p [hidden]="saveButton1">Alexander</p>
-                            <input [hidden]="!saveButton1" type="text" class="form-control" placeholder="Ditt namn" value="Alexander">
+                            <p [hidden]="saveButton1">{{name}}</p>
+                            <input [hidden]="!saveButton1" type="text" class="form-control" placeholder="Ditt namn" [(ngModel)]="name" value="{{name}}">
                         </div>
                         
                         
@@ -23,13 +23,13 @@
       
             </div>
                      
-                            <div class="update ml-auto mr-auto btn-on-card">
-                                <button type="submit" class="btn btn-info  btn-round" (click)="onSave(saveButton1)"  >
-                                    <i class="nc-icon circle-icon nc-ruler-pencil"></i>
-                                    <span [hidden]="saveButton1">Redigera</span>
-                                    <span [hidden]="!saveButton1">Spara</span>
-                                </button>
-                            </div>
+                <div class="update ml-auto mr-auto btn-on-card">
+                    <button type="submit" class="btn btn-info  btn-round" (click)="onSave(saveButton1)"  >
+                        <i class="nc-icon circle-icon nc-ruler-pencil"></i>
+                        <span [hidden]="saveButton1">Redigera</span>
+                        <span [hidden]="!saveButton1">Spara</span>
+                    </button>
+                </div>
                  
         </div>
     </div>

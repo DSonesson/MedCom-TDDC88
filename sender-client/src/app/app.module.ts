@@ -10,8 +10,8 @@ import { RouterModule } from '@angular/router';
 import { ToastrModule } from "ngx-toastr";
 
 /* Import modules */
-import { FooterModule } from './shared/footer/footer.module';
-import { HeaderModule} from './shared/header/header.module';
+import { FooterModule } from './layouts/footer/footer.module';
+import { HeaderModule} from './layouts/header/header.module';
 
 /* Import App Files */
 import { AppComponent } from './app.component';

@@ -18,6 +18,7 @@ import { Component } from '@angular/core';
 /* Component Class Holder */
 export class PageComponent {
     
+    name = "Alexander"
     public saveButton1=false;
     ngOnInit() { };
     
