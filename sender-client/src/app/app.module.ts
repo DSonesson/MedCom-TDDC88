@@ -16,13 +16,13 @@ import { HeaderModule} from './layouts/header/header.module';
 /* Import App Files */
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
-import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+import { ContentComponent } from './layouts/content/content.component';
 
-/* Meta Data for App Files */
+/* Meta Data for App File s */
 @NgModule({
   declarations: [
     AppComponent,
-    MainLayoutComponent
+    ContentComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -38,3 +38,4 @@ import { MainLayoutComponent } from './layouts/main-layout/main-layout.component
 
 /* Module Class Holder */
 export class AppModule { }
+ 

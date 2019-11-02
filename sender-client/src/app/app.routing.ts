@@ -6,16 +6,16 @@
 
 /* Imports */
 import { Routes } from '@angular/router';
-import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+import { ContentComponent } from './layouts/content/content.component';
 
 /* Route Decleration */
 export const AppRoutes: Routes = [
  {
     path: '',
-    component: MainLayoutComponent,
+    component: ContentComponent,
     children: [
         {
       path: '',
-      loadChildren: './layouts/main-layout/main-layout.module#MainLayoutModule'
+      loadChildren: './layouts/content/content.module#ContentModule'
   }]},
 ]

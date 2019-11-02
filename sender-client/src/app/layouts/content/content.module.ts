@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MainLayoutRoutes } from './main-layout.routing';
+import { ContentRoutes } from './content.routing';
 
 /* All pages components will be placed here */
 import { PageComponent }    from '../../pages/page/page.component';
@@ -19,7 +19,7 @@ import { PageComponent }    from '../../pages/page/page.component';
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(MainLayoutRoutes),
+    RouterModule.forChild(ContentRoutes),
     FormsModule,
     NgbModule
   ],
@@ -28,4 +28,4 @@ import { PageComponent }    from '../../pages/page/page.component';
   ]
 })
 
-export class MainLayoutModule {}
+export class ContentModule {}

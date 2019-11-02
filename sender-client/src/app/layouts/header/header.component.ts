@@ -6,7 +6,7 @@
 
 /* Imports */
 import { Component, OnInit, Renderer, ViewChild, ElementRef } from '@angular/core';
-import { ROUTES } from '../../layouts/main-layout/main-layout.component';
+import { ROUTES } from '../../layouts/content/content.component';
 import { Router } from '@angular/router';
 import { Location} from '@angular/common';
 

@@ -22,11 +22,11 @@ export const ROUTES: RouteInfo[] = [
 
 /* Component metadata  */
 @Component({
-  selector: 'app-main-layout',
-  templateUrl: './main-layout.component.html'
+  selector: 'app-content',
+  templateUrl: './content.component.html'
 })
 
 /* Component Class Holder */
-export class MainLayoutComponent implements OnInit {
+export class ContentComponent implements OnInit {
   ngOnInit() { }
 }
