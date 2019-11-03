@@ -53,7 +53,25 @@ export class HttpService {
     formData.append('Image', fileToUpload, fileToUpload.name);
 
     // todo: change to http.request
-    return this.http.post(endpoint, formData);
+    const req = this.url + '/app/explorer/createfolder'
+
+    const headers = new HttpHeaders({
+      'Content-Type':  'application/x-www-form-urlencoded',
+      'Accept':  'application/xml',
+      'Response-Type': 'text',
+      'Access-Control-Allow-Origin': '*',
+    })
+
+    const params = {
+      'name': "caseNumber",
+      'path': '/liali209'
+    }
+
+    this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
+      console.log(resp)
+    })
+
+    // return this.http.post(endpoint, formData);
   }
 
   //TODO: Implement
