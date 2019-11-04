@@ -7,6 +7,9 @@
 
 /* Imports */
 import { Component } from '@angular/core';
+import { CaseDataService } from '../../shared/case-data.service';
+import { User } from '../../models/user';
+
 
 /* Component metadata  */
 @Component({
@@ -18,13 +21,20 @@ import { Component } from '@angular/core';
 /* Component Class Holder */
 export class PageComponent {
     
-    name = "Alexander"
-    public saveButton1=false;
+    private user: User; 
+
+    private saveButton1=false;
+
+    constructor(public dataService: CaseDataService) { 
+       
+    this.user = this.dataService.getCase().user;
+    }
+    
     ngOnInit() { };
     
      onSave($event){    
         this.saveButton1 = !$event;
-        
+        this.dataService.getCase().user = this.user;
          
         if (this.saveButton1) {
             console.log("Open the form", $event);
@@ -34,7 +44,8 @@ export class PageComponent {
         }else{
             console.log("Save the form data", $event);  
         }
-     }    
+     } 
+      
     
     
 }

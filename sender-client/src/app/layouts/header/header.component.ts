@@ -9,6 +9,8 @@ import { Component, OnInit, Renderer, ViewChild, ElementRef } from '@angular/cor
 import { ROUTES } from '../../layouts/content/content.component';
 import { Router } from '@angular/router';
 import { Location} from '@angular/common';
+import { CaseDataService } from '../../shared/case-data.service';
+
 
 /* Meta data for Header */
 @Component({
@@ -26,6 +28,7 @@ export class HeaderComponent implements OnInit{
     private nativeElement: Node;
     private toggleButton;
     private isCollapsed = true;
+    private test;
     
     public  = true;
     @ViewChild("header-cmp", {static: false}) button;
@@ -35,10 +38,13 @@ export class HeaderComponent implements OnInit{
      * @version 1.0
      * @author Alexander Anserud <alean378@student.liu.se>
      */
-    constructor(location:Location, private renderer : Renderer, private element : ElementRef, private router: Router) 
+    constructor(location:Location, private renderer : Renderer, private element : ElementRef, private router: Router, public dataService: CaseDataService) 
     {
         this.location = location;
         this.nativeElement = element.nativeElement;
+  
+
+
     }
     /**
      * Configure menu items based on routes and the menu icon
@@ -71,6 +77,7 @@ export class HeaderComponent implements OnInit{
           }
       }
       return 'Startsida';
+      ;
     }
 
     /**
