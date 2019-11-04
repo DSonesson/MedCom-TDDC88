@@ -59,4 +59,9 @@ export class HttpService {
   //TODO: Implement
   createFolder(caseNumber: string) { }
 
+  testUnittesting() {
+    return "test-respons";
+  }
+
 }
+

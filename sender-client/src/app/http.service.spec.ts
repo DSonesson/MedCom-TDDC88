@@ -12,4 +12,11 @@ describe('HttpService', () => {
   });
    */
 
+  it('should have working Unit test-test', () => {
+    const service: HttpService = TestBed.get(HttpService);
+    var resp:string = service.testUnittesting();
+    var exp:string = "test-respons";
+    expect(resp).toEqual(exp);
+  });
+
 });
