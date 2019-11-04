@@ -2,6 +2,13 @@ import { TestBed } from '@angular/core/testing';
 
 import { HttpService } from './http.service';
 
+import { HttpClientModule } from '@angular/common/http';
+
+imports: [
+  HttpService,
+  HttpClientModule
+]
+
 describe('HttpService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
