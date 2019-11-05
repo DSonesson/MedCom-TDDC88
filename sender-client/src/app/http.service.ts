@@ -38,9 +38,15 @@ export class HttpService {
       'userid':'liali209','password':'J1qF7BfY'
     }
 
-    this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
+    var response;
+    response = this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
       console.log(resp);
     })
+
+    console.log(response)
+
+
+
   }
 
   //TODO: Add uploadPath as parameter.

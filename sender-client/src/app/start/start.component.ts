@@ -11,7 +11,7 @@ export class StartComponent implements OnInit {
   name: string;
   email: string;
   phone: string;
-  images: []; 
+  images: [];
 
 
   imageUrl: string = "/assets/img/default-image.png";

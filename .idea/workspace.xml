@@ -5,6 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sender-client/src/app/http.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/sender-client/src/app/http.service.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sender-client/src/app/http.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/sender-client/src/app/http.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sender-client/src/app/start/start.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/sender-client/src/app/start/start.component.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
