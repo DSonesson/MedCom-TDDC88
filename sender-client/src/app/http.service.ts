@@ -38,18 +38,12 @@ export class HttpService {
       'userid':'albli248','password':'dSMFBaeL'
     }
 
-    //var response;
-    //response =
-      this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
-      console.log(resp);
+
+    this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
+      return resp;
     })
 
-   // console.log(response)
 
-
-
-
-    //return response;
 
 
   }
