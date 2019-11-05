@@ -46,7 +46,6 @@ export class HttpService {
 
    // console.log(response)
 
-    //var respstring:string;
 
 
 
