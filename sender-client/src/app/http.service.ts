@@ -35,7 +35,7 @@ export class HttpService {
       // "User-Agent":"Chrome/56.0.2924.87"
     })
     const params = {
-      'userid':'liali209','password':'J1qF7BfY'
+      'userid':'albli248','password':'dSMFBaeL'
     }
 
     //var response;
@@ -44,8 +44,13 @@ export class HttpService {
       console.log(resp);
     })
 
-    //console.log(response)
+   // console.log(response)
 
+    //var respstring:string;
+
+
+
+    //return response;
 
 
   }
@@ -53,7 +58,7 @@ export class HttpService {
   //TODO: Add uploadPath as parameter.
   postFile(fileToUpload: File) {
     const appname = "Chrome/56.0.2924.87";
-    const path = "/liali209/";
+    const path = "/albli248/";
     const endpoint = this.url + '/core/upload' + '?appname=' + appname + '&path=' + path + '&offset=0&complete=1&filename=' + fileToUpload.name;
     const formData: FormData = new FormData();
 

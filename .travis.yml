@@ -32,3 +32,6 @@ script:
 # - ng lint Checks coding conventions, discuss with rest of devs if we want this.
 - ng build --prod --base-href https://DSonesson.github.io/MedCom-TDDC88/sender-client/
 - npm run test -- --watch=false --progress=false --browsers=ChromeHeadlessCI
+
+notifications:
+  slack: burnburnburn:vPkS4CRuandO8wcwTFQTqztl
