@@ -34,4 +34,6 @@ script:
 - npm run test -- --watch=false --progress=false --browsers=ChromeHeadlessCI
 
 notifications:
+  email: false
   slack: burnburnburn:vPkS4CRuandO8wcwTFQTqztl
+    if: branch = travis-setup
