@@ -1,25 +1,44 @@
 import { Injectable } from '@angular/core';
+import {HttpService} from '../app/http.service'
+import { CaseNumberService } from './case-number.service';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UploadService {
 
-  name: string;
-  email: string;
-  phone: string;
-  images: [];
-  caseNumber: string; // TODO: Should be implemented as observable variables
+  name: string;   //TODO: Should be implemented as observable variables
+  email: string;  //TODO: Should be implemented as observable variables
+  phone: string;  //TODO: Should be implemented as observable variables
+  images: [];     //TODO: Should be implemented as observable variables
+  caseNumber: string; //TODO: Should be implemented as observable variables
 
   uploadPath: string; //TODO: implement
   ymlFiles: any; //TODO: Should be implemented, and be a ymlFile
 
-  constructor() { }
+  constructor(public httpService: HttpService, public CaseNumberService: CaseNumberService) { }
 
   //TODO: Implement
-  startUpload(name: string, email: string, phone: string, images: []) { }
+  startUpload(name: string, email: string, phone: string, images: []) { 
+
+     this.caseNumber =this.CaseNumberService.generateCaseNumber();
+     this.ymlFiles = this.generateYML();
+     this.uploadPath = this.caseNumber;
+     this.httpService.createFolder(this.caseNumber);
+     this.httpService.postFile(this.ymlFiles);
+    
+     for (let i of images) {
+    this.httpService.postFile(i);
+
+     }
+     
+ }
 
   //TODO: Implement
-  generateYML() { }
-
+  generateYML() { 
+    
+  }
+  
 }
