@@ -15,7 +15,7 @@ import { ContentRoutes } from './content.routing';
 /* All pages components will be placed here */
 import { PageComponent }    from '../../pages/page/page.component';
 import { Page2Component }    from '../../pages/page2/page2.component';
-
+import { CardFormComponent }    from '../../shared/cards/card-form/card-form.component';
 
 @NgModule({
   imports: [
@@ -27,6 +27,7 @@ import { Page2Component }    from '../../pages/page2/page2.component';
   declarations: [
       PageComponent,
       Page2Component,
+      CardFormComponent,
   ]
 })
 

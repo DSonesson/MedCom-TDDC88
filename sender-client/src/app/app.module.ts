@@ -17,12 +17,18 @@ import { HeaderModule} from './layouts/header/header.module';
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
 import { ContentComponent } from './layouts/content/content.component';
+import { CardFormComponent } from './shared/cards/card-form/card-form.component';
+import { CardImageComponent } from './shared/cards/card-image/card-image.component';
+import { CardDefaultComponent } from './shared/cards/card-default/card-default.component';
 
 /* Meta Data for App File s */
 @NgModule({
   declarations: [
     AppComponent,
-    ContentComponent
+    ContentComponent,
+    CardFormComponent,
+    CardImageComponent,
+    CardDefaultComponent
   ],
   imports: [
     BrowserAnimationsModule,
