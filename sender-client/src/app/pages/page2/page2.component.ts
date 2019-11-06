@@ -13,13 +13,13 @@ import { User } from '../../models/user';
 
 /* Component metadata  */
 @Component({
-    selector: 'page',
+    selector: 'page2',
     moduleId: module.id,
-    templateUrl: 'page.component.html'
+    templateUrl: 'page2.component.html'
 })
 
 /* Component Class Holder */
-export class PageComponent {
+export class Page2Component {
     
     private user: User; 
 

@@ -16,7 +16,7 @@ export class CaseDataService {
   caseData: Case;
 
   mockCase() {
-    this.caseData = { user: { name: "Enter name", email: "lol@hotmail.com", phone: "112" }, images: [], caseNr: 1234 }
+    this.caseData = { user: { name: "Full Name", email: "fullname@hotmail.com", phone: "123456789" }, images: [], caseNr: 1234 }
   }
 
   constructor() {

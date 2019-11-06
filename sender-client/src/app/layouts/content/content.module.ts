@@ -14,6 +14,7 @@ import { ContentRoutes } from './content.routing';
 
 /* All pages components will be placed here */
 import { PageComponent }    from '../../pages/page/page.component';
+import { Page2Component }    from '../../pages/page2/page2.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { PageComponent }    from '../../pages/page/page.component';
   ],
   declarations: [
       PageComponent,
+      Page2Component,
   ]
 })
 

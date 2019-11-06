@@ -4,4 +4,6 @@ export class Case {
     user: User;
     images: string[];
     caseNr: number;
+    
+    
   }

@@ -1,6 +1,6 @@
 /**
  * Component file for Header
- * @version 1.0
+ * This on is used in the layout, is called by content.
  * @author Alexander Anserud <alean378@student.liu.se>
  */
 
@@ -10,7 +10,6 @@ import { ROUTES } from '../../layouts/content/content.component';
 import { Router } from '@angular/router';
 import { Location} from '@angular/common';
 import { CaseDataService } from '../../shared/case-data.service';
-
 
 /* Meta data for Header */
 @Component({
@@ -35,7 +34,8 @@ export class HeaderComponent implements OnInit{
     
     /**
      * Constructor to setup basic locaiton and element variables
-     * @version 1.0
+     * @input
+     * @output 
      * @author Alexander Anserud <alean378@student.liu.se>
      */
     constructor(location:Location, private renderer : Renderer, private element : ElementRef, private router: Router, public dataService: CaseDataService) 
