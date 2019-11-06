@@ -26,6 +26,9 @@ export const ROUTES: RouteInfo[] = [
   templateUrl: './content.component.html'
 })
 
+
+
+
 /* Component Class Holder */
 export class ContentComponent implements OnInit {
   ngOnInit() { }
