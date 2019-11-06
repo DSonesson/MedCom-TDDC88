@@ -36,4 +36,3 @@ script:
 notifications:
   email: false
   slack: burnburnburn:vPkS4CRuandO8wcwTFQTqztl
-    if: branch = travis-setup
