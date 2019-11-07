@@ -12,4 +12,10 @@ export class CardImageComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSave() {
+    alert('hej');
+    let element: HTMLElement = document.getElementsByClassName('upload-input')[0] as HTMLElement;
+    element.click();
+  }
+
 }

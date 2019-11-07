@@ -25,6 +25,7 @@ export const ContentRoutes: Routes = [
     { path: 'frontpage', component: FrontpageComponent }, 
     { path: 'summary', component: SummaryComponent },
     { path: 'confirmation', component: FrontpageComponent },
+    { path: 'page2', component: Page2Component },
 
 ];
 

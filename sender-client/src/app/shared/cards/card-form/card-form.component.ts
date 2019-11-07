@@ -29,9 +29,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 /* Component Class Holder */
 export class CardFormComponent implements OnInit {
 
-    private user: User; 
+    public user: User; 
     
-    private card_content = `                    <div class="col-md-12 px-1">
+    public card_content = `                    <div class="col-md-12 px-1">
                         
                         <div class="form-group editable card-form">
                             <label>Namn</label>
