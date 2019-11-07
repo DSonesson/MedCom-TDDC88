@@ -29,9 +29,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 /* Component Class Holder */
 export class CardFormComponent implements OnInit {
 
-    private user: User; 
-    
-    private card_content = `                    <div class="col-md-12 px-1">
+    user: User;
+
+    card_content = `                    <div class="col-md-12 px-1">
                         
                         <div class="form-group editable card-form">
                             <label>Namn</label>
@@ -48,30 +48,30 @@ export class CardFormComponent implements OnInit {
 
                     </div>`;
 
-    private saveButton1=false;
+    saveButton1=false;
 
-    constructor(public dataService: CaseDataService) { 
-       
+    constructor(public dataService: CaseDataService) {
+
     this.user = this.dataService.getCase().user;
-        
+
     }
-    
+
     ngOnInit() { };
-    
-     onSave($event){    
+
+     onSave($event){
         this.saveButton1 = !$event;
         this.dataService.getCase().user = this.user;
-         
+
         if (this.saveButton1) {
             console.log("Open the form", $event);
-            
-            
-            
+
+
+
         }else{
-            console.log("Save the form data", $event);  
+            console.log("Save the form data", $event);
         }
-     } 
-      
+     }
+
 
 }
 

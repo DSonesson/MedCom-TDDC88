@@ -20,33 +20,14 @@ import { User } from '../../models/user';
 
 /* Component Class Holder */
 export class Page2Component {
-    
-    private user: User; 
 
-    private saveButton1=false;
 
-    constructor(public dataService: CaseDataService) { 
-       
-    this.user = this.dataService.getCase().user;
-        
-    }
-    
+    constructor() { }
+
+
     ngOnInit() { };
-    
-     onSave($event){    
-        this.saveButton1 = !$event;
-        this.dataService.getCase().user = this.user;
-         
-        if (this.saveButton1) {
-            console.log("Open the form", $event);
-            
-            
-            
-        }else{
-            console.log("Save the form data", $event);  
-        }
-     } 
-      
-    
-    
+
+
+
+
 }

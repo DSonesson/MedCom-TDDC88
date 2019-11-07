@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="737cc5a9-28e0-4791-88e6-90e07bd2feb1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sender-client/karma.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/sender-client/karma.conf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sender-client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/sender-client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sender-client/src/app/pages/page/page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/sender-client/src/app/pages/page/page.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sender-client/src/app/pages/page2/page2.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/sender-client/src/app/pages/page2/page2.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sender-client/src/app/shared/cards/card-form/card-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/sender-client/src/app/shared/cards/card-form/card-form.component.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
