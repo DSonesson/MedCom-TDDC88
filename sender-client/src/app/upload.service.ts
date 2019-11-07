@@ -27,7 +27,7 @@ export class UploadService {
      this.phone = phone;
      this.images = images;
      this.caseNumber =this.CaseNumberService.generateCaseNumber();
-     this.ymlFiles = this.generateYML();
+     this.generateYML();
      this.uploadPath = this.caseNumber;
      this.httpService.createFolder(this.caseNumber);
      this.httpService.postFile(this.ymlFiles);
