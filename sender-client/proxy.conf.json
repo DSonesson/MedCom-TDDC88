@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "https://company3.filecloudonline.com",
+    "target": "https://medcom2.filecloudonline.com/",
     "protocol": "https:",
     "secure": false,
     "pathRewrite": {"^/api" : ""},

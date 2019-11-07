@@ -37,13 +37,14 @@ export class StartComponent implements OnInit {
   //Todo: Should be renamed to onNext and implemented as intended.
   OnSubmit(Image){
     this.httpService.userLogin();
-    this.httpService.postFile(this.fileToUpload).subscribe(
-       data =>{
-         console.log('done');
-         Image.value = null;
+    this.httpService.postFile(this.fileToUpload, "/albli248");
+  //   .subscribe(
+  //      data =>{
+  //        console.log(data);
+  //        Image.value = null;
 
-     }
-   );
+  //    }
+  //  );
   }
 
   ngOnInit() {

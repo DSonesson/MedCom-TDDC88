@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams} from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -35,7 +36,7 @@ export class HttpService {
       // "User-Agent":"Chrome/56.0.2924.87"
     })
     const params = {
-      'userid':'liali209','password':'J1qF7BfY'
+      'userid':'albli248','password':'dSMFBaeL'
     }
 
     this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
@@ -84,11 +85,10 @@ export class HttpService {
       'path':uploadPath,'offset':'0', 'complete':'1','filename':fileToUpload.name,'appname':'explorer'
     }
 
-    this.http.request('POST', req, {'body': formData, headers, params, 'responseType':"text"}).subscribe(resp => {
+    this.http.request('POST', req, {'body': formData, headers, params, 'responseType':"text"})
+    .subscribe(resp => {
       console.log(resp)
     })
-
-
   }
 
   //TODO: Implement
@@ -105,7 +105,7 @@ export class HttpService {
 
     const params = {
       'name': caseNumber,
-      'path': '/liali209'
+      'path': '/albli248'
     }
 
     this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
