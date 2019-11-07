@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class UploadService {
 
-  name: string;
-  email: string;
-  phone: string;
+  name: string = "";
+  email: string = "";
+  phone: string = "";
   images: [];
   caseNumber: string; // TODO: Should be implemented as observable variables
 
@@ -19,7 +19,22 @@ export class UploadService {
   //TODO: Implement
   startUpload(name: string, email: string, phone: string, images: []) { }
 
-  //TODO: Implement
-  generateYML() { }
+ /**
+* generateYML creates a YML file containing personal information to be uploaded together with the image/images.
+* The variables used in the function are local variables that are given their value in the startUpload function.
+* @returns The function returns a YML file containing personal information (Name, email, phone).
+*/
+generateYML() {
+
+  var content = 
+  "Case number: " + this.caseNumber + "\r\n"
+  + "Name: " + this.name + "\r\n" 
+  + "Email: " + this.email + "\r\n" 
+  + "Phone: " + this.phone + "\r\n";
+  this.ymlFiles = new File([content], this.caseNumber + ".yml");
+
+  return this.ymlFiles;
+
+ }
 
 }
