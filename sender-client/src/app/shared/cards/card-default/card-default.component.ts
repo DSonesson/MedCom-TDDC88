@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CaseDataService } from '../../case-data.service';
 
 @Component({
   selector: 'app-card-default',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardDefaultComponent implements OnInit {
 
-  constructor() { }
+  private case: case;
+
+  constructor(public dataService: CaseDataService) { 
+    this.case = this.dataService.getCase();
+  }
 
   ngOnInit() {
   }
