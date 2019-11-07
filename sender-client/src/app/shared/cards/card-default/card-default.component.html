@@ -1,7 +1,7 @@
 <!-- 
- * Card Form View File, used for the registration of contact details
+ * Card Form View File, displays the summary of the given informations
  * @version 1.0
- * @author Alexander Anserud <alean378@student.liu.se>
+ * @author Oscar Baart <oscba989@student.liu.se>
 -->
 <div class="row">
     <div class="col-md-12">
@@ -17,32 +17,16 @@
                         <div class="form-group editable card-form">
                             <label>Namn</label>
                             <p>{{case.user.name}}</p>
-
-                            <!-- 
-                            <p [hidden]="saveButton1">{{user.name}}</p>
-                            <input [hidden]="!saveButton1" type="text" class="form-control" placeholder="Ditt namn" [(ngModel)]="user.name" value="{{user.name}}">
-                            -->
-
                             <label>Email</label>
-                            <p [hidden]="saveButton1">{{user.email}}</p>
-                            <input [hidden]="!saveButton1" type="text" class="form-control" placeholder="Email" [(ngModel)]="user.email" value="{{user.email}}">
+                            <p>{{case.user.email}}</p>
                             <label>Telefon</label>
-                            <p [hidden]="saveButton1">{{user.phone}}</p>
-                            <input [hidden]="!saveButton1" type="text" class="form-control" placeholder="Telefon" [(ngModel)]="user.phone" value="{{user.phone}}">
+                            <p>{{case.user.phone}}</p>
                         </div>
 
                     </div>
                 </section>
-      
             </div>
                    
-            <div class="card-footer update ml-auto mr-auto btn-on-card">
-                <button type="submit" class="btn btn-info  btn-round" (click)="onSave(saveButton1)"  >
-                    <i class="nc-icon circle-icon nc-ruler-pencil"></i>
-                    <span [hidden]="saveButton1">Redigera</span>
-                    <span [hidden]="!saveButton1">Spara</span>
-                </button>
-            </div>
                    
                 
         </div>
