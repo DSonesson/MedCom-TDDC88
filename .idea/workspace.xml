@@ -3,23 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="737cc5a9-28e0-4791-88e6-90e07bd2feb1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sender-client/src/app/pages/page/page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/sender-client/src/app/pages/page/page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sender-client/src/app/pages/page2/page2.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/sender-client/src/app/pages/page2/page2.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sender-client/src/app/shared/cards/card-form/card-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/sender-client/src/app/shared/cards/card-form/card-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sender-client/src/app/layouts/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/sender-client/src/app/layouts/header/header.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sender-client/src/app/pages/page2/page2.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/sender-client/src/app/pages/page2/page2.component.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>json</find>
-    </findStrings>
-    <replaceStrings>
-      <replace />
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
