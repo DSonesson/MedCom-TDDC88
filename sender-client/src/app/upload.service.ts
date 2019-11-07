@@ -22,7 +22,10 @@ export class UploadService {
 
   //TODO: Implement
   startUpload(name: string, email: string, phone: string, images: []) { 
-
+     this.name = name;
+     this.email = email;
+     this.phone = phone;
+     this.images = images;
      this.caseNumber =this.CaseNumberService.generateCaseNumber();
      this.ymlFiles = this.generateYML();
      this.uploadPath = this.caseNumber;
