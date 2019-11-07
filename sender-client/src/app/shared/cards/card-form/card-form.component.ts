@@ -1,13 +1,13 @@
 /**
  * Card Form
- * Card layout for at form
+ * Card layout for a form
  * @version 1.0
  * @author Alexander Anserud <alean378@student.liu.se>
  */
 
-
 /* Imports */
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 import { CaseDataService } from '../../../shared/case-data.service';
 import { User } from '../../../models/user';
 
@@ -22,20 +22,31 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./card-form.component.scss']
 })
 
-import { FormsModule } from '@angular/forms';
 
-[...]
 
-@NgModule({
-  imports: [
-    FormsModule
-  ],
-})
+
 
 /* Component Class Holder */
 export class CardFormComponent implements OnInit {
 
     private user: User; 
+    
+    private card_content = `                    <div class="col-md-12 px-1">
+                        
+                        <div class="form-group editable card-form">
+                            <label>Namn</label>
+                            <p [hidden]="saveButton1">{{user.name}}</p>
+                            <input [hidden]="!saveButton1" type="text" class="form-control" placeholder="Ditt namn" [(ngModel)]="user.name" value="{{user.name}}">
+                            <label>Email</label>
+                            <p [hidden]="saveButton1">{{user.email}}</p>
+                            <input [hidden]="!saveButton1" type="text" class="form-control" placeholder="Email" [(ngModel)]="user.email" value="{{user.email}}">
+                            <label>Telefon</label>
+                            <p [hidden]="saveButton1">{{user.phone}}</p>
+                            <input [hidden]="!saveButton1" type="text" class="form-control" placeholder="Telefon" [(ngModel)]="user.phone" value="{{user.phone}}">
+                         
+                        </div>
+
+                    </div>`;
 
     private saveButton1=false;
 

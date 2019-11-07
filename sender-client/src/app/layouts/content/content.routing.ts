@@ -11,18 +11,20 @@ import { Routes } from '@angular/router';
 import { PageComponent } from '../../pages/page/page.component';
 import { Page2Component } from '../../pages/page2/page2.component';
 
-
-
+import { ConfirmationComponent } from '../../pages/confirmation/confirmation.component';
+import { SummaryComponent } from '../../pages/summary/summary.component';
+import { FrontpageComponent } from '../../pages/frontpage/frontpage.component';
 
 /* Imports */
 export const ContentRoutes: Routes = [
     
  /* Routing Specification, place all "pages" that will be created here under the right alias and path */    
  { 
-    path: '', redirectTo: 'page',pathMatch: 'full',
+    path: '', redirectTo: 'frontpage',pathMatch: 'full',
  },
-    { path: 'page', component: PageComponent }, 
-    { path: 'page2', component: Page2Component}, 
+    { path: 'frontpage', component: FrontpageComponent }, 
+    { path: 'summary', component: SummaryComponent },
+    { path: 'confirmation', component: FrontpageComponent },
 
 ];
 

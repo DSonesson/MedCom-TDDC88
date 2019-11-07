@@ -16,6 +16,12 @@ import { ContentRoutes } from './content.routing';
 import { PageComponent }    from '../../pages/page/page.component';
 import { Page2Component }    from '../../pages/page2/page2.component';
 import { CardFormComponent }    from '../../shared/cards/card-form/card-form.component';
+import { ConfirmationComponent } from '../../pages/confirmation/confirmation.component';
+import { SummaryComponent } from '../../pages/summary/summary.component';
+import { FrontpageComponent } from '../../pages/frontpage/frontpage.component';
+import { CardImageComponent }    from '../../shared/cards/card-image/card-image.component';
+import { CardDefaultComponent }    from '../../shared/cards/card-default/card-default.component';
+import { CardTmplComponent }    from '../../shared/cards/card-tmpl/card-tmpl.component';
 
 @NgModule({
   imports: [
@@ -28,6 +34,12 @@ import { CardFormComponent }    from '../../shared/cards/card-form/card-form.com
       PageComponent,
       Page2Component,
       CardFormComponent,
+      CardImageComponent,
+      CardDefaultComponent,
+      CardTmplComponent,
+      FrontpageComponent,
+      SummaryComponent,
+      ConfirmationComponent,
   ]
 })
 

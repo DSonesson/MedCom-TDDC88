@@ -1,1 +1,31 @@
-<p>card-image works!</p>
+<!-- This is an sample page to illustrate, each new "page" will have a new folder for instance "startsida", "upload image" and so on -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Titel</h5>
+                <p class="card-description">Beskrivning</p>
+            </div>
+            <div class="card-body">
+                <section>
+                   
+                        <div class="image">
+                            <h5 class="deletebutton">Titel</h5>
+                            <p class="bilden">Beskrivning</p>
+                        </div> 
+                    
+                </section>
+      
+            </div>
+                     
+                <div class="update ml-auto mr-auto btn-on-card">
+                    <button type="submit" class="btn btn-info  btn-round" (click)="onSave(saveButton1)"  >
+                        <i class="nc-icon circle-icon nc-ruler-pencil"></i>
+                        <span [hidden]="saveButton1">Ladda upp bild</span>
+                        <span [hidden]="!saveButton1">V'lkj bild</span>
+                    </button>
+                </div>
+
+        </div>
+    </div>
+</div>
