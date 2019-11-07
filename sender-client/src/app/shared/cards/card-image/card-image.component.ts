@@ -8,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class CardImageComponent implements OnInit {
 
   constructor() { }
-
+ 
+  onFileUpload(event){
+    const file = event.target.files[0]
+    }
   ngOnInit() {
   }
 
