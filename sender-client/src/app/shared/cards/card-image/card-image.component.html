@@ -12,8 +12,9 @@ This is an sample page to illustrate, each new "page" will have a new folder for
             <div class="card-body">
                 <section>
                    
-                    <div class="image-preview" >
-                        <img [src]="imagePreview" >
+                    <div class="images" >
+                        <div class="images-list" *ngIf="imagePreview"></div>
+                        <img [src]="imagePreview">
                         </div>
                     
                 </section>
@@ -26,8 +27,8 @@ This is an sample page to illustrate, each new "page" will have a new folder for
                     <button type="submit" class="btn btn-info  btn-round"  (click)="selectFile.click()" >
                         <i class="nc-icon circle-icon nc-ruler-pencil"></i>
                         <input style="display: none" type="file" (change)="onFileUpload($event)" #selectFile>
-                        <span [hidden]="saveButton1">Ladda upp bild</span>
-                        <span [hidden]="!saveButton1">V'lkj bild</span>
+                        <span [hidden]="!imagesAvailable">Ladda upp bild</span>
+                        <span [hidden]="imagesAvailable">Välj bild</span>
                     </button>
                 </div>
 
