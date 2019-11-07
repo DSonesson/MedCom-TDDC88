@@ -22,7 +22,9 @@ export const ContentRoutes: Routes = [
  { 
     path: '', redirectTo: 'page2',pathMatch: 'full',
  },
-    { path: 'frontpage', component: FrontpageComponent }, 
+    { path: 'frontpage', component: FrontpageComponent },
+    { path: 'page2', component: Page2Component},
+ 
     { path: 'summary', component: SummaryComponent },
     { path: 'confirmation', component: FrontpageComponent },
 
