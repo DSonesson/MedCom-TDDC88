@@ -22,6 +22,7 @@ branches:
     - travis-setup
     - development
     - front-end
+    - front-end-ut-integration
 
 before_script:
   - cd sender-client
@@ -36,4 +37,4 @@ script:
 
 notifications:
   email: false
-  slack: burnburnburn:vPkS4CRuandO8wcwTFQTqztl
+  #slack: burnburnburn:vPkS4CRuandO8wcwTFQTqztl
