@@ -18,7 +18,6 @@ import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
 import { ContentComponent } from './layouts/content/content.component';
 
-
 /* Meta Data for App File s */
 @NgModule({
   declarations: [
@@ -32,7 +31,7 @@ import { ContentComponent } from './layouts/content/content.component';
     }),
     HeaderModule,
     ToastrModule.forRoot(),
-    FooterModule,
+    FooterModule
   ],
   bootstrap: [AppComponent]
 })
