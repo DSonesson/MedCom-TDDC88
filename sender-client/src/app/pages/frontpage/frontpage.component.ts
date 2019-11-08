@@ -7,6 +7,9 @@
 /* Imports */
 import { Component, OnInit } from '@angular/core';
 
+import { Routes } from '@angular/router';
+
+
 @Component({
   selector: 'frontpage',
   templateUrl: './frontpage.component.html',
@@ -15,9 +18,31 @@ import { Component, OnInit } from '@angular/core';
 export class FrontpageComponent implements OnInit {
     
    
-    constructor() { }
+    constructor(private router: Routes) { }
+
+    private nextButton=false
     
     ngOnInit() { };
+
+    btnClick= function () {
+      this.router.navigateByUrl('/summary');
+    };
+
+    /*
+    onNext($event){    
+      this.nextButton = !$event;
+      this.router.navigateByUrl('/summary')
+      
+      if (this.nextButton) {
+          console.log("Open the form", $event);
+          
+          
+          
+      }else{
+          console.log("Save the form data", $event);  
+      }
+   } 
+   */
     
    
 }
