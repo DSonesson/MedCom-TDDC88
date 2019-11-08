@@ -14,7 +14,7 @@ import { User } from '../../../models/user';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-card-form',
@@ -55,10 +55,14 @@ export class CardFormComponent implements OnInit {
     this.user = this.dataService.getCase().user;
         
     }
+
+    userForm : FormGroup;
     
-    ngOnInit() { };
+    ngOnInit() {
+        
+    };
     
-     onSave($event){    
+    onSave($event){    
         this.saveButton1 = !$event;
         this.dataService.getCase().user = this.user;
          

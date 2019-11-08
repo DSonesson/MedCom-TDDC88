@@ -7,6 +7,9 @@
 /* Imports */
 import { Component, OnInit } from '@angular/core';
 
+import { Routes } from '@angular/router';
+
+
 @Component({
   selector: 'frontpage',
   templateUrl: './frontpage.component.html',
@@ -16,8 +19,9 @@ export class FrontpageComponent implements OnInit {
     
    
     constructor() { }
+
+    private nextButton=false
     
-    ngOnInit() { };
-    
+    ngOnInit() { };    
    
 }
