@@ -1,1 +1,34 @@
-<p>card-default works!</p>
+<!-- 
+ * Card Form View File, displays the summary of the given informations
+ * @version 1.0
+ * @author Oscar Baart <oscba989@student.liu.se>
+-->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Ditt ärende</h5>
+                <p class="card-description">Beskrivining</p>
+            </div>
+            <div class="card-body">
+                <section>
+                    <div class="col-md-12 px-1">
+                        
+                        <div class="form-group editable card-form">
+                            <label>Namn</label>
+                            <p>{{case.user.name}}</p>
+                            <label>Email</label>
+                            <p>{{case.user.email}}</p>
+                            <label>Telefon</label>
+                            <p>{{case.user.phone}}</p>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+                   
+                   
+                
+        </div>
+    </div>
+</div>
