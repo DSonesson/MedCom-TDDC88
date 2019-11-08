@@ -43,20 +43,67 @@ export class HttpService {
     })
   }
 
+  // //TODO: Add uploadPath as parameter.
+  // postFile(fileToUpload: File) {
+  //   const appname = "Chrome/56.0.2924.87";
+  //   const path = "/liali209";
+  //   const endpoint = this.url + '/core/upload' + '?appname=' + appname + '&path=' + path + '&offset=0&complete=1&filename=' + fileToUpload.name;
+  //   const formData: FormData = new FormData();
+
+  //   formData.append('Image', fileToUpload, fileToUpload.name);
+
+  //   // todo: change to http.request
+  //   return this.http.post(endpoint, formData);
+  // }
+
+  // //TODO: Implement
+  // createFolder(caseNumber: string) { }
+
   //TODO: Add uploadPath as parameter.
-  postFile(fileToUpload: File) {
+  postFile(fileToUpload: File, uploadPath: string) {
     const appname = "Chrome/56.0.2924.87";
-    const path = "/liali209";
-    const endpoint = this.url + '/core/upload' + '?appname=' + appname + '&path=' + path + '&offset=0&complete=1&filename=' + fileToUpload.name;
+    // const endpoint = this.url + '/core/upload' + '?appname=' + appname + '&path=' + uploadPath + '&offset=0&complete=1&filename=' + fileToUpload.name;
     const formData: FormData = new FormData();
 
     formData.append('Image', fileToUpload, fileToUpload.name);
 
-    // todo: change to http.request
-    return this.http.post(endpoint, formData);
+    const req = this.url + '/core/upload'
+    const headers = new HttpHeaders({
+      'Response-Type': 'text',
+      'Access-Control-Allow-Origin': '*',
+    })
+
+    const params = {
+      'path':uploadPath,'offset':'0', 'complete':'1','filename':fileToUpload.name,'appname':'explorer'
+    }
+
+    this.http.request('POST', req, {'body': formData, headers, params, 'responseType':"text"})
+    .subscribe(resp => {
+      console.log(resp)
+    })
   }
 
   //TODO: Implement
-  createFolder(caseNumber: string) { }
+  createFolder(caseNumber: string) { 
+    // const req = 'https://company3.filecloudonline.com' + '/app/explorer/createfolder'
+    const req = this.url + '/app/explorer/createfolder'
+
+    const headers = new HttpHeaders({
+      'Content-Type':  'application/x-www-form-urlencoded',
+      'Accept':  'application/xml',
+      'Response-Type': 'text',
+      'Access-Control-Allow-Origin': '*',
+    })
+
+    const params = {
+      'name': caseNumber,
+      'path': '/albli248'
+    }
+
+    this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
+      console.log(resp)
+    })
+
+  }
 
 }
