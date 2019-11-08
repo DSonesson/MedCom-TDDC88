@@ -1,7 +1,7 @@
 export class Image {
     path: string;
-    
-    
+    file: File;
+
     constructor() {
         this.dummyData();
 
@@ -9,9 +9,7 @@ export class Image {
 
     dummyData() {
         this.path = "";
-        
+
     }
 
   }
-
-
