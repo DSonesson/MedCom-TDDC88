@@ -56,10 +56,16 @@ export class CardFormComponent implements OnInit {
         
     }
 
-    userForm : FormGroup;
+    // userForm : FormGroup;
+
+    // name: FormControl;
     
     ngOnInit() {
+        // this.userForm = new FormGroup({
+        //     'name': new FormControl(this.user.name, [Validators.required, Validators.minLength(4)])
+        // });
         
+        // this.name = new FormControl(this.user.name, [Validators.required, Validators.minLength(4)]);
     };
     
     onSave($event){    
