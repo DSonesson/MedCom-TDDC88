@@ -8,7 +8,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContentRoutes } from './content.routing';
 
@@ -28,7 +28,8 @@ import { CardTmplComponent }    from '../../shared/cards/card-tmpl/card-tmpl.com
     CommonModule,
     RouterModule.forChild(ContentRoutes),
     FormsModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   declarations: [
       PageComponent,
