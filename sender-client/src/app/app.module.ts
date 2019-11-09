@@ -12,7 +12,7 @@ import { ToastrModule } from "ngx-toastr";
 /* Import modules */
 import { FooterModule } from './layouts/footer/footer.module';
 import { HeaderModule} from './layouts/header/header.module';
-
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 /* Import App Files */
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
@@ -26,6 +26,8 @@ import { ContentComponent } from './layouts/content/content.component';
   ],
   imports: [
     BrowserAnimationsModule,
+    HttpClientModule,
+    HttpClientJsonpModule,
     RouterModule.forRoot(AppRoutes,{
       useHash: true
     }),
