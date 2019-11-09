@@ -61,9 +61,7 @@ export class HttpService {
   //TODO: Add uploadPath as parameter.
   postFile(fileToUpload: File, uploadPath: string) {
     const appname = "Chrome/56.0.2924.87";
-
-    const path = "/albli248/";
-    const endpoint = this.url + '/core/upload' + '?appname=' + appname + '&path=' + path + '&offset=0&complete=1&filename=' + fileToUpload.name;
+    // const endpoint = this.url + '/core/upload' + '?appname=' + appname + '&path=' + uploadPath + '&offset=0&complete=1&filename=' + fileToUpload.name;
 
     const formData: FormData = new FormData();
 

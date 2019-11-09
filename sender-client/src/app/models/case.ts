@@ -4,7 +4,7 @@ import { Patient } from './patient';
 
 export class Case {
     user: User;
-    images: File[];
+    images: Image[];
     caseNr: number;
     
     constructor() {
@@ -14,7 +14,7 @@ export class Case {
 
     dummyData() {
         this.user= new User();
-        this.images= [new File(["test"], "test.html")];
+        this.images= [new Image()];
         this.caseNr= 12345;
         
     }
