@@ -3,6 +3,7 @@
  * @version 1.0
  * @author Alexander Anserud <alean378@student.liu.se>
 -->
+
 <div class="row">
     <div class="col-md-12">
         <div class="card">
@@ -10,36 +11,69 @@
                 <h5 class="card-title">Titel</h5>
                 <p class="card-description">Beskrivning</p>
             </div>
-            <div class="card-body">
-                <section>
-                    <div class="col-md-12 px-1">
-                        
-                        <div class="form-group editable card-form">
-                            <label>Namn</label>
-                            <p [hidden]="saveButton1">{{user.name}}</p>
-                            <input [hidden]="!saveButton1" type="text" class="form-control" placeholder="Ditt namn" [(ngModel)]="user.name" value="{{user.name}}">
-                            <label>Email</label>
-                            <p [hidden]="saveButton1">{{user.email}}</p>
-                            <input [hidden]="!saveButton1" type="text" class="form-control" placeholder="Email" [(ngModel)]="user.email" value="{{user.email}}">
-                            <label>Telefon</label>
-                            <p [hidden]="saveButton1">{{user.phone}}</p>
-                            <input [hidden]="!saveButton1" type="text" class="form-control" placeholder="Telefon" [(ngModel)]="user.phone" value="{{user.phone}}">
-                        </div>
 
-                    </div>
-                </section>
-      
-            </div>
-                   
-            <div class="card-footer update ml-auto mr-auto btn-on-card">
-                <button type="submit" class="btn btn-info  btn-round" (click)="onSave(saveButton1)"  >
-                    <i class="nc-icon circle-icon nc-ruler-pencil"></i>
-                    <span [hidden]="saveButton1">Redigera</span>
-                    <span [hidden]="!saveButton1">Spara</span>
-                </button>
-            </div>
-                   
+            <form [formGroup]="userForm">
+                <div class="card-body">
+                    <section>
+                        <div class="col-md-12 px-1">
+                            <div class="form-group editable card-form">
+                                <label>Namn</label>
+                                <p [hidden]="saveButton1">{{user.name}}</p>
+                                <input id="name" formControlName="name" [hidden]="!saveButton1" type="text" class="form-control" placeholder="Ditt namn" [(ngModel)]="user.name" value="{{user.name}}" required>
+                                <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
+                                    <div *ngIf="name.errors.required">
+                                        Name is required.
+                                    </div>
+                                    <div *ngIf="name.errors.minlength">
+                                        Name must be at least 4 characters long.
+                                    </div>
+                                </div>
+
+
+                                <label>Email</label>
+                                <p [hidden]="saveButton1">{{user.email}}</p>
+                                <input id="email" formControlName="email" [hidden]="!saveButton1" type="text" class="form-control" placeholder="Email" [(ngModel)]="user.email" value="{{user.email}}" required>
+                                <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
+                                    <div *ngIf="email.errors.required">
+                                        Email is required.
+                                    </div>
+                                    <div *ngIf="email.errors.email">
+                                        Email must be a valid email address.
+                                    </div>
+                                </div>
+                                
+                                <label>Telefon</label>
+                                <p [hidden]="saveButton1">{{user.phone}}</p>
+                                <input id="phone" formControlName="phone" [hidden]="!saveButton1" type="text" class="form-control" placeholder="Telefon" [(ngModel)]="user.phone" value="{{user.phone}}" required>
+                                <div *ngIf="phone.errors && (phone.dirty || phone.touched)" class="alert alert-danger">
+                                    <div *ngIf="phone.errors.required">
+                                        Phone number is required.
+                                    </div>
+                                    <div *ngIf="phone.errors.phoneError">
+                                        Invalid phone number.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </section>
+        
+                </div>
+                    
+                <div class="card-footer update ml-auto mr-auto btn-on-card">
+                    <button type="submit" class="btn btn-info  btn-round" (click)="onSave(saveButton1)"  >
+                        <i class="nc-icon circle-icon nc-ruler-pencil"></i>
+                        <span [hidden]="saveButton1">Redigera</span>
+                        <span [hidden]="!saveButton1">Spara</span>
+                    </button>
+                </div>
+            </form>
                 
         </div>
     </div>
 </div>
+
+<!-- <label>
+    Name:
+    <input type="text" [formControl]="nameControl">
+  </label> -->
