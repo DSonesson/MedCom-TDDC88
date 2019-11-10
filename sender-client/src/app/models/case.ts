@@ -6,7 +6,7 @@ export class Case {
     user: User;
     images: Image[];
     caseNr: number;
-    
+    randomtest: string;
     constructor() {
         this.dummyData();
 

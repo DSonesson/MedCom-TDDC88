@@ -6,6 +6,7 @@
 
 /* Imports */
 import { Component, OnInit } from '@angular/core';
+import { UploadService } from 'app/shared/upload.service';
 
 @Component({
   selector: 'app-summary',
@@ -14,7 +15,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SummaryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private uploadService: UploadService) { }
+
+  startUpload() {
+    this.uploadService.startUpload();
+  }
 
   ngOnInit() {
   }

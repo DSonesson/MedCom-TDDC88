@@ -13,10 +13,12 @@ import { ToastrModule } from "ngx-toastr";
 import { FooterModule } from './layouts/footer/footer.module';
 import { HeaderModule} from './layouts/header/header.module';
 
+
 /* Import App Files */
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
 import { ContentComponent } from './layouts/content/content.component';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 
 /* Meta Data for App File s */
 @NgModule({
@@ -25,6 +27,8 @@ import { ContentComponent } from './layouts/content/content.component';
     ContentComponent
   ],
   imports: [
+    HttpClientModule,
+    HttpClientJsonpModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(AppRoutes,{
       useHash: true

@@ -42,23 +42,6 @@ export class HttpService {
     })
   }
 
-  // //TODO: Add uploadPath as parameter.
-  // postFile(fileToUpload: File) {
-  //   const appname = "Chrome/56.0.2924.87";
-  //   const path = "/liali209";
-  //   const endpoint = this.url + '/core/upload' + '?appname=' + appname + '&path=' + path + '&offset=0&complete=1&filename=' + fileToUpload.name;
-  //   const formData: FormData = new FormData();
-
-  //   formData.append('Image', fileToUpload, fileToUpload.name);
-
-  //   // todo: change to http.request
-  //   return this.http.post(endpoint, formData);
-  // }
-
-  // //TODO: Implement
-  // createFolder(caseNumber: string) { }
-
-  //TODO: Add uploadPath as parameter.
   postFile(fileToUpload: File, uploadPath: string) {
     const appname = "Chrome/56.0.2924.87";
     // const endpoint = this.url + '/core/upload' + '?appname=' + appname + '&path=' + uploadPath + '&offset=0&complete=1&filename=' + fileToUpload.name;
@@ -74,7 +57,7 @@ export class HttpService {
     })
 
     const params = {
-      'path':uploadPath,'offset':'0', 'complete':'1','filename':fileToUpload.name,'appname':'explorer'
+      'path':'/albli248/' + uploadPath,'offset':'0', 'complete':'1','filename':fileToUpload.name,'appname':'explorer'
     }
 
     this.http.request('POST', req, {'body': formData, headers, params, 'responseType':"text"})
@@ -83,7 +66,6 @@ export class HttpService {
     })
   }
 
-  //TODO: Implement
   createFolder(caseNumber: string) { 
 
     // const req = 'https://company3.filecloudonline.com' + '/app/explorer/createfolder'
