@@ -12,10 +12,19 @@ This is an sample page to illustrate, each new "page" will have a new folder for
             <div class="card-body">
                 <section>
                    
-                    <div class="images" >
-                        <div class="images-list" *ngIf="imagePreview"></div>
-                        <img [src]="imagePreview">
+                    <div class="container">
+                        <div class="row">
+                          <div class="col-sm">
+                            <img [src]="imagePreview">
+                          </div>
+                          <div class="col-sm">
+                            <img [src]="imagePreview">
+                          </div>
+                          <div class="col-sm">
+                            <img [src]="imagePreview">
+                          </div>
                         </div>
+                      </div>
                     
                 </section>
       

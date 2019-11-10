@@ -10,7 +10,6 @@ export class Image {
     dummyData() {
         this.path = "";
         this.file = new File([""], "test.png")
-
     }
 
   }
