@@ -14,7 +14,7 @@ This is an sample page to illustrate, each new "page" will have a new folder for
                    
                     <div class="container">
                         <div class="row">
-                          <div class="col-sm" *ngFor="let image of imagePreview">
+                          <div *ngFor="let image of imagePreview" class="col-sm image-preview">
                             <img [src]="image">
                           </div>
                         </div>
@@ -30,7 +30,7 @@ This is an sample page to illustrate, each new "page" will have a new folder for
                     <button type="submit" class="btn btn-info  btn-round"  (click)="onSave()" >
                         <i class="nc-icon circle-icon nc-ruler-pencil"></i>
                         <input style="display: none" type="file" (change)="onFileUpload($event)" class="upload-input" #selectFile>
-                        <span [hidden]="!imagesAvailable">Ladda upp bild</span>
+                        <span [hidden]="!imagesAvailable">Välj fler bilder</span>
                         <span [hidden]="imagesAvailable">Välj bild</span>
                     </button>
                 </div>

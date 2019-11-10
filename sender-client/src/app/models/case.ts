@@ -14,7 +14,7 @@ export class Case {
 
     dummyData() {
         this.user= new User();
-        this.images= [new Image()];
+        this.images= [];
         this.caseNr= 12345;
         
     }

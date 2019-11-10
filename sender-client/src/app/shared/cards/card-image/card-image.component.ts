@@ -20,7 +20,7 @@ export class CardImageComponent implements OnInit {
  selectedFile : File;
  image : Image;
  imagePreview: any;
- imageCounter = 1;
+ imageCounter = -1;
 
   imagesAvailable = false;
 
@@ -47,14 +47,13 @@ onSave() {
   element.click();
 }
 
-//Should be looped in the future
 loadImage() {
+  this.imageCounter++;
   const reader = new FileReader();
   reader.onload = () => {
   this.imagePreview[this.imageCounter] = reader.result;
   };
   reader.readAsDataURL(this.dataService.getCase().images[this.imageCounter].file);
-  this.imageCounter++;
 }
   ngOnInit() {
   }
