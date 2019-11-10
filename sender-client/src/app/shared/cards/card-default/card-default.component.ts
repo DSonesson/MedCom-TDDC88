@@ -15,13 +15,21 @@ export class CardDefaultComponent implements OnInit {
 
   constructor(public dataService: CaseDataService) { 
     this.case = this.dataService.getCase();
-  console.log(this.case.randomtest);
+    console.log(this.case.randomtest);
+    this.imagePreview = [];
+    this.loadImage();
+  
+}
+
+loadImage() {
+  console.log("Length" + this.dataService.getCase().images.length)
+  for (let i = 0; i < this.dataService.getCase().images.length; i++) {
     const reader = new FileReader();
     reader.onload = () => {
-    this.imagePreview = reader.result;
+    this.imagePreview[i] = reader.result;
     };
-    reader.readAsDataURL(this.dataService.getCase().images[0].file);
-  
+    reader.readAsDataURL(this.dataService.getCase().images[i].file);
+  }
 }
 
   ngOnInit() {

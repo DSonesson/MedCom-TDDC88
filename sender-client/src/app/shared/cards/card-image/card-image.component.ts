@@ -15,24 +15,19 @@ export class CardImageComponent implements OnInit {
   constructor(public dataService: CaseDataService) {
     //this.loadImage();
     this.imagePreview = [];
+    this.loadImage(true);
    }
  
  selectedFile : File;
  image : Image;
  imagePreview: any;
- imageCounter = -1;
+ imageCounter = this.dataService.getCase().images.length -1;
 
   imagesAvailable = false;
 
 
-onFileUpload(event){
+addImage(event){
   this.image = new Image;
-  //this.selectedFile = event.target.files[0];
-  //const reader = new FileReader();
-  //reader.onload = () => {
-  //this.imagePreview = reader.result;
-  //};
-  //reader.readAsDataURL(this.selectedFile);
   this.image.file = event.target.files[0];
   this.imagesAvailable = true;
 
@@ -47,13 +42,25 @@ onSave() {
   element.click();
 }
 
-loadImage() {
-  this.imageCounter++;
-  const reader = new FileReader();
-  reader.onload = () => {
-  this.imagePreview[this.imageCounter] = reader.result;
-  };
-  reader.readAsDataURL(this.dataService.getCase().images[this.imageCounter].file);
+loadImage(load = false) {
+
+  if (!load) {
+    this.imageCounter++;
+    const reader = new FileReader();
+    reader.onload = () => {
+    this.imagePreview[this.imageCounter] = reader.result;
+    };
+    reader.readAsDataURL(this.dataService.getCase().images[this.imageCounter].file);
+  }
+  else {
+    for (let i = 0; i < this.dataService.getCase().images.length; i++) {
+      const reader = new FileReader();
+      reader.onload = () => {
+      this.imagePreview[i] = reader.result;
+      };
+      reader.readAsDataURL(this.dataService.getCase().images[i].file);
+    }
+  }
 }
   ngOnInit() {
   }
