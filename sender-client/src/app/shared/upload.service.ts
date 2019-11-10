@@ -19,27 +19,32 @@ export class UploadService {
     this.case = this.dataService.getCase();
   }
 
-  startUpload() {
+    startUpload() {
     this.caseNr = this.caseNrService.getCaseNr(this.case.user.phone);
     this.dataService.getCase().caseNr = +this.caseNr;
-    this.uploadPath = this.caseNr
+    this.uploadPath = this.caseNr;
+
+    console.log(this.caseNr);
+
     this.generateYML();
 
     //TODO: Make sure that userLogin() is succesfull before the other once are done.
     this.httpService.userLogin();
     this.httpService.createFolder(this.uploadPath);
-    this.httpService.postFile(this.ymlFile, this.uploadPath);
     //This should be looped once several files are stored.
+    this.httpService.postFile(this.ymlFile, this.uploadPath);
     this.httpService.postFile(this.case.images[0].file, this.uploadPath);
+  }
 
+  realUpload() {
   }
 
   generateYML() {
-    var content = "Case number: " + this.case.caseNr + "\r\n"
+    var content = "Case number: " + this.caseNr + "\r\n"
         + "Name: " + this.case.user.name + "\r\n"
         + "Email: " + this.case.user.email + "\r\n"
         + "Phone: " + this.case.user.phone + "\r\n";
-    this.ymlFile = new File([content], this.case.caseNr + ".yml");
+    this.ymlFile = new File([content], this.caseNr + ".yml");
   }
 
 }

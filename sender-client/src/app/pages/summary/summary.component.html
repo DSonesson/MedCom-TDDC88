@@ -15,7 +15,7 @@
         </a>
 
         <a [routerLink]="'/confirmation'">
-            <button type="Skicka Ärende" class="btn btn-info  btn-round" style="float: right;">
+            <button type="Skicka Ärende" class="btn btn-info  btn-round" style="float: right;" (click)="startUpload()">
                 <span [hidden]="sendCaseButton">Skicka Ärende</span>
             </button>
         </a>

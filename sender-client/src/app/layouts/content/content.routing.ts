@@ -20,7 +20,7 @@ export const ContentRoutes: Routes = [
     
  /* Routing Specification, place all "pages" that will be created here under the right alias and path */    
  { 
-    path: '', redirectTo: 'page',pathMatch: 'full',
+    path: '', redirectTo: 'frontpage',pathMatch: 'full',
  },
     { path: 'frontpage', component: FrontpageComponent }, 
     { path: 'summary', component: SummaryComponent },
