@@ -13,12 +13,14 @@ import { HttpService } from 'app/shared/http.service';
 export class CardImageComponent implements OnInit {
 
   constructor(public dataService: CaseDataService) {
-    this.loadImage();
+    //this.loadImage();
+    this.imagePreview = [];
    }
  
  selectedFile : File;
  image : Image;
  imagePreview: any;
+ imageCounter = 1;
 
   imagesAvailable = false;
 
@@ -33,8 +35,7 @@ onFileUpload(event){
   //reader.readAsDataURL(this.selectedFile);
   this.image.file = event.target.files[0];
   this.imagesAvailable = true;
-  //Only here for dummy-data.
-  this.dataService.getCase().images.pop();
+
   this.dataService.getCase().images.push(this.image);
 
  this.dataService.getCase().randomtest = 'kalle';
@@ -50,12 +51,10 @@ onSave() {
 loadImage() {
   const reader = new FileReader();
   reader.onload = () => {
-  this.imagePreview = reader.result;
-  var newEle = document.createElement("div");
-  var target = document.getElementsByClassName('container')[0];
-  target.appendChild(newEle);
+  this.imagePreview[this.imageCounter] = reader.result;
   };
-  reader.readAsDataURL(this.dataService.getCase().images[0].file);
+  reader.readAsDataURL(this.dataService.getCase().images[this.imageCounter].file);
+  this.imageCounter++;
 }
   ngOnInit() {
   }
