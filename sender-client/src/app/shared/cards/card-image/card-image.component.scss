@@ -13,6 +13,11 @@ img {
     background-position: center;
 
 }
+img:hover {
+    cursor: pointer;
+    opacity: 0.7;
+    background-color: black;
+}
 .col-sm {
     padding-left: 8px;
     padding-right: 8px;

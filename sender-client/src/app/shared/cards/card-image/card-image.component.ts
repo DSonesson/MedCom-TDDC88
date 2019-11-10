@@ -51,6 +51,9 @@ loadImage() {
   const reader = new FileReader();
   reader.onload = () => {
   this.imagePreview = reader.result;
+  var newEle = document.createElement("div");
+  var target = document.getElementsByClassName('container')[0];
+  target.appendChild(newEle);
   };
   reader.readAsDataURL(this.dataService.getCase().images[0].file);
 }
