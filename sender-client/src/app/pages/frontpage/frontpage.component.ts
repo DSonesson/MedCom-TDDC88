@@ -16,12 +16,12 @@ import { Routes } from '@angular/router';
   styleUrls: ['./frontpage.component.scss']
 })
 export class FrontpageComponent implements OnInit {
-    
-   
+
+
     constructor() { }
 
-    private nextButton=false
-    
-    ngOnInit() { };    
-   
+    nextButton=false
+
+    ngOnInit() { };
+
 }

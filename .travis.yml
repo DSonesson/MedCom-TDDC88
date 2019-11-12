@@ -19,7 +19,6 @@ sudo: required
 
 branches:
   only:
-    - travis-setup
     - development
     - front-end
 
