@@ -2,42 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="737cc5a9-28e0-4791-88e6-90e07bd2feb1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_alerts.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_animated-buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_cards.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_checkboxes-radio.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_dropdown.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_fixed-plugin.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_footers.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_images.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_inputs.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_misc.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_mixins.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_navbar.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_nucleo-outline.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_page-header.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_responsive.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_sidebar-and-main-panel.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_tables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_typography.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/angular/_dropdown.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/angular/_fixed-plugin.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/angular/_inputs.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/angular/_plugin-ngx-toastr.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/angular/_sidebar-and-main-panel.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/cards/_card-plain.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/main.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/mixins/_buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/mixins/_cards.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/mixins/_dropdown.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/mixins/_inputs.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/mixins/_page-header.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/mixins/_transparency.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/mixins/_vendor-prefixes.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/plugins/_plugin-animate-bootstrap-notify.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/plugins/_plugin-perfect-scrollbar.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sender-client/karma.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/sender-client/karma.conf.js" afterDir="false" />
     </list>
@@ -88,7 +52,7 @@
       <updated>1569828609744</updated>
       <workItem from="1569828611414" duration="25000" />
       <workItem from="1571232112764" duration="1798000" />
-      <workItem from="1573548789739" duration="257000" />
+      <workItem from="1573548789739" duration="593000" />
     </task>
     <servers />
   </component>
