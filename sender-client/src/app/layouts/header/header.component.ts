@@ -26,23 +26,23 @@ export class HeaderComponent implements OnInit{
     location: Location;
     private nativeElement: Node;
     private toggleButton;
-    private isCollapsed = true;
+    public isCollapsed = true;
     private test;
-    
+
     public  = true;
     @ViewChild("header-cmp", {static: false}) button;
-    
+
     /**
      * Constructor to setup basic locaiton and element variables
      * @input
-     * @output 
+     * @output
      * @author Alexander Anserud <alean378@student.liu.se>
      */
-    constructor(location:Location, private renderer : Renderer, private element : ElementRef, private router: Router, public dataService: CaseDataService) 
+    constructor(location:Location, private renderer : Renderer, private element : ElementRef, private router: Router, public dataService: CaseDataService)
     {
         this.location = location;
         this.nativeElement = element.nativeElement;
-  
+
 
 
     }
