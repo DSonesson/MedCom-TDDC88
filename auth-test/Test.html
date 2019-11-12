@@ -1,0 +1,236 @@
+
+<html>
+<head>
+    <title>R� Assisted token example site</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+
+
+
+<div class="container" id="header">
+    <h1>Region �sterg�tland Assisted Token Example</h1>
+</div>
+
+<div class="container">
+
+
+<div class="container">
+  <h2>Anropa API</h2>
+  <div class="well">
+  <h3>H�mta Token och anropa API.</h3>
+
+   <b>API URL</b>
+  <input type="text" class="form-control" id="apiUrl" value ="https://api.lio.se/search/hitta/v1/targetwords?q=test&searcher=targetwords"><br>
+
+   <b>HTTP Metod</b>
+   <input type="text" style="width:100px" class="form-control" id="httpVerb" value ="GET"><br>
+
+  <b>clientId</b>
+   <input type="text" style="width:150px;"  disabled class="form-control" id="clientId" value ="oidc-demo"><br>
+
+
+  <b>dataType</b>
+   <input type="text" style="width:100px" class="form-control" id="dataType" value ="json"><br>
+
+
+
+
+  <button id="doRequest" class="btn btn-primary" name="doRequest">Anropa API</button><br><br>
+	<b>Resultat, ifr�n IDP :</b> <div id="result"></div><br>
+	<b>Resultat, ifr�n API :</b> <div id="resultAPI"></div>
+	</div>
+</div>
+
+
+<div class="container">
+  <h2>Revoke</h2>
+  <div class="well">
+
+    <h3>�terkalla token (Revoke)</h3>
+    <button id="logout" class="btn btn-default" name="logout">Logga ut</button>
+    <hr/>
+    <div id="result_5"></div>
+    <hr/>
+
+  </div>
+</div>
+
+</div>
+
+<script id="jquery-link" src="jquery-3.2.1.min.js" type="text/javascript"></script>
+<script id="90-link" src="90.js" type="text/javascript"></script>
+<script id="assisted-token-js-script" type="text/javascript"
+        src="https://idp.lio.se/oauth/v2/assisted-token/resources/js/assisted-token.min.js"></script>
+<script>
+
+
+
+
+
+
+
+
+     /*
+    ===================================================
+        Anropa API
+    ===================================================
+    */
+		var assistant = "";
+
+
+	     $(document).ready(function () {
+
+				var clientId = $("#clientId").val()
+				assistant = curity.token.assistant(initCurityToken(clientId));
+
+				function initCurityToken(clientId)
+				{
+
+					var settings = {
+						clientId: clientId,
+						scope: 'openid bankid',
+						autoPrepareJqueryAjaxForOrigins: ['^/.*$'], // Inject tokens into jQuery ajax requests relative to where this file is hosted.
+						//        iframeSettings: { 'width' : '320', 'height' : '600', 'style' : "z-index:100;border:0;overflow:hidden;" }, //this is optional
+						//        backdropSettings: { 'visible':'static', 'backdropClass' : 'myCustomBackdropClass', 'style' : 'width:100%;height:100%;position:fixed;top:0;left:0;z-index:50;background:#8b93ab;opacity: 0.4;filter: alpha(opacity=40);' },
+						//        closeButtonSettings : { 'visible' : true, 'style' : 'color:#8b93ab; position: absolute; top: 5px; right: 10px; z-index: 200;',
+						//            'wrapperStyle' : 'background:#fff; position:fixed;top:20px;left:50%;margin-left:-160px;box-shadow: 0px 0px 10px #888888;width:320px;height:600px;z-index:100; ',
+						//            'wrapperClass' : 'assisted-token-close-button-wrapper', 'button' : '<button type="button" class="close" aria-label="Close">�</button>' }
+					};
+
+					if (typeof curity == 'undefined') {
+						throw new Error("Assisted token javascript was not found. Make sure the server is running and/or update URL " +
+							"of #assisted-token-js-script script");
+					}
+
+					return settings
+
+					//Enable to get debug printouts in the console from the library
+					//curity.debug=true;
+				}
+
+
+				function getToken()
+				{
+
+					assistant.login().then(function () {
+						console.log("Tokens retrieved");
+						console.log("Token " + assistant.getAuthHeader());
+						$("#result").html("<div class='alert alert-success'>" + assistant.getAuthHeader() + "</div>");
+
+					}).fail(function (err) {
+						console.log("Failed to retrieve tokens", err);
+						$("#result").html("<div class='alert alert-danger'>" + err.error_description + "</div>");
+					});
+
+				}
+
+				function getServiceRequest(apiUrl,httpVerb,dataType)
+				{
+					console.log("Fetching resource");
+					console.log("Authorization " + assistant.getAuthHeader());
+
+
+					$.ajaxSetup({
+						beforeSend: function(xhr) {
+						xhr.setRequestHeader('Authorization',  assistant.getAuthHeader());
+						}
+					});
+
+					$.ajax({
+
+						url: apiUrl,
+						contentType: 'text/xml',
+						//dataType: 'json',
+						type: "GET",
+						cache: false,
+
+success: function(data)
+{
+  //var _len = data.length;
+
+
+
+    //debugger
+    post = data;
+    $("#resultAPI").html("<div class='alert alert-success'>" + data + "</div>");
+
+},
+
+					//	 success: function(data){
+					//		$("#resultAPI").html("<div class='alert alert-success'>" + data + "</div>");
+					//	},
+						error: function(XMLHttpRequest, textStatus, errorThrown) {
+							$("#resultAPI").html("<div class='alert alert-danger'>" + XMLHttpRequest.responseText + "</div>");
+						}
+
+						});
+
+				}
+
+
+				$("button#doRequest").click(function (evt) {
+
+
+					var apiUrl = $("#apiUrl").val()
+					var httpVerb = $("#httpVerb").val()
+					var dataType = $(dataType).val()
+
+
+					assistant.loginIfRequired().then(function () {
+
+						  key = 'subject'
+ 						alert("Key: " + key + " value: " + assistant.getAdditionalData()[key]);
+
+						attributes = assistant.getAdditionalData();
+
+						token = 'token';
+
+
+						alert("ID_token : " + assistant.getAdditionalData()[token]);
+
+						token2 = 'approles2';
+
+
+						alert("ID_token2 : " + assistant.getAdditionalData()[token2]);
+						getServiceRequest(apiUrl,httpVerb,dataType)
+						// $("#result").html("<div class='alert alert-success'>" + assistant.getAuthHeader() + "</div>");
+ 						$("#result").html("<div class='alert alert-success'>" + assistant.getAdditionalData()[token] + "</div>");
+
+
+
+
+					}).fail(function (err) {
+						console.log("Failed to retrieve tokens", err);
+						$("#result").html("<div class='alert alert-danger'>" + err.error_description + "</div>");
+					});
+
+				});
+
+	    });
+
+
+
+    $(document).ready(function () {
+
+        $("button#logout").click(function (evt) {
+
+            console.log("Logging out");
+
+            $("#result_5").empty();
+
+            assistant.logout().then(function () {
+                $("#result_5").html("<div class='alert alert-success'>Logged out</div>");
+            }).fail(function (err) {
+                $("#result_5").html("<div class='alert alert-danger'>" + err.error_description + "</div>");
+            });
+
+        });
+    });
+
+</script>
+</body>
+</html>
