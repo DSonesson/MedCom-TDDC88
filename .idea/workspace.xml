@@ -2,13 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="737cc5a9-28e0-4791-88e6-90e07bd2feb1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_alerts.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_animated-buttons.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_buttons.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_cards.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_checkboxes-radio.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_dropdown.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_fixed-plugin.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_footers.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_images.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_inputs.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_misc.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_navbar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_nucleo-outline.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_page-header.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_responsive.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_sidebar-and-main-panel.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_tables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_typography.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/angular/_dropdown.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/angular/_fixed-plugin.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/angular/_inputs.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/angular/_plugin-ngx-toastr.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/angular/_sidebar-and-main-panel.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/cards/_card-plain.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/main.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/mixins/_buttons.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/mixins/_cards.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/mixins/_dropdown.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/mixins/_inputs.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/mixins/_page-header.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/mixins/_transparency.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/mixins/_vendor-prefixes.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/plugins/_plugin-animate-bootstrap-notify.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sender-client/src/assets/sass/plugins/_plugin-perfect-scrollbar.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sender-client/src/app/layouts/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/sender-client/src/app/layouts/header/header.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sender-client/src/app/pages/frontpage/frontpage.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/sender-client/src/app/pages/frontpage/frontpage.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sender-client/src/app/pages/page2/page2.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/sender-client/src/app/pages/page2/page2.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sender-client/src/app/shared/cards/card-default/card-default.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/sender-client/src/app/shared/cards/card-default/card-default.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sender-client/src/app/shared/cards/card-form/card-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/sender-client/src/app/shared/cards/card-form/card-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sender-client/karma.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/sender-client/karma.conf.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,13 +50,19 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectId" id="1TVccgiwu7xMm3IPvtnLT4YLoQv" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/sender-client/src/assets/sass" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="ts.external.directory.path" value="C:\Users\gusta\PycharmProjects\MedCom-TDDC88\sender-client\node_modules\typescript\lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\gusta\PycharmProjects\MedCom-TDDC88\sender-client\src\assets\sass" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -51,10 +88,22 @@
       <updated>1569828609744</updated>
       <workItem from="1569828611414" duration="25000" />
       <workItem from="1571232112764" duration="1798000" />
+      <workItem from="1573548789739" duration="257000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
