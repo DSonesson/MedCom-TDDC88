@@ -1,14 +1,14 @@
 <!-- 
-
 This is an sample page to illustrate, each new "page" will have a new folder for instance "startsida", "upload image" and so on 
 -->
 <div class="row" style="margin-top:30px">
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h5 class="card-title">Titel</h5>
+                <h5 class="card-title">Ladda upp bild</h5>
                 <p class="card-description">Beskrivning</p>
             </div>
+            
             <div class="card-body">
                 <section>
                    
@@ -21,14 +21,14 @@ This is an sample page to illustrate, each new "page" will have a new folder for
       
             </div>
        
-                <div class="card-footer ml-auto mr-auto btn-on-card">
-                    <button type="submit" class="btn btn-info  btn-round"  (click)="onSave()" >
-                        <i class="nc-icon circle-icon nc-ruler-pencil"></i>
-                        <input style="display: none" type="file" (change)="onFileUpload($event)" class="upload-input" #selectFile>
-                        <span [hidden]="!imagesAvailable">Ladda upp bild</span>
-                        <span [hidden]="imagesAvailable">Välj bild</span>
-                    </button>
-                </div>
+            <div class="card-footer ml-auto mr-auto btn-on-card">
+                <button type="submit" class="btn btn-info  btn-round"  (click)="onSave()" >
+                    <i class="nc-icon circle-icon nc-ruler-pencil"></i>
+                    <input style="display: none" type="file" (change)="onFileUpload($event)" class="upload-input" #selectFile>
+                    <span [hidden]="!imagesAvailable">Ladda upp bild</span>
+                    <span [hidden]="imagesAvailable">Välj bild</span>
+                </button>
+            </div>
 
         </div>
     </div>
