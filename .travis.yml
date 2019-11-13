@@ -21,6 +21,7 @@ branches:
   only:
     - development
     - front-end
+    - workshop-demo
 
 before_script:
   - cd sender-client
