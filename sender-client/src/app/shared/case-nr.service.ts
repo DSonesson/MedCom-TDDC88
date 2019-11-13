@@ -27,4 +27,9 @@ export class CaseNrService {
 
     return uuid
   }
+
+  testFunction(){
+
+    return "output";
+  }
 }

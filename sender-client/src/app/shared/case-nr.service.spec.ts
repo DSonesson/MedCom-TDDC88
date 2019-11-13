@@ -9,4 +9,12 @@ describe('CaseNrService', () => {
     const service: CaseNrService = TestBed.get(CaseNrService);
     expect(service).toBeTruthy();
   });
+
+  it('test test', () => {
+    const service: CaseNrService = TestBed.get(CaseNrService);
+    
+    var resp:string = service.testFunction()
+    var exp:string = "output";
+    expect(resp).toEqual(exp);
+  });
 });
