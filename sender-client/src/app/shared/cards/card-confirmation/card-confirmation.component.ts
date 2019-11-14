@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CaseDataService } from '../../case-data.service';
+import { Case } from '../../../models/case';
 
 @Component({
   selector: 'app-card-confirmation',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardConfirmationComponent implements OnInit {
 
-  constructor() { }
+  case: Case;
+  
+  constructor(public dataService: CaseDataService) { 
+    this.case = this.dataService.getCase();
+  }
 
   ngOnInit() {
   }

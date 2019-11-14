@@ -22,6 +22,7 @@ import { FrontpageComponent } from '../../pages/frontpage/frontpage.component';
 import { CardImageComponent }    from '../../shared/cards/card-image/card-image.component';
 import { CardDefaultComponent }    from '../../shared/cards/card-default/card-default.component';
 import { CardTmplComponent }    from '../../shared/cards/card-tmpl/card-tmpl.component';
+import { CardConfirmationComponent } from '../../shared/cards/card-confirmation/card-confirmation.component'
 
 @NgModule({
   imports: [
@@ -41,6 +42,7 @@ import { CardTmplComponent }    from '../../shared/cards/card-tmpl/card-tmpl.com
       FrontpageComponent,
       SummaryComponent,
       ConfirmationComponent,
+      CardConfirmationComponent,
   ]
 })
 
