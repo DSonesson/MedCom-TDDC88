@@ -6,7 +6,7 @@
  */
 
 /* Imports */
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { CaseDataService } from '../../../shared/case-data.service';
 import { User } from '../../../models/user';
@@ -29,6 +29,8 @@ import { FormControl, Validators, FormGroup, ValidatorFn, AbstractControl } from
 export class CardFormComponent implements OnInit {
 
     user: User;
+    @Output() onSaveForm = new EventEmitter<boolean>();
+
 
     private card_content = `                    <div class="col-md-12 px-1">
                         
@@ -78,10 +80,25 @@ export class CardFormComponent implements OnInit {
         return this.userForm.get('phone')
     }
 
+    /**
+    * return boolean which is true if all form values are valid or not
+    * @returns boolean which is true if all form values are valid or not
+    */
+    isValid() {
+        if (this.userForm.status == "VALID") {
+            return true;
+        } return false;
+    }
+
+
+
     onSave($event){
+
+        if(this.saveButton1){
+            this.onSaveForm.emit(this.isValid())
+        }
         this.saveButton1 = !$event;
         this.dataService.getCase().user = this.user;
-
         if (this.saveButton1) {
             console.log("Open the form", $event);
 
