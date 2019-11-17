@@ -105,4 +105,24 @@ export class HttpService {
 
   }
 
+  doSearch(caseNr:string, searchloc:string) {
+    const req = this.url + '/core/dosearch'
+
+    const headers = new HttpHeaders({
+      'Content-Type':  'application/x-www-form-urlencoded',
+      'Accept':  'application/xml',
+      'Response-Type': 'text',
+      'Access-Control-Allow-Origin': '*',
+    })
+
+    const params = {
+      'searchstring': caseNr,
+      'path': searchloc
+    }
+
+    this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
+      console.log(resp)
+    })
+  }
+
 }
