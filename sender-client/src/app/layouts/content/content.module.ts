@@ -23,6 +23,8 @@ import { CardImageComponent }    from '../../shared/cards/card-image/card-image.
 import { CardDefaultComponent }    from '../../shared/cards/card-default/card-default.component';
 import { CardTmplComponent }    from '../../shared/cards/card-tmpl/card-tmpl.component';
 import { CardConfirmationComponent } from '../../shared/cards/card-confirmation/card-confirmation.component'
+import { CardFormFetchCaseComponent }    from '../../shared/cards/card-form-fetch-case/card-form-fetch-case.component';
+import { CardTableComponent }    from '../../shared/cards/card-table/card-table.component';
 
 @NgModule({
   imports: [
@@ -43,6 +45,8 @@ import { CardConfirmationComponent } from '../../shared/cards/card-confirmation/
       SummaryComponent,
       ConfirmationComponent,
       CardConfirmationComponent,
+      CardTableComponent,
+      CardFormFetchCaseComponent
   ]
 })
 

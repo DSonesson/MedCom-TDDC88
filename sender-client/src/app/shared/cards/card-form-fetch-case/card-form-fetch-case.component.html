@@ -1,0 +1,49 @@
+<!-- 
+ * Fetch Case Form View File
+ * @version 1.0
+ * @author Alexander Anserud <alean378@student.liu.se>
+-->
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Hämta ärende</h5>
+                <p class="card-description">Beskrivning...</p>
+            </div>
+
+            <form [formGroup]="userForm">
+                <div class="card-body">
+                    <section>
+                        <div class="col-md-12 px-1">
+                            <div class="form-group editable card-form">
+                                <label>Ärende nummer</label>
+                                <p [hidden]="saveButton1">{{user.name}}</p>
+                                <input id="name" formControlName="name" [hidden]="!saveButton1" type="text" class="form-control" placeholder="Ditt namn" [(ngModel)]="user.name" value="{{user.name}}" required>
+                               
+
+
+                            </div>
+                            
+                        </div>
+                    </section>
+        
+                </div>
+                    
+
+            </form>
+                                <div class="card-footer update ml-auto mr-auto btn-on-card">
+                    <button type="submit" class="btn btn-info  btn-round" (click)="onSave(saveButton1)"  >
+                        <i class="nc-icon circle-icon nc-ruler-pencil"></i>
+                        <span [hidden]="saveButton1">Redigera</span>
+                        <span [hidden]="!saveButton1">Spara</span>
+                    </button>
+                </div>
+        </div>
+    </div>
+</div>
+
+<!-- <label>
+    Name:
+    <input type="text" [formControl]="nameControl">
+  </label> -->
