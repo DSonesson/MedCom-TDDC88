@@ -1,5 +1,5 @@
 <!-- 
- * Card Form View File, used for the registration of contact details
+ * Fetch Case Form View File
  * @version 1.0
  * @author Alexander Anserud <alean378@student.liu.se>
 -->
@@ -8,7 +8,7 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h5 class="card-title">Kontaktuppgifter</h5>
+                <h5 class="card-title">Hämta ärende</h5>
                 <p class="card-description">Beskrivning...</p>
             </div>
 
@@ -17,42 +17,12 @@
                     <section>
                         <div class="col-md-12 px-1">
                             <div class="form-group editable card-form">
-                                <label>Namn</label>
+                                <label>Ärende nummer</label>
                                 <p [hidden]="saveButton1">{{user.name}}</p>
                                 <input id="name" formControlName="name" [hidden]="!saveButton1" type="text" class="form-control" placeholder="Ditt namn" [(ngModel)]="user.name" value="{{user.name}}" required>
-                                <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
-                                    <div *ngIf="name.errors.required">
-                                        Name is required.
-                                    </div>
-                                    <div *ngIf="name.errors.minlength">
-                                        Name must be at least 4 characters long.
-                                    </div>
-                                </div>
+                               
 
 
-                                <label>Email</label>
-                                <p [hidden]="saveButton1">{{user.email}}</p>
-                                <input id="email" formControlName="email" [hidden]="!saveButton1" type="text" class="form-control" placeholder="Email" [(ngModel)]="user.email" value="{{user.email}}" required>
-                                <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
-                                    <div *ngIf="email.errors.required">
-                                        Email is required.
-                                    </div>
-                                    <div *ngIf="email.errors.email">
-                                        Email must be a valid email address.
-                                    </div>
-                                </div>
-                                
-                                <label>Telefon</label>
-                                <p [hidden]="saveButton1">{{user.phone}}</p>
-                                <input id="phone" formControlName="phone" [hidden]="!saveButton1" type="text" class="form-control" placeholder="Telefon" [(ngModel)]="user.phone" value="{{user.phone}}" required>
-                                <div *ngIf="phone.errors && (phone.dirty || phone.touched)" class="alert alert-danger">
-                                    <div *ngIf="phone.errors.required">
-                                        Phone number is required.
-                                    </div>
-                                    <div *ngIf="phone.errors.phoneError">
-                                        Invalid phone number.
-                                    </div>
-                                </div>
                             </div>
                             
                         </div>

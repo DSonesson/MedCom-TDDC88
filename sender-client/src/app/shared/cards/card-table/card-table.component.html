@@ -1,0 +1,75 @@
+<!-- 
+ * Card Table View File, used for the registration of contact details
+ * @version 1.0
+ * @author Alexander Anserud <alean378@student.liu.se>
+-->
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Check Lista</h5>
+                <p class="card-description">Använd denna checklista under det akuta omhändertagande och ....</p>
+            </div>
+
+            <form [formGroup]="userForm">
+                <div class="card-body">
+                    <section>
+                        <div class="col-md-12 px-1">
+                            <div class="card">
+
+  <div class="table-full-width">
+    <table class="table">
+      <thead class="text-danger">
+        <th>Fråga</th>
+        <th>Svar</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Har patienn en kroppstemn en kroppstemten en kroppstempratur >36 grader</td>
+          <td><div class="form-check">
+  <label class="form-check-label">
+      <input class="form-check-input" type="checkbox" value="">
+     
+      <span class="form-check-sign">
+          <span class="check"></span>
+      </span>
+  </label>
+</div></td>
+        
+        </tr>
+        <tr>
+          <td>Är arteriellt pO2 > 10 kPa?</td>
+                 <td><div class="form-check">
+  <label class="form-check-label">
+      <input class="form-check-input" type="checkbox" value="">
+     
+      <span class="form-check-sign">
+          <span class="check"></span>
+      </span>
+  </label>
+</div></td>
+         
+        </tr>
+       
+      </tbody>
+    </table>
+  </div>
+</div>
+                            
+                        </div>
+                    </section>
+        
+                </div>
+                    
+
+            </form>
+                            
+        </div>
+    </div>
+</div>
+
+<!-- <label>
+    Name:
+    <input type="text" [formControl]="nameControl">
+  </label> -->
