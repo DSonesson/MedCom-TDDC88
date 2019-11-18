@@ -12,7 +12,7 @@ import { Lightbox } from 'ngx-lightbox';
 })
 
 export class CardImageComponent implements OnInit {
-  private _album = [];
+  private _album: any = [];
 
   constructor(public dataService: CaseDataService, private _lightbox: Lightbox) {
     //this.loadImage();
@@ -54,7 +54,6 @@ loadImage(load = false) {
     reader.onload = () => {
     this.imagePreview[this.imageCounter] = reader.result;
     this.src = reader.result;
-    console.log(this.src);
     const album = {
       src: this.src
    };
@@ -79,6 +78,7 @@ open(index: number): void {
   // open lightbox
   console.log(this._album[index]);
   this._lightbox.open(this._album, index);
+  console.log(index);
 }
 
   ngOnInit() {
