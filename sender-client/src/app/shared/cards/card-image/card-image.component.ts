@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CaseDataService } from '../../case-data.service';
 import { Case } from 'app/models/case';
 import { Image } from 'app/models/image';
@@ -14,7 +14,7 @@ import { Lightbox } from 'ngx-lightbox';
 export class CardImageComponent implements OnInit {
   private _album: any = [];
 
-  constructor(public dataService: CaseDataService, private _lightbox: Lightbox) {
+  constructor(public dataService: CaseDataService, private _lightbox: Lightbox, private changeDetection: ChangeDetectorRef) {
     //this.loadImage();
     this.imagePreview = [];
     this.loadImage(true);
@@ -38,6 +38,14 @@ addImage(event){
 
  this.dataService.getCase().randomtest = 'kalle';
   this.loadImage();
+}
+
+removeImage(index: number){
+  console.log(this.dataService.getCase().images.length);
+  this.dataService.getCase().images.pop();
+  this.loadImage(true);
+  console.log(this.dataService.getCase().images.length);
+  this.imageCounter--;
 }
  
 onSave() {
@@ -70,7 +78,10 @@ loadImage(load = false) {
       };
       reader.readAsDataURL(this.dataService.getCase().images[i].file);
 
+
     }
+    this.changeDetection.detectChanges();
+    console.log("test");
   }
 }
 
