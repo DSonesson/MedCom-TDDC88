@@ -82,7 +82,8 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/sass/main.scss"
+              "src/assets/sass/main.scss",
+              "./node_modules/ngx-lightbox/lightbox.css"
             ],
             "assets": [
               "src/assets",

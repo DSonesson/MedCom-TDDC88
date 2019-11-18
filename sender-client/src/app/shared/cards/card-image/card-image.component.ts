@@ -3,6 +3,7 @@ import { CaseDataService } from '../../case-data.service';
 import { Case } from 'app/models/case';
 import { Image } from 'app/models/image';
 import { HttpService } from 'app/shared/http.service';
+import { Lightbox } from 'ngx-lightbox';
 
 @Component({
   selector: 'app-card-image',
@@ -11,8 +12,9 @@ import { HttpService } from 'app/shared/http.service';
 })
 
 export class CardImageComponent implements OnInit {
+  private _album = [];
 
-  constructor(public dataService: CaseDataService) {
+  constructor(public dataService: CaseDataService, private _lightbox: Lightbox) {
     //this.loadImage();
     this.imagePreview = [];
     this.loadImage(true);
@@ -24,6 +26,7 @@ export class CardImageComponent implements OnInit {
  imageCounter = this.dataService.getCase().images.length -1;
 
   imagesAvailable = false;
+  src: any;
 
 
 addImage(event){
@@ -45,10 +48,18 @@ onSave() {
 loadImage(load = false) {
 
   if (!load) {
+
     this.imageCounter++;
     const reader = new FileReader();
     reader.onload = () => {
     this.imagePreview[this.imageCounter] = reader.result;
+    this.src = reader.result;
+    console.log(this.src);
+    const album = {
+      src: this.src
+   };
+
+   this._album.push(album);
     };
     reader.readAsDataURL(this.dataService.getCase().images[this.imageCounter].file);
   }
@@ -59,9 +70,17 @@ loadImage(load = false) {
       this.imagePreview[i] = reader.result;
       };
       reader.readAsDataURL(this.dataService.getCase().images[i].file);
+
     }
   }
 }
+
+open(index: number): void {
+  // open lightbox
+  console.log(this._album[index]);
+  this._lightbox.open(this._album, index);
+}
+
   ngOnInit() {
   }
 
