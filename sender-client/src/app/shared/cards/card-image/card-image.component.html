@@ -14,7 +14,7 @@ This is an sample page to illustrate, each new "page" will have a new folder for
                    
                     <div class="container">
                         <div class="row">
-                          <div *ngFor="let image of imagePreview; let i=index" class="col-sm image-preview">
+                          <div *ngFor="let image of imagePreview; let i=index;" class="col-sm image-preview" id="{{i}}">
                             <img [src]="image" (click)="open(i)">
                             <div (click)="removeImage(i)">TESTSETSEtst</div>
                           </div>
