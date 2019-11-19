@@ -41,13 +41,9 @@ addImage(event){
 }
 
 removeImage(index: number){
-  console.log(this.dataService.getCase().images.length);
-  this.dataService.getCase().images.pop();
-  console.log(this.dataService.getCase().images.length);
-  var elementString: string = "" + index;
-  var elem = document.getElementById(elementString);
-  elem.remove();
-
+  this.dataService.getCase().images.splice(index, 1);
+  this._album.splice(index, 1);
+  this.loadImage(true);
   this.imageCounter--;
 }
 
@@ -78,6 +74,7 @@ loadImage(load = false) {
     reader.readAsDataURL(this.dataService.getCase().images[this.imageCounter].file);
   }
   else {
+    this.imagePreview = [];
     for (let i = 0; i < this.dataService.getCase().images.length; i++) {
       const reader = new FileReader();
       reader.onload = () => {
