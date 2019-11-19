@@ -27,6 +27,7 @@ branches:
   only:
     - development
     - front-end
+    - solve-build-prob
 
 before_script:
   - cd sender-client
@@ -41,4 +42,4 @@ script:
 
 notifications:
   email: false
-  slack: burnburnburn:vPkS4CRuandO8wcwTFQTqztl
+ # slack: burnburnburn:vPkS4CRuandO8wcwTFQTqztl
