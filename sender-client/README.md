@@ -1,6 +1,12 @@
 # SenderClient
 
+Describe the project.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.6.
+
+## Installation
+
+List step by step what needs to be installed to get the project running (the developing enviroment).
 
 ## Development server
 
