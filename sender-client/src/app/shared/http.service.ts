@@ -105,7 +105,7 @@ export class HttpService {
 
   }
 
-  doSearch(caseNr:string, searchloc:string) {
+  doSearch(caseNr:string, searchloc:string) : boolean {
     const req = this.url + '/core/dosearch'
 
     const headers = new HttpHeaders({
@@ -123,6 +123,8 @@ export class HttpService {
     this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
       console.log(resp)
     })
+
+    return true;
   }
 
 }
