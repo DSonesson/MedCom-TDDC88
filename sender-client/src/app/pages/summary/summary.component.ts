@@ -17,8 +17,7 @@ export class SummaryComponent implements OnInit {
 
   constructor(private uploadService: UploadService) { }
 
-  previousButton = true;
-  sendCaseButton = true;
+
 
   startUpload() {
     this.uploadService.startUpload();

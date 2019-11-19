@@ -1,4 +1,4 @@
-<!-- 
+<!--
  * Confirmation-page View File
  * @version 1.0
  * @author Alexander Anserud <alean378@student.liu.se>
@@ -10,15 +10,15 @@
         <div class="col-md-12">
             <a [routerLink]="'/frontpage'">
                 <button type="Startsida" class="btn btn-info  btn-round" style="float: left;">
-                    <span [hidden]="frontpageButton">Startsida</span>
+                    <span>Startsida</span>
                 </button>
             </a>
-    
+
             <a [routerLink]="'/confirmation'">
-                <button type="KompletteraÄrende" class="btn btn-info  btn-round" style="float: right;" (click)="startUpload()">
-                    <span [hidden]="sendCaseButton">Komplettera Ärende</span>
+                <button type="KompletteraÄrende" class="btn btn-info  btn-round" style="float: right;">
+                    <span>Komplettera Ärende</span>
                 </button>
             </a>
         </div>
-        
+
     </div>
