@@ -1,0 +1,35 @@
+
+<div class="row">
+
+    <!-- Display information text -->
+<div class="textPage">
+
+    <h2>{{pageTitel}}</h2>
+    
+    <div class="textBody">
+        <h3 style="text-align: center;">{{ paragraphs["par1"]["titel"] }}</h3>
+        <p><strong>{{ paragraphs["par1"]["text"] }}</strong></p>
+    </div>
+
+    <div class="textBody">
+        <h4>{{ paragraphs["par2"]["titel"] }}</h4>
+        <p>{{ paragraphs["par2"]["text"] }}</p>
+    </div>
+
+    <div class="textBody">
+        <h4>{{ paragraphs["par3"]["titel"] }}</h4>
+        <p>{{ paragraphs["par3"]["text"] }}</p>
+    </div>
+
+</div>
+    
+    <!-- Button for going to frontape -->
+    <div class="col-md-12">
+        <a [routerLink]="'/frontpage'">
+            <button type="Startsida" class="btn btn-info  btn-round" style="float: right;">
+                <span>Gå till startsida</span>
+            </button>
+        </a>
+    </div>
+    
+</div>

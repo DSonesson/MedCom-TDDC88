@@ -25,6 +25,7 @@ import { CardTmplComponent }    from '../../shared/cards/card-tmpl/card-tmpl.com
 import { CardConfirmationComponent } from '../../shared/cards/card-confirmation/card-confirmation.component'
 import { CardFormFetchCaseComponent }    from '../../shared/cards/card-form-fetch-case/card-form-fetch-case.component';
 import { CardTableComponent }    from '../../shared/cards/card-table/card-table.component';
+import { InformationComponent } from '../../pages/information/information.component';
 
 @NgModule({
   imports: [
@@ -46,7 +47,8 @@ import { CardTableComponent }    from '../../shared/cards/card-table/card-table.
       ConfirmationComponent,
       CardConfirmationComponent,
       CardTableComponent,
-      CardFormFetchCaseComponent
+      CardFormFetchCaseComponent,
+      InformationComponent
   ]
 })
 

@@ -17,7 +17,7 @@ export interface RouteInfo {
 export const ROUTES: RouteInfo[] = [
     { path: '/page',     title: 'Ny anmälan',   icon:'nc-badge',            class: '' },
     { path: '/page2',    title: 'hämta ärende', icon:'nc-single-copy-04',   class: '' },
-    { path: '/page3',    title: 'information',  icon:'nc-alert-circle-i',   class: '' },,
+    { path: '/information',    title: 'information',  icon:'nc-alert-circle-i',   class: '' },,
 ];
 
 /* Component metadata  */
