@@ -10,6 +10,9 @@ import { Case } from 'app/models/case';
 import { Image } from 'app/models/image';
 import { HttpService } from 'app/shared/http.service';
 import { Lightbox } from 'ngx-lightbox';
+import {NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponent } from '../../../modal/modal.component';
+import { ModalfilesizemessageComponent } from '../../../modalfilesizemessage/modalfilesizemessage.component';
 
 /**
  * A component for selecting, previewing and deleteing images before upload 
@@ -28,7 +31,7 @@ export class CardImageComponent implements OnInit {
  * Sets imagepreview to an array
  * Loads images if there are any stored in the Case
  */
-  constructor(public dataService: CaseDataService, public _lightbox: Lightbox) {
+  constructor(public dataService: CaseDataService, public _lightbox: Lightbox, private modalService: NgbModal) {
     this.imagePreview = [];
     this.loadImages();
    }
@@ -48,6 +51,7 @@ saveImageToCase(event){
 
   if(event.target.files[0].size > 4194304) {
     alert("The size of the image exceeds the allowed limit of 4 megabytes.");
+    open();
     return;
   }
 
@@ -139,6 +143,12 @@ loadImages() {
  */
 enlargeImage(index: number): void {
   this._lightbox.open(this._album, index);
+}
+
+open() {
+  // const modalRef = this.modalService.open(ModalComponent);
+  const modalRef = this.modalService.open(ModalfilesizemessageComponent);
+  modalRef.componentInstance.title = 'About';
 }
 
   ngOnInit() {
