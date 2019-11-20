@@ -21,9 +21,9 @@ import { User } from '../../models/user';
 /* Component Class Holder */
 export class Page2Component {
 
-    private user: User;
+    user: User;
 
-    private saveButton1=false;
+    saveButton1=false;
 
     constructor(public dataService: CaseDataService) {
       this.user = this.dataService.getCase().user;

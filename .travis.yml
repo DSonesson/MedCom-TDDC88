@@ -1,3 +1,9 @@
+
+  #  * TravisCI - YAML-file
+  #  * @version 1.0
+  #  * @author Gustav Wahlquist <guswa204@student.liu.se>
+
+
 language: node_js
 node_js:
   - "10.15.3"
@@ -19,7 +25,6 @@ sudo: required
 
 branches:
   only:
-    - travis-setup
     - development
     - front-end
 

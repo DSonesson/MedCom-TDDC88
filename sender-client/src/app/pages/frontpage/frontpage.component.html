@@ -3,15 +3,17 @@
  * @version 1.0
  * @author Alexander Anserud <alean378@student.liu.se>
 -->
-<app-card-form></app-card-form>
+<app-card-form (onSaveForm)="setValidity($event)"></app-card-form>
+<app-card-table></app-card-table>
 
-<app-card-image></app-card-image>
+
+<app-card-image *ngIf="isValid"></app-card-image>
 
 <div class="row">
-<div class="col-md-12">
+<div class="col-md-12" *ngIf="isValid">
         <a [routerLink]="'/summary'">
             <button type="Next" class="btn btn-info  btn-round" style="float: right;">
-                <span [hidden]="nextButton">Nästa</span>
+                <span >Nästa</span>
             </button>
         </a>
 </div>

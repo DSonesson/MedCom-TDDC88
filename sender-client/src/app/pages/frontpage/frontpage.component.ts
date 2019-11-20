@@ -15,13 +15,23 @@ import { Routes } from '@angular/router';
   templateUrl: './frontpage.component.html',
   styleUrls: ['./frontpage.component.scss']
 })
-export class FrontpageComponent implements OnInit {
-    
-   
-    constructor() { }
 
-    private nextButton=false
-    
-    ngOnInit() { };    
-   
+
+export class FrontpageComponent implements OnInit {
+
+  public isValid: boolean; 
+
+
+  /**
+    * sets boolean isValid to same value as child component card-form.component
+    */
+  public setValidity(isValid: boolean):void {
+    this.isValid = isValid;
+}
+
+ 
+    ngOnInit() {
+      this.isValid=false;
+     };
+
 }

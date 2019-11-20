@@ -20,6 +20,9 @@ export class HttpService {
   constructor(private http: HttpClient) {
   }
 
+  /**
+   * User login the FileCloud server.
+   */
   userLogin() {
     const req = this.url + '/core/loginguest'
     const headers = new HttpHeaders({
@@ -42,6 +45,13 @@ export class HttpService {
     })
   }
 
+  /**
+   * Upload a file to the specific path in FileCloud server.
+   * @param fileToUpload The file that needs to be uploaded.
+   * @param uploadPath The path where to upload the file in FileCloud server.
+   * 
+   * @returns Nothing is returned.
+   */
   postFile(fileToUpload: File, uploadPath: string) {
     const appname = "Chrome/56.0.2924.87";
     // const endpoint = this.url + '/core/upload' + '?appname=' + appname + '&path=' + uploadPath + '&offset=0&complete=1&filename=' + fileToUpload.name;
@@ -66,6 +76,12 @@ export class HttpService {
     })
   }
 
+  /**
+   * Create a folder named as the case number in FileCloud server.
+   * @param caseNumber A case number which is the name of the folder to be created.
+   * 
+   * @returns Nothing is returned.
+   */
   createFolder(caseNumber: string) { 
 
     // const req = 'https://company3.filecloudonline.com' + '/app/explorer/createfolder'
