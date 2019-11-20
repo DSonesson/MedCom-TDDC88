@@ -14,6 +14,7 @@ import { Page2Component } from '../../pages/page2/page2.component';
 import { ConfirmationComponent } from '../../pages/confirmation/confirmation.component';
 import { SummaryComponent } from '../../pages/summary/summary.component';
 import { FrontpageComponent } from '../../pages/frontpage/frontpage.component';
+import { EditCaseComponent } from 'app/pages/edit-case/edit-case.component';
 
 /* Imports */
 export const ContentRoutes: Routes = [
@@ -26,6 +27,7 @@ export const ContentRoutes: Routes = [
     { path: 'summary', component: SummaryComponent },
     { path: 'confirmation', component: ConfirmationComponent },
     { path: 'page', component: PageComponent },
+    { path: 'edit', component: EditCaseComponent },
 
 ];
 
