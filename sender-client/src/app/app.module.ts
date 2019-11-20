@@ -19,12 +19,14 @@ import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
 import { ContentComponent } from './layouts/content/content.component';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+import { FetchcaseComponent } from './pages/fetchcase/fetchcase.component';
 
 /* Meta Data for App File s */
 @NgModule({
   declarations: [
     AppComponent,
-    ContentComponent
+    ContentComponent,
+    FetchcaseComponent
   ],
   imports: [
     HttpClientModule,
