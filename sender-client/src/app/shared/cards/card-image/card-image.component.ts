@@ -42,6 +42,7 @@ export class CardImageComponent implements OnInit {
 /**
  * This method is called when an image is choosen in the file select dialog in the browser. 
  * The method stores the images in CaseDataService.
+ * @param {event} This is the file that is choosen in the file select dialog
  */
 saveImageToCase(event){
   this.image = new Image;
@@ -56,6 +57,7 @@ saveImageToCase(event){
 /**
  * Removes the selected image from the Case and the local array _album that is responsible for enlarging the images
  * with Lightbox
+ * @param {number} This is the index in the Case image array of the image that is to be deleted
  */
 removeImage(index: number){
   this.dataService.getCase().images.splice(index, 1);
@@ -120,6 +122,9 @@ loadImages() {
 
 /**
  * This method is called when clicking on an image to show an enlarged version over the rest of the page.
+ * @param {number} This is the index in the _album array where the image is stored. The variable is used so that the lightbox
+ * knows which image to display. 
+ * 
  */
 enlargeImage(index: number): void {
   this._lightbox.open(this._album, index);
