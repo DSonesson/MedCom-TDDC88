@@ -1,3 +1,10 @@
+/**
+ * Edit-case Component
+ * @version 1.0
+ * @author Albin Lindén <albli248@student.liu.se> *
+ * @author Henrik Johansson <henjo114@student.liu.se>
+ */
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
