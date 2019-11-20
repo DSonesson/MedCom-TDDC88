@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from "ngx-toastr";
+import { LightboxModule } from 'ngx-lightbox';
 
 /* Import modules */
 import { FooterModule } from './layouts/footer/footer.module';
@@ -30,6 +31,7 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
     HttpClientModule,
     HttpClientJsonpModule,
     BrowserAnimationsModule,
+    LightboxModule,
     RouterModule.forRoot(AppRoutes,{
       useHash: true
     }),

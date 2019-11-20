@@ -12,23 +12,29 @@ This is an sample page to illustrate, each new "page" will have a new folder for
             <div class="card-body">
                 <section>
                    
-                    <div class="images" >
-                        <div class="images-list" *ngIf="imagePreview"></div>
-                        <img [src]="imagePreview">
+                    <div class="container">
+                        <div class="row">
+                          <div *ngFor="let image of imagePreview; let i=index;" class="col-sm image-preview">
+                            <img [src]="image" (click)="enlargeImage(i)">
+                            <div class="remove-button" (click)="removeImage(i)">X</div>
+                          </div>
                         </div>
+                      </div>
                     
                 </section>
       
             </div>
        
-            <div class="card-footer ml-auto mr-auto btn-on-card">
-                <button type="submit" class="btn btn-info  btn-round"  (click)="onSave()" >
-                    <i class="nc-icon circle-icon nc-ruler-pencil"></i>
-                    <input style="display: none" type="file" (change)="onFileUpload($event)" class="upload-input" #selectFile>
-                    <span [hidden]="!imagesAvailable">Ladda upp bild</span>
-                    <span [hidden]="imagesAvailable">Välj bild</span>
-                </button>
-            </div>
+            
+           
+                <div class="update ml-auto mr-auto btn-on-card">
+                    <button type="submit" class="btn btn-info  btn-round"  (click)="openFileSelect()" >
+                        <i class="nc-icon circle-icon nc-ruler-pencil"></i>
+                        <input style="display: none" type="file" (change)="saveImageToCase($event)" class="upload-input" #selectFile>
+                        <span [hidden]="!imagesAvailable">Välj fler bilder</span>
+                        <span [hidden]="imagesAvailable">Välj bild</span>
+                    </button>
+                </div>
 
         </div>
     </div>

@@ -23,7 +23,8 @@
             "styles": [
               "node_modules/bootstrap/scss/bootstrap.scss",
               "src/assets/scss/main.scss",
-              "node_modules/ngx-toastr/toastr.css"
+              "node_modules/ngx-toastr/toastr.css",
+              "./node_modules/ngx-lightbox/lightbox.css"
             ],
             "scripts": [
             ]
