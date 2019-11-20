@@ -9,6 +9,7 @@
 import { Component } from '@angular/core';
 import { CaseDataService } from '../../shared/case-data.service';
 import { User } from '../../models/user';
+import { HttpService } from 'app/shared/http.service';
 
 
 /* Component metadata  */
@@ -25,7 +26,7 @@ export class PageComponent {
 
     private saveButton1=false;
 
-    constructor(public dataService: CaseDataService) { 
+    constructor(public dataService: CaseDataService, public httpService: HttpService) { 
        
     this.user = this.dataService.getCase().user;
         

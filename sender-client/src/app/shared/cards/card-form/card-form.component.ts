@@ -14,6 +14,7 @@ import { User } from '../../../models/user';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, Validators, FormGroup, ValidatorFn, AbstractControl } from '@angular/forms';
+import { HttpService } from 'app/shared/http.service';
 
 @Component({
   selector: 'app-card-form',
@@ -49,7 +50,7 @@ export class CardFormComponent implements OnInit {
 
     saveButton1=false;
 
-    constructor(public dataService: CaseDataService) {
+    constructor(public dataService: CaseDataService, public httpService : HttpService) {
 
     this.user = this.dataService.getCase().user;
 

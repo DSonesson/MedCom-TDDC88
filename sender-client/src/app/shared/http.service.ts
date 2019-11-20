@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Predicate } from '@angular/core';
 import { HttpClient, HttpParams} from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -37,12 +38,32 @@ export class HttpService {
       // "User-Agent":"Chrome/56.0.2924.87"
     })
     const params = {
-      'userid':'albli248','password':'dSMFBaeL'
+      'userid':'annro873','password':'vLieZJzd'
     }
 
     this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
       console.log(resp);
     })
+  }
+
+  userLogin1():Observable<string> {
+    const req = this.url + '/core/loginguest'
+    const headers = new HttpHeaders({
+      'Content-Type':  'application/x-www-form-urlencoded',
+      'Accept':  'application/xml',
+      'Response-Type': 'text',
+      'Access-Control-Allow-Origin': '*',
+      observe: 'response'
+      // 'Access-Control-Allow-Methods': 'PUT, GET, POST, DELETE, OPTIONS',
+      // 'Access-Control-Allow-Headers': 'Content-Type',
+      //'Cookie': 'X-XSRF-TOKEN=aqt1uuezrl4q9uu03ipl'
+      // "User-Agent":"Chrome/56.0.2924.87"
+    })
+    const params = {
+      'userid':'annro873','password':'vLieZJzd'
+    }
+
+    return this.http.request('POST', req, {headers, params, 'responseType':"text"})
   }
 
   /**
@@ -67,7 +88,11 @@ export class HttpService {
     })
 
     const params = {
-      'path':'/albli248/' + uploadPath,'offset':'0', 'complete':'1','filename':fileToUpload.name,'appname':'explorer'
+      'path':uploadPath,
+      'offset':'0', 
+      'complete':'1',
+      'filename':fileToUpload.name,
+      'appname':'explorer'
     }
 
     this.http.request('POST', req, {'body': formData, headers, params, 'responseType':"text"})
@@ -96,7 +121,7 @@ export class HttpService {
 
     const params = {
       'name': caseNumber,
-      'path': '/albli248'
+      'path': '/annro873'
     }
 
     this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
@@ -106,6 +131,37 @@ export class HttpService {
   }
 
   doSearch(caseNr:string, searchloc:string) : boolean {
+    // const req = this.url + '/core/dosearch'
+
+    // const headers = new HttpHeaders({
+    //   'Content-Type':  'application/x-www-form-urlencoded',
+    //   'Accept':  'application/xml',
+    //   'Response-Type': 'text',
+    //   'Access-Control-Allow-Origin': '*',
+    // })
+
+    // const params = {
+    //   'searchstring': caseNr,
+    //   'path': searchloc
+    // }
+
+    // this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
+    //   console.log(resp)
+    // })
+
+    
+    // let data =  this.http.request('POST', req, {headers, params, 'responseType':"text"}).toPromise();
+    
+    // return true;
+    this.userLogin1().subscribe(resp => {
+        console.log(resp);  
+        this.search(caseNr, searchloc);
+    });
+
+    return true;
+  }
+
+  private search(caseNr:string, searchloc:string) {
     const req = this.url + '/core/dosearch'
 
     const headers = new HttpHeaders({
@@ -117,14 +173,23 @@ export class HttpService {
 
     const params = {
       'searchstring': caseNr,
-      'path': searchloc
+      'searchloc': searchloc,
     }
 
     this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
       console.log(resp)
     })
 
-    return true;
+    
+    // let data =  this.http.request('POST', req, {headers, params, 'responseType':"text"}).toPromise();
+    
+    // return true;
   }
+
+  // private async search(observe : Observable<any>): Promise<any> {
+  //     let response: Promise<any> = await observe.toPromise();
+
+  //     return response;
+  // }
 
 }
