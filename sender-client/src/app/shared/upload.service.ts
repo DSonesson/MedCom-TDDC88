@@ -21,7 +21,7 @@ export class UploadService {
 
     startUpload() {
     this.caseNr = this.caseNrService.getCaseNr(this.case.user.phone);
-    this.dataService.getCase().caseNr = +this.caseNr;
+    this.dataService.getCase().caseNr = this.caseNr;
     this.uploadPath = this.caseNr;
 
     console.log(this.caseNr);

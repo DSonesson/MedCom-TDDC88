@@ -42,10 +42,10 @@ export class CardImageComponent implements OnInit {
 /**
  * This method is called when an image is choosen in the file select dialog in the browser. 
  * The method stores the images in CaseDataService.
- * @param {event} This is the file that is choosen in the file select dialog
+ * @param {event} This is the file that is selected in the file select dialog
  */
 saveImageToCase(event){
-
+  //4194304 bytes = 4mb
   if(event.target.files[0].size > 4194304) {
     alert("The size of the image exceeds the allowed limit of 4 megabytes.");
     return;

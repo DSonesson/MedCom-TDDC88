@@ -5,7 +5,7 @@ import { Patient } from './patient';
 export class Case {
     user: User;
     images: Image[];
-    caseNr: number;
+    caseNr: string;
     randomtest: string;
     constructor() {
         this.dummyData();
@@ -15,7 +15,7 @@ export class Case {
     dummyData() {
         this.user= new User();
         this.images= [];
-        this.caseNr= 12345;
+        this.caseNr= "12345";
         
     }
 

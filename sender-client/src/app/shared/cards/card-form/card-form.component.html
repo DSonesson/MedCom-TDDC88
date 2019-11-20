@@ -17,6 +17,10 @@
                     <section>
                         <div class="col-md-12 px-1">
                             <div class="form-group editable card-form">
+                            <div *ngIf="editCase">
+                                    <label>Ärendenummer</label>
+                                    <p>{{caseNumber}}</p>
+                            </div>    
                                 <label>Namn</label>
                                 <p [hidden]="saveButton1">{{user.name}}</p>
                                 <input id="name" formControlName="name" [hidden]="!saveButton1" type="text" class="form-control" placeholder="Ditt namn" [(ngModel)]="user.name" value="{{user.name}}" required>
