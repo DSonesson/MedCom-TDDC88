@@ -46,7 +46,7 @@ export class HttpService {
     })
   }
 
-  userLogin1():Observable<string> {
+  private userLogin1():Observable<string> {
     const req = this.url + '/core/loginguest'
     const headers = new HttpHeaders({
       'Content-Type':  'application/x-www-form-urlencoded',
@@ -131,28 +131,6 @@ export class HttpService {
   }
 
   doSearch(caseNr:string, searchloc:string) : boolean {
-    // const req = this.url + '/core/dosearch'
-
-    // const headers = new HttpHeaders({
-    //   'Content-Type':  'application/x-www-form-urlencoded',
-    //   'Accept':  'application/xml',
-    //   'Response-Type': 'text',
-    //   'Access-Control-Allow-Origin': '*',
-    // })
-
-    // const params = {
-    //   'searchstring': caseNr,
-    //   'path': searchloc
-    // }
-
-    // this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
-    //   console.log(resp)
-    // })
-
-    
-    // let data =  this.http.request('POST', req, {headers, params, 'responseType':"text"}).toPromise();
-    
-    // return true;
     this.userLogin1().subscribe(resp => {
         console.log(resp);  
         this.search(caseNr, searchloc);
