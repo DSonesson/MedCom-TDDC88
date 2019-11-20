@@ -45,9 +45,20 @@ export class CardImageComponent implements OnInit {
  * @param {event} This is the file that is choosen in the file select dialog
  */
 saveImageToCase(event){
+
+  if(event.target.files[0].size > 4194304) {
+    alert("The size of the image exceeds the allowed limit of 4 megabytes.");
+    return;
+  }
+
+  if(this.dataService.getCase().images.length > 5) {
+    alert("Only 6 images are allowed to be uploaded for each case. Remove one of the existing images before adding another image.");
+    return;
+  }
+
   this.image = new Image;
   this.image.file = event.target.files[0];
-  this.imagesAvailable = true;
+
 
   this.dataService.getCase().images.push(this.image);
 
