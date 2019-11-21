@@ -3,8 +3,7 @@
  * @author Albin Lindén <albli248@student.liu.se>
  * @author Henrik Johansson <henjo114@student.liu.se>
  */
-
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CaseDataService } from '../../case-data.service';
 import { Case } from 'app/models/case';
 import { Image } from 'app/models/image';
@@ -22,6 +21,10 @@ import { Lightbox } from 'ngx-lightbox';
 
 export class CardImageComponent implements OnInit {
   private _album: any = [];
+    // recieves from card-image if the form has valid values
+  @Input() isValid: boolean;
+  // communicates if images are uploaded or not
+  @Output() imageUploaded = new EventEmitter<boolean>();
 
 /**
  * Creates an instance of CaseDataService and a private instance of Lightbox
@@ -61,6 +64,9 @@ saveImageToCase(event){
 
 
   this.dataService.getCase().images.push(this.image);
+  
+  // send to parent if image is uploaded
+  this.imageUploaded.emit(this.imagesAvailable)
 
   this.addImage();
 }
@@ -83,6 +89,7 @@ removeImage(index: number){
 openFileSelect() {
   let element: HTMLElement = document.getElementsByClassName('upload-input')[0] as HTMLElement;
   element.click();
+  console.log(this.imagesAvailable)
 }
 
 /**

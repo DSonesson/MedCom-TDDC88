@@ -22,8 +22,7 @@
                                     <p>{{caseNumber}}</p>
                             </div>    
                                 <label>Namn</label>
-                                <p [hidden]="saveButton1">{{user.name}}</p>
-                                <input id="name" formControlName="name" [hidden]="!saveButton1" type="text" class="form-control" placeholder="Ditt namn" [(ngModel)]="user.name" value="{{user.name}}" required>
+                                <input id="name" formControlName="name" type="text" class="form-control" placeholder="Ditt namn" [(ngModel)]="user.name" value="{{user.name}}" (input)="somethingChanged()" required>
                                 <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
                                     <div *ngIf="name.errors.required">
                                         Name is required.
@@ -35,8 +34,7 @@
 
 
                                 <label>Email</label>
-                                <p [hidden]="saveButton1">{{user.email}}</p>
-                                <input id="email" formControlName="email" [hidden]="!saveButton1" type="text" class="form-control" placeholder="Email" [(ngModel)]="user.email" value="{{user.email}}" required>
+                                <input id="email" formControlName="email" type="text" class="form-control" placeholder="Email" [(ngModel)]="user.email" value="{{user.email}}" (input)="somethingChanged()" required>
                                 <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
                                     <div *ngIf="email.errors.required">
                                         Email is required.
@@ -47,8 +45,7 @@
                                 </div>
                                 
                                 <label>Telefon</label>
-                                <p [hidden]="saveButton1">{{user.phone}}</p>
-                                <input id="phone" formControlName="phone" [hidden]="!saveButton1" type="text" class="form-control" placeholder="Telefon" [(ngModel)]="user.phone" value="{{user.phone}}" required>
+                                <input id="phone" formControlName="phone" type="text" class="form-control" placeholder="Telefon" [(ngModel)]="user.phone" value="{{user.phone}}" (input)="somethingChanged()" required>
                                 <div *ngIf="phone.errors && (phone.dirty || phone.touched)" class="alert alert-danger">
                                     <div *ngIf="phone.errors.required">
                                         Phone number is required.
@@ -67,11 +64,9 @@
 
             </form>
                                 <div class="card-footer update ml-auto mr-auto btn-on-card">
-                    <button type="submit" class="btn btn-info  btn-round" (click)="onSave(saveButton1)"  >
-                        <i class="nc-icon circle-icon nc-ruler-pencil"></i>
-                        <span [hidden]="saveButton1">Redigera</span>
-                        <span [hidden]="!saveButton1">Spara</span>
-                    </button>
+                    <!-- <button type="submit" [disabled]="!isValid()" class="btn btn-info  btn-round" (click)="onSave(saveButton1)"  >
+                        <span >Nästa</span>
+                    </button> -->
                     
                 </div>
         </div>
