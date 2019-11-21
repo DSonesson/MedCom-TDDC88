@@ -26,6 +26,7 @@ import { CardConfirmationComponent } from '../../shared/cards/card-confirmation/
 import { CardFormFetchCaseComponent }    from '../../shared/cards/card-form-fetch-case/card-form-fetch-case.component';
 import { CardTableComponent }    from '../../shared/cards/card-table/card-table.component';
 import { EditCaseComponent } from 'app/pages/edit-case/edit-case.component';
+import { CardPatientDataComponent } from 'app/shared/cards/card-patient-data/card-patient-data.component';
 
 @NgModule({
   imports: [
@@ -48,7 +49,8 @@ import { EditCaseComponent } from 'app/pages/edit-case/edit-case.component';
       CardConfirmationComponent,
       CardTableComponent,
       CardFormFetchCaseComponent,
-      EditCaseComponent
+      EditCaseComponent,
+      CardPatientDataComponent
   ]
 })
 
