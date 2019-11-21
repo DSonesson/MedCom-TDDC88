@@ -49,7 +49,7 @@ import { FrontpageComponent } from '../../pages/frontpage/frontpage.component';
       CardConfirmationComponent,
       CardTableComponent,
       CardFormFetchCaseComponent,
-      EditCaseComponent
+      EditCaseComponent,
       FetchcaseComponent,
   ]
 })
