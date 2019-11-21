@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input,Output, EventEmitter } from '@angular/core';
 import { CaseDataService } from '../../case-data.service';
 import { Case } from 'app/models/case';
 import { Image } from 'app/models/image';
@@ -11,6 +11,12 @@ import { HttpService } from 'app/shared/http.service';
 })
 
 export class CardImageComponent implements OnInit {
+
+  // recieves from card-image if the form has valid values
+  @Input() isValid: boolean;
+  // communicates if images are uploaded or not
+  @Output() imageUploaded = new EventEmitter<boolean>();
+
 
   constructor(public dataService: CaseDataService) { }
  
@@ -33,6 +39,9 @@ onFileUpload(event){
   this.imagesAvailable = true;
   this.dataService.getCase().images.pop();
   this.dataService.getCase().images.push(this.image);
+  
+  // send to parent if image is uploaded
+  this.imageUploaded.emit(this.imagesAvailable)
 
  this.dataService.getCase().randomtest = 'kalle';
   const reader = new FileReader();
@@ -45,6 +54,7 @@ onFileUpload(event){
 onSave() {
   let element: HTMLElement = document.getElementsByClassName('upload-input')[0] as HTMLElement;
   element.click();
+  console.log(this.imagesAvailable)
 }
   ngOnInit() {
   }
