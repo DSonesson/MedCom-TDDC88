@@ -1,8 +1,9 @@
 /**
- * Service for storing local data 
+ * Service for storing local data
  * @author Albin Lindén <albli248@student.liu.se>
  * @author Henrik Johansson <henjo114@student.liu.se>
  */
+
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CaseDataService } from '../../case-data.service';
 import { Case } from 'app/models/case';
@@ -11,7 +12,7 @@ import { HttpService } from 'app/shared/http.service';
 import { Lightbox } from 'ngx-lightbox';
 
 /**
- * A component for selecting, previewing and deleteing images before upload 
+ * A component for selecting, previewing and deleteing images before upload
  */
 @Component({
   selector: 'app-card-image',
@@ -35,7 +36,7 @@ export class CardImageComponent implements OnInit {
     this.imagePreview = [];
     this.loadImages();
    }
- 
+
  image : Image;
  imagePreview: any;
  imageCounter = this.dataService.getCase().images.length -1;
@@ -43,7 +44,7 @@ export class CardImageComponent implements OnInit {
  src: any;
 
 /**
- * This method is called when an image is choosen in the file select dialog in the browser. 
+ * This method is called when an image is choosen in the file select dialog in the browser.
  * The method stores the images in CaseDataService.
  * @param {event} This is the file that is selected in the file select dialog
  */
@@ -63,7 +64,7 @@ saveImageToCase(event){
   this.image.file = event.target.files[0];
 
   this.dataService.getCase().images.push(this.image);
-  
+
   // send to parent if image is uploaded
   this.imageUploaded.emit(this.imagesAvailable)
 
@@ -140,8 +141,8 @@ loadImages() {
 /**
  * This method is called when clicking on an image to show an enlarged version over the rest of the page.
  * @param {number} This is the index in the _album array where the image is stored. The variable is used so that the lightbox
- * knows which image to display. 
- * 
+ * knows which image to display.
+ *
  */
 enlargeImage(index: number): void {
   this._lightbox.open(this._album, index);
