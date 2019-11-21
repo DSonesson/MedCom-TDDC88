@@ -15,7 +15,7 @@ export interface RouteInfo {
     class: string;
 }
 export const ROUTES: RouteInfo[] = [
-    { path: '/page',     title: 'Ny anmälan',   icon:'nc-badge',            class: '' },
+    { path: '/frontpage',     title: 'Ny anmälan',   icon:'nc-badge',            class: '' },
     { path: '/fetchcase',    title: 'hämta ärende', icon:'nc-single-copy-04',   class: '' },
     { path: '/page3',    title: 'information',  icon:'nc-alert-circle-i',   class: '' },,
 ];

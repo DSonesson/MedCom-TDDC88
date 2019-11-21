@@ -3,8 +3,6 @@
  * @author Albin Lindén <albli248@student.liu.se>
  * @author Henrik Johansson <henjo114@student.liu.se>
  */
-
-import { Component, OnInit } from '@angular/core';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CaseDataService } from '../../case-data.service';
 import { Case } from 'app/models/case';
@@ -23,11 +21,11 @@ import { Lightbox } from 'ngx-lightbox';
 
 export class CardImageComponent implements OnInit {
   private _album: any = [];
-  // recieves from card-image if the form has valid values
+    // recieves from card-image if the form has valid values
   @Input() isValid: boolean;
   // communicates if images are uploaded or not
   @Output() imageUploaded = new EventEmitter<boolean>();
-  
+
 /**
  * Creates an instance of CaseDataService and a private instance of Lightbox
  * Sets imagepreview to an array
@@ -47,12 +45,22 @@ export class CardImageComponent implements OnInit {
 /**
  * This method is called when an image is choosen in the file select dialog in the browser. 
  * The method stores the images in CaseDataService.
- * @param {event} This is the file that is choosen in the file select dialog
+ * @param {event} This is the file that is selected in the file select dialog
  */
 saveImageToCase(event){
+  //4194304 bytes = 4mb
+  if(event.target.files[0].size > 4194304) {
+    alert("The size of the image exceeds the allowed limit of 4 megabytes.");
+    return;
+  }
+
+  if(this.dataService.getCase().images.length > 5) {
+    alert("Only 6 images are allowed to be uploaded for each case. Remove one of the existing images before adding another image.");
+    return;
+  }
+
   this.image = new Image;
   this.image.file = event.target.files[0];
-  this.imagesAvailable = true;
 
   this.dataService.getCase().images.push(this.image);
   

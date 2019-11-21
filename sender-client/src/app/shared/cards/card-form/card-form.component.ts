@@ -6,7 +6,7 @@
  */
 
 /* Imports */
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 import { CaseDataService } from '../../../shared/case-data.service';
 import { User } from '../../../models/user';
@@ -29,7 +29,9 @@ import { FormControl, Validators, FormGroup, ValidatorFn, AbstractControl } from
 export class CardFormComponent implements OnInit {
 
     user: User;
+    @Input('editCase') editCase: boolean;
     @Output() onSaveForm = new EventEmitter<boolean>();
+    caseNumber: any;
 
 
     private card_content = `                    <div class="col-md-12 px-1">
@@ -52,6 +54,7 @@ export class CardFormComponent implements OnInit {
     constructor(public dataService: CaseDataService) {
 
     this.user = this.dataService.getCase().user;
+    this.caseNumber = this.dataService.getCase().caseNr;
 
     }
 
