@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CardTableComponent } from './card-table.component';
+import { ReactiveFormsModule } from "@angular/forms";
 
 describe('CardTableComponent', () => {
   let component: CardTableComponent;
@@ -8,6 +9,7 @@ describe('CardTableComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ReactiveFormsModule],
       declarations: [ CardTableComponent ]
     })
     .compileComponents();
@@ -20,10 +22,10 @@ describe('CardTableComponent', () => {
   });
 
 
-  /*
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-   */
+
 
 });

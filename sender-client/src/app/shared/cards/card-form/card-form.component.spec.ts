@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CardFormComponent } from './card-form.component';
+import { ReactiveFormsModule } from "@angular/forms";
 
 describe('CardFormComponent', () => {
   let component: CardFormComponent;
@@ -8,6 +9,7 @@ describe('CardFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ReactiveFormsModule],
       declarations: [ CardFormComponent ]
     })
     .compileComponents();
@@ -19,11 +21,11 @@ describe('CardFormComponent', () => {
     fixture.detectChanges();
   });
 
-  /*
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-   */
+
 
 });

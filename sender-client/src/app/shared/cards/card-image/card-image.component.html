@@ -24,11 +24,8 @@ This is an sample page to illustrate, each new "page" will have a new folder for
                 </section>
       
             </div>
-       
-            
-           
                 <div class="update ml-auto mr-auto btn-on-card">
-                    <button type="submit" class="btn btn-info  btn-round"  (click)="openFileSelect()" >
+                    <button type="submit" class="btn btn-info  btn-round" [disabled]="!isValid" (click)="openFileSelect()" >
                         <i class="nc-icon circle-icon nc-ruler-pencil"></i>
                         <input style="display: none" type="file" (change)="saveImageToCase($event)" class="upload-input" #selectFile>
                         <span [hidden]="!imagesAvailable">Välj fler bilder</span>
