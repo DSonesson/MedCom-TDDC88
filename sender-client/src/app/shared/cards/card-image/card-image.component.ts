@@ -62,7 +62,6 @@ saveImageToCase(event){
   this.image = new Image;
   this.image.file = event.target.files[0];
 
-
   this.dataService.getCase().images.push(this.image);
   
   // send to parent if image is uploaded

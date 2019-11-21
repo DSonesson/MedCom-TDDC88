@@ -15,6 +15,7 @@ import { ConfirmationComponent } from '../../pages/confirmation/confirmation.com
 import { SummaryComponent } from '../../pages/summary/summary.component';
 import { FrontpageComponent } from '../../pages/frontpage/frontpage.component';
 import { EditCaseComponent } from 'app/pages/edit-case/edit-case.component';
+import { FetchcaseComponent } from '../../pages/fetchcase/fetchcase.component';
 
 /* Imports */
 export const ContentRoutes: Routes = [
@@ -28,6 +29,6 @@ export const ContentRoutes: Routes = [
     { path: 'confirmation', component: ConfirmationComponent },
     { path: 'page', component: PageComponent },
     { path: 'edit', component: EditCaseComponent },
-
+    { path: 'fetchcase', component: FetchcaseComponent},
 ];
 

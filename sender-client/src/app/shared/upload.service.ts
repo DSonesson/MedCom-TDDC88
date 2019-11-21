@@ -24,8 +24,6 @@ export class UploadService {
     this.dataService.getCase().caseNr = this.caseNr;
     this.uploadPath = this.caseNr;
 
-    console.log(this.caseNr);
-
     this.generateYML();
 
     //TODO: Make sure that userLogin() is succesfull before the other once are done.

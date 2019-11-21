@@ -18,7 +18,7 @@ import { Page2Component }    from '../../pages/page2/page2.component';
 import { CardFormComponent }    from '../../shared/cards/card-form/card-form.component';
 import { ConfirmationComponent } from '../../pages/confirmation/confirmation.component';
 import { SummaryComponent } from '../../pages/summary/summary.component';
-import { FrontpageComponent } from '../../pages/frontpage/frontpage.component';
+import { FetchcaseComponent } from '../../pages/fetchcase/fetchcase.component';
 import { CardImageComponent }    from '../../shared/cards/card-image/card-image.component';
 import { CardDefaultComponent }    from '../../shared/cards/card-default/card-default.component';
 import { CardTmplComponent }    from '../../shared/cards/card-tmpl/card-tmpl.component';
@@ -26,6 +26,7 @@ import { CardConfirmationComponent } from '../../shared/cards/card-confirmation/
 import { CardFormFetchCaseComponent }    from '../../shared/cards/card-form-fetch-case/card-form-fetch-case.component';
 import { CardTableComponent }    from '../../shared/cards/card-table/card-table.component';
 import { EditCaseComponent } from 'app/pages/edit-case/edit-case.component';
+import { FrontpageComponent } from '../../pages/frontpage/frontpage.component';
 
 @NgModule({
   imports: [
@@ -49,6 +50,7 @@ import { EditCaseComponent } from 'app/pages/edit-case/edit-case.component';
       CardTableComponent,
       CardFormFetchCaseComponent,
       EditCaseComponent
+      FetchcaseComponent,
   ]
 })
 
