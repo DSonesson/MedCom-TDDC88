@@ -49,8 +49,6 @@ export class CardFormComponent implements OnInit {
 
                     </div>`;
 
-    saveButton1=false;
-
     constructor(public dataService: CaseDataService) {
 
     this.user = this.dataService.getCase().user;
@@ -90,25 +88,17 @@ export class CardFormComponent implements OnInit {
         } return false;
     }
 
+    somethingChanged(){
+        this.onSaveForm.emit(this.isValid())
+    }
 
 
     onSave($event){
 
-        if(this.saveButton1){
-            this.onSaveForm.emit(this.isValid())
-        }
-        this.saveButton1 = !$event;
-        this.dataService.getCase().user = this.user;
-        if (this.saveButton1) {
-            console.log("Open the form", $event);
+    
 
-
-
-        }else{
-            console.log("Save the form data", $event);
-        }
+     //   this.dataService.getCase().user = this.user;
     }
-
 }
 
 export function phoneValidator(phone : RegExp) : ValidatorFn {
