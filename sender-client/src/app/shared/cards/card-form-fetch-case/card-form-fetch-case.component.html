@@ -18,7 +18,10 @@
                         <div class="col-md-12 px-1">
                             <div class="form-group editable card-form">
                                 <label>Ärende nummer</label>
+                                <!-- <label>
                                 <p [hidden]="saveButton1">{{user.name}}</p>
+                            -->
+
                                 <input id="caseNr" formControlName="caseNr" [hidden]="!saveButton1" type="text" class="form-control" placeholder="Ärendenummer" required>
                             
                             </div>
@@ -26,14 +29,16 @@
                         </div>
                     </section>
         
-                </div>
+                </div>  
                     
 
             </form>
                     <div class="card-footer update ml-auto mr-auto btn-on-card">
+                    <a [routerLink]="'/frontpage'">
                     <button type="submit" class="btn btn-info  btn-round" >
                         <span>Nästa</span>
                     </button>
+                </a>
                 </div>
         </div>
     </div>
