@@ -1,35 +1,96 @@
+<div class="row">
+  <div class="header-section">
+    <h3 class="info-page-header">
+      {{ paragraphs["par1"]["titel"] }}
+    </h3>
+    <p class="info-page-sub-header">
+      {{ paragraphs["par1"]["text"] }}
+    </p>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row illustration-row">
+    <div class="col-5 illustration-col">
+      <div class="illustration-circle" style="background-color: #7DABB2">1</div>
+    </div>
+    <div class="col-7 illustration-step-text">
+      <h5 class="text-left step-h5">
+        Fotografera
+      </h5>
+      <p class="text-left">
+        Lorem ipsum dolor sit amet, summo postulant evertitur vel ne. Cu erat
+        propriae definiebas duo, sale singulis hendrerit eu duo.
+      </p>
+    </div>
+  </div>
+  <div class="row illustration-row">
+    <div class="col-7 illustraion-step-text">
+      <h5 class="text-right step-h5">
+        Skicka bild
+      </h5>
+      <p class="text-right">
+        Lorem ipsum dolor sit amet, summo postulant evertitur vel ne. Cu erat
+        propriae definiebas duo, sale singulis hendrerit eu duo.
+      </p>
+    </div>
+    <div class="col-5 illustration-col">
+      <div class="illustration-circle" style="background-color: #518F98">2</div>
+    </div>
+  </div>
+  <div class="row illustration-row">
+    <div class="col-5 illustration-col">
+      <div class="illustration-circle" style="background-color: #116672">3</div>
+    </div>
+    <div class="col-7 illustration-step-text">
+      <h5 class="text-left step-h5">
+        Utvärdera
+      </h5>
+      <p class="text-left">
+        Lorem ipsum dolor sit amet, summo postulant evertitur vel ne. Cu erat
+        propriae definiebas duo, sale singulis hendrerit eu duo.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="page-section row">
+  <div class="text-field-center"></div>
+</div>
 
 <div class="row">
-
-    <!-- Display information text -->
-<div class="textPage">
-
-    <h2>{{pageTitel}}</h2>
-    
-    <div class="textBody">
-        <h3 style="text-align: center;">{{ paragraphs["par1"]["titel"] }}</h3>
-        <p><strong>{{ paragraphs["par1"]["text"] }}</strong></p>
-    </div>
+  <!-- Display information text -->
+  <div class="textPage">
+    <h2>{{ pageTitel }}</h2>
 
     <div class="textBody">
-        <h4>{{ paragraphs["par2"]["titel"] }}</h4>
-        <p>{{ paragraphs["par2"]["text"] }}</p>
+      <h3 style="text-align: center;">{{ paragraphs["par1"]["titel"] }}</h3>
+      <p>
+        <strong>{{ paragraphs["par1"]["text"] }}</strong>
+      </p>
     </div>
 
     <div class="textBody">
-        <h4>{{ paragraphs["par3"]["titel"] }}</h4>
-        <p>{{ paragraphs["par3"]["text"] }}</p>
+      <h4>{{ paragraphs["par2"]["titel"] }}</h4>
+      <p>{{ paragraphs["par2"]["text"] }}</p>
     </div>
 
-</div>
-    
-    <!-- Button for going to frontape -->
-    <div class="col-md-12">
-        <a [routerLink]="'/frontpage'">
-            <button type="Startsida" class="btn btn-info  btn-round" style="float: right;">
-                <span>Gå till startsida</span>
-            </button>
-        </a>
+    <div class="textBody">
+      <h4>{{ paragraphs["par3"]["titel"] }}</h4>
+      <p>{{ paragraphs["par3"]["text"] }}</p>
     </div>
-    
+  </div>
+
+  <!-- Button for going to frontape -->
+  <div class="col-md-12">
+    <a [routerLink]="'/frontpage'">
+      <button
+        type="Startsida"
+        class="btn btn-info  btn-round"
+        style="float: right;"
+      >
+        <span>Gå till startsida</span>
+      </button>
+    </a>
+  </div>
 </div>

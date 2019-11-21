@@ -1,10 +1,53 @@
-.textBody{
-    width: 60%;
+.textBody {
+  width: 60%;
 }
 
-.textPage{
-    display : flex;
-    flex-direction: column;
-    align-items  : center;
-    justify-content : center;
+.textPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-section {
+  padding: 0px 50px 0px 50px;
+  text-align: justify;
+}
+
+.info-page-header {
+  font-size: 1.7em;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.info-page-sub-header {
+  font-weight: bold;
+}
+.illustration-row {
+  margin-top: 10px;
+}
+
+.step-h5 {
+  margin-bottom: 3px;
+}
+
+.illustration-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.illustration-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  font-size: 60px;
+  color: whitesmoke;
+  line-height: 120px;
+  text-align: center;
+}
+
+.col-5,
+.col-7 {
+  padding: 0;
 }
