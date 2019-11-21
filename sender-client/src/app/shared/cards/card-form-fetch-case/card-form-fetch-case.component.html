@@ -8,37 +8,39 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h5 class="card-title">Hämta ärende</h5>
-                <p class="card-description">Beskrivning...</p>
+                <h5 class="card-title">Hämta ditt ärende</h5>
+                <p class="card-description">Skriv in ärendenumret till ärendet du vill komma åt</p>
             </div>
 
-            <form [formGroup]="userForm">
+            <form [formGroup]="caseNrForm">
                 <div class="card-body">
                     <section>
                         <div class="col-md-12 px-1">
                             <div class="form-group editable card-form">
-                                <label>Ärende nummer</label>
-                                <p [hidden]="saveButton1">{{user.name}}</p>
-                                <input id="name" formControlName="name" [hidden]="!saveButton1" type="text" class="form-control" placeholder="Ditt namn" [(ngModel)]="user.name" value="{{user.name}}" required>
-                               
+                                <label>Ärendenummer</label>
+                                <!--
+                            <p [hidden]="saveButton1">{{user.name}}</p>
+                               -->
 
+                                <input id="caseNr" [hidden]="!saveButton1" type="text" class="form-control"
+                                    placeholder="Ex. 1234567" required>
 
                             </div>
-                            
+
                         </div>
                     </section>
-        
+
                 </div>
-                    
+
 
             </form>
-                                <div class="card-footer update ml-auto mr-auto btn-on-card">
-                    <button type="submit" class="btn btn-info  btn-round" (click)="onSave(saveButton1)"  >
-                        <i class="nc-icon circle-icon nc-ruler-pencil"></i>
-                        <span [hidden]="saveButton1">Redigera</span>
-                        <span [hidden]="!saveButton1">Spara</span>
+            <div class="card-footer update ml-auto mr-auto btn-on-card">
+                <a [routerLink]="'/frontpage'">
+                    <button type="submit" class="btn btn-info  btn-round">
+                        <span>Hämta</span>
                     </button>
-                </div>
+                </a>
+            </div>
         </div>
     </div>
 </div>

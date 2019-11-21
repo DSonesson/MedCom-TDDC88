@@ -24,7 +24,7 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    ContentComponent
+    ContentComponent,
   ],
   imports: [
     HttpClientModule,
