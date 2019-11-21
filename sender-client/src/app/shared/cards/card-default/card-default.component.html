@@ -23,7 +23,13 @@
                             <p>{{case.user.phone}}</p>
                         </div>
 
-                        <img [src]="imagePreview">
+                        <div class="container">
+                            <div class="row">
+                              <div *ngFor="let image of imagePreview" class="col-sm image-preview">
+                                <img [src]="image">
+                              </div>
+                            </div>
+                          </div>
 
                     </div>
                 </section>

@@ -31,7 +31,9 @@ export class UploadService {
     this.httpService.createFolder(this.uploadPath);
     //This should be looped once several files are stored.
     this.httpService.postFile(this.ymlFile, this.uploadPath);
-    this.httpService.postFile(this.case.images[0].file, this.uploadPath);
+    for (var image of this.case.images) {
+      this.httpService.postFile(image.file, this.uploadPath);
+    }
   }
 
   realUpload() {
