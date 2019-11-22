@@ -2,6 +2,7 @@ import { Injectable, Predicate } from '@angular/core';
 import { HttpClient, HttpParams} from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { stringify } from 'querystring';
 
 @Injectable({
   providedIn: 'root'
@@ -46,24 +47,20 @@ export class HttpService {
     })
   }
 
-  private userLogin1():Observable<string> {
+  private userLogin1():Promise<string> {
     const req = this.url + '/core/loginguest'
     const headers = new HttpHeaders({
       'Content-Type':  'application/x-www-form-urlencoded',
       'Accept':  'application/xml',
       'Response-Type': 'text',
       'Access-Control-Allow-Origin': '*',
-      observe: 'response'
-      // 'Access-Control-Allow-Methods': 'PUT, GET, POST, DELETE, OPTIONS',
-      // 'Access-Control-Allow-Headers': 'Content-Type',
-      //'Cookie': 'X-XSRF-TOKEN=aqt1uuezrl4q9uu03ipl'
-      // "User-Agent":"Chrome/56.0.2924.87"
+      'observe': 'response'
     })
     const params = {
       'userid':'annro873','password':'vLieZJzd'
     }
 
-    return this.http.request('POST', req, {headers, params, 'responseType':"text"})
+    return this.http.request('POST', req, {headers, params, 'responseType':"text"}).toPromise();
   }
 
   /**
@@ -130,16 +127,18 @@ export class HttpService {
 
   }
 
-  doSearch(caseNr:string, searchloc:string) : boolean {
-    this.userLogin1().subscribe(resp => {
-        console.log(resp);  
-        this.search(caseNr, searchloc);
-    });
+  async doSearch(caseNr:string, searchloc:string) : Promise<boolean> {
 
-    return true;
+    let loginData = await this.userLogin1();
+    console.log(loginData);
+
+    let searchData = await this.search(caseNr, searchloc);
+    console.log(searchData);
+
+    return searchData == null;
   }
 
-  private search(caseNr:string, searchloc:string) {
+  private search(caseNr:string, searchloc:string) : Promise<string> {
     const req = this.url + '/core/dosearch'
 
     const headers = new HttpHeaders({
@@ -154,20 +153,7 @@ export class HttpService {
       'searchloc': searchloc,
     }
 
-    this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
-      console.log(resp)
-    })
-
-    
-    // let data =  this.http.request('POST', req, {headers, params, 'responseType':"text"}).toPromise();
-    
-    // return true;
+    return this.http.request('POST', req, {headers, params, 'responseType':"text"}).toPromise();
   }
-
-  // private async search(observe : Observable<any>): Promise<any> {
-  //     let response: Promise<any> = await observe.toPromise();
-
-  //     return response;
-  // }
 
 }
