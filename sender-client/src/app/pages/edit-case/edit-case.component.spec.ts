@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EditCaseComponent } from './edit-case.component';
+import {CardPatientDataComponent} from "../../shared/cards/card-patient-data/card-patient-data.component";
+import {CardTableComponent} from "../../shared/cards/card-table/card-table.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 describe('EditCaseComponent', () => {
   let component: EditCaseComponent;
@@ -8,7 +11,9 @@ describe('EditCaseComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditCaseComponent ]
+      imports: [FormsModule, ReactiveFormsModule],
+      declarations: [ EditCaseComponent, CardPatientDataComponent, CardTableComponent ],
+
     })
     .compileComponents();
   }));
