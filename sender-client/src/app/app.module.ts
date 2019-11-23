@@ -9,6 +9,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from "ngx-toastr";
 import { LightboxModule } from 'ngx-lightbox';
+import { MatIconModule } from "@angular/material/icon";
 
 /* Import modules */
 import { FooterModule } from './layouts/footer/footer.module';
@@ -30,6 +31,7 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
   imports: [
     HttpClientModule,
     HttpClientJsonpModule,
+    MatIconModule,
     BrowserAnimationsModule,
     LightboxModule,
     RouterModule.forRoot(AppRoutes,{

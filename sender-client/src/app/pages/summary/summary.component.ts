@@ -7,6 +7,8 @@
 /* Imports */
 import { Component, OnInit } from '@angular/core';
 import { UploadService } from 'app/shared/upload.service';
+import { MatIconRegistry } from "@angular/material/icon";
+import { DomSanitizer } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-summary',
@@ -15,7 +17,13 @@ import { UploadService } from 'app/shared/upload.service';
 })
 export class SummaryComponent implements OnInit {
 
-  constructor(private uploadService: UploadService) { }
+  constructor(private uploadService: UploadService, private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer
+    ) {
+      this.matIconRegistry.addSvgIcon(
+        "edit",
+        this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/edit.svg")
+      );
+     }
 
   startUpload() {
     this.uploadService.startUpload();
