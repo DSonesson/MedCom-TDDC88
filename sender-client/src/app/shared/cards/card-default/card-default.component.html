@@ -25,14 +25,7 @@
                             <p id="telefon">{{case.user.phone}}</p>
                         </div>
 
-                        <div class="container">
-                            <div class="row">
-                                <div *ngFor="let image of imagePreview; let i=index;" class="col-sm image-preview">
-                                <img id="image{{i}}" [src]="image" (click)="enlargeImage(i)">
-                                <div id="x{{i}}" class="remove-button" (click)="removeImage(i)">X</div>
-                              </div>
-                            </div>
-                          </div>
+                        
 
                     </div>
                 </section>

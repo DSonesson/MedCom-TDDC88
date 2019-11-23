@@ -10,6 +10,7 @@
 </div>
 
 <app-card-default></app-card-default>
+<app-card-image [isValid]="!isValid" Message="Lägg till fler bilder" (imageUploaded)="setUploadBoolean($event)"></app-card-image>
 
 <div class="row">
 

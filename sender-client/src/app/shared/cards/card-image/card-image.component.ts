@@ -24,6 +24,8 @@ export class CardImageComponent implements OnInit {
   private _album: any = [];
     // recieves from card-image if the form has valid values
   @Input() isValid: boolean;
+
+  @Input() Message: String;
   // communicates if images are uploaded or not
   @Output() imageUploaded = new EventEmitter<boolean>();
 

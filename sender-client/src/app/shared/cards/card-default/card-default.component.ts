@@ -24,6 +24,13 @@ export class CardDefaultComponent implements OnInit {
   
 }
 
+removeImage(index: number){
+  this.dataService.getCase().images.splice(index, 1);
+  this._album.splice(index, 1);
+  this.loadImages();
+ // this.imageCounter--;
+}
+
 loadImages() {
   this.imagePreview = [];
   this._album = [];
