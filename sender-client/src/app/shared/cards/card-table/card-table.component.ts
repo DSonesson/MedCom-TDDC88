@@ -108,6 +108,7 @@ export class CardTableComponent implements OnInit {
     setCheckboxes(checkboxId: number, setBoolean: boolean) {
         this.checkboxes[checkboxId].value = setBoolean;
         this.checkboxes[checkboxId].storedValue = true;
+        this.dataService.getCase().patientForm = this.checkboxes;
     }
 
 }
