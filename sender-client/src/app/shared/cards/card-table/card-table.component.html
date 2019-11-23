@@ -30,7 +30,7 @@
           <td>Har patienn en kroppstemn en kroppstemten en kroppstempratur >36 grader</td>
           <td><div class="form-check">
   <label class="form-check-label">
-      <input id="checkbox0" class="form-check-input" type="checkbox" value="">
+      <input id="checkbox0" class="form-check-input" type="checkbox" [ngModel]="checkboxed[0]" [ngModelOptions]="{standalone: true}" (change)="setCheckboxes(0)">
 
       <span class="form-check-sign">
           <span class="check"></span>
@@ -39,7 +39,7 @@
 </div></td>
 <td><div class="form-check">
     <label class="form-check-label">
-        <input id="checkbox1" class="form-check-input" type="checkbox" value="">
+        <input id="checkbox1" class="form-check-input" type="checkbox" [ngModel]="!checkboxed[0]" [ngModelOptions]="{standalone: true}" (change)="setCheckboxes(0)">
 
         <span class="form-check-sign">
             <span class="check"></span>
@@ -52,7 +52,7 @@
           <td>Är arteriellt pO2 > 10 kPa?</td>
                  <td><div class="form-check">
   <label class="form-check-label">
-      <input id="checkbox2" class="form-check-input" type="checkbox" value="">
+      <input id="checkbox2" class="form-check-input" type="checkbox" [ngModel]="checkboxed[1]" [ngModelOptions]="{standalone: true}" (change)="setCheckboxes(1)">
 
       <span class="form-check-sign">
           <span class="check"></span>
@@ -61,7 +61,7 @@
 </div></td>
 <td><div class="form-check">
     <label class="form-check-label">
-        <input id="checkbox3" class="form-check-input" type="checkbox" value="">
+        <input id="checkbox3" class="form-check-input" type="checkbox" [ngModel]="!checkboxed[1]" [ngModelOptions]="{standalone: true}" (change)="setCheckboxes(1)">
 
         <span class="form-check-sign">
             <span class="check"></span>
