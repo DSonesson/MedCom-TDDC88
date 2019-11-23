@@ -29,7 +29,7 @@ import { FormControl, Validators, FormGroup, ValidatorFn, AbstractControl } from
 export class CardTableComponent implements OnInit {
 
     user: User;
-    checkboxed: boolean[] = [];
+    checkboxes: Array<{question: string, storedValue: boolean, value: boolean}> = [];
     private card_content = `                    <div class="col-md-12 px-1">
                         
                         <div class="form-group editable card-table">
@@ -53,9 +53,18 @@ export class CardTableComponent implements OnInit {
 
     this.user = this.dataService.getCase().user;
 
-
-    this.checkboxed = [false, false, false, false, false, false, false, false, false, false];
-
+    this.checkboxes = [
+         {question: "Har patienten en kroppstemperatur över 36 grader?", storedValue: false, value: false},
+         {question: "Har patienten en kroppstemperatur över 36 grader?", storedValue: false, value: false}, 
+         {question: "Har patienten en kroppstemperatur över 36 grader?", storedValue: false, value: false}, 
+         {question: "Har patienten en kroppstemperatur över 36 grader?", storedValue: false, value: false},
+         {question: "Har patienten en kroppstemperatur över 36 grader?", storedValue: false, value: false},
+         {question: "Har patienten en kroppstemperatur över 36 grader?", storedValue: false, value: false},
+         {question: "Har patienten en kroppstemperatur över 36 grader?", storedValue: false, value: false},
+         {question: "Har patienten en kroppstemperatur över 36 grader?", storedValue: false, value: false},
+         {question: "Har patienten en kroppstemperatur över 36 grader?", storedValue: false, value: false},
+         {question: "Har patienten en kroppstemperatur över 36 grader?", storedValue: false, value: false}
+    ];
 
     }
 
@@ -96,13 +105,9 @@ export class CardTableComponent implements OnInit {
         }
     }
 
-    setCheckboxes(checkboxId: number) {
-        if (this.checkboxed[checkboxId] == true) {
-            this.checkboxed[checkboxId] = false;
-        }
-        else {
-            this.checkboxed[checkboxId] = true;
-        }
+    setCheckboxes(checkboxId: number, setBoolean: boolean) {
+        this.checkboxes[checkboxId].value = setBoolean;
+        this.checkboxes[checkboxId].storedValue = true;
     }
 
 }

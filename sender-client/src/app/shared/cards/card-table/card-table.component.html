@@ -26,11 +26,11 @@
         <th>Nej</th>
       </thead>
       <tbody>
-        <tr>
-          <td>Har patienn en kroppstemn en kroppstemten en kroppstempratur >36 grader</td>
+        <tr *ngFor="let checkbox of checkboxes; let i=index;">
+          <td>{{checkbox.question}}</td>
           <td><div class="form-check">
   <label class="form-check-label">
-      <input id="checkbox0" class="form-check-input" type="checkbox" [ngModel]="checkboxed[0]" [ngModelOptions]="{standalone: true}" (change)="setCheckboxes(0)">
+      <input id="checkbox0" class="form-check-input" type="checkbox" [ngModel]="checkbox.value && checkbox.storedValue" [ngModelOptions]="{standalone: true}" (change)="setCheckboxes(i, true)">
 
       <span class="form-check-sign">
           <span class="check"></span>
@@ -39,7 +39,7 @@
 </div></td>
 <td><div class="form-check">
     <label class="form-check-label">
-        <input id="checkbox1" class="form-check-input" type="checkbox" [ngModel]="!checkboxed[0]" [ngModelOptions]="{standalone: true}" (change)="setCheckboxes(0)">
+        <input id="checkbox1" class="form-check-input" type="checkbox" [ngModel]="checkbox.value == false && checkbox.storedValue" [ngModelOptions]="{standalone: true}" (change)="setCheckboxes(i, false)">
 
         <span class="form-check-sign">
             <span class="check"></span>
@@ -47,29 +47,7 @@
     </label>
   </div></td>
 
-        </tr>
-        <tr>
-          <td>Är arteriellt pO2 > 10 kPa?</td>
-                 <td><div class="form-check">
-  <label class="form-check-label">
-      <input id="checkbox2" class="form-check-input" type="checkbox" [ngModel]="checkboxed[1]" [ngModelOptions]="{standalone: true}" (change)="setCheckboxes(1)">
-
-      <span class="form-check-sign">
-          <span class="check"></span>
-      </span>
-  </label>
-</div></td>
-<td><div class="form-check">
-    <label class="form-check-label">
-        <input id="checkbox3" class="form-check-input" type="checkbox" [ngModel]="!checkboxed[1]" [ngModelOptions]="{standalone: true}" (change)="setCheckboxes(1)">
-
-        <span class="form-check-sign">
-            <span class="check"></span>
-        </span>
-    </label>
-  </div></td>
-
-        </tr>
+</tr>
 
       </tbody>
     </table>
