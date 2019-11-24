@@ -33,30 +33,30 @@ export class SummaryComponent implements OnInit {
  public isValid: boolean; 
  // is image uploaded locally
  public isUploaded: boolean; 
-
- public DisplayForm: boolean;
+// boolean for deciding which card form to show.
+ public displayForm: boolean;
 
 
  /**
    * sets boolean isValid to same value as in child component card-form.component
    */
  public setValidity(isValid: boolean): void {
-  console.log("HÄNDER 1");
-  
+ 
   this.isValid = isValid;
- }
+ 
+}
+
 public setDisplayForm(displayForm: boolean): void {
-  console.log("händer 3");
-  console.log(displayForm);
-  this.DisplayForm = displayForm;
+ 
+ this.displayForm = displayForm;
+
 }
 
  /**
    * sets boolean isUploaded to same value as in child component card-image.component
    */
  public setUploadBoolean(isUploaded: boolean): void {
-  console.log("Händer 2") ;
-  console.log(isUploaded);
+ 
   if (this.isValid) {
      this.isUploaded = isUploaded;
    }
@@ -66,7 +66,7 @@ public setDisplayForm(displayForm: boolean): void {
    ngOnInit() {
      this.isValid=false;
      this.isUploaded=false;
-     this.DisplayForm= false;
+     this.displayForm= false;
     };
 
 }

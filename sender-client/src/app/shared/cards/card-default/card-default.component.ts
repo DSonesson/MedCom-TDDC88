@@ -15,9 +15,7 @@ export class CardDefaultComponent implements OnInit {
  imagePreview: any;
  private _album: any = [];
  src: any;
-
-
- @Output() DisplayForm = new EventEmitter<boolean>();
+@Output() displayForm = new EventEmitter<boolean>();
 
 
 
@@ -31,9 +29,9 @@ export class CardDefaultComponent implements OnInit {
 
 }
 
-setDisplayForm($event) {
+setDisplayForm() {
 
-  this.DisplayForm.emit(true);
+  this.displayForm.emit(true);
 }
 
 removeImage(index: number){
