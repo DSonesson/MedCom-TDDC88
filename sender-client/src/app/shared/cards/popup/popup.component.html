@@ -1,0 +1,16 @@
+<!-- Popup window -->
+<div style="width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-around;">
+    
+    <h4 mat-dialog-title style="text-align: center;">{{data.content}}</h4>
+
+    <mat-dialog-actions  style="display: flex; justify-content: space-evenly;">
+        
+        <button mat-button mat-dialog-close [mat-dialog-close]="false" class="btn btn-danger btn-round" >{{data.noBtn}}</button>
+            
+        <a [routerLink]="'/frontpage'">    
+            <button mat-button mat-dialog-close [mat-dialog-close]="true" class="btn btn-success btn-round">{{data.yesBtn}}</button>
+        </a>
+    
+    </mat-dialog-actions>
+
+</div>
