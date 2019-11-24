@@ -49,10 +49,10 @@ export class UploadService {
   }
 
   generatePatientFormYML() {
-    var content = "Case number: " + this.caseNr + "\r\n"
-        + "Name: " + this.case.user.name + "\r\n"
-        + "Email: " + this.case.user.email + "\r\n"
-        + "Phone: " + this.case.user.phone + "\r\n";
+    var content = "Patientinformation för ärende: " + this.caseNr + "\r\n"
+        + "Namn: " + this.case.patientInfo[0] + "\r\n"
+        + "Personnummer: " + this.case.patientInfo[1] + "\r\n"
+        + "Kommentarer: " + "\r\n" + this.case.patientInfo[2] + "\r\n"  + "\r\n";
      
         for(let i=0; i<this.dataService.getCase().patientForm.length; i++){
           var yesNoString = "Svar: Nej";

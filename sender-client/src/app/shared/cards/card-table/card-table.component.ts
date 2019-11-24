@@ -54,16 +54,16 @@ export class CardTableComponent implements OnInit {
     this.user = this.dataService.getCase().user;
 
     this.checkboxes = [
-         {question: "Har patienten en kroppstemperatur över 36 grader?", storedValue: false, value: false},
-         {question: "Har patienten en kroppstemperatur över 36 grader?", storedValue: false, value: false}, 
-         {question: "Har patienten en kroppstemperatur över 36 grader?", storedValue: false, value: false}, 
-         {question: "Har patienten en kroppstemperatur över 36 grader?", storedValue: false, value: false},
-         {question: "Har patienten en kroppstemperatur över 36 grader?", storedValue: false, value: false},
-         {question: "Har patienten en kroppstemperatur över 36 grader?", storedValue: false, value: false},
-         {question: "Har patienten en kroppstemperatur över 36 grader?", storedValue: false, value: false},
-         {question: "Har patienten en kroppstemperatur över 36 grader?", storedValue: false, value: false},
-         {question: "Har patienten en kroppstemperatur över 36 grader?", storedValue: false, value: false},
-         {question: "Har patienten en kroppstemperatur över 36 grader?", storedValue: false, value: false}
+         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
+         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false}, 
+         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false}, 
+         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
+         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
+         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
+         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
+         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
+         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
+         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false}
     ];
 
     }
