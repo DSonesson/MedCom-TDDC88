@@ -49,9 +49,15 @@ export class CardImageComponent implements OnInit {
  * @param {event} This is the file that is selected in the file select dialog
  */
 saveImageToCase(event){
-  //4194304 bytes = 4mb
-  if(event.target.files[0].size > 4194304) {
+  //15728640 bytes = 15mb
+  if(event.target.files[0].size > 15728640) {
     alert("The size of the image exceeds the allowed limit of 4 megabytes.");
+    return;
+  }
+
+  // 209715.2 = 0.2mb
+  if(event.target.files[0].size < 209715.2) {
+    alert("The size of the images must exceed 0.2 megabytes.");
     return;
   }
 
