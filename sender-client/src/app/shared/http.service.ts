@@ -3,6 +3,9 @@ import { HttpClient, HttpParams} from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { stringify } from 'querystring';
+import { NgxXml2jsonService } from 'ngx-xml2json';
+import xml2js from 'xml2js';
+
 
 @Injectable({
   providedIn: 'root'
@@ -129,13 +132,36 @@ export class HttpService {
 
   async doSearch(caseNr:string, searchloc:string) : Promise<boolean> {
 
-    let loginData = await this.userLogin1();
+    const loginData = await this.userLogin1();
     console.log(loginData);
 
-    let searchData = await this.search(caseNr, searchloc);
+    const searchData = await this.search(caseNr, searchloc);
     console.log(searchData);
 
-    return searchData == null;
+    // var parser = require('xml2js').parseString;
+    // const parser = new xml2js.Parser({ strict: false, trim: true });
+    var total = 0;
+    // parser.parseString(searchData, (err, result) => {
+    //   console.log(result);
+    //   total = 1;
+    // });
+    // parser(searchData, (err, result) => {
+    //   console.log(result);
+    //   total = 1;
+    // });
+
+    // const parser = new xml2js.Parser({
+    //     trim: true,
+    //     explicitArray: true
+    // });
+    
+    xml2js.parseString(searchData, function (err, result) {
+        console.log(result.entries.meta[0].total[0]);
+        total = result.entries.meta[0].total[0];
+    });
+    console.log("total = " + total);
+    console.log(total >= 0);
+    return total > 0;
   }
 
   private search(caseNr:string, searchloc:string) : Promise<string> {
@@ -154,6 +180,31 @@ export class HttpService {
     }
 
     return this.http.request('POST', req, {headers, params, 'responseType':"text"}).toPromise();
+  }
+
+  parseXML(data) {
+    return new Promise(resolve => {
+      var k: string | number,
+        arr = [],
+        parser = new xml2js.Parser(
+          {
+            trim: true,
+            explicitArray: true
+          });
+      parser.parseString(data, function (err, result) {
+        var obj = result.Employee;
+        for (k in obj.emp) {
+          var item = obj.emp[k];
+          arr.push({
+            id: item.id[0],
+            name: item.name[0],
+            gender: item.gender[0],
+            mobile: item.mobile[0]
+          });
+        }
+        resolve(arr);
+      });
+    });
   }
 
 }
