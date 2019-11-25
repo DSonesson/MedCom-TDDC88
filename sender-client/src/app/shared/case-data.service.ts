@@ -44,9 +44,10 @@ export class CaseDataService {
     this.caseData.user.name = "";
     this.caseData.user.email = "";
     this.caseData.user.phone = "";
-  
+
     //TODO CLEAR IMAGE ARRAY
   }
+
 }
 
 

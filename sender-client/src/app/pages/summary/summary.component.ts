@@ -26,8 +26,6 @@ import { CaseDataService } from 'app/shared/case-data.service';
 })
 export class SummaryComponent implements OnInit {
 
-
-
 /**
    * @param uploadService 
    * @param dialog 
@@ -61,25 +59,18 @@ export class SummaryComponent implements OnInit {
    * sets boolean isValid to same value as in child component card-form.component
    */
  public setValidity(isValid: boolean): void {
- 
   this.isValid = isValid;
- 
 }
 
 public setDisplayForm(displayForm: boolean): void {
- 
  this.displayForm = displayForm;
-
 }
 
  /**
    * sets boolean isUploaded to same value as in child component card-image.component
    */
  public setUploadBoolean(isUploaded: boolean): void {
- 
-  if (this.isValid) {
      this.isUploaded = isUploaded;
-   }
  }
 
  /**
@@ -105,12 +96,15 @@ public setDisplayForm(displayForm: boolean): void {
     });
   }
 
-
-   ngOnInit() {
-     this.isValid=false;
-     this.isUploaded=false;
+  /**
+   * Set isValid and isUploaded to true since it
+   * must be for the user to acess this page
+   */
+  ngOnInit() {
+     this.isValid=true;
+     this.isUploaded= true;
      this.displayForm= false;
-    };
+  };
 
 
 }

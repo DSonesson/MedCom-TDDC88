@@ -57,8 +57,8 @@ saveImageToCase(event){
     return;
   }
 
-  // 209715.2 = 0.2mb
-  if(event.target.files[0].size < 209715.2) {
+  // 102400 = 0.1 MB
+  if(event.target.files[0].size < 102400) {
     alert("The size of the images must exceed 0.2 megabytes.");
     return;
   }
@@ -74,7 +74,8 @@ saveImageToCase(event){
   this.dataService.getCase().images.push(this.image);
 
   // send to parent if image is uploaded
-  this.imageUploaded.emit(this.imagesAvailable)
+  this.imagesAvailable = true;
+  this.imageUploaded.emit(this.imagesAvailable);
 
   this.addImage();
 }
@@ -89,6 +90,10 @@ removeImage(index: number){
   this._album.splice(index, 1);
   this.loadImages();
   this.imageCounter--;
+  if ( this.imageCounter === -1){
+    this.imagesAvailable = false;
+    this.imageUploaded.emit(this.imagesAvailable);
+  }
 }
 
 /**
