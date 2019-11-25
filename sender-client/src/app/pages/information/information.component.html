@@ -58,54 +58,50 @@
 
 <div class="container-fluid page-section ">
   <div class="row">
-    <div class="px-4 content-wrapper">
-      <img src="../../../assets/img/Lightning.png" class="lightning-image" />
-      <div class="text-block">
-        <h5 class="text-left mb-0">Med enkelhet och snabbhet i fokus</h5>
-        <p class="text-left mb-0">
-          Lorem ipsum dolor sit amet, summo postulant evertitur vel ne. Cu erat
-          propriae definiebas duo, sale singulis hendrerit eu duo. Lorem ipsum
-          dolor sit amet, summo postulant evertitur vel ne. Cu erat propriae
-          definiebas duo, sale singulis hendrerit eu duo.
-        </p>
-      </div>
+    <div class="container lightning-container">
+      <h5 class="text-left mb-0">
+        Enkelhet och snabbhet
+      </h5>
+      <p class="mb-0 text-justify">
+        Lorem ipsum dolor sit amet, summo postulant evertitur vel ne. Cu erat
+        propriae definiebas duo, sale singulis hendrerit eu duo. Lorem ipsum
+        dolor sit amet, summo postulant evertitur vel ne. Cu erat propriae
+        definiebas duo, sale singulis hendrerit eu duo.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container lock-container">
+      <h5 class="text-right mb-0">Säkerhet med kvaité</h5>
+      <p class="mb-0 text-justify">
+        Lorem ipsum dolor sit amet, summo postulant evertitur vel ne. Cu erat
+        propriae definiebas duo, sale singulis hendrerit eu duo. Lorem ipsum
+        dolor sit amet, summo postulant evertitur vel ne. Cu erat propriae
+        definiebas duo, sale singulis hendrerit eu duo.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container profile-container">
+      <h5 class="text-center mb-0">
+        Med individen i fokus
+      </h5>
     </div>
   </div>
 </div>
 
-<div class="row">
-  <!-- Display information text -->
-  <div class="textPage">
-    <h2>{{ pageTitel }}</h2>
-
-    <div class="textBody">
-      <h3 style="text-align: center;">{{ paragraphs["par1"]["titel"] }}</h3>
-      <p>
-        <strong>{{ paragraphs["par1"]["text"] }}</strong>
-      </p>
+<div class="page-section">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <a [routerLink]="'/frontpage'">
+        <button
+          type="Startsida"
+          class="btn btn-info  btn-round"
+          style="float: right;"
+        >
+          <span>Gå till startsida</span>
+        </button>
+      </a>
     </div>
-
-    <div class="textBody">
-      <h4>{{ paragraphs["par2"]["titel"] }}</h4>
-      <p>{{ paragraphs["par2"]["text"] }}</p>
-    </div>
-
-    <div class="textBody">
-      <h4>{{ paragraphs["par3"]["titel"] }}</h4>
-      <p>{{ paragraphs["par3"]["text"] }}</p>
-    </div>
-  </div>
-
-  <!-- Button for going to frontape -->
-  <div class="col-md-12">
-    <a [routerLink]="'/frontpage'">
-      <button
-        type="Startsida"
-        class="btn btn-info  btn-round"
-        style="float: right;"
-      >
-        <span>Gå till startsida</span>
-      </button>
-    </a>
   </div>
 </div>

@@ -10,7 +10,7 @@
 }
 
 .page-section {
-  margin: 40px 0px 0px 0px;
+  margin: 70px 0px 0px 0px;
   height: 100%;
 }
 
@@ -57,15 +57,34 @@
   padding: 0;
 }
 
-.text-block {
-  position: absolute;
-}
-
 .lightning-image {
   width: 30vw;
-  position: absolute;
 }
 
-.content-wrapper {
-  height: 100%;
+.lightning-container {
+  background-image: url("../../../assets/img/LightningEdited.png");
+  background-size: 120px;
+  background-repeat: no-repeat;
+  padding: 45px 20px 0px 55px;
+  min-height: 120px;
+}
+
+.lock-container {
+  background-image: url("../../../assets/img/LockEdited.png");
+  background-size: 150px;
+  background-repeat: no-repeat;
+  background-position: right top;
+  padding: 65px 55px 0 20px;
+  min-height: 150px;
+}
+
+.profile-container {
+  background-image: url("../../../assets/img/ProfileEdited.png");
+  background-size: 320px;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 320px;
+  margin-top: 50px;
+  padding-top: 200px;
+  color: white;
 }
