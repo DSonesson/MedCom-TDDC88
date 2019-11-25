@@ -12,6 +12,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContentRoutes } from './content.routing';
 import { MatIconModule } from "@angular/material/icon";
+import { MatDialogModule } from '@angular/material';
+
 
 /* All pages components will be placed here */
 import { PageComponent }    from '../../pages/page/page.component';
@@ -29,6 +31,9 @@ import { CardTableComponent }    from '../../shared/cards/card-table/card-table.
 import { EditCaseComponent } from 'app/pages/edit-case/edit-case.component';
 import { CardPatientDataComponent } from 'app/shared/cards/card-patient-data/card-patient-data.component';
 import { FrontpageComponent } from '../../pages/frontpage/frontpage.component';
+import { CardCaseNumber } from 'app/shared/cards/card-case-number/card-case-number.component';
+import { PopupComponent } from '../../shared/cards/popup/popup.component';
+import { ContentComponent } from './content.component';
 
 @NgModule({
   imports: [
@@ -37,7 +42,8 @@ import { FrontpageComponent } from '../../pages/frontpage/frontpage.component';
     FormsModule,
     MatIconModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
   ],
   declarations: [
       PageComponent,
@@ -55,7 +61,10 @@ import { FrontpageComponent } from '../../pages/frontpage/frontpage.component';
       EditCaseComponent,
       CardPatientDataComponent,
       FetchcaseComponent,
-  ]
+      CardCaseNumber,
+      PopupComponent,
+  ],
+  entryComponents: [PopupComponent],
 })
 
 export class ContentModule {}

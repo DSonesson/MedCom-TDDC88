@@ -20,11 +20,9 @@
 <div class="row">
 
     <div class="col-md-12">
-        <a [routerLink]="'/frontpage'">
-            <button id="tillbakaButton" type="Previous" class="btn btn-info  btn-round" style="float: left;">
-                <span>Tillbaka</span>
-            </button>
-        </a>
+
+        <!-- Cancel button -->
+        <button id="cancelButton" type="previous" class="btn btn-info  btn-round" style="float: left;" mat-raised-button (click)="openDialog()" >Avbryt</button>
 
         <a [routerLink]="'/confirmation'">
             <button id="skickaButton" type="Skicka Ärende" class="btn btn-info  btn-round" style="float: right;" (click)="startUpload()">
