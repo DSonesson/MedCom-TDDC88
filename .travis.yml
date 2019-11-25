@@ -27,7 +27,6 @@ branches:
   only:
     - development
     - front-end
-    - fix-build
 
 before_script:
   - cd sender-client
