@@ -11,7 +11,7 @@
   
 <app-card-form (onSaveForm)="setValidity($event)"></app-card-form>
 
-<app-card-image [isValid]="isValid" (imageUploaded)="setUploadBoolean($event)"></app-card-image>
+<app-card-image [isValid]="isValid" Message="Välj bild" (imageUploaded)="setUploadBoolean($event)"></app-card-image>
 
 <div class="row">
   <div class="col-md-12" >

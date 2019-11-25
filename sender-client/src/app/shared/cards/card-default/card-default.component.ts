@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CaseDataService } from '../../case-data.service';
 import { Case } from '../../../models/case';
 import { Lightbox } from 'ngx-lightbox';
@@ -15,6 +15,9 @@ export class CardDefaultComponent implements OnInit {
  imagePreview: any;
  private _album: any = [];
  src: any;
+@Output() displayForm = new EventEmitter<boolean>();
+
+
 
   constructor(public dataService: CaseDataService, public _lightbox: Lightbox) {
     this.case = this.dataService.getCase();
@@ -22,7 +25,23 @@ export class CardDefaultComponent implements OnInit {
     this.imagePreview = [];
     this.loadImages();
   
+
+
 }
+
+setDisplayForm() {
+
+  this.displayForm.emit(true);
+}
+
+removeImage(index: number){
+  this.dataService.getCase().images.splice(index, 1);
+  this._album.splice(index, 1);
+  this.loadImages();
+ // this.imageCounter--;
+}
+
+
 
 loadImages() {
   this.imagePreview = [];

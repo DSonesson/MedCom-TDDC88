@@ -11,7 +11,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContentRoutes } from './content.routing';
+import { MatIconModule } from "@angular/material/icon";
 import { MatDialogModule } from '@angular/material';
+
 
 /* All pages components will be placed here */
 import { PageComponent }    from '../../pages/page/page.component';
@@ -38,6 +40,7 @@ import { ContentComponent } from './content.component';
     CommonModule,
     RouterModule.forChild(ContentRoutes),
     FormsModule,
+    MatIconModule,
     NgbModule,
     ReactiveFormsModule,
     MatDialogModule,

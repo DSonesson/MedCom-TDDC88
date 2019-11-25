@@ -9,7 +9,13 @@
         <h4 style="display: flex; justify-content: flex-end;"> Steg 2 av 3 </h4>
 </div>
 
-<app-card-default></app-card-default>
+<div *ngIf="!displayForm"><app-card-default (displayForm)="setDisplayForm($event)"></app-card-default></div>
+<div *ngIf="displayForm"><app-card-form ></app-card-form></div>
+<app-card-image [isValid]="!isValid" Message="Lägg till fler bilder" (imageUploaded)="setUploadBoolean($event)"></app-card-image>
+
+
+
+ 
 
 <div class="row">
 
