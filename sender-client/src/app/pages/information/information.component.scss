@@ -9,8 +9,13 @@
   justify-content: center;
 }
 
+.page-section {
+  margin: 40px 0px 0px 0px;
+  height: 100%;
+}
+
 .header-section {
-  padding: 0px 50px 0px 50px;
+  padding: 0px 6vw 0px 6vw;
   text-align: justify;
 }
 
@@ -24,7 +29,7 @@
   font-weight: bold;
 }
 .illustration-row {
-  margin-top: 10px;
+  margin: 25px 0px;
 }
 
 .step-h5 {
@@ -50,4 +55,17 @@
 .col-5,
 .col-7 {
   padding: 0;
+}
+
+.text-block {
+  position: absolute;
+}
+
+.lightning-image {
+  width: 30vw;
+  position: absolute;
+}
+
+.content-wrapper {
+  height: 100%;
 }
