@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CardDefaultComponent } from './card-default.component';
 import {LightboxModule} from "ngx-lightbox";
+import {MatIconModule} from "@angular/material/icon";
 
 describe('CardDefaultComponent', () => {
   let component: CardDefaultComponent;
@@ -9,7 +10,7 @@ describe('CardDefaultComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [LightboxModule],
+      imports: [LightboxModule, MatIconModule],
       declarations: [ CardDefaultComponent ]
     })
     .compileComponents();
