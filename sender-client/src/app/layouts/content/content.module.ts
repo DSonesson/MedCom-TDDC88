@@ -29,6 +29,7 @@ import { CardTableComponent }    from '../../shared/cards/card-table/card-table.
 import { EditCaseComponent } from 'app/pages/edit-case/edit-case.component';
 import { CardPatientDataComponent } from 'app/shared/cards/card-patient-data/card-patient-data.component';
 import { FrontpageComponent } from '../../pages/frontpage/frontpage.component';
+import { CardCaseNumber } from 'app/shared/cards/card-case-number/card-case-number.component';
 import { PopupComponent } from '../../shared/cards/popup/popup.component';
 import { ContentComponent } from './content.component';
 
@@ -57,7 +58,8 @@ import { ContentComponent } from './content.component';
       EditCaseComponent,
       CardPatientDataComponent,
       FetchcaseComponent,
-      PopupComponent
+      CardCaseNumber,
+      PopupComponent,
   ],
   entryComponents: [PopupComponent],
 })

@@ -8,8 +8,8 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h5 class="card-title">Ärendenummer</h5>
-                <p class="card-description">Beskrivning...</p>
+                <h5 class="card-title">Patientinformation</h5>
+                <p></p>
             </div>
 
             <form>
@@ -17,8 +17,14 @@
                     <section>
                         <div class="col-md-12 px-1">
                             <div class="form-group editable card-form">
-                                    <label>Ärendenummer</label>
-                                    <p>{{caseNumber}}</p>
+                                    <form [formGroup]="userForm">
+                                    <label>Namn</label>
+                                    <input id="patientName" formControlName="patientName" type="text" class="form-control" placeholder="Namn" [(ngModel)]="patientInfo[0]" value="{{patientInfo[0]}}" (input)="somethingChanged()">
+                                    <label>Personnummer</label>
+                                    <input id="patientSSN" formControlName="patientSSN" type="text" class="form-control" placeholder="Personnummer" [(ngModel)]="patientInfo[1]" value="{{patientInfo[1]}}" (input)="somethingChanged()">
+                                    <label style="margin-top: 15px">Anteckning</label>
+                                    <textarea id="patientComments" formControlName="patientComments" class="form-control" rows="5" (input)="somethingChanged()"></textarea> 
+                                    </form>                                                                 
                             </div>
                             </div>
 
