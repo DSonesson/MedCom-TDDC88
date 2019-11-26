@@ -182,7 +182,7 @@ export class HttpService {
     return this.http.request('POST', req, {headers, params, 'responseType':"text"}).toPromise();
   }
 
-  parseXML(data) {
+  private parseXML(data) {
     return new Promise(resolve => {
       var k: string | number,
         arr = [],
