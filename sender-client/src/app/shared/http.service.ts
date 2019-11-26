@@ -182,29 +182,29 @@ export class HttpService {
     return this.http.request('POST', req, {headers, params, 'responseType':"text"}).toPromise();
   }
 
-  private parseXML(data) {
-    return new Promise(resolve => {
-      var k: string | number,
-        arr = [],
-        parser = new xml2js.Parser(
-          {
-            trim: true,
-            explicitArray: true
-          });
-      parser.parseString(data, function (err, result) {
-        var obj = result.Employee;
-        for (k in obj.emp) {
-          var item = obj.emp[k];
-          arr.push({
-            id: item.id[0],
-            name: item.name[0],
-            gender: item.gender[0],
-            mobile: item.mobile[0]
-          });
-        }
-        resolve(arr);
-      });
-    });
-  }
+  // private parseXML(data) {
+  //   return new Promise(resolve => {
+  //     var k: string | number,
+  //       arr = [],
+  //       parser = new xml2js.Parser(
+  //         {
+  //           trim: true,
+  //           explicitArray: true
+  //         });
+  //     parser.parseString(data, function (err, result) {
+  //       var obj = result.Employee;
+  //       for (k in obj.emp) {
+  //         var item = obj.emp[k];
+  //         arr.push({
+  //           id: item.id[0],
+  //           name: item.name[0],
+  //           gender: item.gender[0],
+  //           mobile: item.mobile[0]
+  //         });
+  //       }
+  //       resolve(arr);
+  //     });
+  //   });
+  // }
 
 }
