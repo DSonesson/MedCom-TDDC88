@@ -35,6 +35,18 @@ export class CaseDataService {
     return this.caseData;
   }
  
+
+  /**
+   * Overwrites the data the user has specified
+   * in front and summary page 
+   */
+  clearUserData(){
+    this.caseData.user.name = "";
+    this.caseData.user.email = "";
+    this.caseData.user.phone = "";
+  
+    //TODO CLEAR IMAGE ARRAY
+  }
 }
 
 

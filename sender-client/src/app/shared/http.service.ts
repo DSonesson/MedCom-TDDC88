@@ -37,7 +37,7 @@ export class HttpService {
       // "User-Agent":"Chrome/56.0.2924.87"
     })
     const params = {
-      'userid':'albli248','password':'dSMFBaeL'
+      'userid':'annro873','password':'vLieZJzd'
     }
 
     this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
@@ -67,7 +67,7 @@ export class HttpService {
     })
 
     const params = {
-      'path':'/albli248/' + uploadPath,'offset':'0', 'complete':'1','filename':fileToUpload.name,'appname':'explorer'
+      'path':'/annro873/' + uploadPath,'offset':'0', 'complete':'1','filename':fileToUpload.name,'appname':'explorer'
     }
 
     this.http.request('POST', req, {'body': formData, headers, params, 'responseType':"text"})
@@ -96,7 +96,7 @@ export class HttpService {
 
     const params = {
       'name': caseNumber,
-      'path': '/albli248'
+      'path': '/annro873'
     }
 
     this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {

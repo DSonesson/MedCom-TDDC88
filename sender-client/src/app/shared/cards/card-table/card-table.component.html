@@ -1,4 +1,4 @@
-<!-- 
+<!--
  * Card Table View File, used for the registration of contact details
  * @version 1.0
  * @author Alexander Anserud <alean378@student.liu.se>
@@ -8,63 +8,63 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h5 class="card-title">Check Lista</h5>
-                <p class="card-description">Använd denna checklista under det akuta omhändertagande och ....</p>
+                <h5 class="card-title">Olycksfallsbeskrivning</h5>
+                <p class="card-description"></p>
             </div>
 
             <form [formGroup]="userForm">
                 <div class="card-body">
                     <section>
                         <div class="col-md-12 px-1">
+                                <p>Använd denna checklista under det akuta omhändertagande och faxa sedan till Brännskadecentrum när patienten lämnar avdelningen.
+                                    Om någon av de rutor etc etc...
+                                </p>
                             <div class="card">
 
   <div class="table-full-width">
     <table class="table">
       <thead class="text-danger">
         <th>Fråga</th>
-        <th>Svar</th>
+        <th>Ja</th>
+        <th>Nej</th>
       </thead>
       <tbody>
-        <tr>
-          <td>Har patienn en kroppstemn en kroppstemten en kroppstempratur >36 grader</td>
+        <tr *ngFor="let checkbox of checkboxes; let i=index;">
+          <td>{{checkbox.question}}</td>
           <td><div class="form-check">
   <label class="form-check-label">
-      <input class="form-check-input" type="checkbox" value="">
-     
+      <input id="checkbox0" class="form-check-input" type="checkbox" [ngModel]="checkbox.value && checkbox.storedValue" [ngModelOptions]="{standalone: true}" (change)="setCheckboxes(i, true)">
+
       <span class="form-check-sign">
           <span class="check"></span>
       </span>
   </label>
 </div></td>
-        
-        </tr>
-        <tr>
-          <td>Är arteriellt pO2 > 10 kPa?</td>
-                 <td><div class="form-check">
-  <label class="form-check-label">
-      <input class="form-check-input" type="checkbox" value="">
-     
-      <span class="form-check-sign">
-          <span class="check"></span>
-      </span>
-  </label>
-</div></td>
-         
-        </tr>
-       
+<td><div class="form-check">
+    <label class="form-check-label">
+        <input id="checkbox1" class="form-check-input" type="checkbox" [ngModel]="checkbox.value == false && checkbox.storedValue" [ngModelOptions]="{standalone: true}" (change)="setCheckboxes(i, false)">
+
+        <span class="form-check-sign">
+            <span class="check"></span>
+        </span>
+    </label>
+  </div></td>
+
+</tr>
+
       </tbody>
     </table>
   </div>
 </div>
-                            
+
                         </div>
                     </section>
-        
+
                 </div>
-                    
+
 
             </form>
-                            
+
         </div>
     </div>
 </div>

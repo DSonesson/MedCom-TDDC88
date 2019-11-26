@@ -5,8 +5,10 @@ import { Patient } from './patient';
 export class Case {
     user: User;
     images: Image[];
-    caseNr: number;
+    caseNr: string;
     randomtest: string;
+    patientForm: Array<{question: string, storedValue: boolean, value: boolean}> = [];
+    patientInfo: string[] = [];
     constructor() {
         this.dummyData();
 
@@ -14,11 +16,10 @@ export class Case {
 
     dummyData() {
         this.user= new User();
-        this.images= [new Image()];
-        this.caseNr= 12345;
-        
+        this.images= [];
+        this.caseNr= "";
+        this.patientInfo = ["", "", ""];
+
     }
 
   }
-
-

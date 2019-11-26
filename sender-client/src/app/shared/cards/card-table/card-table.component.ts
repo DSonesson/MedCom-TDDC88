@@ -29,7 +29,7 @@ import { FormControl, Validators, FormGroup, ValidatorFn, AbstractControl } from
 export class CardTableComponent implements OnInit {
 
     user: User;
-
+    checkboxes: Array<{question: string, storedValue: boolean, value: boolean}> = [];
     private card_content = `                    <div class="col-md-12 px-1">
                         
                         <div class="form-group editable card-table">
@@ -52,6 +52,19 @@ export class CardTableComponent implements OnInit {
     constructor(public dataService: CaseDataService) {
 
     this.user = this.dataService.getCase().user;
+
+    this.checkboxes = [
+         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
+         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false}, 
+         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false}, 
+         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
+         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
+         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
+         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
+         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
+         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
+         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false}
+    ];
 
     }
 
@@ -90,6 +103,12 @@ export class CardTableComponent implements OnInit {
         }else{
             console.log("Save the form data", $event);
         }
+    }
+
+    setCheckboxes(checkboxId: number, setBoolean: boolean) {
+        this.checkboxes[checkboxId].value = setBoolean;
+        this.checkboxes[checkboxId].storedValue = true;
+        this.dataService.getCase().patientForm = this.checkboxes;
     }
 
 }

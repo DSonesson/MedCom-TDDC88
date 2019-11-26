@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SummaryComponent } from './summary.component';
+import { CardDefaultComponent } from "../../shared/cards/card-default/card-default.component";
+import { RouterTestingModule } from "@angular/router/testing";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import {LightboxModule} from "ngx-lightbox";
+import {MatDialogModule} from "@angular/material/dialog";
 
 describe('SummaryComponent', () => {
   let component: SummaryComponent;
@@ -8,7 +13,8 @@ describe('SummaryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SummaryComponent ]
+      imports: [RouterTestingModule, HttpClientTestingModule, LightboxModule, MatDialogModule],
+      declarations: [ SummaryComponent, CardDefaultComponent ]
     })
     .compileComponents();
   }));
@@ -19,10 +25,10 @@ describe('SummaryComponent', () => {
     fixture.detectChanges();
   });
 
-  /*
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-   */
+
 
 });

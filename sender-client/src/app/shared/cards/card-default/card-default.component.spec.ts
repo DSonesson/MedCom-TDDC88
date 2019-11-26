@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CardDefaultComponent } from './card-default.component';
+import {LightboxModule} from "ngx-lightbox";
 
 describe('CardDefaultComponent', () => {
   let component: CardDefaultComponent;
@@ -8,6 +9,7 @@ describe('CardDefaultComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [LightboxModule],
       declarations: [ CardDefaultComponent ]
     })
     .compileComponents();

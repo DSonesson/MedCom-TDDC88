@@ -1,4 +1,4 @@
-<!-- 
+<!--
  * Card Form View File, displays the summary of the given informations
  * @version 1.0
  * @author Oscar Baart <oscba989@student.liu.se>
@@ -13,25 +13,31 @@
             <div class="card-body">
                 <section>
                     <div class="col-md-12 px-1">
-                        
+
                         <div class="form-group editable card-form">
                             <label>Namn</label>
-                            <p>{{case.user.name}}</p>
+                            <p id="namn">{{case.user.name}}</p>
                             <label>Email</label>
-                            <p>{{case.user.email}}</p>
+                            <p id="email">{{case.user.email}}</p>
                             <label>Telefon</label>
-                            <p>{{case.user.phone}}</p>
+                            <p id="telefon">{{case.user.phone}}</p>
                         </div>
 
-                        <img [src]="imagePreview">
+                        <div class="container">
+                            <div class="row">
+                                <div *ngFor="let image of imagePreview; let i=index;" class="col-sm image-preview">
+                                <img id="image{{i}}" [src]="image" (click)="enlargeImage(i)">
+                              </div>
+                            </div>
+                          </div>
 
                     </div>
                 </section>
 
             </div>
-                   
-                   
-                
+
+
+
         </div>
     </div>
 </div>
