@@ -1,0 +1,52 @@
+.image {
+    width: 100%;
+    height: 170px;
+    background-size: cover;
+    background-position: center;
+
+}
+img {
+    object-fit: cover;
+    width: 100%;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+
+}
+img:hover {
+    cursor: pointer;
+    opacity: 0.7;
+    background-color: black;
+}
+.image-preview {
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-bottom: 8px !important;
+    min-width: calc(50%) !important;
+}
+
+.remove-button {
+    position: absolute;
+    top: -5px;
+    right: 0;
+    width: 25px;
+    height: 25px;
+    z-index: 10;
+    cursor: pointer;
+    background: linear-gradient(60deg, #ef5350, #e53935);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 25px;
+    color: white;
+    font-weight: bold;
+}
+
+.edit-button {
+
+position: absolute;
+right: 0;
+top: 0;
+width: 50px;
+height: 50px;
+cursor: pointer;
+}

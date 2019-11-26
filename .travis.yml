@@ -1,0 +1,44 @@
+
+  #  * TravisCI - YAML-file
+  #  * @version 1.0
+  #  * @author Gustav Wahlquist <guswa204@student.liu.se>
+
+
+language: node_js
+node_js:
+  - "10.15.3"
+
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+
+cache:
+  directories:
+    - ./node_modules
+
+dist: trusty
+
+sudo: required
+
+branches:
+  only:
+    - development
+    - front-end
+
+before_script:
+  - cd sender-client
+  - npm install -g @angular/cli
+  - npm install --save-dev @angular-devkit/build-angular
+  - npm install -g tslint typescript
+
+script:
+  # - ng lint Checks coding conventions, discuss with rest of devs if we want this.
+  - ng build --prod --base-href https://DSonesson.github.io/MedCom-TDDC88/sender-client/
+  - npm run test -- --watch=false --progress=false --browsers=ChromeHeadlessCI
+
+notifications:
+  email: false
+  slack: burnburnburn:vPkS4CRuandO8wcwTFQTqztl

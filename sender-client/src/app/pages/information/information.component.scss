@@ -1,0 +1,100 @@
+.textBody {
+  width: 60%;
+}
+
+.textPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-section {
+  margin: 70px 0px 0px 0px;
+  height: 100%;
+}
+
+.header-section {
+  padding: 0px 6vw 0px 6vw;
+  text-align: justify;
+}
+
+.info-page-header {
+  font-size: 1.7em;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.info-page-sub-header {
+  font-weight: bold;
+}
+.illustration-row {
+  margin: 25px 0px;
+}
+
+.step-h5 {
+  margin-bottom: 3px;
+}
+
+.illustration-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.illustration-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  font-size: 60px;
+  color: whitesmoke;
+  line-height: 120px;
+  text-align: center;
+}
+
+/*Start of new idea with a Camera Icon as background for the numbers.*/
+/* .camera-container {
+  background-size: 120px;
+  background-image: url("../../../assets/img/CameraEditedBlue.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  min-height: 120px;
+  min-width: 120px;
+} */
+
+.col-5,
+.col-7 {
+  padding: 0;
+}
+
+.lightning-image {
+  width: 30vw;
+}
+
+.lightning-container {
+  background-image: url("../../../assets/img/LightningEdited.png");
+  background-size: 120px;
+  background-repeat: no-repeat;
+  padding: 45px 20px 0px 55px;
+  min-height: 120px;
+}
+
+.lock-container {
+  background-image: url("../../../assets/img/LockEdited.png");
+  background-size: 150px;
+  background-repeat: no-repeat;
+  background-position: right top;
+  padding: 65px 55px 0 20px;
+  min-height: 150px;
+}
+
+.profile-container {
+  background-image: url("../../../assets/img/ProfileEdited.png");
+  background-size: 320px;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 320px;
+  margin-top: 50px;
+  padding-top: 200px;
+  color: white;
+}

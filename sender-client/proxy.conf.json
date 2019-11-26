@@ -1,0 +1,9 @@
+{
+  "/api/*": {
+    "target": "https://medcom3.filecloudonline.com/",
+    "protocol": "https:",
+    "secure": false,
+    "pathRewrite": {"^/api" : ""},
+    "changeOrigin": true
+  }
+}

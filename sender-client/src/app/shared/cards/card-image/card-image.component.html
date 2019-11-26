@@ -1,0 +1,40 @@
+<!--
+This is an sample page to illustrate, each new "page" will have a new folder for instance "startsida", "upload image" and so on
+-->
+<div class="row" style="margin-top:30px">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Ladda upp bild</h5>
+                <p class="card-description">Beskrivning</p>
+            </div>
+
+            <div class="card-body">
+                <section>
+
+                    <div class="container">
+                        <div class="row">
+                          <div id="images" *ngFor="let image of imagePreview; let i=index;" class="col-sm image-preview">
+                            <img id="image{{i}}" [src]="image" (click)="enlargeImage(i)">
+                            <div id="x{{i}}" class="remove-button" (click)="removeImage(i)">X</div>
+                          </div>
+                        </div>
+                      </div>
+
+                </section>
+
+            </div>
+                <div class="update ml-auto mr-auto btn-on-card">
+                    <button id="uploadPicture" type="submit" class="btn btn-info  btn-round" [disabled]="!isValid" (click)="openFileSelect()" >
+                        <i class="nc-icon circle-icon nc-ruler-pencil"></i>
+
+                        <input id="inputUploadPicture"style="display: none" type="file" accept=".jpeg,.png,.tif" (change)="saveImageToCase($event)" class="upload-input" #selectFile>
+                        <span [hidden]="!imagesAvailable">{{Message}}</span>
+                        <span [hidden]="imagesAvailable">{{Message}} </span>
+
+                    </button>
+                </div>
+
+        </div>
+    </div>
+</div>
