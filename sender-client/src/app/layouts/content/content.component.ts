@@ -23,7 +23,7 @@ export const ROUTES: RouteInfo[] = [
     class: ""
   },
   {
-    path: "/page3",
+    path: "/information",
     title: "information",
     icon: "nc-alert-circle-i",
     class: ""
