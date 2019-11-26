@@ -7,9 +7,12 @@
 /* Imports */
 import { Component, OnInit } from '@angular/core';
 import { UploadService } from 'app/shared/upload.service';
+import { MatIconRegistry } from "@angular/material/icon";
+import { DomSanitizer } from "@angular/platform-browser";
 import { MatDialog } from '@angular/material';
 import { PopupComponent } from 'app/shared/cards/popup/popup.component';
 import { CaseDataService } from 'app/shared/case-data.service';
+
 
 /**
  * This component shows the data the
@@ -23,19 +26,61 @@ import { CaseDataService } from 'app/shared/case-data.service';
 })
 export class SummaryComponent implements OnInit {
 
-  /**
+
+
+/**
    * @param uploadService 
    * @param dialog 
    * @param dataService 
+   * @param MatIconRegistry
+   * @param domSanitizer
    */
-  constructor(private uploadService: UploadService, private dialog: MatDialog, public dataService: CaseDataService) { }
+  constructor(private uploadService: UploadService, private dialog: MatDialog, public dataService: CaseDataService, private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer
+    ) {
+      this.matIconRegistry.addSvgIcon(
+        "edit",
+        this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/edit.svg")
+      );
+     }
 
-  ngOnInit() {
-  }
 
   startUpload() {
     this.uploadService.startUpload();
   }
+
+
+ // are form values valid
+ public isValid: boolean; 
+ // is image uploaded locally
+ public isUploaded: boolean; 
+// boolean for deciding which card form to show.
+ public displayForm: boolean;
+
+
+ /**
+   * sets boolean isValid to same value as in child component card-form.component
+   */
+ public setValidity(isValid: boolean): void {
+ 
+  this.isValid = isValid;
+ 
+}
+
+public setDisplayForm(displayForm: boolean): void {
+ 
+ this.displayForm = displayForm;
+
+}
+
+ /**
+   * sets boolean isUploaded to same value as in child component card-image.component
+   */
+ public setUploadBoolean(isUploaded: boolean): void {
+ 
+  if (this.isValid) {
+     this.isUploaded = isUploaded;
+   }
+ }
 
  /**
   * Function of what happends when the 
@@ -59,5 +104,13 @@ export class SummaryComponent implements OnInit {
       } 
     });
   }
+
+
+   ngOnInit() {
+     this.isValid=false;
+     this.isUploaded=false;
+     this.displayForm= false;
+    };
+
 
 }

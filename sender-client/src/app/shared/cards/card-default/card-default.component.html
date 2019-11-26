@@ -9,7 +9,11 @@
             <div class="card-header">
                 <h5 class="card-title">Ditt ärende</h5>
                 <p class="card-description">Beskrivining</p>
+             <div> <mat-icon class="edit-button" (click)="setDisplayForm($event)"svgIcon="edit"></mat-icon> </div>
+
             </div>
+
+
             <div class="card-body">
                 <section>
                     <div class="col-md-12 px-1">
@@ -23,13 +27,7 @@
                             <p id="telefon">{{case.user.phone}}</p>
                         </div>
 
-                        <div class="container">
-                            <div class="row">
-                                <div *ngFor="let image of imagePreview; let i=index;" class="col-sm image-preview">
-                                <img id="image{{i}}" [src]="image" (click)="enlargeImage(i)">
-                              </div>
-                            </div>
-                          </div>
+                        
 
                     </div>
                 </section>
