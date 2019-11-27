@@ -13,7 +13,7 @@ export class CaseNrService {
 
   /**
    * Computes the case number from a telephone number and the current time stamp.
-   * @param teleNum A 10 digit telephone number to compute the case number for.
+   * @param {string} teleNum A 10 digit telephone number to compute the case number for.
    *
    * @returns The computed 8 digit case number as a string.
    */
