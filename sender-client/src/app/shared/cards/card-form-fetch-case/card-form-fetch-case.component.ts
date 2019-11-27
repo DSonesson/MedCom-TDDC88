@@ -82,8 +82,8 @@ export class CardFormFetchCaseComponent implements OnInit {
         } return false;
     }
 
-    setCaseNr() {
-        console.log("in set case");
+    setCaseNr() { 
+        console.log("Entered number is " + this.enteredCaseNr);
         if(this.isValid()){
             console.log("isValid");
             this.caseNumber = this.enteredCaseNr;
