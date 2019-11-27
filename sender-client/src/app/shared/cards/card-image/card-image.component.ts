@@ -66,7 +66,8 @@ saveImageToCase(event){
   this.dataService.getCase().images.push(this.image);
 
   // send to parent if image is uploaded
-  this.imageUploaded.emit(this.imagesAvailable)
+  this.imagesAvailable = true;
+  this.imageUploaded.emit(this.imagesAvailable);
 
   this.addImage();
 }
@@ -89,7 +90,7 @@ removeImage(index: number){
 openFileSelect() {
   let element: HTMLElement = document.getElementsByClassName('upload-input')[0] as HTMLElement;
   element.click();
-  console.log(this.imagesAvailable)
+  console.log(this.imagesAvailable);
 }
 
 /**

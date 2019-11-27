@@ -7,7 +7,7 @@ export class Case {
     images: Image[];
     caseNr: string;
     randomtest: string;
-    patientForm: Array<{question: string, storedValue: boolean, value: boolean}> = [];
+    patientForm: Array<{question: string, storedValue: boolean, value: boolean, complementary?: string}> = [];
     patientInfo: string[] = [];
     constructor() {
         this.dummyData();

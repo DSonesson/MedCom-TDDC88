@@ -28,8 +28,8 @@
         <th>Ja</th>
         <th>Nej</th>
       </thead>
-      <tbody>
-        <tr *ngFor="let checkbox of checkboxes; let i=index;">
+      <tbody *ngFor="let checkbox of checkboxes; let i=index;">
+        <tr>
           <td>{{checkbox.question}}</td>
           <td><div class="form-check">
   <label class="form-check-label">
@@ -49,13 +49,21 @@
         </span>
     </label>
   </div></td>
-
 </tr>
-
+<tr *ngIf="checkbox.complementary && checkbox.storedValue && checkbox.value">
+    <td>{{checkbox.complementary}}</td>
+</tr>
       </tbody>
     </table>
   </div>
 </div>
+<form [formGroup]="userForm">
+<div>Hur ska patienten transporteras?</div>
+  <textarea id="patientComments" formControlName="patientComments" class="form-control" rows="1" [(ngModel)]="patientInfo[0]" value="{{patientInfo[1]}}" (input)="somethingChanged()"></textarea>
+  <div style="margin-top: 15px;">Förväntad ankomsttid till Brännskadecentrum i Linköping?</div>
+  <input id="dateArrival" formControlName="dateArrival" type="text" class="form-control" placeholder="Datum" [(ngModel)]="patientInfo[1]" value="{{patientInfo[1]}}" (input)="somethingChanged()" style="width: 40%">
+  <input id="timeArrival" formControlName="timeArrival" type="text" class="form-control" placeholder="Tid" [(ngModel)]="patientInfo[2]" value="{{patientInfo[2]}}" (input)="somethingChanged()" style="width: 40%">
+</form>
 
                         </div>
                     </section>

@@ -55,9 +55,12 @@ export class UploadService {
         + "Kommentarer: " + "\r\n" + this.case.patientInfo[2] + "\r\n"  + "\r\n";
      
         for(let i=0; i<this.dataService.getCase().patientForm.length; i++){
-          var yesNoString = "Svar: Nej";
-          if(this.dataService.getCase().patientForm[i].value) {
+          var yesNoString = "Svar: ";
+          if(this.dataService.getCase().patientForm[i].value && this.dataService.getCase().patientForm[i].storedValue) {
             var yesNoString = "Svar: Ja";
+          }
+          else if(!this.dataService.getCase().patientForm[i].value && this.dataService.getCase().patientForm[i].storedValue) {
+            var yesNoString = "Svar: Nej";
           }
           var str2: string = i+1 + ". " + this.dataService.getCase().patientForm[i].question + "\r\n" + yesNoString + "\r\n" + "\r\n";  
           var content = content.concat(str2);

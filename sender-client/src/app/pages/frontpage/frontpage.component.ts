@@ -37,6 +37,7 @@ export class FrontpageComponent implements OnInit {
     * sets boolean isUploaded to same value as in child component card-image.component
     */
   public setUploadBoolean(isUploaded: boolean): void {
+    console.log("test");
     if (this.isValid) {
       this.isUploaded = isUploaded;
     }
