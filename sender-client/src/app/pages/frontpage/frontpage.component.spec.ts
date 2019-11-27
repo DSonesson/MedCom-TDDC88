@@ -7,6 +7,7 @@ import {CardImageComponent} from "../../shared/cards/card-image/card-image.compo
 import {RouterTestingModule} from "@angular/router/testing";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {LightboxModule} from "ngx-lightbox";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe('FrontpageComponent', () => {
   let component: FrontpageComponent;
@@ -14,7 +15,7 @@ describe('FrontpageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, ReactiveFormsModule, LightboxModule, FormsModule],
+      imports: [RouterTestingModule, ReactiveFormsModule, LightboxModule, FormsModule, HttpClientTestingModule],
       declarations: [ FrontpageComponent, CardFormComponent, CardTableComponent, CardImageComponent ]
     })
     .compileComponents();

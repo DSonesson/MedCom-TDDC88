@@ -72,9 +72,7 @@ export class SummaryComponent implements OnInit {
    * sets boolean isUploaded to same value as in child component card-image.component
    */
   public setUploadBoolean(isUploaded: boolean): void {
-    if (this.isValid) {
-      this.isUploaded = isUploaded;
-    }
+    this.isUploaded = isUploaded;
   }
 
   /**
@@ -105,8 +103,8 @@ export class SummaryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.isValid = false;
-    this.isUploaded = false;
+    this.isValid = true;
+    this.isUploaded = true;
     this.displayForm = false;
     this.pageHeader = "Summering av ditt ärende";
   }

@@ -9,15 +9,19 @@
 
 <!-- Step text-->
 <div class="card" style="background-color: transparent; box-shadow: none;">
-  <h4 style="display: flex; justify-content: flex-end;">Steg 2 av 3</h4>
+  <h4 style="display: flex; justify-content: flex-end; margin-top: 0;">
+    Steg 2 av 3
+  </h4>
 </div>
 
 <div *ngIf="!displayForm">
   <app-card-default (displayForm)="setDisplayForm($event)"></app-card-default>
 </div>
-<div *ngIf="displayForm"><app-card-form></app-card-form></div>
+<div *ngIf="displayForm">
+  <app-card-form (onSaveForm)="setValidity($event)"></app-card-form>
+</div>
 <app-card-image
-  [isValid]="!isValid"
+  [isValid]="isValid"
   Message="Lägg till fler bilder"
   (imageUploaded)="setUploadBoolean($event)"
 ></app-card-image>
@@ -38,6 +42,7 @@
 
     <a [routerLink]="'/confirmation'">
       <button
+        [disabled]="!isUploaded || !isValid"
         id="skickaButton"
         type="Skicka Ärende"
         class="btn btn-info  btn-round"

@@ -7,6 +7,7 @@
 /* Imports */
 import { Component, OnInit } from "@angular/core";
 import { Routes } from "@angular/router";
+import { UploadService } from "app/shared/upload.service";
 
 @Component({
   selector: "frontpage",
@@ -20,6 +21,8 @@ export class FrontpageComponent implements OnInit {
   // is image uploaded locally
   public isUploaded: boolean;
 
+  constructor() {}
+
   /**
    * sets boolean isValid to same value as in child component card-form.component
    */
@@ -31,9 +34,7 @@ export class FrontpageComponent implements OnInit {
    * sets boolean isUploaded to same value as in child component card-image.component
    */
   public setUploadBoolean(isUploaded: boolean): void {
-    if (this.isValid) {
-      this.isUploaded = isUploaded;
-    }
+    this.isUploaded = isUploaded;
   }
 
   ngOnInit() {
