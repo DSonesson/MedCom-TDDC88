@@ -90,6 +90,13 @@ removeImage(index: number){
   this.imageCounter--;
 }
 
+removeAllImages() {
+  this.dataService.getCase().images = [];
+  this._album = [];
+  this.loadImages();
+  this.imageCounter = 0;  
+}
+
 /**
  * Method to open the file select dialog. The method is called from a button in the HTML
  */

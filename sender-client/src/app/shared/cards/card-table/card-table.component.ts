@@ -59,7 +59,7 @@ export class CardTableComponent implements OnInit {
          {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false}, 
          {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false}, 
          {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
-         {question: "Finns uppgift på vikt och längd?", storedValue: false, value: false, complementary: "Längd: Vikt:"},
+         {question: "Finns uppgift på vikt och längd?", storedValue: false, value: false, complementary: "formHeightWeight"},
          {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
          {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
          {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
@@ -79,16 +79,20 @@ export class CardTableComponent implements OnInit {
         });
     }
 
-    setCheckboxes(checkboxId: number, setBoolean: boolean) {
+    setCheckboxes(checkboxId: number, setBoolean: boolean, event: any) {
         this.checkboxes[checkboxId].value = setBoolean;
-        this.checkboxes[checkboxId].storedValue = true;
+        this.checkboxes[checkboxId].storedValue = false;
         this.dataService.getCase().patientForm = this.checkboxes;
+        if (event.target.checked) {
+            this.checkboxes[checkboxId].storedValue = true;
+        }
     }
 
     somethingChanged() {
         this.dataService.getCase().patientInfo[0] = this.userForm.get('patientComments').value;
         this.dataService.getCase().patientInfo[1] = this.userForm.get('dateArrival').value;
         this.dataService.getCase().patientInfo[2] = this.userForm.get('timeArrival').value;
+        console.log("Test");
       }
 
 }

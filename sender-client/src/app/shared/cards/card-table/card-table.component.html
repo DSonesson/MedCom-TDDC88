@@ -33,7 +33,7 @@
           <td>{{checkbox.question}}</td>
           <td><div class="form-check">
   <label class="form-check-label">
-      <input id="checkbox0" class="form-check-input" type="checkbox" [ngModel]="checkbox.value && checkbox.storedValue" [ngModelOptions]="{standalone: true}" (change)="setCheckboxes(i, true)">
+      <input id="checkbox0" class="form-check-input" type="checkbox" [ngModel]="checkbox.value && checkbox.storedValue" [ngModelOptions]="{standalone: true}" (change)="setCheckboxes(i, true, $event)">
 
       <span class="form-check-sign">
           <span class="check"></span>
@@ -42,7 +42,7 @@
 </div></td>
 <td><div class="form-check">
     <label class="form-check-label">
-        <input id="checkbox1" class="form-check-input" type="checkbox" [ngModel]="checkbox.value == false && checkbox.storedValue" [ngModelOptions]="{standalone: true}" (change)="setCheckboxes(i, false)">
+        <input id="checkbox1" class="form-check-input" type="checkbox" [ngModel]="checkbox.value == false && checkbox.storedValue" [ngModelOptions]="{standalone: true}" (change)="setCheckboxes(i, false, $event)">
 
         <span class="form-check-sign">
             <span class="check"></span>
@@ -51,7 +51,16 @@
   </div></td>
 </tr>
 <tr *ngIf="checkbox.complementary && checkbox.storedValue && checkbox.value">
-    <td>{{checkbox.complementary}}</td>
+    <td>
+        <div *ngIf="checkbox.complementary == 'formHeightWeight'" id="formHeightWeight" class="complement">
+            Längd: <input id="timeArrival" formControlName="timeArrival" type="text" class="form-control inline-input" placeholder="" [(ngModel)]="patientInfo[2]" value="{{patientInfo[2]}}" (input)="somethingChanged()"> cm.
+            Vikt: <input id="timeArrival" formControlName="timeArrival" type="text" class="form-control inline-input" placeholder="" [(ngModel)]="patientInfo[2]" value="{{patientInfo[2]}}" (input)="somethingChanged()"> kg.
+        </div>
+        <div  *ngIf="checkbox.complementary == formHeightWeight2" id="formHeightWeight" class="complement">
+            Längd: <input id="timeArrival" formControlName="timeArrival" type="text" class="form-control inline-input" placeholder="" [(ngModel)]="patientInfo[2]" value="{{patientInfo[2]}}" (input)="somethingChanged()"> cm.
+            Vikt: <input id="timeArrival" formControlName="timeArrival" type="text" class="form-control inline-input" placeholder="" [(ngModel)]="patientInfo[2]" value="{{patientInfo[2]}}" (input)="somethingChanged()"> kg.
+        </div>
+    </td>
 </tr>
       </tbody>
     </table>
@@ -59,10 +68,11 @@
 </div>
 <form [formGroup]="userForm">
 <div>Hur ska patienten transporteras?</div>
-  <textarea id="patientComments" formControlName="patientComments" class="form-control" rows="1" [(ngModel)]="patientInfo[0]" value="{{patientInfo[1]}}" (input)="somethingChanged()"></textarea>
+  <textarea id="patientComments" formControlName="patientComments" class="form-control" rows="2" [(ngModel)]="patientInfo[0]" value="{{patientInfo[0]}}" (input)="somethingChanged()"></textarea>
   <div style="margin-top: 15px;">Förväntad ankomsttid till Brännskadecentrum i Linköping?</div>
   <input id="dateArrival" formControlName="dateArrival" type="text" class="form-control" placeholder="Datum" [(ngModel)]="patientInfo[1]" value="{{patientInfo[1]}}" (input)="somethingChanged()" style="width: 40%">
   <input id="timeArrival" formControlName="timeArrival" type="text" class="form-control" placeholder="Tid" [(ngModel)]="patientInfo[2]" value="{{patientInfo[2]}}" (input)="somethingChanged()" style="width: 40%">
+
 </form>
 
                         </div>
