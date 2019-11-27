@@ -161,6 +161,11 @@ enlargeImage(index: number): void {
   this._lightbox.open(this._album, index);
 }
 
+
+/**
+ * Method used by case-data.service to empty all the image arrays. 
+ */
+
 clearImages() {
 
   this._album = [];
