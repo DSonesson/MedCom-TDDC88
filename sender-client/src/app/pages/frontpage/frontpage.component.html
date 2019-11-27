@@ -13,6 +13,8 @@
 
 <app-card-image [isValid]="isValid" Message="Välj bild" (imageUploaded)="setUploadBoolean($event)"></app-card-image>
 
+<app-card-form-fetch-case></app-card-form-fetch-case>
+
 <div class="row">
   <div class="col-md-12" >
           <a [routerLink]="'/summary'">
