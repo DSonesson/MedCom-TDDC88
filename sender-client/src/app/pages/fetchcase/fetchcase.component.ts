@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-fetchcase',
-  templateUrl: './fetchcase.component.html',
-  styleUrls: ['./fetchcase.component.scss']
+  selector: "app-fetchcase",
+  templateUrl: "./fetchcase.component.html",
+  styleUrls: ["./fetchcase.component.scss"]
 })
 export class FetchcaseComponent implements OnInit {
-
-  constructor() { }
+  private pageHeader: String;
+  constructor() {}
 
   ngOnInit() {
+    this.pageHeader = "Ärendehantering";
   }
-
 }
