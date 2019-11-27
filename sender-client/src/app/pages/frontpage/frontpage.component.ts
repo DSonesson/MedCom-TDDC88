@@ -23,7 +23,11 @@ export class FrontpageComponent implements OnInit {
   public isValid: boolean; 
   // is image uploaded locally
   public isUploaded: boolean; 
+  // boolean for choosing whether to display save button or not
+  public isSummary: boolean;
 
+
+  
   constructor(){
   }
   
@@ -33,6 +37,8 @@ export class FrontpageComponent implements OnInit {
   public setValidity(isValid: boolean): void {
     this.isValid = isValid;
   }
+
+  
 
   /**
     * sets boolean isUploaded to same value as in child component card-image.component
