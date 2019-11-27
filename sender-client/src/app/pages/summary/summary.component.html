@@ -4,31 +4,48 @@
  * @author Alexander Anserud <alean378@student.liu.se>
 -->
 
+<!-- Page title -->
+<app-page-header [pageHeader]="pageHeader"></app-page-header>
+
 <!-- Step text-->
 <div class="card" style="background-color: transparent; box-shadow: none;">
-        <h4 style="display: flex; justify-content: flex-end;"> Steg 2 av 3 </h4>
+  <h4 style="display: flex; justify-content: flex-end;">Steg 2 av 3</h4>
 </div>
 
-<div *ngIf="!displayForm"><app-card-default (displayForm)="setDisplayForm($event)"></app-card-default></div>
-<div *ngIf="displayForm"><app-card-form ></app-card-form></div>
-<app-card-image [isValid]="!isValid" Message="Lägg till fler bilder" (imageUploaded)="setUploadBoolean($event)"></app-card-image>
-
-
-
- 
+<div *ngIf="!displayForm">
+  <app-card-default (displayForm)="setDisplayForm($event)"></app-card-default>
+</div>
+<div *ngIf="displayForm"><app-card-form></app-card-form></div>
+<app-card-image
+  [isValid]="!isValid"
+  Message="Lägg till fler bilder"
+  (imageUploaded)="setUploadBoolean($event)"
+></app-card-image>
 
 <div class="row">
+  <div class="col-md-12">
+    <!-- Cancel button -->
+    <button
+      id="cancelButton"
+      type="previous"
+      class="btn btn-info  btn-round"
+      style="float: left;"
+      mat-raised-button
+      (click)="openDialog()"
+    >
+      Avbryt
+    </button>
 
-    <div class="col-md-12">
-
-        <!-- Cancel button -->
-        <button id="cancelButton" type="previous" class="btn btn-info  btn-round" style="float: left;" mat-raised-button (click)="openDialog()" >Avbryt</button>
-
-        <a [routerLink]="'/confirmation'">
-            <button id="skickaButton" type="Skicka Ärende" class="btn btn-info  btn-round" style="float: right;" (click)="startUpload()">
-                <span>Skicka Ärende</span>
-            </button>
-        </a>
-    </div>
-
+    <a [routerLink]="'/confirmation'">
+      <button
+        id="skickaButton"
+        type="Skicka Ärende"
+        class="btn btn-info  btn-round"
+        style="float: right;"
+        (click)="startUpload()"
+      >
+        <span>Skicka Ärende</span>
+      </button>
+    </a>
+  </div>
 </div>

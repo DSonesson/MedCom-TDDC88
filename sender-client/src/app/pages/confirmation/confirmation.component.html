@@ -4,27 +4,38 @@
  * @author Alexander Anserud <alean378@student.liu.se>
 -->
 
+<!-- Page title -->
+<app-page-header [pageHeader]="pageHeader"></app-page-header>
+
 <!-- Step text-->
 <div class="card" style="background-color: transparent; box-shadow: none;">
-        <h4 style="display: flex; justify-content: flex-end;"> Steg 3 av 3 </h4>
+  <h4 style="display: flex; justify-content: flex-end;">Steg 3 av 3</h4>
 </div>
 
 <app-card-confirmation></app-card-confirmation>
 
 <div class="row">
+  <div class="col-md-12">
+    <a [routerLink]="'/frontpage'">
+      <button
+        id="startsida"
+        type="Startsida"
+        class="btn btn-info  btn-round"
+        style="float: left;"
+      >
+        <span>Startsida</span>
+      </button>
+    </a>
 
-        <div class="col-md-12">
-            <a [routerLink]="'/frontpage'">
-                <button id="startsida" type="Startsida" class="btn btn-info  btn-round" style="float: left;">
-                    <span>Startsida</span>
-                </button>
-            </a>
-
-            <a [routerLink]="'/edit'">
-                <button id="kompletteraÄrende" type="KompletteraÄrende" class="btn btn-info  btn-round" style="float: right;">
-                    <span>Komplettera Ärende</span>
-                </button>
-            </a>
-        </div>
-
-    </div>
+    <a [routerLink]="'/edit'">
+      <button
+        id="kompletteraÄrende"
+        type="KompletteraÄrende"
+        class="btn btn-info  btn-round"
+        style="float: right;"
+      >
+        <span>Komplettera Ärende</span>
+      </button>
+    </a>
+  </div>
+</div>

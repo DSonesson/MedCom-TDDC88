@@ -5,23 +5,23 @@
  * @author Henrik Johansson <henjo114@student.liu.se>
  */
 
-import { Component, OnInit } from '@angular/core';
-import { UploadService } from 'app/shared/upload.service';
+import { Component, OnInit } from "@angular/core";
+import { UploadService } from "app/shared/upload.service";
 
 @Component({
-  selector: 'edit',
-  templateUrl: './edit-case.component.html',
-  styleUrls: ['./edit-case.component.scss']
+  selector: "edit",
+  templateUrl: "./edit-case.component.html",
+  styleUrls: ["./edit-case.component.scss"]
 })
 export class EditCaseComponent implements OnInit {
-
-  constructor(private uploadService: UploadService) { }
+  private pageHeader: String;
+  constructor(private uploadService: UploadService) {}
 
   ngOnInit() {
+    this.pageHeader = "Komplettera ärende";
   }
 
   uploadPatientForm() {
     this.uploadService.generatePatientFormYML();
   }
-
 }
