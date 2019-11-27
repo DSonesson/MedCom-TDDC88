@@ -28,14 +28,15 @@
         border-radius: 3px;
         margin-top: 0px;
         padding: 10px;
-        background: linear-gradient(60deg,#ef5350,#e53935);
+        background: linear-gradient(60deg,$dark-blue-main,#065FA2);
         //margin: 0 15px;
         position: relative;
         color: white;
         text-align: left;
+        font-family: Georgia;
         
     }
-    .card-description{font-size: 12px; color: white; padding:0px}
+    .card-description{font-size: 16px; color: white; padding:0px}
     
     .card [class*=card-header-]:not(.card-header-icon):not(.card-header-text):not(.card-header-image) {
     border-radius: 3px;
@@ -53,6 +54,7 @@
       .card-title{
           margin-top: 10px;
           margin-bottom: 0px;
+          font-size:24px;
       }
         .card-description{
             margin-top: 0px;
