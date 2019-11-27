@@ -6,7 +6,7 @@
  */
 
 /* Imports */
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { CaseDataService } from '../../../shared/case-data.service';
 import { User } from '../../../models/user';
@@ -30,6 +30,12 @@ import { FormControl, Validators, FormGroup, ValidatorFn, AbstractControl } from
 export class CardFormFetchCaseComponent implements OnInit {
     case: Case;
     user: User;
+
+    /**
+    * The title and description of the card 
+    */
+    @Input ("title") title: String; 
+    @Input ("description") description: String;
 
     private card_content = `                    <div class="col-md-12 px-1">
                         

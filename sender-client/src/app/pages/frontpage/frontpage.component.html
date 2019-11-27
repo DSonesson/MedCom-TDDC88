@@ -14,12 +14,13 @@
   </h4>
 </div>
 
-<app-card-form (onSaveForm)="setValidity($event)"></app-card-form>
+<app-card-form (onSaveForm)="setValidity($event)" [title]="formTitle" [description]="formDescription" ></app-card-form>
 
 <app-card-image
   [isValid]="isValid"
   Message="Välj bild"
   (imageUploaded)="setUploadBoolean($event)"
+  [title]="imageCardTitle" [description]="imageCardDescription"
 ></app-card-image>
 
 <div class="row">

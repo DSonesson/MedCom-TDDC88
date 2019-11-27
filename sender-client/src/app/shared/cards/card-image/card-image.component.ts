@@ -29,6 +29,12 @@ export class CardImageComponent implements OnInit {
   // communicates if images are uploaded or not
   @Output() imageUploaded = new EventEmitter<boolean>();
 
+  /**
+   * The title and description of the card 
+   */
+  @Input ("title") title: String;
+  @Input ("description") description: String;
+
 /**
  * Creates an instance of CaseDataService and a private instance of Lightbox
  * Sets imagepreview to an array

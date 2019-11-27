@@ -15,7 +15,7 @@
 </div>
 
 <div *ngIf="!displayForm">
-  <app-card-default (displayForm)="setDisplayForm($event)"></app-card-default>
+  <app-card-default (displayForm)="setDisplayForm($event)" [title]="formTitle" [description]="formDescription"></app-card-default>
 </div>
 <div *ngIf="displayForm">
   <app-card-form (onSaveForm)="setValidity($event)"></app-card-form>
@@ -24,6 +24,7 @@
   [isValid]="isValid"
   Message="Lägg till fler bilder"
   (imageUploaded)="setUploadBoolean($event)"
+  [title]="imageCardTitle" [description]="imageCardDescription"
 ></app-card-image>
 
 <div class="row">

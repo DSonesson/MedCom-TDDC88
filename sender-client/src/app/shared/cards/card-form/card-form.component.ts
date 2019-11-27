@@ -57,6 +57,12 @@ export class CardFormComponent implements OnInit {
   emailChanged: boolean;
   phoneChanged: boolean;
 
+  /**
+   * The title and description of the card 
+   */
+  @Input ("title") title: String;
+  @Input ("description") description: String;
+
   constructor(
     public dataService: CaseDataService,
     public httpService: HttpService
@@ -85,6 +91,7 @@ export class CardFormComponent implements OnInit {
         phoneValidator(this.phoneExp)
       ])
     });
+
   }
 
   setInputFieldChanged(e) {

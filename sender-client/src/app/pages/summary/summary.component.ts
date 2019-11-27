@@ -25,6 +25,13 @@ import { CaseDataService } from "app/shared/case-data.service";
 })
 export class SummaryComponent implements OnInit {
   private pageHeader: String;
+  /**
+  * The text attributes for the cards
+  */
+  private formTitle: String;
+  private formDescription: String;
+  private imageCardTitle: String;
+  private imageCardDescription: String;
 
   /**
    * @param uploadService
@@ -107,5 +114,10 @@ export class SummaryComponent implements OnInit {
     this.isUploaded = true;
     this.displayForm = false;
     this.pageHeader = "Summering av ditt ärende";
+
+    this.formTitle = "Kontrollera dina uppgifter";
+    this.formDescription = "Kontrollera att din ifyllda information stämmer.";
+    this.imageCardTitle = "Dina bilder";
+    this.imageCardDescription = "Kontrollera att det här är bilderna du vill skicka. Klicka på “Skicka ärende” när du är klar.";
   }
 }
