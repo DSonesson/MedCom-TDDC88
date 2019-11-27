@@ -65,6 +65,10 @@ export class CardFormComponent implements OnInit {
 
     }
 
+    /**
+    * Emits a boolean to summary page for summary page to know which component to display.
+    * 
+    */
     setDisplayForm() {
         this.displayForm.emit(false);
       }
