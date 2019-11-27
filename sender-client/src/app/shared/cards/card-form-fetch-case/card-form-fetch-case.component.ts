@@ -6,7 +6,7 @@
  */
 
 /* Imports */
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 
 import { CaseDataService } from '../../../shared/case-data.service';
 import { User } from '../../../models/user';
@@ -29,7 +29,9 @@ import { FormControl, Validators, FormGroup, ValidatorFn, AbstractControl } from
 /* Component Class Holder */
 export class CardFormFetchCaseComponent implements OnInit {
     case: Case;
-    user: User;
+    caseNr : String;
+    @Input('editCase') editCase: boolean;
+    @Output() onSaveForm = new EventEmitter<boolean>();
 
     private card_content = `                    <div class="col-md-12 px-1">
                         
@@ -49,11 +51,12 @@ export class CardFormFetchCaseComponent implements OnInit {
                     </div>`;
 
     saveButton1=true;
+    caseNumber: String;
 
     constructor(public dataService: CaseDataService) {
 
-    this.user = this.dataService.getCase().user;
     this.case = this.dataService.getCase();
+    this.caseNumber = this.dataService.getCase().caseNr;
     }
 
     
@@ -64,33 +67,24 @@ export class CardFormFetchCaseComponent implements OnInit {
         });
     };
 
-    get name() {
-        return this.caseNrForm.get('name')
-    }
-
-    get email() {
-        return this.caseNrForm.get('email')
-    }
-
-    get phone() {
-        return this.caseNrForm.get('phone')
-    }
-
     onSave($event){
         console.log("Button event");
-        /*
-        this.saveButton1 = !$event;
-        this.dataService.getCase().user = this.user;
+    }
 
-        if (this.saveButton1) {
-            console.log("Open the form", $event);
+    isValid() {
+        if (this.caseNrForm.status == "VALID") {
+            console.log("isValid");
+            return true;
+        } return false;
+    }
 
-
-
-        }else{
-            console.log("Save the form data", $event);
-        }
-        */
+    setCaseNr() {
+        console.log(this.caseNumber);
+        console.log("in set case");
+        console.log(this.caseNr);
+        this.caseNumber = this.caseNr;
+        this.onSaveForm.emit(this.isValid());
+        
     }
 
 }

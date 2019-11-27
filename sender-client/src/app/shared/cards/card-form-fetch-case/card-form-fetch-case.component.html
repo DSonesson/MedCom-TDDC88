@@ -18,13 +18,7 @@
                         <div class="col-md-12 px-1">
                             <div class="form-group editable card-form">
                                 <label>Ärendenummer</label>
-                                <!--
-                            <p [hidden]="saveButton1">{{user.name}}</p>
-                               -->
-
-                                <input id="caseNr" [hidden]="!saveButton1" type="text" class="form-control"
-                                    placeholder="Ex. 1234567" required>
-
+                                <input id="caseNr" formControlName="case" type="text" class="form-control" placeholder="Ex. 1234567" [(ngModel)]="caseNr" value="{{caseNr}}" (input)="setCaseNr()" required>
                             </div>
 
                         </div>
