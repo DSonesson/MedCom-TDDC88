@@ -11,6 +11,7 @@ import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { CaseDataService } from '../../../shared/case-data.service';
 import { User } from '../../../models/user';
 import { Case } from '../../../models/case';
+import { HttpService } from '../../http.service';
 
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -29,7 +30,7 @@ import { FormControl, Validators, FormGroup, ValidatorFn, AbstractControl } from
 /* Component Class Holder */
 export class CardFormFetchCaseComponent implements OnInit {
     case: Case;
-    caseNr : String;
+    enteredCaseNr : string;
     @Input('editCase') editCase: boolean;
     @Output() onSaveForm = new EventEmitter<boolean>();
 
@@ -51,42 +52,54 @@ export class CardFormFetchCaseComponent implements OnInit {
                     </div>`;
 
     saveButton1=true;
-    caseNumber: String;
+    caseNumber: string;
 
-    constructor(public dataService: CaseDataService) {
-
-    this.case = this.dataService.getCase();
-    this.caseNumber = this.dataService.getCase().caseNr;
+    constructor(public dataService: CaseDataService, private httpService: HttpService) {
+        this.case = this.dataService.getCase();
+        this.caseNumber = this.dataService.getCase().caseNr;
     }
 
     
     caseNrForm: FormGroup;
     ngOnInit() {
         this.caseNrForm = new FormGroup({
-            'case': new FormControl(this.case.caseNr, [Validators.required, Validators.minLength(4)]),
+            'case': new FormControl(this.case.caseNr, [Validators.required, this.doesExist(this.enteredCaseNr)]),
         });
     };
+    
 
-    onSave($event){
-        console.log("Button event");
-    }
-
+    /*
     isValid() {
         if (this.caseNrForm.status == "VALID") {
-            console.log("isValid");
+            return true;
+        } return false;
+    }
+*/
+    isValid() {
+        if (this.httpService.doSearch(this.enteredCaseNr, "/annro873")) {
+            console.log("found casenr");
             return true;
         } return false;
     }
 
     setCaseNr() {
-        console.log(this.caseNumber);
         console.log("in set case");
-        console.log(this.caseNr);
-        this.caseNumber = this.caseNr;
-        this.onSaveForm.emit(this.isValid());
-        
+        if(this.isValid()){
+            console.log("isValid");
+            this.caseNumber = this.enteredCaseNr;
+        }
+        //this.onSaveForm.emit(this.isValid());
     }
-
+    
+    
+    doesExist(caseNr: string) : ValidatorFn {
+        return (control: AbstractControl): {[key: string]: any} | null => {
+            if (this.httpService.doSearch(this.enteredCaseNr, "/annro873")) {
+                return {"doesExist": true};
+            }
+            return null;    
+        }
+    }
 }
 
 
