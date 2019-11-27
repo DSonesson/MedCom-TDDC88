@@ -88,7 +88,7 @@ export class SummaryComponent implements OnInit {
       data: {
         content: "Är du säker på att du vill avsluta ditt ärende?",
         yesBtn: "Ja, avsluta",
-        noBtn: "Nej, tillbaka"
+        noBtn: "Nej"
       },
       width: "500px",
       height: "250px"
