@@ -53,13 +53,13 @@ export class CardImageComponent implements OnInit {
 saveImageToCase(event){
   //15728640 bytes = 15mb
   if(event.target.files[0].size > 15728640) {
-    alert("The size of the image exceeds the allowed limit of 4 megabytes.");
+    alert("The size of the image exceeds the allowed limit of 15 megabytes.");
     return;
   }
 
   // 102400 = 0.1 MB
   if(event.target.files[0].size < 102400) {
-    alert("The size of the images must exceed 0.2 megabytes.");
+    alert("The size of the images must exceed 0.1 megabytes.");
     return;
   }
 
@@ -161,7 +161,17 @@ enlargeImage(index: number): void {
   this._lightbox.open(this._album, index);
 }
 
+clearImages() {
+
+  this._album = [];
+  this.dataService.getCase().images = [];
+  this.imageCounter = 0;
+  this.loadImages();
+
+}
+
   ngOnInit() {
+    this.dataService.getMethod(this.clearImages.bind(this));
   }
 
 }

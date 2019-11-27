@@ -35,6 +35,17 @@ export class CaseDataService {
     return this.caseData;
   }
  
+  /**
+ * method for fetching and setting the clear images method from card-image
+ */
+
+getMethod(fn: () => void) {
+
+  this.removeImages = fn;
+
+}
+
+  private removeImages: () => void;
 
   /**
    * Overwrites the data the user has specified
@@ -44,8 +55,10 @@ export class CaseDataService {
     this.caseData.user.name = "";
     this.caseData.user.email = "";
     this.caseData.user.phone = "";
+    this.removeImages();
+    
 
-    //TODO CLEAR IMAGE ARRAY
+    
   }
 
 }
