@@ -1,4 +1,20 @@
+
+
 .card{
+    
+    
+    input.ng-invalid{border: 1px solid #E12026;}
+    input.ng-valid{border: 1px solid #2AD753;}
+
+    input:placeholder-shown {border: 1px solid #DDD;}
+    
+    input:focus {
+ border: 1px solid #AFD5F9;
+}
+    
+    
+    .alert {background: #E12026 !important; margin-top: -14px; padding-top: 4px;padding-bottom: 4px;}
+    
   border-radius: $border-radius-extreme;
   box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
   background-color: #FFFFFF;
