@@ -5,36 +5,31 @@
  */
 /* Imports */
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { RouterModule } from "@angular/router";
 import { ToastrModule } from "ngx-toastr";
-import { LightboxModule } from 'ngx-lightbox';
+import { LightboxModule } from "ngx-lightbox";
 import { MatIconModule } from "@angular/material/icon";
 
 /* Import modules */
-import { FooterModule } from './layouts/footer/footer.module';
-import { HeaderModule} from './layouts/header/header.module';
-
+import { FooterModule } from "./layouts/footer/footer.module";
+import { HeaderModule } from "./layouts/header/header.module";
 
 /* Import App Files */
-import { AppComponent } from './app.component';
-import { AppRoutes } from './app.routing';
-import { ContentComponent } from './layouts/content/content.component';
-import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
-
+import { AppComponent } from "./app.component";
+import { AppRoutes } from "./app.routing";
+import { ContentComponent } from "./layouts/content/content.component";
+import { HttpClientModule, HttpClientJsonpModule } from "@angular/common/http";
 /* Meta Data for App File s */
 @NgModule({
-  declarations: [
-    AppComponent,
-    ContentComponent
-  ],
+  declarations: [AppComponent, ContentComponent],
   imports: [
     HttpClientModule,
     HttpClientJsonpModule,
     MatIconModule,
     BrowserAnimationsModule,
     LightboxModule,
-    RouterModule.forRoot(AppRoutes,{
+    RouterModule.forRoot(AppRoutes, {
       useHash: true
     }),
     HeaderModule,
@@ -45,5 +40,4 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 })
 
 /* Module Class Holder */
-export class AppModule { }
- 
+export class AppModule {}
