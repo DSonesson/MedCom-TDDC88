@@ -4,6 +4,9 @@ import { EditCaseComponent } from './edit-case.component';
 import {CardPatientDataComponent} from "../../shared/cards/card-patient-data/card-patient-data.component";
 import {CardTableComponent} from "../../shared/cards/card-table/card-table.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {CardCaseNumber} from "../../shared/cards/card-case-number/card-case-number.component";
+import {RouterTestingModule} from "@angular/router/testing";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe('EditCaseComponent', () => {
   let component: EditCaseComponent;
@@ -11,8 +14,8 @@ describe('EditCaseComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, ReactiveFormsModule],
-      declarations: [ EditCaseComponent, CardPatientDataComponent, CardTableComponent ],
+      imports: [FormsModule, ReactiveFormsModule, RouterTestingModule, HttpClientTestingModule],
+      declarations: [ EditCaseComponent, CardPatientDataComponent, CardTableComponent, CardCaseNumber ],
 
     })
     .compileComponents();

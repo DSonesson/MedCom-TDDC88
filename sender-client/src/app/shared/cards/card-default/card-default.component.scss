@@ -24,3 +24,29 @@ img:hover {
     padding-bottom: 8px !important;
     min-width: calc(50%) !important;
 }
+
+.remove-button {
+    position: absolute;
+    top: -5px;
+    right: 0;
+    width: 25px;
+    height: 25px;
+    z-index: 10;
+    cursor: pointer;
+    background: linear-gradient(60deg, #ef5350, #e53935);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 25px;
+    color: white;
+    font-weight: bold;
+}
+
+.edit-button {
+
+position: absolute;
+right: 0;
+top: 0;
+width: 50px;
+height: 50px;
+cursor: pointer;
+}

@@ -24,6 +24,8 @@ export class CardImageComponent implements OnInit {
   private _album: any = [];
     // recieves from card-image if the form has valid values
   @Input() isValid: boolean;
+
+  @Input() Message: String;
   // communicates if images are uploaded or not
   @Output() imageUploaded = new EventEmitter<boolean>();
 
@@ -51,13 +53,13 @@ export class CardImageComponent implements OnInit {
 saveImageToCase(event){
   //15728640 bytes = 15mb
   if(event.target.files[0].size > 15728640) {
-    alert("The size of the image exceeds the allowed limit of 4 megabytes.");
+    alert("Storleken på bilden får inte vara större än 15 MB.");
     return;
   }
 
-  // 209715.2 = 0.2mb
-  if(event.target.files[0].size < 209715.2) {
-    alert("The size of the images must exceed 0.2 megabytes.");
+  // 102400 = 0.1 MB
+  if(event.target.files[0].size < 102400) {
+    alert("Storleken på bilden måste vara större än 0.1 MB.");
     return;
   }
 
@@ -88,6 +90,10 @@ removeImage(index: number){
   this._album.splice(index, 1);
   this.loadImages();
   this.imageCounter--;
+  if ( this.imageCounter === -1){
+    this.imagesAvailable = false;
+    this.imageUploaded.emit(this.imagesAvailable);
+  }
 }
 
 removeAllImages() {

@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CardTableComponent } from './card-table.component';
-import { ReactiveFormsModule } from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 describe('CardTableComponent', () => {
   let component: CardTableComponent;
@@ -9,7 +9,7 @@ describe('CardTableComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule],
+      imports: [ReactiveFormsModule, FormsModule],
       declarations: [ CardTableComponent ]
     })
     .compileComponents();
