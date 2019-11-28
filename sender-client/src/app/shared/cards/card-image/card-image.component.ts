@@ -53,13 +53,13 @@ export class CardImageComponent implements OnInit {
 saveImageToCase(event){
   //15728640 bytes = 15mb
   if(event.target.files[0].size > 15728640) {
-    alert("Storleken på bilden får inte vara större än 15 MB.");
+    alert("The size of the image exceeds the allowed limit of 4 megabytes.");
     return;
   }
 
   // 102400 = 0.1 MB
   if(event.target.files[0].size < 102400) {
-    alert("Storleken på bilden måste vara större än 0.1 MB.");
+    alert("The size of the images must exceed 0.2 megabytes.");
     return;
   }
 
