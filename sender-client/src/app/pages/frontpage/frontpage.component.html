@@ -15,28 +15,12 @@
 </div>
 
 <app-card-form (onSaveForm)="setValidity($event)" [title]="formTitle" [description]="formDescription" ></app-card-form>
-
-<app-card-image
-  [isValid]="isValid"
-  Message="Välj bild"
-  (imageUploaded)="setUploadBoolean($event)"
-  [title]="imageCardTitle" [description]="imageCardDescription"
-></app-card-image>
-
-
-
+<app-card-image [isValid]="isValid" Message="Välj bild" (imageUploaded)="setUploadBoolean($event)" [title]="imageCardTitle" [description]="imageCardDescription"></app-card-image>
 
 <div class="row">
   <div class="col-md-12">
-    
     <a [routerLink]="'/summary'">
-      <button
-        [disabled]="!isValid || !isUploaded"
-        id="nextButton"
-        type="Next"
-        class="btn btn-info  btn-round"
-        style="float: right;"
-      >
+      <button [disabled]="!isValid || !isUploaded" id="nextButton" type="Next" class="btn btn-info  btn-round" style="float: right;">
         <span>Nästa</span>
       </button>
     </a>
