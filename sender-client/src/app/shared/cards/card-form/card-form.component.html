@@ -34,7 +34,6 @@
                   required
                   (blur)="setInputFieldChanged($event)"
                 />
-
                 <div
                   id="errorName"
                   *ngIf="name.errors && name.errors.required && name.touched"
@@ -47,7 +46,7 @@
                   *ngIf="name.errors && name.errors.minlength && nameChanged"
                   class="alert alert-danger"
                 >
-                  Namnet måste minst vara fyra bokstäver långt.
+                  Måste minst vara fyra bokstäver långt.
                 </div>
 
                 <label>Email</label>
@@ -63,6 +62,7 @@
                   required
                   (blur)="setInputFieldChanged($event)"
                 />
+
                 <div
                   id="errorEmail"
                   *ngIf="email.errors && email.errors.required && email.touched"

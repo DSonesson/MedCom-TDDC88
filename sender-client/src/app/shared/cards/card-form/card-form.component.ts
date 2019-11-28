@@ -53,9 +53,9 @@ export class CardFormComponent implements OnInit {
                     </div>`;
 
   saveButton1 = false;
-  nameChanged: boolean;
-  emailChanged: boolean;
-  phoneChanged: boolean;
+  private nameChanged: boolean;
+  private emailChanged: boolean;
+  private phoneChanged: boolean;
 
   constructor(
     public dataService: CaseDataService,
