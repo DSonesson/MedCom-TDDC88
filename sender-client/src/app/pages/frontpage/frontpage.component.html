@@ -23,8 +23,12 @@
   [title]="imageCardTitle" [description]="imageCardDescription"
 ></app-card-image>
 
+
+
+
 <div class="row">
   <div class="col-md-12">
+    
     <a [routerLink]="'/summary'">
       <button
         [disabled]="!isValid || !isUploaded"
