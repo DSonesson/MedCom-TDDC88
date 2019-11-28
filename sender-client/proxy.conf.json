@@ -7,11 +7,11 @@
     "changeOrigin": true
   },
 
-  "/api1/*": {
+  "/second/api/": {
     "target": "https://idp.lio.se/",
     "protocol": "https:",
     "secure": true,
-    "pathRewrite": {"^/api1" : ""},
+    "pathRewrite": {"^/second/api" : ""},
     "changeOrigin": true
   }
 }

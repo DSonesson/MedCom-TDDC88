@@ -207,15 +207,16 @@ export class HttpService {
   //   });
   // }
 
+  //http://localhost:4200/second/api/oauth/v2/token?client_id=regionostergotland.se-2019-11-briva&grant_type=client_credentials&client_secret=TjJO5eEDUCmTT6wSClz28btkrHmMSm3QargesbrzDqMwVySzvgY_lP81cSeq_qVI 
   async getToken(clientId: string, grantType: string, clientSecret: string) : Promise<string> {
-    //https://idp.lio.se/oauth/v2/token
-    const url = 'http://localhost:4200/api1';  
-    const req = url + '/oauth/v2/token';
+    // const url = https://idp.lio.se/oauth/v2/token;
+    // const url = 'https://localhost:4200/second/api';  
+    const req = 'https://idp.lio.se/oauth/v2/token';
       const headers = new HttpHeaders({
         'Content-Type': 'application/x-www-form-urlencoded',
-        'Accept': 'application/xml',
-        'Response-Type': 'text',
-        'Access-Control-Allow-Origin': '*'
+        // 'Accept': 'application/json',
+        // 'Response-Type': 'text',
+        // 'Access-Control-Allow-Origin': '*'
       });
 
       const params = {
@@ -225,17 +226,26 @@ export class HttpService {
       }
   
       // const rsp = await this.http.request('POST', req, { headers, params, 'responseType': "text" }).toPromise();
-      this.http.request('POST', req, { headers, params, 'responseType': "text" }).subscribe(data => {
-        console.log(data);
-      });
-      // console.log(rsp);
-      var token: string = "";
+      // this.http.request('POST', req, { headers, params, 'responseType': "json" }).subscribe(data => {
+      //   console.log(data);
+      // });
+
+      const payload = new HttpParams()
+      .set('client_id', clientId)
+      .set('grant_type', grantType)
+      .set('client_secret', clientSecret);
+      const rsp = await this.http.post<string>(req, payload).toPromise<string>()
+
+      console.log(rsp);
+      const json = JSON.parse(rsp);
+      // console.log(json.token)
+      // var token: string = "";
       // xml2js.parseString(rsp, function (err, result) {
-      //   console.log(result.access_token);
-      //   token = result.access_token;
+      //   console.log(err);
+      //   // token = result.access_token;
       // });
       
-      return token;
+      return "0";
   }
 
 }
