@@ -29,7 +29,7 @@ import { FormControl, Validators, FormGroup, ValidatorFn, AbstractControl } from
 export class CardTableComponent implements OnInit {
 
     user: User;
-    checkboxes: Array<{question: string, storedValue: boolean, value: boolean, complementary?: string}> = [];
+    checkboxes: Array<{question: string, storedValue: boolean, value: boolean, complementary?: string, complementaryFormData?: string[]}> = [];
     private card_content = `                    <div class="col-md-12 px-1">
                         
                         <div class="form-group editable card-table">
@@ -54,18 +54,7 @@ export class CardTableComponent implements OnInit {
 
     this.user = this.dataService.getCase().user;
 
-    this.checkboxes = [
-         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
-         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false}, 
-         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false}, 
-         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
-         {question: "Finns uppgift på vikt och längd?", storedValue: false, value: false, complementary: "formHeightWeight"},
-         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
-         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
-         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
-         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
-         {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false}
-    ];
+    this.checkboxes = this.dataService.getCase().patientForm;
     this.patientInfo = this.dataService.getCase().patientInfo;
 
     }
@@ -88,10 +77,18 @@ export class CardTableComponent implements OnInit {
         }
     }
 
-    somethingChanged() {
+    somethingChanged(i: number, event: any, indexOfcomplementaryFormData) {
+
+        this.checkboxes[i].complementaryFormData[indexOfcomplementaryFormData] = event.target.value;
+        this.dataService.getCase().patientForm = this.checkboxes;
+        
         this.dataService.getCase().patientInfo[0] = this.userForm.get('patientComments').value;
         this.dataService.getCase().patientInfo[1] = this.userForm.get('dateArrival').value;
         this.dataService.getCase().patientInfo[2] = this.userForm.get('timeArrival').value;
+
+        for (var i = 0, len = this.checkboxes.length; i < len; i++) {
+            console.log(this.checkboxes[i].question);
+            }
         console.log("Test");
       }
 

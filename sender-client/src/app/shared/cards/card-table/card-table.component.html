@@ -28,7 +28,7 @@
         <th>Ja</th>
         <th>Nej</th>
       </thead>
-      <tbody *ngFor="let checkbox of checkboxes; let i=index;">
+      <tbody *ngFor="let checkbox of checkboxes; let i = index">
         <tr>
           <td>{{checkbox.question}}</td>
           <td><div class="form-check">
@@ -53,12 +53,8 @@
 <tr *ngIf="checkbox.complementary && checkbox.storedValue && checkbox.value">
     <td>
         <div *ngIf="checkbox.complementary == 'formHeightWeight'" id="formHeightWeight" class="complement">
-            Längd: <input id="timeArrival" formControlName="timeArrival" type="text" class="form-control inline-input" placeholder="" [(ngModel)]="patientInfo[2]" value="{{patientInfo[2]}}" (input)="somethingChanged()"> cm.
-            Vikt: <input id="timeArrival" formControlName="timeArrival" type="text" class="form-control inline-input" placeholder="" [(ngModel)]="patientInfo[2]" value="{{patientInfo[2]}}" (input)="somethingChanged()"> kg.
-        </div>
-        <div  *ngIf="checkbox.complementary == formHeightWeight2" id="formHeightWeight" class="complement">
-            Längd: <input id="timeArrival" formControlName="timeArrival" type="text" class="form-control inline-input" placeholder="" [(ngModel)]="patientInfo[2]" value="{{patientInfo[2]}}" (input)="somethingChanged()"> cm.
-            Vikt: <input id="timeArrival" formControlName="timeArrival" type="text" class="form-control inline-input" placeholder="" [(ngModel)]="patientInfo[2]" value="{{patientInfo[2]}}" (input)="somethingChanged()"> kg.
+            Längd: <input type="text" class="form-control inline-input" placeholder="" value="{{checkbox.complementaryFormData[0]}}" (input)="somethingChanged(i, $event, 0)"> cm.
+            Vikt: <input type="text" class="form-control inline-input" placeholder="" value="{{checkbox.complementaryFormData[1]}}" (input)="somethingChanged(i, $event, 1)"> kg.
         </div>
     </td>
 </tr>

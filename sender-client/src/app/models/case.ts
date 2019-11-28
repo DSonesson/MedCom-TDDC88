@@ -7,7 +7,7 @@ export class Case {
     images: Image[];
     caseNr: string;
     randomtest: string;
-    patientForm: Array<{question: string, storedValue: boolean, value: boolean, complementary?: string}> = [];
+    patientForm: Array<{question: string, storedValue: boolean, value: boolean, complementary?: string, complementaryFormData?: string[]}> = [];
     patientInfo: string[] = [];
     constructor() {
         this.dummyData();
@@ -19,6 +19,20 @@ export class Case {
         this.images= [];
         this.caseNr= "";
         this.patientInfo = ["", "", ""];
+        //patientForm needs to be initialized
+        var comp: string[] = ["", "", "", "", "", "", "", "", "", "", ""];
+        this.patientForm = [
+            {question: "Har patienten en kroppstemperatur > 36° C?", storedValue: false, value: false},
+            {question: "Är areriellt pO2 > 10 kPa?", storedValue: false, value: false}, 
+            {question: "Är systoliskt blodtryck > 90 mm HG?", storedValue: false, value: false}, 
+            {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
+            {question: "Finns uppgift på vikt och längd?", storedValue: false, value: false, complementary: "formHeightWeight", complementaryFormData: comp},
+            {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
+            {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
+            {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
+            {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false},
+            {question: "Har patienten en kroppstemperatur >36° C?", storedValue: false, value: false}
+       ];
 
     }
 
