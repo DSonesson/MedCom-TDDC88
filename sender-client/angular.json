@@ -26,6 +26,7 @@
               "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
+              "src/assets/js/assisted-token.min.js"
             ]
           },
           "configurations": {
@@ -78,7 +79,8 @@
               "node_modules/arrive/src/arrive.js",
               "node_modules/moment/moment.js",
               "node_modules/chartist/dist/chartist.js",
-              "node_modules/bootstrap-notify/bootstrap-notify.js"
+              "node_modules/bootstrap-notify/bootstrap-notify.js",
+              "src/assets/js/assisted-token.min.js"
             ],
             "styles": [
               "src/styles.css",

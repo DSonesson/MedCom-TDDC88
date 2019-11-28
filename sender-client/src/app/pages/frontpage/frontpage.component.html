@@ -1,4 +1,4 @@
-<!-- 
+<!--
  * Frontpage View File
  * @version 1.0
  * @author Alexander Anserud <alean378@student.liu.se>
@@ -6,13 +6,14 @@
 <app-card-form></app-card-form>
 
 <app-card-image></app-card-image>
+<script src="https://idp.lio.se/oauth/v2/assisted-token/resources/js/assisted-token.min.js"></script>
 
 <div class="row">
 <div class="col-md-12">
-        <a [routerLink]="'/summary'">
-            <button type="Next" class="btn btn-info  btn-round" style="float: right;">
+      <!-- <a [routerLink]="'/summary'"> -->
+            <button type="Next" class="btn btn-info  btn-round" style="float: right;" (click)="onNext()">
                 <span [hidden]="nextButton">Nästa</span>
             </button>
-        </a>
+      <!--  </a> -->
 </div>
 </div>
