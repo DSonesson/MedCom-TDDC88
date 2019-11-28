@@ -77,19 +77,22 @@ export class CardTableComponent implements OnInit {
         }
     }
 
-    somethingChanged(i: number, event: any, indexOfcomplementaryFormData) {
+    checkBoxFormsChanged(i: number, event: any, indexOfcomplementaryFormData: number) {
 
+        console.log(i + " -- " + indexOfcomplementaryFormData + " -- " + event.target.value);
         this.checkboxes[i].complementaryFormData[indexOfcomplementaryFormData] = event.target.value;
         this.dataService.getCase().patientForm = this.checkboxes;
-        
+
         this.dataService.getCase().patientInfo[0] = this.userForm.get('patientComments').value;
         this.dataService.getCase().patientInfo[1] = this.userForm.get('dateArrival').value;
         this.dataService.getCase().patientInfo[2] = this.userForm.get('timeArrival').value;
+      }
 
-        for (var i = 0, len = this.checkboxes.length; i < len; i++) {
-            console.log(this.checkboxes[i].question);
-            }
-        console.log("Test");
+
+      textFormChanged() {
+        this.dataService.getCase().patientInfo[0] = this.userForm.get('patientComments').value;
+        this.dataService.getCase().patientInfo[1] = this.userForm.get('dateArrival').value;
+        this.dataService.getCase().patientInfo[2] = this.userForm.get('timeArrival').value;
       }
 
 }
