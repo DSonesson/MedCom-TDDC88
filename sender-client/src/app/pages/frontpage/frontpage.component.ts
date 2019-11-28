@@ -27,6 +27,8 @@ export class FrontpageComponent implements OnInit {
   // boolean for choosing whether to display save button or not
   public isSummary: boolean;
 
+
+  
   constructor(){
   }
   

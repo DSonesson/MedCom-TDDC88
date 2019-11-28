@@ -62,9 +62,6 @@ export class SummaryComponent implements OnInit {
  public setValidity(isValid: boolean): void {
   this.isValid = isValid;
 }
-
-
-
  /**
    * sets boolean displayForm to same value as in child component card-form.component
    */
@@ -104,6 +101,8 @@ public setDisplayForm(displayForm: boolean): void {
       } 
     });
   }
+
+ 
 
   /**
    * Set isValid and isUploaded to true since it

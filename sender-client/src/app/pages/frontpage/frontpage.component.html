@@ -8,6 +8,7 @@
 <div class="card" style="background-color: transparent; box-shadow: none;">
      <h4 style="display: flex; justify-content: flex-end;"> Steg 1 av 3 </h4>
 </div>
+
 <app-card-form (onSaveForm)="setValidity($event)" [isSummary]="isSummary"></app-card-form>
 
 <app-card-image [isValid]="isValid" Message="Välj bild" (imageUploaded)="setUploadBoolean($event)"></app-card-image>

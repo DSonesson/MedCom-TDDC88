@@ -5,16 +5,19 @@
  * @author Henrik Johansson <henjo114@student.liu.se>
 -->
 <app-card-case-number editCase="true"></app-card-case-number>
-<app-card-patient-data editCase="true"></app-card-patient-data>
+<app-card-patient-data editCase="true" *ngIf="false"></app-card-patient-data>
 <app-card-table></app-card-table>
 <div class="row">
-
-    <a [routerLink]="'/frontpage'">
     <div class="col-md-12" style="text-align: center;">
-            <button id="skickaButton" type="Spara" class="btn btn-info  btn-round" (click)="uploadPatientForm()">
+        <a [routerLink]="'/frontpage'">
+            <button id="skickaButton" type="Spara" class="btn btn-info  btn-round" style="display: inline-block">
+                <span>Startsida</span>
+            </button>
+        </a>
+        <a [routerLink]="'/confirmation'" style="margin-left: 20px">
+            <button id="skickaButton" type="Spara" class="btn btn-info  btn-round" style="display: inline-block" (click)="uploadPatientForm()">
                 <span>Spara ärende</span>
             </button>
+        </a>
     </div>
-    </a>
-
 </div>

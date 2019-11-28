@@ -76,18 +76,21 @@ export class UploadService {
    */
   generatePatientFormYML() {
     var content = "Patientinformation för ärende: " + this.caseNr + "\r\n"
-      + "Namn: " + this.case.patientInfo[0] + "\r\n"
-      + "Personnummer: " + this.case.patientInfo[1] + "\r\n"
-      + "Kommentarer: " + "\r\n" + this.case.patientInfo[2] + "\r\n"  + "\r\n";
-
-    for(let i=0; i<this.dataService.getCase().patientForm.length; i++){
-      var yesNoString = "Svar: Nej";
-      if(this.dataService.getCase().patientForm[i].value) {
-        var yesNoString = "Svar: Ja";
-      }
-      var str2: string = i+1 + ". " + this.dataService.getCase().patientForm[i].question + "\r\n" + yesNoString + "\r\n" + "\r\n";
-      var content = content.concat(str2);
-    }
+        + "Namn: " + this.case.patientInfo[0] + "\r\n"
+        + "Personnummer: " + this.case.patientInfo[1] + "\r\n"
+        + "Kommentarer: " + "\r\n" + this.case.patientInfo[2] + "\r\n"  + "\r\n";
+     
+        for(let i=0; i<this.dataService.getCase().patientForm.length; i++){
+          var yesNoString = "Svar: ";
+          if(this.dataService.getCase().patientForm[i].value && this.dataService.getCase().patientForm[i].storedValue) {
+            var yesNoString = "Svar: Ja";
+          }
+          else if(!this.dataService.getCase().patientForm[i].value && this.dataService.getCase().patientForm[i].storedValue) {
+            var yesNoString = "Svar: Nej";
+          }
+          var str2: string = i+1 + ". " + this.dataService.getCase().patientForm[i].question + "\r\n" + yesNoString + "\r\n" + "\r\n";  
+          var content = content.concat(str2);
+        }
     this.ymlPatientForm = new File([content], "patientformulär-" + this.dataService.getCase().caseNr + ".yml");
     console.log(this.ymlPatientForm);
 

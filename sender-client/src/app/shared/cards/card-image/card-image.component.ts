@@ -53,13 +53,13 @@ export class CardImageComponent implements OnInit {
 saveImageToCase(event){
   //15728640 bytes = 15mb
   if(event.target.files[0].size > 15728640) {
-    alert("The size of the image exceeds the allowed limit of 4 megabytes.");
+    alert("The size of the image exceeds the allowed limit of 15 megabytes.");
     return;
   }
 
   // 102400 = 0.1 MB
   if(event.target.files[0].size < 102400) {
-    alert("The size of the images must exceed 0.2 megabytes.");
+    alert("The size of the images must exceed 0.1 megabytes.");
     return;
   }
 
@@ -96,13 +96,20 @@ removeImage(index: number){
   }
 }
 
+removeAllImages() {
+  this.dataService.getCase().images = [];
+  this._album = [];
+  this.loadImages();
+  this.imageCounter = 0;  
+}
+
 /**
  * Method to open the file select dialog. The method is called from a button in the HTML
  */
 openFileSelect() {
   let element: HTMLElement = document.getElementsByClassName('upload-input')[0] as HTMLElement;
   element.click();
-  console.log(this.imagesAvailable)
+  console.log(this.imagesAvailable);
 }
 
 /**
@@ -161,7 +168,22 @@ enlargeImage(index: number): void {
   this._lightbox.open(this._album, index);
 }
 
+
+/**
+ * Method used by case-data.service to empty all the image arrays. 
+ */
+
+clearImages() {
+
+  this._album = [];
+  this.dataService.getCase().images = [];
+  this.imageCounter = 0;
+  this.loadImages();
+
+}
+
   ngOnInit() {
+    this.dataService.getMethod(this.clearImages.bind(this));
   }
 
 }
