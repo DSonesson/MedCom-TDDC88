@@ -96,13 +96,20 @@ removeImage(index: number){
   }
 }
 
+removeAllImages() {
+  this.dataService.getCase().images = [];
+  this._album = [];
+  this.loadImages();
+  this.imageCounter = 0;  
+}
+
 /**
  * Method to open the file select dialog. The method is called from a button in the HTML
  */
 openFileSelect() {
   let element: HTMLElement = document.getElementsByClassName('upload-input')[0] as HTMLElement;
   element.click();
-  console.log(this.imagesAvailable)
+  console.log(this.imagesAvailable);
 }
 
 /**
