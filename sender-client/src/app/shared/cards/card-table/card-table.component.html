@@ -73,9 +73,15 @@
 <form [formGroup]="userForm">
 <div>Hur ska patienten transporteras?</div>
   <textarea id="patientComments" formControlName="patientComments" class="form-control" rows="2" [(ngModel)]="patientInfo[0]" value="{{patientInfo[0]}}" (input)="textFormChanged()"></textarea>
-  <div style="margin-top: 15px;">Förväntad ankomsttid till Brännskadecentrum i Linköping?</div>
-  <input id="dateArrival" formControlName="dateArrival" type="text" class="form-control" placeholder="Datum" [(ngModel)]="patientInfo[1]" value="{{patientInfo[1]}}" (input)="textFormChanged()" style="width: 40%">
-  <input id="timeArrival" formControlName="timeArrival" type="text" class="form-control" placeholder="Tid" [(ngModel)]="patientInfo[2]" value="{{patientInfo[2]}}" (input)="textFormChanged()" style="width: 40%">
+  <div style="margin-top: 15px; margin-bottom: 10px;">Förväntad ankomsttid till Brännskadecentrum i Linköping?</div>
+  
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Datum" value="date.value" (dateChange)="dateChange($event)">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <input id="hourArrival" formControlName="hourArrival" type="text" class="form-control" placeholder="HH" [(ngModel)]="patientInfo[1]" value="{{patientInfo[1]}}" (input)="textFormChanged()" style="width: 55px; display: inline-block; text-align: center; margin-left: 30px">
+   : <input id="minArrival" formControlName="minArrival" type="text" class="form-control" placeholder="MM" [(ngModel)]="patientInfo[2]" value="{{patientInfo[2]}}" (input)="textFormChanged()" style="width: 55px; display: inline-block; text-align: center">
 
 </form>
 

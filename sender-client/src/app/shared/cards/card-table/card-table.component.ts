@@ -49,13 +49,15 @@ export class CardTableComponent implements OnInit {
 
     saveButton1=false;
     patientInfo: string[] = [];
-
+    date =  new FormControl(new Date());
     constructor(public dataService: CaseDataService) {
 
     this.user = this.dataService.getCase().user;
 
     this.checkboxes = this.dataService.getCase().patientForm;
     this.patientInfo = this.dataService.getCase().patientInfo;
+    
+    this.date = this.dataService.getCase().dateofArrival;
 
     }
 
@@ -63,8 +65,8 @@ export class CardTableComponent implements OnInit {
     ngOnInit() {
         this.userForm = new FormGroup({
             'patientComments': new FormControl(this.patientInfo[0]),
-            'dateArrival': new FormControl(this.patientInfo[1]),
-            'timeArrival': new FormControl(this.patientInfo[2])
+            'hourArrival': new FormControl(this.patientInfo[1]),
+            'minArrival': new FormControl(this.patientInfo[2])
         });
     }
 
@@ -82,17 +84,18 @@ export class CardTableComponent implements OnInit {
         console.log(i + " -- " + indexOfcomplementaryFormData + " -- " + event.target.value);
         this.checkboxes[i].complementaryFormData[indexOfcomplementaryFormData] = event.target.value;
         this.dataService.getCase().patientForm = this.checkboxes;
-
-        this.dataService.getCase().patientInfo[0] = this.userForm.get('patientComments').value;
-        this.dataService.getCase().patientInfo[1] = this.userForm.get('dateArrival').value;
-        this.dataService.getCase().patientInfo[2] = this.userForm.get('timeArrival').value;
       }
 
 
       textFormChanged() {
         this.dataService.getCase().patientInfo[0] = this.userForm.get('patientComments').value;
-        this.dataService.getCase().patientInfo[1] = this.userForm.get('dateArrival').value;
-        this.dataService.getCase().patientInfo[2] = this.userForm.get('timeArrival').value;
+        this.dataService.getCase().patientInfo[1] = this.userForm.get('hourArrival').value;
+        this.dataService.getCase().patientInfo[2] = this.userForm.get('minArrival').value;
+      }
+
+      dateChange(event: any){
+        this.date = event.target.value;
+        this.dataService.getCase().dateofArrival = event.target.value;
       }
 
 }

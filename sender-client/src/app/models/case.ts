@@ -1,6 +1,7 @@
 import { User } from './user';
 import { Image } from './image';
 import { Patient } from './patient';
+import { FormControl } from '@angular/forms';
 
 export class Case {
     user: User;
@@ -9,6 +10,7 @@ export class Case {
     randomtest: string;
     patientForm: Array<{question: string, storedValue: boolean, value: boolean, noCheckBoxes?: boolean, complementary?: string, complementaryFormData?: string[]}> = [];
     patientInfo: string[] = [];
+    dateofArrival =  new FormControl(new Date());
     constructor() {
         this.dummyData();
 
@@ -41,6 +43,7 @@ export class Case {
             {question: "Är köldskador polstrade?", storedValue: false, value: false}
 
        ];
+       //this.dateofArrival = undefined;
 
     }
 
