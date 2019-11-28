@@ -96,12 +96,6 @@ removeImage(index: number){
   }
 }
 
-removeAllImages() {
-  this.dataService.getCase().images = [];
-  this._album = [];
-  this.loadImages();
-  this.imageCounter = 0;  
-}
 
 /**
  * Method to open the file select dialog. The method is called from a button in the HTML
@@ -177,8 +171,9 @@ clearImages() {
 
   this._album = [];
   this.dataService.getCase().images = [];
-  this.imageCounter = 0;
   this.loadImages();
+  this.imageCounter = -1;
+ 
 
 }
 
