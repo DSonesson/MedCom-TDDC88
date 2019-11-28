@@ -14,12 +14,21 @@ import { UploadService } from "app/shared/upload.service";
   templateUrl: "./frontpage.component.html",
   styleUrls: ["./frontpage.component.scss"]
 })
+
 export class FrontpageComponent implements OnInit {
   private pageHeader: String;
   // are form values valid
   public isValid: boolean;
   // is image uploaded locally
   public isUploaded: boolean;
+
+  /**
+   * The text attributes for the cards
+   */
+  private formTitle: String;
+  private formDescription: String;
+  private imageCardTitle: String;
+  private imageCardDescription: String;
 
   constructor() {}
 
@@ -41,5 +50,10 @@ export class FrontpageComponent implements OnInit {
     this.pageHeader = "Anmäl brännskada";
     this.isValid = false;
     this.isUploaded = false;
+    
+    this.formTitle = "Kontaktuppgifter";
+    this.formDescription = "Här fyller du som avsändare i dina kontaktuppgifter.";
+    this.imageCardTitle = "Ladda upp bild";
+    this.imageCardDescription = "Här kan du ladda upp bilder eller ta bilder med kameran. Tryck på “Välj bild” för att börja.";
   }
 }

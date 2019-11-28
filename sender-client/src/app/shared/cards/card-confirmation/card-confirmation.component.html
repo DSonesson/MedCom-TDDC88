@@ -2,27 +2,23 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h5 class="card-title">Ditt ärende har skickats!</h5>
-                <p class="card-description">Beskrivining</p>
+                <h5 class="card-title">{{title}}</h5>
+                <p class="card-description">{{description}}</p>
             </div>
             <div class="card-body">
                 <section>
                     <div class="col-md-12 px-1">
                             <div class="form-group editable card-form">
-                                    <label>Ärendenummer</label>
-                                    <p id="caseNr">{{case.caseNr}}</p>
-                                    <label>Ärendestatus</label>
-                                    <p>Skickat</p>
-
-                                    <style>
-                                        img {
-                                        display: block;
-                                        margin-left: auto;
-                                        margin-right: auto;
-                                        }
-                                    </style>
-                                    <img src = "../../../assets/img/checkMark.png" class="center">
-                                </div>
+                                <label>Ärendenummer</label>
+                                <p id="caseNr">{{ case.caseNr }}</p>
+                                <label>Ärendestatus</label>
+                                <p>Skickat</p>
+                                
+                                <h5 style="font-weight: bold;"> {{ importantContent }}</h5>
+                                <p>{{ content }}</p>
+                                
+                                <img src = "../../../assets/img/checkMark.png" class="center">
+                            </div>
                     </div>
                 </section>
             </div>
