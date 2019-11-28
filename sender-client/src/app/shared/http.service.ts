@@ -1,5 +1,5 @@
 import { Injectable, Predicate } from '@angular/core';
-import { HttpClient, HttpParams} from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { stringify } from 'querystring';
@@ -15,8 +15,8 @@ export class HttpService {
   url = 'http://localhost:4200/api';
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type':  'application/x-www-form-urlencoded',
-      'Accept':  'application/xml',
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept': 'application/xml',
       'Response-Type': 'text',
       'Access-Control-Allow-Origin': '*',
     })
@@ -31,8 +31,8 @@ export class HttpService {
   userLogin() {
     const req = this.url + '/core/loginguest'
     const headers = new HttpHeaders({
-      'Content-Type':  'application/x-www-form-urlencoded',
-      'Accept':  'application/xml',
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept': 'application/xml',
       'Response-Type': 'text',
       'Access-Control-Allow-Origin': '*',
       observe: 'response'
@@ -42,28 +42,28 @@ export class HttpService {
       // "User-Agent":"Chrome/56.0.2924.87"
     })
     const params = {
-      'userid':'annro873','password':'vLieZJzd'
+      'userid': 'annro873', 'password': 'vLieZJzd'
     }
 
-    this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
+    this.http.request('POST', req, { headers, params, 'responseType': "text" }).subscribe(resp => {
       console.log(resp);
     })
   }
 
-  private userLogin1():Promise<string> {
+  private userLogin1(): Promise<string> {
     const req = this.url + '/core/loginguest'
     const headers = new HttpHeaders({
-      'Content-Type':  'application/x-www-form-urlencoded',
-      'Accept':  'application/xml',
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept': 'application/xml',
       'Response-Type': 'text',
       'Access-Control-Allow-Origin': '*',
       'observe': 'response'
     })
     const params = {
-      'userid':'annro873','password':'vLieZJzd'
+      'userid': 'annro873', 'password': 'vLieZJzd'
     }
 
-    return this.http.request('POST', req, {headers, params, 'responseType':"text"}).toPromise();
+    return this.http.request('POST', req, { headers, params, 'responseType': "text" }).toPromise();
   }
 
   /**
@@ -88,17 +88,17 @@ export class HttpService {
     })
 
     const params = {
-      'path':uploadPath,
-      'offset':'0', 
-      'complete':'1',
-      'filename':fileToUpload.name,
-      'appname':'explorer'
+      'path': uploadPath,
+      'offset': '0',
+      'complete': '1',
+      'filename': fileToUpload.name,
+      'appname': 'explorer'
     }
 
-    this.http.request('POST', req, {'body': formData, headers, params, 'responseType':"text"})
-    .subscribe(resp => {
-      console.log(resp)
-    })
+    this.http.request('POST', req, { 'body': formData, headers, params, 'responseType': "text" })
+      .subscribe(resp => {
+        console.log(resp)
+      })
   }
 
   /**
@@ -107,14 +107,14 @@ export class HttpService {
    * 
    * @returns Nothing is returned.
    */
-  createFolder(caseNumber: string) { 
+  createFolder(caseNumber: string) {
 
     // const req = 'https://company3.filecloudonline.com' + '/app/explorer/createfolder'
     const req = this.url + '/app/explorer/createfolder'
 
     const headers = new HttpHeaders({
-      'Content-Type':  'application/x-www-form-urlencoded',
-      'Accept':  'application/xml',
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept': 'application/xml',
       'Response-Type': 'text',
       'Access-Control-Allow-Origin': '*',
     })
@@ -124,13 +124,13 @@ export class HttpService {
       'path': '/annro873'
     }
 
-    this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
+    this.http.request('POST', req, { headers, params, 'responseType': "text" }).subscribe(resp => {
       console.log(resp)
     })
 
   }
 
-  async doSearch(caseNr:string, searchloc:string) : Promise<boolean> {
+  async doSearch(caseNr: string, searchloc: string): Promise<boolean> {
 
     const loginData = await this.userLogin1();
     console.log(loginData);
@@ -154,22 +154,22 @@ export class HttpService {
     //     trim: true,
     //     explicitArray: true
     // });
-    
+
     xml2js.parseString(searchData, function (err, result) {
-        console.log(result.entries.meta[0].total[0]);
-        total = result.entries.meta[0].total[0];
+      console.log(result.entries.meta[0].total[0]);
+      total = result.entries.meta[0].total[0];
     });
     console.log("total = " + total);
     console.log(total >= 0);
     return total > 0;
   }
 
-  private search(caseNr:string, searchloc:string) : Promise<string> {
+  private search(caseNr: string, searchloc: string): Promise<string> {
     const req = this.url + '/core/dosearch'
 
     const headers = new HttpHeaders({
-      'Content-Type':  'application/x-www-form-urlencoded',
-      'Accept':  'application/xml',
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept': 'application/xml',
       'Response-Type': 'text',
       'Access-Control-Allow-Origin': '*',
     })
@@ -179,7 +179,7 @@ export class HttpService {
       'searchloc': searchloc,
     }
 
-    return this.http.request('POST', req, {headers, params, 'responseType':"text"}).toPromise();
+    return this.http.request('POST', req, { headers, params, 'responseType': "text" }).toPromise();
   }
 
   // private parseXML(data) {
@@ -206,5 +206,36 @@ export class HttpService {
   //     });
   //   });
   // }
+
+  async getToken(clientId: string, grantType: string, clientSecret: string) : Promise<string> {
+    //https://idp.lio.se/oauth/v2/token
+    const url = 'http://localhost:4200/api1';  
+    const req = url + '/oauth/v2/token';
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Accept': 'application/xml',
+        'Response-Type': 'text',
+        'Access-Control-Allow-Origin': '*'
+      });
+
+      const params = {
+        'client_id': clientId,
+        'grant_type': grantType,
+        'client_secret': clientSecret
+      }
+  
+      // const rsp = await this.http.request('POST', req, { headers, params, 'responseType': "text" }).toPromise();
+      this.http.request('POST', req, { headers, params, 'responseType': "text" }).subscribe(data => {
+        console.log(data);
+      });
+      // console.log(rsp);
+      var token: string = "";
+      // xml2js.parseString(rsp, function (err, result) {
+      //   console.log(result.access_token);
+      //   token = result.access_token;
+      // });
+      
+      return token;
+  }
 
 }

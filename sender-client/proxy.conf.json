@@ -5,5 +5,13 @@
     "secure": false,
     "pathRewrite": {"^/api" : ""},
     "changeOrigin": true
+  },
+
+  "/api1/*": {
+    "target": "https://idp.lio.se/",
+    "protocol": "https:",
+    "secure": true,
+    "pathRewrite": {"^/api1" : ""},
+    "changeOrigin": true
   }
 }
