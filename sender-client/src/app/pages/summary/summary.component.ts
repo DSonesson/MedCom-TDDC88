@@ -97,7 +97,7 @@ public setDisplayForm(displayForm: boolean): void {
   */
   openDialog() {
     let dialogRef = this.dialog.open(PopupComponent, {
-      data:{ content: "Är du säker på att du vill avsluta ditt ärende?", yesBtn: "Ja, avsluta", noBtn: "Nej, tillbaka" },
+      data:{ content: "Är du säker på att du vill avsluta ditt ärende?", yesBtn: "Ja, avsluta", noBtn: "Nej" },
       width: "500px",
       height: "250px",
     }); 
