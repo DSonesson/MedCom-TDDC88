@@ -1,4 +1,20 @@
+
+
 .card{
+    
+    
+    input.ng-invalid{border: 1px solid #E12026;}
+    input.ng-valid{border: 1px solid #2AD753;}
+
+    input:placeholder-shown {border: 1px solid #DDD;}
+    
+    input:focus {
+ border: 1px solid #AFD5F9;
+}
+    
+    
+    .alert {background: #E12026 !important; margin-top: -14px; padding-top: 4px;padding-bottom: 4px;}
+    
   border-radius: $border-radius-extreme;
   box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
   background-color: #FFFFFF;
@@ -28,14 +44,15 @@
         border-radius: 3px;
         margin-top: 0px;
         padding: 10px;
-        background: linear-gradient(60deg,#ef5350,#e53935);
+        background: linear-gradient(60deg,$dark-blue-main,#065FA2);
         //margin: 0 15px;
         position: relative;
         color: white;
         text-align: left;
+        font-family: Georgia;
         
     }
-    .card-description{font-size: 12px; color: white; padding:0px}
+    .card-description{font-size: 16px; color: white; padding:0px}
     
     .card [class*=card-header-]:not(.card-header-icon):not(.card-header-text):not(.card-header-image) {
     border-radius: 3px;
@@ -53,6 +70,7 @@
       .card-title{
           margin-top: 10px;
           margin-bottom: 0px;
+          font-size:24px;
       }
         .card-description{
             margin-top: 0px;

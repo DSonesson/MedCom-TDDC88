@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CaseDataService } from '../../case-data.service';
 import { Case } from '../../../models/case';
 
@@ -10,6 +10,14 @@ import { Case } from '../../../models/case';
 export class CardConfirmationComponent implements OnInit {
 
   case: Case;
+  
+  /**
+  * The title, description and content of the card 
+  */
+  @Input ("title") title: String;
+  @Input ("description") description: String;
+  @Input ("importantContent") importantContent: String;
+  @Input ("content") content: String;
   
   constructor(public dataService: CaseDataService) { 
     this.case = this.dataService.getCase();

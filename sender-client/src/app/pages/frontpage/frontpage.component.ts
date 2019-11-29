@@ -6,8 +6,8 @@
 
 /* Imports */
 import { Component, OnInit } from '@angular/core';
-
 import { Routes } from '@angular/router';
+import { UploadService } from 'app/shared/upload.service';
 
 
 @Component({
@@ -16,16 +16,30 @@ import { Routes } from '@angular/router';
   styleUrls: ['./frontpage.component.scss']
 })
 
-
 export class FrontpageComponent implements OnInit {
-
+  private pageHeader: String;
   // are form values valid
   public isValid: boolean; 
   // is image uploaded locally
   public isUploaded: boolean; 
+  // boolean for choosing whether to display save button or not
+  public isSummary: boolean;
 
+  /**
+   * The text attributes for the cards
+   */
+  private formTitle: String;
+  private formDescription: String;
+  private imageCardTitle: String;
+  private imageCardDescription: String;
+  
+  
 
+  constructor() {}
 
+  
+  
+  
   /**
     * sets boolean isValid to same value as in child component card-form.component
     */
@@ -33,20 +47,23 @@ export class FrontpageComponent implements OnInit {
     this.isValid = isValid;
   }
 
+  
+
   /**
     * sets boolean isUploaded to same value as in child component card-image.component
     */
   public setUploadBoolean(isUploaded: boolean): void {
-    if (this.isValid) {
-      this.isUploaded = isUploaded;
-    }
+    this.isUploaded = isUploaded;
   }
 
- 
-    ngOnInit() {
-      this.isValid=false;
-      this.isUploaded=false;
-
-     };
-
+  ngOnInit() {
+    this.pageHeader = "Anmäl brännskada";
+    this.isValid = false;
+    this.isUploaded = false;
+    
+    this.formTitle = "Kontaktuppgifter";
+    this.formDescription = "Här fyller du som avsändare i dina kontaktuppgifter.";
+    this.imageCardTitle = "Ladda upp bild";
+    this.imageCardDescription = "Här kan du ladda upp bilder eller ta bilder med kameran. Tryck på “Välj bild” för att börja.";
+  }
 }
