@@ -56,7 +56,7 @@
             Vikt: <input type="text" class="form-control inline-input" placeholder="" value="{{checkbox.complementaryFormData[1]}}" (input)="checkBoxFormsChanged(i, $event, 1)"> kg.
         </div>
 
-        <div *ngIf="checkbox.complementary == 'infunderatForm'" id="infunderatForm" class="complement">
+        <div *ngIf="checkbox.complementary == 'formAnswer'" id="formAnswer" class="complement">
             <input type="text" class="form-control inline-input" placeholder="" value="{{checkbox.complementaryFormData[0]}}" (input)="checkBoxFormsChanged(i, $event, 0)" style="width: 150px">
         </div>
 
@@ -72,17 +72,21 @@
 </div>
 <form [formGroup]="userForm">
 <div>Hur ska patienten transporteras?</div>
-  <textarea id="patientComments" formControlName="patientComments" class="form-control" rows="2" [(ngModel)]="patientInfo[0]" value="{{patientInfo[0]}}" (input)="textFormChanged()"></textarea>
+  <textarea id="patientComments" formControlName="patientComments" class="form-control" rows="2" [(ngModel)]="transportInfo" value="{{transportInfo}}" (input)="textFormChanged()"></textarea>
   <div style="margin-top: 15px; margin-bottom: 10px;">Förväntad ankomsttid till Brännskadecentrum i Linköping?</div>
   
   <mat-form-field>
-    <input matInput [matDatepicker]="picker" placeholder="Datum" value="date.value" (dateChange)="dateChange($event)">
+    <input matInput [matDatepicker]="picker" placeholder="Datum" [(ngModel)]="dateOfArrival" (dateChange)="dateChange($event)" [ngModelOptions]="{standalone: true}">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
-  <input id="hourArrival" formControlName="hourArrival" type="text" class="form-control" placeholder="HH" [(ngModel)]="patientInfo[1]" value="{{patientInfo[1]}}" (input)="textFormChanged()" style="width: 55px; display: inline-block; text-align: center; margin-left: 30px">
-   : <input id="minArrival" formControlName="minArrival" type="text" class="form-control" placeholder="MM" [(ngModel)]="patientInfo[2]" value="{{patientInfo[2]}}" (input)="textFormChanged()" style="width: 55px; display: inline-block; text-align: center">
-
+  <div class="timePicker">
+  <input id="hourArrival" formControlName="hourArrival" type="number" maxlength="2" min="0" max="23" class="form-control" placeholder="00" [(ngModel)]="timeofArrival[0]" value="{{timeofArrival[0]}}" (input)="textFormChanged()" class="timePickerInput">: 
+  <input id="minArrival" formControlName="minArrival" type="number" maxlength="2" min="0" max="59" class="form-control" placeholder="00" [(ngModel)]="timeofArrival[1]" value="{{timeofArrival[1]}}" (input)="textFormChanged()" class="timePickerInput" style="margin-left: 10px">
+   <i class="material-icons">
+        access_time
+        </i>  
+</div>
 </form>
 
                         </div>

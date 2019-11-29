@@ -75,23 +75,43 @@ export class UploadService {
    * @returns Nothing is returned.
    */
   generatePatientFormYML() {
-    var content = "Patientinformation för ärende: " + this.caseNr + "\r\n"
-        + "Namn: " + this.case.patientInfo[0] + "\r\n"
-        + "Personnummer: " + this.case.patientInfo[1] + "\r\n"
-        + "Kommentarer: " + "\r\n" + this.case.patientInfo[2] + "\r\n"  + "\r\n";
-     
+    var content: string = "Patientformulär för case: " + this.caseNr + "\r\n" + "\r\n";
         for(let i=0; i<this.dataService.getCase().patientForm.length; i++){
-          var yesNoString = "Svar: ";
+          var yesNoString = "Svar: Ej ifyllt. ";
           if(this.dataService.getCase().patientForm[i].value && this.dataService.getCase().patientForm[i].storedValue) {
-            var yesNoString = "Svar: Ja";
+            var yesNoString = "Svar: Ja. ";
           }
           else if(!this.dataService.getCase().patientForm[i].value && this.dataService.getCase().patientForm[i].storedValue) {
-            var yesNoString = "Svar: Nej";
+            var yesNoString = "Svar: Nej. ";
           }
-          var str2: string = i+1 + ". " + this.dataService.getCase().patientForm[i].question + "\r\n" + yesNoString + "\r\n" + "\r\n";  
-          var content = content.concat(str2);
+          else {
+            var yesNoString = "";
+          }
+          
+          var formData = "";
+          if (this.dataService.getCase().patientForm[i].complementary) {
+            for(let k=0; k<this.dataService.getCase().patientForm[i].complementaryFormData.length; k++){
+            formData = formData.concat(this.dataService.getCase().patientForm[i].ymlFormat[k] + this.dataService.getCase().patientForm[i].complementaryFormData[k]);
+          }
         }
-    this.ymlPatientForm = new File([content], "patientformulär-" + this.dataService.getCase().caseNr + ".yml");
+          var questionAndAnswers: string = i+1 + ". " + this.dataService.getCase().patientForm[i].question + "\r\n" + yesNoString + formData + "\r\n" + "\r\n";  
+          content = content.concat(questionAndAnswers);
+        }
+        if (this.dataService.getCase().transportInfo != null && this.dataService.getCase().transportInfo.length > 0) {
+          content = content + "Hur ska patienten transporteras? " + "\r\n" + this.dataService.getCase().transportInfo + "\r\n" + "\r\n";
+        }
+        else {
+          content = content + "Det finns ingen information för hur patienten ska transporteras." + "\r\n" + "\r\n";
+        }
+
+        if (this.dataService.getCase().dateofArrival && this.dataService.getCase().hasSavedDate) {
+          content = content + "Förväntad ankomsttid till Brännskadecentrum i Linköping?" + "\r\n" + this.dataService.getCase().dateofArrival;
+        }
+        else {
+          content = content + "Det finns ingen information för hur patientens ankomsttid.";
+        }
+
+    this.ymlPatientForm = new File([content], "patientformular-" + this.dataService.getCase().caseNr + ".yml");
     console.log(this.ymlPatientForm);
 
     this.httpService.userLogin();
