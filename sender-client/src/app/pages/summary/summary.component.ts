@@ -64,7 +64,8 @@ export class SummaryComponent implements OnInit {
 }
 
  /**
-   * sets boolean displayForm to same value as in child component card-form.component
+   * sets boolean displayForm to same value as in child component from either card-form.component 
+   * or card-default.component.
    */
 
 public setDisplayForm(displayForm: boolean): void {

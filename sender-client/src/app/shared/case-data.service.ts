@@ -36,7 +36,14 @@ export class CaseDataService {
   }
  
   /**
+ * Method that will be used to clear images.
+ */
+
+  private removeImages: () => void;
+
+  /**
  * method for fetching and setting the clear images method from card-image
+ * to removeImages
  */
 
 getMethod(fn: () => void) {
@@ -45,7 +52,6 @@ getMethod(fn: () => void) {
 
 }
 
-  private removeImages: () => void;
 
   /**
    * Overwrites the data the user has specified
