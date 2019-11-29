@@ -88,7 +88,7 @@ export class HttpService {
     })
 
     const params = {
-      'path':uploadPath,
+      'path': "/annro873/" +  uploadPath,
       'offset':'0', 
       'complete':'1',
       'filename':fileToUpload.name,

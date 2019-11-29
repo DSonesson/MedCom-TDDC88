@@ -48,25 +48,26 @@ export class CardTableComponent implements OnInit {
                     </div>`;
 
     saveButton1=false;
-    patientInfo: string[] = [];
-    date =  new FormControl(new Date());
+    dateOfArrival =  new FormControl(new Date());
+    timeofArrival: string[] = [];
+    transportInfo: string;
     constructor(public dataService: CaseDataService) {
 
     this.user = this.dataService.getCase().user;
 
     this.checkboxes = this.dataService.getCase().patientForm;
-    this.patientInfo = this.dataService.getCase().patientInfo;
-    
-    this.date = this.dataService.getCase().dateofArrival;
+    this.dateOfArrival = this.dataService.getCase().dateofArrival;
+    this.timeofArrival = this.dataService.getCase().timeofArrival;
+    this.transportInfo = this.dataService.getCase().transportInfo;
 
     }
 
     userForm: FormGroup;
     ngOnInit() {
         this.userForm = new FormGroup({
-            'patientComments': new FormControl(this.patientInfo[0]),
-            'hourArrival': new FormControl(this.patientInfo[1]),
-            'minArrival': new FormControl(this.patientInfo[2])
+            'patientComments': new FormControl(this.transportInfo),
+            'hourArrival': new FormControl(this.timeofArrival[0]),
+            'minArrival': new FormControl(this.timeofArrival[1])
         });
     }
 
@@ -88,14 +89,15 @@ export class CardTableComponent implements OnInit {
 
 
       textFormChanged() {
-        this.dataService.getCase().patientInfo[0] = this.userForm.get('patientComments').value;
-        this.dataService.getCase().patientInfo[1] = this.userForm.get('hourArrival').value;
-        this.dataService.getCase().patientInfo[2] = this.userForm.get('minArrival').value;
+        this.dataService.getCase().transportInfo = this.userForm.get('patientComments').value;
+        this.dataService.getCase().timeofArrival[0] = this.userForm.get('hourArrival').value;
+        this.dataService.getCase().timeofArrival[1] = this.userForm.get('minArrival').value;
       }
 
       dateChange(event: any){
-        this.date = event.target.value;
+        this.dateOfArrival = event.target.value;
         this.dataService.getCase().dateofArrival = event.target.value;
+        this.dataService.getCase().hasSavedDate = true;
       }
 
 }
