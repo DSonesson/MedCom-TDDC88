@@ -64,15 +64,14 @@ export class HttpService {
 
     const httpParams = {
       'path':uploadPath,
-//      'offset':'0',
-//      'complete':'1',
+      'offset':'0',
+      'complete':'1',
       'filename':fileToUpload.name,
-//      'appname':'explorer'
+      'appname':'explorer'
     }
 
     const httpHeaders = new HttpHeaders ({
       "Authorization" : token,
-      "Content-type": "application/x-www-form-urlencoded"
     })
 
 
