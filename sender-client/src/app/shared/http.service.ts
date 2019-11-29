@@ -207,14 +207,14 @@ export class HttpService {
   //   });
   // }
 
-  getTokenTest() {
-    const clientId = "regionostergotland.se-2019-11-briva"
-    const grantType = "client_credentials"
-    const clientSecret = "TjJO5eEDUCmTT6wSClz28btkrHmMSm3QargesbrzDqMwVySzvgY_lP81cSeq_qVI"
-    this.getToken(clientId, grantType, clientSecret).then(data => {
-      console.log(data)
-    })
-  }
+  // getTokenTest() {
+  //   const clientId = "regionostergotland.se-2019-11-briva"
+  //   const grantType = "client_credentials"
+  //   const clientSecret = "TjJO5eEDUCmTT6wSClz28btkrHmMSm3QargesbrzDqMwVySzvgY_lP81cSeq_qVI"
+  //   this.getToken(clientId, grantType, clientSecret).then(data => {
+  //     console.log(data)
+  //   })
+  // }
 
   async getToken(clientId: string, grantType: string, clientSecret: string) : Promise<string> {
     // const url = 'https://idp.lio.se';
