@@ -6,6 +6,7 @@
 
 /* Imports */
 import { Component, OnInit } from '@angular/core';
+import { CaseDataService } from 'app/shared/case-data.service';
 
 @Component({
   selector: 'app-confirmation',
@@ -14,7 +15,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfirmationComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dataService: CaseDataService) { }
+
+clearData() {
+this.dataService.clearUserData();
+
+}
+
 
   ngOnInit() {
   }

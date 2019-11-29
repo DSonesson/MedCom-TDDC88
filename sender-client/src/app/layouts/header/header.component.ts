@@ -80,6 +80,15 @@ export class HeaderComponent implements OnInit{
       ;
     }
 
+    clearData(path: string){
+
+      if(path == '/frontpage') {
+      this.dataService.clearUserData();
+      }
+
+    }
+
+
     /**
      * Functionality to open/close the navbar
      * @version 1.0
