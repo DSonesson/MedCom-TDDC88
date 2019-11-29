@@ -5,12 +5,12 @@
  */
 
 /* Imports */
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: "app-confirmation",
-  templateUrl: "./confirmation.component.html",
-  styleUrls: ["./confirmation.component.scss"]
+  selector: 'app-confirmation',
+  templateUrl: './confirmation.component.html',
+  styleUrls: ['./confirmation.component.scss']
 })
 
 export class ConfirmationComponent implements OnInit {
@@ -33,4 +33,5 @@ export class ConfirmationComponent implements OnInit {
     this.importantContent = "Viktigt: Kom ihåg att spara ditt ärendenummer!";
     this.content = "Det behövs för att kunna se ditt ärende senare.";
   }
+
 }

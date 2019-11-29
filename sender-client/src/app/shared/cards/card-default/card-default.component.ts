@@ -30,7 +30,11 @@ export class CardDefaultComponent implements OnInit {
     this.loadImages();
   }
 
-  setDisplayForm() {
+/**
+    * Emits a boolean to summary page so summary page knows which component to display.
+    * 
+    */
+setDisplayForm() {
 
   this.displayForm.emit(true);
   }

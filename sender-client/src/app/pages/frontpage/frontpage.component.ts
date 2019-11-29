@@ -5,22 +5,25 @@
  */
 
 /* Imports */
-import { Component, OnInit } from "@angular/core";
-import { Routes } from "@angular/router";
-import { UploadService } from "app/shared/upload.service";
+import { Component, OnInit } from '@angular/core';
+import { Routes } from '@angular/router';
+import { UploadService } from 'app/shared/upload.service';
+
 
 @Component({
-  selector: "frontpage",
-  templateUrl: "./frontpage.component.html",
-  styleUrls: ["./frontpage.component.scss"]
+  selector: 'frontpage',
+  templateUrl: './frontpage.component.html',
+  styleUrls: ['./frontpage.component.scss']
 })
 
 export class FrontpageComponent implements OnInit {
   private pageHeader: String;
   // are form values valid
-  public isValid: boolean;
+  public isValid: boolean; 
   // is image uploaded locally
-  public isUploaded: boolean;
+  public isUploaded: boolean; 
+  // boolean for choosing whether to display save button or not
+  public isSummary: boolean;
 
   /**
    * The text attributes for the cards
@@ -29,19 +32,26 @@ export class FrontpageComponent implements OnInit {
   private formDescription: String;
   private imageCardTitle: String;
   private imageCardDescription: String;
+  
+  
 
   constructor() {}
 
+  
+  
+  
   /**
-   * sets boolean isValid to same value as in child component card-form.component
-   */
+    * sets boolean isValid to same value as in child component card-form.component
+    */
   public setValidity(isValid: boolean): void {
     this.isValid = isValid;
   }
 
+  
+
   /**
-   * sets boolean isUploaded to same value as in child component card-image.component
-   */
+    * sets boolean isUploaded to same value as in child component card-image.component
+    */
   public setUploadBoolean(isUploaded: boolean): void {
     this.isUploaded = isUploaded;
   }
