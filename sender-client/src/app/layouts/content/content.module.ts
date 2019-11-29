@@ -74,6 +74,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { PageHeaderComponent } from '../../shared/cards/page-header/page-header.component';
 
 @NgModule({
   imports: [
@@ -146,6 +147,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
       FetchcaseComponent,
       CardCaseNumber,
       PopupComponent,
+      PageHeaderComponent,
   ],
   entryComponents: [PopupComponent],
 })

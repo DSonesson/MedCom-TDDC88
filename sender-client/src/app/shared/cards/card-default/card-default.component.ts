@@ -25,7 +25,7 @@ export class CardDefaultComponent implements OnInit {
 
   constructor(public dataService: CaseDataService, public _lightbox: Lightbox) {
     this.case = this.dataService.getCase();
-    console.log(this.case.randomtest);
+   // console.log(this.case.randomtest);
     this.imagePreview = [];
     this.loadImages();
   }
