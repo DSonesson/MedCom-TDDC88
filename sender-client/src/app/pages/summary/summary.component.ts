@@ -25,8 +25,14 @@ import { CaseDataService } from 'app/shared/case-data.service';
   styleUrls: ['./summary.component.scss']
 })
 export class SummaryComponent implements OnInit {
-
-
+  private pageHeader: String;
+  /**
+  * The text attributes for the cards
+  */
+  private formTitle: String;
+  private formDescription: String;
+  private imageCardTitle: String;
+  private imageCardDescription: String;
 
 /**
    * @param uploadService 
@@ -57,29 +63,28 @@ export class SummaryComponent implements OnInit {
  public displayForm: boolean;
 
 
+
  /**
    * sets boolean isValid to same value as in child component card-form.component
    */
  public setValidity(isValid: boolean): void {
- 
   this.isValid = isValid;
- 
 }
 
-public setDisplayForm(displayForm: boolean): void {
- 
- this.displayForm = displayForm;
+ /**
+   * sets boolean displayForm to same value as in child component from either card-form.component 
+   * or card-default.component.
+   */
 
+public setDisplayForm(displayForm: boolean): void {
+  this.displayForm = displayForm;
 }
 
  /**
    * sets boolean isUploaded to same value as in child component card-image.component
    */
  public setUploadBoolean(isUploaded: boolean): void {
- 
-  if (this.isValid) {
      this.isUploaded = isUploaded;
-   }
  }
 
  /**
@@ -105,12 +110,21 @@ public setDisplayForm(displayForm: boolean): void {
     });
   }
 
+ 
 
-   ngOnInit() {
-     this.isValid=false;
-     this.isUploaded=false;
-     this.displayForm= false;
-    };
+  /**
+   * Set isValid and isUploaded to true since it
+   * must be for the user to acess this page
+   */
+  ngOnInit() {
+    this.isValid = true;
+    this.isUploaded = true;
+    this.displayForm = false;
+    this.pageHeader = "Summering av ditt ärende";
 
-
+    this.formTitle = "Kontrollera dina uppgifter";
+    this.formDescription = "Kontrollera att din ifyllda information stämmer.";
+    this.imageCardTitle = "Dina bilder";
+    this.imageCardDescription = "Kontrollera att det här är bilderna du vill skicka. Klicka på “Skicka ärende” när du är klar.";
+  }
 }

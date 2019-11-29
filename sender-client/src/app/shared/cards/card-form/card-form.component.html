@@ -5,75 +5,93 @@
 -->
 
 <div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="card-title">Kontaktuppgifter</h5>
-                <p class="card-description">Beskrivning...</p>
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">{{ title }}</h5>
+        <p class="card-description">{{ description }}</p>
+      </div>
+
+      <form [formGroup]="userForm">
+        <div class="card-body">
+          <section>
+            <div class="col-md-12 px-1 mb-4">
+              <div class="form-group editable card-form">
+                <div *ngIf="editCase">
+                  <label>Ärendenummer</label>
+                  <p id="caseNr">{{ caseNumber }}</p>
+                </div>
+                <label>Namn</label>
+                <input id="name" formControlName="name" type="text" class="form-control" placeholder="Anders Andersson"
+                  [(ngModel)]="user.name" value="{{ user.name }}" (input)="somethingChanged()" required
+                  (blur)="setInputFieldChanged($event)" />
+                <div id="errorName" *ngIf="name.errors && name.errors.required && name.touched"
+                  class="alert alert-danger">
+                  Namn är obligatoriskt.
+                </div>
+                <div id="errorName" *ngIf="name.errors && name.errors.minlength && nameChanged"
+                  class="alert alert-danger">
+                  Måste minst vara fyra bokstäver långt.
+                </div>
+
+                <label>Email</label>
+                <input id="email" formControlName="email" type="text" class="form-control"
+                  placeholder="anders.andersson@gmail.com" [(ngModel)]="user.email" value="{{ user.email }}"
+                  (input)="somethingChanged()" required (blur)="setInputFieldChanged($event)" />
+
+                <div id="errorEmail" *ngIf="email.errors && email.errors.required && email.touched"
+                  class="alert alert-danger">
+                  Email är obligatoriskt.
+                </div>
+                <div id="errorEmail" *ngIf="email.errors && email.errors.email && emailChanged"
+                  class="alert alert-danger">
+                  Ogiltigt emailadress.
+                </div>
+
+                <label>Telefon</label>
+                <input id="phone" formControlName="phone" type="text" class="form-control" placeholder="+46X XXX XX XX"
+                  [(ngModel)]="user.phone" value="{{ user.phone }}" (input)="somethingChanged()" required
+                  (blur)="setInputFieldChanged($event)" />
+                <div id="errorPhone" *ngIf="phone.errors && phone.errors.required && phone.touched"
+                  class="alert alert-danger">
+                  Telefonnummer är obligatoriskt.
+                </div>
+                <div id="errorPhone" *ngIf="phone.errors && phone.errors.phoneError && phoneChanged"
+                  class="alert alert-danger">
+                  Ogiltigt telefonnummer.
+                </div>
+              </div>
             </div>
 
-            <form [formGroup]="userForm">
-                <div class="card-body">
-                    <section>
-                        <div class="col-md-12 px-1">
-                            <div class="form-group editable card-form">
-                            <div *ngIf="editCase">
-                                    <label>Ärendenummer</label>
-                                    <p id="caseNr">{{caseNumber}}</p>
-                            </div>
-                                <label>Namn</label>
-                                <input id="name" formControlName="name" type="text" class="form-control" placeholder="Ditt namn" [(ngModel)]="user.name" value="{{user.name}}" (input)="somethingChanged()" required>
-                                <div id="errorName" *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
-                                    <div *ngIf="name.errors.required">
-                                        Name is required.
-                                    </div>
-                                    <div *ngIf="name.errors.minlength">
-                                        Name must be at least 4 characters long.
-                                    </div>
-                                </div>
 
 
-                                <label>Email</label>
-                                <input id="email" formControlName="email" type="text" class="form-control" placeholder="Email" [(ngModel)]="user.email" value="{{user.email}}" (input)="somethingChanged()" required>
-                                <div id="errorEmail" *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
-                                    <div  *ngIf="email.errors.required">
-                                        Email is required.
-                                    </div>
-                                    <div *ngIf="email.errors.email">
-                                        Email must be a valid email address.
-                                    </div>
-                                </div>
-
-                                <label>Telefon</label>
-                                <input id="phone" formControlName="phone" type="text" class="form-control" placeholder="Telefon" [(ngModel)]="user.phone" value="{{user.phone}}" (input)="somethingChanged()" required>
-                                <div id="errorPhone" *ngIf="phone.errors && (phone.dirty || phone.touched)" class="alert alert-danger">
-                                    <div *ngIf="phone.errors.required">
-                                        Phone number is required.
-                                    </div>
-                                    <div *ngIf="phone.errors.phoneError">
-                                        Invalid phone number.
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </section>
-
-                </div>
+        
+        </section>
 
 
-            </form>
-                                <div class="card-footer update ml-auto mr-auto btn-on-card">
-                    <!-- <button type="submit" [disabled]="!isValid()" class="btn btn-info  btn-round" (click)="onSave(saveButton1)"  >
-                        <span >Nästa</span>
-                    </button> -->
-
-                </div>
-        </div>
     </div>
+
+
+    </form>
+    <div class="card-footer update ml-auto mr-auto btn-on-card">
+      <!-- <button type="submit" [disabled]="!isValid()" class="btn btn-info  btn-round" (click)="onSave(saveButton1)"  >
+      <span >Nästa</span>
+  </button> -->
+
+    </div>
+
+    <div *ngIf="isSummary" class="card-footer update ml-auto mr-auto btn-on-card">
+      <button type="submit" class="btn btn-info  btn-round" (click)="setDisplayForm()">
+        <i class="nc-icon circle-icon nc-ruler-pencil"></i>
+        <span [hidden]="saveButton1">Spara</span>
+      </button>
+     
+    </div>
+  </div>
 </div>
-<br/>
-    <!-- <input type="text" placeholder="case number" #caseNumber/>
+</div>
+<br />
+<!-- <input type="text" placeholder="case number" #caseNumber/>
     <button (click)='httpService.doSearch(caseNumber.value, "/annro873/")'>Search</button> -->
 
 <!-- <label>

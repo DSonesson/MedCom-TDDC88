@@ -29,6 +29,12 @@ export class CardImageComponent implements OnInit {
   // communicates if images are uploaded or not
   @Output() imageUploaded = new EventEmitter<boolean>();
 
+  /**
+   * The title and description of the card 
+   */
+  @Input ("title") title: String;
+  @Input ("description") description: String;
+
 /**
  * Creates an instance of CaseDataService and a private instance of Lightbox
  * Sets imagepreview to an array
@@ -53,13 +59,13 @@ export class CardImageComponent implements OnInit {
 saveImageToCase(event){
   //15728640 bytes = 15mb
   if(event.target.files[0].size > 15728640) {
-    alert("The size of the image exceeds the allowed limit of 4 megabytes.");
+    alert("The size of the image exceeds the allowed limit of 15 megabytes.");
     return;
   }
 
-  // 209715.2 = 0.2mb
-  if(event.target.files[0].size < 209715.2) {
-    alert("The size of the images must exceed 0.2 megabytes.");
+  // 102400 = 0.1 MB
+  if(event.target.files[0].size < 102400) {
+    alert("The size of the images must exceed 0.1 megabytes.");
     return;
   }
 
@@ -74,7 +80,8 @@ saveImageToCase(event){
   this.dataService.getCase().images.push(this.image);
 
   // send to parent if image is uploaded
-  this.imageUploaded.emit(this.imagesAvailable)
+  this.imagesAvailable = true;
+  this.imageUploaded.emit(this.imagesAvailable);
 
   this.addImage();
 }
@@ -89,7 +96,12 @@ removeImage(index: number){
   this._album.splice(index, 1);
   this.loadImages();
   this.imageCounter--;
+  if ( this.imageCounter === -1){
+    this.imagesAvailable = false;
+    this.imageUploaded.emit(this.imagesAvailable);
+  }
 }
+
 
 /**
  * Method to open the file select dialog. The method is called from a button in the HTML
@@ -97,7 +109,7 @@ removeImage(index: number){
 openFileSelect() {
   let element: HTMLElement = document.getElementsByClassName('upload-input')[0] as HTMLElement;
   element.click();
-  console.log(this.imagesAvailable)
+  console.log(this.imagesAvailable);
 }
 
 /**
@@ -156,7 +168,23 @@ enlargeImage(index: number): void {
   this._lightbox.open(this._album, index);
 }
 
+
+/**
+ * Method used by case-data.service to empty all the image arrays. 
+ */
+
+clearImages() {
+
+  this._album = [];
+  this.dataService.getCase().images = [];
+  this.loadImages();
+  this.imageCounter = -1;
+ 
+
+}
+
   ngOnInit() {
+    this.dataService.getMethod(this.clearImages.bind(this));
   }
 
 }
