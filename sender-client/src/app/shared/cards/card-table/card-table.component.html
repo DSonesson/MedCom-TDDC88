@@ -81,7 +81,7 @@
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
   <div class="timePicker">
-  <input id="hourArrival" formControlName="hourArrival" type="number" maxlength="2" min="0" max="23" class="form-control" placeholder="20" [(ngModel)]="timeofArrival[0]" value="{{timeofArrival[0]}}" (input)="textFormChanged()" class="timePickerInput">: 
+  <input id="hourArrival" formControlName="hourArrival" type="number" maxlength="2" min="0" max="23" class="form-control" placeholder="00" [(ngModel)]="timeofArrival[0]" value="{{timeofArrival[0]}}" (input)="textFormChanged()" class="timePickerInput">: 
   <input id="minArrival" formControlName="minArrival" type="number" maxlength="2" min="0" max="59" class="form-control" placeholder="00" [(ngModel)]="timeofArrival[1]" value="{{timeofArrival[1]}}" (input)="textFormChanged()" class="timePickerInput" style="margin-left: 10px">
    <i class="material-icons">
         access_time
