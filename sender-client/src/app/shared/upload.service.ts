@@ -75,7 +75,7 @@ export class UploadService {
    * @returns Nothing is returned.
    */
   generatePatientFormYML() {
-    var content: string = "Patientformulär för case: " + this.caseNr + "\r\n";
+    var content: string = "Patientformulär för case: " + this.caseNr + "\r\n" + "\r\n";
         for(let i=0; i<this.dataService.getCase().patientForm.length; i++){
           var yesNoString = "Svar: Ej ifyllt. ";
           if(this.dataService.getCase().patientForm[i].value && this.dataService.getCase().patientForm[i].storedValue) {
@@ -98,15 +98,15 @@ export class UploadService {
           content = content.concat(questionAndAnswers);
         }
         if (this.dataService.getCase().transportInfo.length > 0) {
-          content = content + "Hur ska patienten transporteras? " + "\r\n" + this.dataService.getCase().transportInfo + "\r\n";
+          content = content + "Hur ska patienten transporteras? " + "\r\n" + this.dataService.getCase().transportInfo + "\r\n" + "\r\n";
         }
         else {
-          content = content + "Det finns ingen information för hur patienten ska transporteras.";
+          content = content + "Det finns ingen information för hur patienten ska transporteras." + "\r\n";
         }
 
         if (this.dataService.getCase().dateofArrival && this.dataService.getCase().hasSavedDate) {
           content = content + "Förväntad ankomsttid till Brännskadecentrum i Linköping?" + "\r\n" + this.dataService.getCase().dateofArrival
-          + " klockan " + this.dataService.getCase().timeofArrival[0] + " : " + this.dataService.getCase().timeofArrival[1] + "\r\n";
+          + " klockan " + this.dataService.getCase().timeofArrival[0] + ":" + this.dataService.getCase().timeofArrival[1] + "\r\n";
         }
         else {
           content = content + "Det finns ingen information för hur patientens ankomsttid.";
@@ -116,7 +116,7 @@ export class UploadService {
     console.log(this.ymlPatientForm);
 
     this.httpService.userLogin();
-    this.httpService.postFile(this.ymlPatientForm, "LsMvqWa");
+    this.httpService.postFile(this.ymlPatientForm, this.dataService.getCase().caseNr);
   }
 
 }
