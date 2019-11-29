@@ -9,18 +9,15 @@
         <h4 style="display: flex; justify-content: flex-end;"> Steg 2 av 3 </h4>
 </div>
 
-<div *ngIf="!displayForm"><app-card-default (displayForm)="setDisplayForm($event)"></app-card-default></div>
-<div *ngIf="displayForm"><app-card-form [isSummary]="!isSummary" (onSaveForm)="setValidity($event)" (displayForm)="setDisplayForm($event)"></app-card-form></div>
-<app-card-image [isValid]="isValid" Message="Lägg till fler bilder" (imageUploaded)="setUploadBoolean($event)"></app-card-image>
+<div *ngIf="!displayForm"><app-card-default (displayForm)="setDisplayForm($event)" [title]="formTitle" [description]="formDescription"></app-card-default></div>
+<div *ngIf="displayForm"><app-card-form [isSummary]="!isSummary" (onSaveForm)="setValidity($event)" (displayForm)="setDisplayForm($event)" [title]="formTitle" [description]="formDescription"></app-card-form></div>
+<app-card-image [isValid]="isValid" Message="Lägg till fler bilder" (imageUploaded)="setUploadBoolean($event)" [title]="imageCardTitle" [description]="imageCardDescription"></app-card-image>
 
 <div class="row">
-
-    <div class="col-md-12">
-
-        <!-- Cancel button -->
+   <div class="col-md-12">
+      <!-- Cancel button -->
         <button id="cancelButton" type="previous" class="btn btn-info  btn-round" style="float: left;" mat-raised-button (click)="openDialog()" >Avbryt</button>
-
-        <a [routerLink]="'/confirmation'">
+           <a [routerLink]="'/confirmation'">
             <button [disabled]="!isUploaded || !isValid || displayForm" id="skickaButton" type="Skicka Ärende" class="btn btn-info  btn-round" style="float: right;" (click)="startUpload()">
                 <span>Skicka Ärende</span>
             </button>

@@ -16,9 +16,8 @@ import { UploadService } from 'app/shared/upload.service';
   styleUrls: ['./frontpage.component.scss']
 })
 
-
 export class FrontpageComponent implements OnInit {
-
+  private pageHeader: String;
   // are form values valid
   public isValid: boolean; 
   // is image uploaded locally
@@ -26,10 +25,20 @@ export class FrontpageComponent implements OnInit {
   // boolean for choosing whether to display save button or not
   public isSummary: boolean;
 
+  /**
+   * The text attributes for the cards
+   */
+  private formTitle: String;
+  private formDescription: String;
+  private imageCardTitle: String;
+  private imageCardDescription: String;
+  
+  
+
+  constructor() {}
 
   
-  constructor(){
-  }
+  
   
   /**
     * sets boolean isValid to same value as in child component card-form.component
@@ -48,7 +57,13 @@ export class FrontpageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.isValid=false;
-    this.isUploaded=false;
-  };
+    this.pageHeader = "Anmäl brännskada";
+    this.isValid = false;
+    this.isUploaded = false;
+    
+    this.formTitle = "Kontaktuppgifter";
+    this.formDescription = "Här fyller du som avsändare i dina kontaktuppgifter.";
+    this.imageCardTitle = "Ladda upp bild";
+    this.imageCardDescription = "Här kan du ladda upp bilder eller ta bilder med kameran. Tryck på “Välj bild” för att börja.";
+  }
 }

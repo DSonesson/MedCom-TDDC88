@@ -4,7 +4,11 @@
     <!-- Title of the page !-->
     <div class="navbar-wrapper">
         <!-- Gets the title of the current page based on the menu selection !-->
-      <a class="navbar-title" href="javascript:void(0)">Brännskador - {{getTitle()}}</a>
+  <div class="nav-logo">
+    <a href="#intro" class="svg scrollto">
+      <object width="200px;" data="assets/img/logotype.svg" type="image/svg+xml"></object>
+    </a>
+    </div>
     </div>
     <!-- Button that opens/collapses the menu !-->
     <button class="navbar-toggler" type="button" (click)="collapse()"
