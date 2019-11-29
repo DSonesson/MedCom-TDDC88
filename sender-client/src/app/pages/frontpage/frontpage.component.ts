@@ -32,6 +32,8 @@ export class FrontpageComponent implements OnInit {
   private formDescription: String;
   private imageCardTitle: String;
   private imageCardDescription: String;
+  private title: string;
+  private description: string;
   
   
 
@@ -60,6 +62,8 @@ export class FrontpageComponent implements OnInit {
     this.pageHeader = "Anmäl brännskada";
     this.isValid = false;
     this.isUploaded = false;
+    this.title = "Hämta ditt ärende";
+    this.description ="Här kan du hämta information om ett ärende du tidigare skickat in, genom att skriva in ditt ärendenummer och klicka på “Hämta”.";
     
     this.formTitle = "Kontaktuppgifter";
     this.formDescription = "Här fyller du som avsändare i dina kontaktuppgifter.";
