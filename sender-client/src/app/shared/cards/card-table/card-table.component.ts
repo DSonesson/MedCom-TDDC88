@@ -21,11 +21,6 @@ import { FormControl, Validators, FormGroup, ValidatorFn, AbstractControl } from
   styleUrls: ['./card-table.component.scss']
 })
 
-
-
-
-
-/* Component Class Holder */
 export class CardTableComponent implements OnInit {
 
     user: User;
@@ -51,6 +46,12 @@ export class CardTableComponent implements OnInit {
     dateOfArrival = new Date();
     timeofArrival: string[] = [];
     transportInfo: string;
+
+    /**
+    * The constructor fetches the relevant data from CaseDataService and creates
+    * a new FormGroup that is used to get values from input fields
+    * @param {CaseDataService} This is the CaseDataService that is used to fetch the Case Data
+    */
     constructor(public dataService: CaseDataService) {
 
     this.user = this.dataService.getCase().user;
@@ -63,6 +64,10 @@ export class CardTableComponent implements OnInit {
     }
 
     userForm: FormGroup;
+
+    /**
+    * Sets the forms for retrieving data
+    */
     ngOnInit() {
         this.userForm = new FormGroup({
             'patientComments': new FormControl(this.transportInfo),
@@ -71,6 +76,12 @@ export class CardTableComponent implements OnInit {
         });
     }
 
+    /**
+    * Saves the clicked on checkbox value to the Case and disables the one next to it if it is checked
+    * @param {checkboxId} The Id of the clicked checkbox.
+    * @param {setBoolean} An input parameter deciding what boolean value to be saved to the case.
+    * @param {event} An event to check if the clicked checkbox is true or false to know whether to store the value or not
+    */
     setCheckboxes(checkboxId: number, setBoolean: boolean, event: any) {
         this.checkboxes[checkboxId].value = setBoolean;
         this.checkboxes[checkboxId].storedValue = false;
@@ -80,6 +91,13 @@ export class CardTableComponent implements OnInit {
         }
     }
 
+        /**
+    * A method to save the input field values that some questions have
+    * @param {i} The index of the question that the input belongs to.
+    * @param {event} The input field value
+    * @param {indexOfcomplementaryFormData} A number used to store the input field value to the right place if the question
+    * has several input fields
+    */
     checkBoxFormsChanged(i: number, event: any, indexOfcomplementaryFormData: number) {
 
         console.log(i + " -- " + indexOfcomplementaryFormData + " -- " + event.target.value);
@@ -87,16 +105,36 @@ export class CardTableComponent implements OnInit {
         this.dataService.getCase().patientForm = this.checkboxes;
       }
 
-
+    /**
+    * A method to save the input field values of the inputs below the form (except the date, which is saved using dateChange)
+    * @param {i} The index of the question that the input belongs to.
+    * @param {event} The input field value
+    * @param {indexOfcomplementaryFormData} A number used to store the input field value to the right place if the question
+    * has several input fields
+    */
       textFormChanged() {
         this.dataService.getCase().transportInfo = this.userForm.get('patientComments').value;
         this.dataService.getCase().timeofArrival[0] = this.userForm.get('hourArrival').value;
         this.dataService.getCase().timeofArrival[1] = this.userForm.get('minArrival').value;
 
-        this.dateOfArrival.setHours(this.userForm.get('hourArrival').value);
-        this.dateOfArrival.setMinutes(this.userForm.get('minArrival').value);
-      }
+        if (this.userForm.get('hourArrival').value != null && this.userForm.get('hourArrival').value > 1 ||
+        this.userForm.get('minArrival').value != null && this.userForm.get('minArrival').value > 1) {
 
+          if (this.userForm.get('hourArrival').value < 24 && this.userForm.get('hourArrival').value >= 0 && 
+          this.userForm.get('minArrival').value < 60 && this.userForm.get('minArrival').value >= 0) {
+          this.dateOfArrival.setHours(this.userForm.get('hourArrival').value);
+          this.dateOfArrival.setMinutes(this.userForm.get('minArrival').value);
+          }
+          else {
+          alert("Fel format för tid. Korrekt format: HH:MM");
+          }
+        }
+    }
+
+    /**
+    * A method to save the date when changed
+    * @param {event} The date value
+    */
       dateChange(event: any){
         this.dateOfArrival = event.target.value;
         this.dataService.getCase().dateofArrival = event.target.value;
