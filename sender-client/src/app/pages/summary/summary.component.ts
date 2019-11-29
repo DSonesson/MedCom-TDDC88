@@ -48,8 +48,11 @@ export class SummaryComponent implements OnInit {
 
   startUpload() {
     this.authService.getAssistant().loginIfRequired().then( () => {
-        console.log("Success: ", this.authService.getAssistant().getAuthHeader())
-        //this.uploadService.startUpload();
+        //console.log("Success: ", this.authService.getAssistant().getAuthHeader())
+        console.log("Authentication complete, starting upload. Token: ", this.authService.getAssistant().getAuthHeader())
+        this.uploadService.startUpload(this.authService.getAssistant().getAuthHeader());
+        console.log("start upload complete.")
+        //TODO: Route to confirmation here
       }).fail( (error) => {
         console.log("ERROR: ", error)});
   }

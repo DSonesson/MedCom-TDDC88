@@ -16,6 +16,7 @@ export class UploadService {
   caseNr: string;
   /** The upload path for the case*/
   uploadPath: string;
+  uploadFolder: string;
   /** The YAML-file to store case data and to be uploaded to FileCLoud*/
   ymlFile: File;
   /** Another YAML-file to store case data and to be uploaded to FileCLoud(specific formatting)*/
@@ -35,25 +36,29 @@ export class UploadService {
    *
    * @returns Nothing is returned.
    */
-  startUpload() {
+  async startUpload(token) {
     this.caseNr = this.caseNrService.getCaseNr(this.case.user.phone);
     this.dataService.getCase().caseNr = this.caseNr;
-    this.uploadPath = this.caseNr;
+    this.uploadFolder = this.caseNr;
 
     this.generateYML();
 
     //TODO: Make sure that userLogin() is succesfull before the other once are done.
-    this.httpService.userLogin();
-    this.httpService.createFolder(this.uploadPath);
-    //This should be looped once several files are stored.
-    this.httpService.postFile(this.ymlFile, this.uploadPath);
-    for (var image of this.case.images) {
-      this.httpService.postFile(image.file, this.uploadPath);
-    }
+    console.log("Starting login with token: ", token)
+    const result = await this.httpService.userLogin(token);
+    console.log("RESULTS FROM LOGIN: ", result)
+    const result1 = await this.httpService.createFolder(this.uploadPath, token);
+    console.log("Result from createFolder:" , result)
+
+    this.httpService.postFile(this.ymlFile, this.uploadFolder, token);
+    //for (var image of this.case.images) {
+    //  this.httpService.postFile(image.file, this.uploadPath);
+    //}
   }
 
   //TODO or remove?
   realUpload() {
+
   }
 
   /**
@@ -74,6 +79,7 @@ export class UploadService {
    *
    * @returns Nothing is returned.
    */
+
   generatePatientFormYML() {
     var content = "Patientinformation för ärende: " + this.caseNr + "\r\n"
       + "Namn: " + this.case.patientInfo[0] + "\r\n"
@@ -91,8 +97,8 @@ export class UploadService {
     this.ymlPatientForm = new File([content], "patientformulär-" + this.dataService.getCase().caseNr + ".yml");
     console.log(this.ymlPatientForm);
 
-    this.httpService.userLogin();
-    this.httpService.postFile(this.ymlPatientForm, this.dataService.getCase().caseNr);
+    this.httpService.userLogin("nothing");
+    //this.httpService.postFile(this.ymlPatientForm, this.dataService.getCase().caseNr);
   }
 
 }

@@ -12,42 +12,23 @@ import xml2js from 'xml2js';
 })
 export class HttpService {
 
-  url = 'http://localhost:4200/api';
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/x-www-form-urlencoded',
-      'Accept':  'application/xml',
-      'Response-Type': 'text',
-      'Access-Control-Allow-Origin': '*',
-    })
-  };
+  //url = 'http://localhost:4200/api';
+  url = 'https://api.regionostergotland.se/file/fileservice/v1';
 
-  constructor(private http: HttpClient) {
-  }
+  private response: any;
+
+  constructor(private http: HttpClient) { }
 
   /**
    * User login the FileCloud server.
    */
-  userLogin() {
-    const req = this.url + '/core/loginguest'
+  userLogin(token):Promise<string> {
+    const req = this.url + '/login';
     const headers = new HttpHeaders({
-      'Content-Type':  'application/x-www-form-urlencoded',
-      'Accept':  'application/xml',
-      'Response-Type': 'text',
-      'Access-Control-Allow-Origin': '*',
-      observe: 'response'
-      // 'Access-Control-Allow-Methods': 'PUT, GET, POST, DELETE, OPTIONS',
-      // 'Access-Control-Allow-Headers': 'Content-Type',
-      //'Cookie': 'X-XSRF-TOKEN=aqt1uuezrl4q9uu03ipl'
-      // "User-Agent":"Chrome/56.0.2924.87"
+      'Authorization': token
     })
-    const params = {
-      'userid':'annro873','password':'vLieZJzd'
-    }
 
-    this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
-      console.log(resp);
-    })
+    return this.http.request('POST', req, {headers, 'responseType':"text"}).toPromise();
   }
 
   private userLogin1():Promise<string> {
@@ -70,64 +51,65 @@ export class HttpService {
    * Upload a file to the specific path in FileCloud server.
    * @param fileToUpload The file that needs to be uploaded.
    * @param uploadPath The path where to upload the file in FileCloud server.
-   * 
+   *
    * @returns Nothing is returned.
    */
-  postFile(fileToUpload: File, uploadPath: string) {
-    const appname = "Chrome/56.0.2924.87";
-    // const endpoint = this.url + '/core/upload' + '?appname=' + appname + '&path=' + uploadPath + '&offset=0&complete=1&filename=' + fileToUpload.name;
+  postFile(fileToUpload: File, uploadFolder: string, token) {
 
     const formData: FormData = new FormData();
-
     formData.append('Image', fileToUpload, fileToUpload.name);
 
-    const req = this.url + '/core/upload'
-    const headers = new HttpHeaders({
-      'Response-Type': 'text',
-      'Access-Control-Allow-Origin': '*',
-    })
+    const req = this.url + '/upload'
+    const uploadPath = '/SHARED/filecloudteam/BrivaPoC/' + uploadFolder;
 
-    const params = {
+    const httpParams = {
       'path':uploadPath,
-      'offset':'0', 
-      'complete':'1',
+//      'offset':'0',
+//      'complete':'1',
       'filename':fileToUpload.name,
-      'appname':'explorer'
+//      'appname':'explorer'
     }
 
-    this.http.request('POST', req, {'body': formData, headers, params, 'responseType':"text"})
-    .subscribe(resp => {
-      console.log(resp)
+    const httpHeaders = new HttpHeaders ({
+      "Authorization" : token,
+      "Content-type": "application/x-www-form-urlencoded"
+    })
+
+
+    this.http.post(req, formData, {headers: httpHeaders, params: httpParams, responseType: "text", withCredentials: true}).subscribe(resp => {
+      console.log("postfile: ",resp)
     })
   }
 
   /**
    * Create a folder named as the case number in FileCloud server.
    * @param caseNumber A case number which is the name of the folder to be created.
-   * 
+   *
    * @returns Nothing is returned.
    */
-  createFolder(caseNumber: string) { 
+  createFolder(caseNumber: string, token):Promise<string> {
+    console.log("Staring create folder.", token)
+    const req = this.url + '/createfolder'
 
-    // const req = 'https://company3.filecloudonline.com' + '/app/explorer/createfolder'
-    const req = this.url + '/app/explorer/createfolder'
-
-    const headers = new HttpHeaders({
-      'Content-Type':  'application/x-www-form-urlencoded',
-      'Accept':  'application/xml',
-      'Response-Type': 'text',
-      'Access-Control-Allow-Origin': '*',
+    const httpHeaders = new HttpHeaders ({
+      "Authorization" : token,
+      "Content-type": "application/x-www-form-urlencoded"
     })
 
-    const params = {
+    const httpParams = {
       'name': caseNumber,
-      'path': '/annro873'
+      'path': '/SHARED/filecloudteam/BrivaPoC'
     }
 
-    this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
-      console.log(resp)
-    })
+    //TODO, find a way to use this or remove it.
+    var httpOptions = {
+      headers: httpHeaders,
+      params: httpParams,
+      responseType: "text",
+      withCredentials: true
+    }
 
+    return this.http.post(req, "", {headers: httpHeaders, params: httpParams, responseType: "text", withCredentials: true}).toPromise();
   }
 
   async doSearch(caseNr:string, searchloc:string) : Promise<boolean> {
@@ -154,7 +136,7 @@ export class HttpService {
     //     trim: true,
     //     explicitArray: true
     // });
-    
+
     xml2js.parseString(searchData, function (err, result) {
         console.log(result.entries.meta[0].total[0]);
         total = result.entries.meta[0].total[0];
@@ -181,30 +163,4 @@ export class HttpService {
 
     return this.http.request('POST', req, {headers, params, 'responseType':"text"}).toPromise();
   }
-
-  // private parseXML(data) {
-  //   return new Promise(resolve => {
-  //     var k: string | number,
-  //       arr = [],
-  //       parser = new xml2js.Parser(
-  //         {
-  //           trim: true,
-  //           explicitArray: true
-  //         });
-  //     parser.parseString(data, function (err, result) {
-  //       var obj = result.Employee;
-  //       for (k in obj.emp) {
-  //         var item = obj.emp[k];
-  //         arr.push({
-  //           id: item.id[0],
-  //           name: item.name[0],
-  //           gender: item.gender[0],
-  //           mobile: item.mobile[0]
-  //         });
-  //       }
-  //       resolve(arr);
-  //     });
-  //   });
-  // }
-
 }
