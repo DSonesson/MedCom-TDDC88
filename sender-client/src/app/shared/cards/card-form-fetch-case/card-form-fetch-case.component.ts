@@ -6,11 +6,13 @@
  */
 
 /* Imports */
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 
 import { CaseDataService } from '../../../shared/case-data.service';
 import { User } from '../../../models/user';
 import { Case } from '../../../models/case';
+import { HttpService } from '../../http.service';
+import { Router } from '@angular/router';
 
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -24,77 +26,46 @@ import { FormControl, Validators, FormGroup, ValidatorFn, AbstractControl } from
 
 
 
-
-
 /* Component Class Holder */
 export class CardFormFetchCaseComponent implements OnInit {
-    case: Case;
-    user: User;
+    enteredCaseNr : string;
+    caseNumber: string;
 
-    private card_content = `                    <div class="col-md-12 px-1">
-                        
-                        <div class="form-group editable card-form">
-                            <label>Namn</label>
-                            <p [hidden]="saveButton1">{{user.name}}</p>
-                            <input [hidden]="!saveButton1" type="text" class="form-control" placeholder="Ditt namn" [(ngModel)]="user.name" value="{{user.name}}">
-                            <label>Email</label>
-                            <p [hidden]="saveButton1">{{user.email}}</p>
-                            <input [hidden]="!saveButton1" type="text" class="form-control" placeholder="Email" [(ngModel)]="user.email" value="{{user.email}}">
-                            <label>Telefon</label>
-                            <p [hidden]="saveButton1">{{user.phone}}</p>
-                            <input [hidden]="!saveButton1" type="text" class="form-control" placeholder="Telefon" [(ngModel)]="user.phone" value="{{user.phone}}">
-                         
-                        </div>
+    constructor(public dataService: CaseDataService, private httpService: HttpService, private router: Router) {
+        this.caseNumber = this.dataService.getCase().caseNr;
 
-                    </div>`;
-
-    saveButton1=true;
-
-    constructor(public dataService: CaseDataService) {
-
-    this.user = this.dataService.getCase().user;
-    this.case = this.dataService.getCase();
     }
 
-    
-    caseNrForm: FormGroup;
     ngOnInit() {
-        this.caseNrForm = new FormGroup({
-            'case': new FormControl(this.case.caseNr, [Validators.required, Validators.minLength(4)]),
-        });
     };
 
-    get name() {
-        return this.caseNrForm.get('name')
-    }
-
-    get email() {
-        return this.caseNrForm.get('email')
-    }
-
-    get phone() {
-        return this.caseNrForm.get('phone')
-    }
-
-    onSave($event){
-        console.log("Button event");
-        /*
-        this.saveButton1 = !$event;
-        this.dataService.getCase().user = this.user;
-
-        if (this.saveButton1) {
-            console.log("Open the form", $event);
-
-
-
-        }else{
-            console.log("Save the form data", $event);
+    /**
+   * Checks if entered case number exists with help of dosearch.
+   * If so set sets case number to the entered case number and call redirect.
+   * Else gives alert that case doesn't exist.
+   * @param enteredCaseNr Case number the user enters.
+   * @param caseNummber Case number of this case
+   * 
+   * @returns Nothing is returned.
+   */
+    async setCaseNr() { 
+        if(await this.httpService.doSearch(this.enteredCaseNr, "/annro873") == true) {
+            console.log("Valid Casenum");
+            this.caseNumber = this.enteredCaseNr;
+            this.redirect();
         }
-        */
+        else {
+            alert("Finns inte");
+        }
+    }
+    
+    
+    async doesExist(caseNr: string) : Promise<boolean> {
+        let result = await this.httpService.doSearch(this.enteredCaseNr, "/annro873");
+        return result;
     }
 
+    redirect() {
+        this.router.navigate(['/edit']);
+    }
 }
-
-
-
-

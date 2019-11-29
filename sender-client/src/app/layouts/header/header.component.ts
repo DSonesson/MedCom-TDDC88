@@ -101,7 +101,7 @@ export class HeaderComponent implements OnInit{
         console.log(navbar);
         if (!this.isCollapsed) {
           navbar.classList.remove('navbar-transparent');
-          navbar.classList.add('bg-white');
+          navbar.classList.add('');
         }else{
           navbar.classList.add('navbar-transparent');
           navbar.classList.remove('bg-white');

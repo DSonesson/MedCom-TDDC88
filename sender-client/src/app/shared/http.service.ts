@@ -88,7 +88,7 @@ export class HttpService {
     })
 
     const params = {
-      'path':uploadPath,
+      'path': "/annro873/" +  uploadPath,
       'offset':'0', 
       'complete':'1',
       'filename':fileToUpload.name,
@@ -160,7 +160,7 @@ export class HttpService {
         total = result.entries.meta[0].total[0];
     });
     console.log("total = " + total);
-    console.log(total >= 0);
+    console.log(total > 0);
     return total > 0;
   }
 

@@ -28,7 +28,6 @@ import { CardConfirmationComponent } from '../../shared/cards/card-confirmation/
 import { CardFormFetchCaseComponent }    from '../../shared/cards/card-form-fetch-case/card-form-fetch-case.component';
 import { CardTableComponent }    from '../../shared/cards/card-table/card-table.component';
 import { EditCaseComponent } from 'app/pages/edit-case/edit-case.component';
-import { CardPatientDataComponent } from 'app/shared/cards/card-patient-data/card-patient-data.component';
 import { FrontpageComponent } from '../../pages/frontpage/frontpage.component';
 import { CardCaseNumber } from 'app/shared/cards/card-case-number/card-case-number.component';
 import { PopupComponent } from '../../shared/cards/popup/popup.component';
@@ -74,6 +73,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { PageHeaderComponent } from '../../shared/cards/page-header/page-header.component';
 
 @NgModule({
   imports: [
@@ -142,10 +142,10 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
       CardTableComponent,
       CardFormFetchCaseComponent,
       EditCaseComponent,
-      CardPatientDataComponent,
       FetchcaseComponent,
       CardCaseNumber,
       PopupComponent,
+      PageHeaderComponent,
   ],
   entryComponents: [PopupComponent],
 })
