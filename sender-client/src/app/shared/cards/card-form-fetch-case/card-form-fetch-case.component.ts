@@ -12,7 +12,7 @@ import { CaseDataService } from '../../../shared/case-data.service';
 import { User } from '../../../models/user';
 import { Case } from '../../../models/case';
 import { HttpService } from '../../http.service';
-import { Routes } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -30,18 +30,25 @@ import { FormControl, Validators, FormGroup, ValidatorFn, AbstractControl } from
 export class CardFormFetchCaseComponent implements OnInit {
     enteredCaseNr : string;
     caseNumber: string;
-    Routes: any;
 
-    constructor(public dataService: CaseDataService, private httpService: HttpService) {
+    constructor(public dataService: CaseDataService, private httpService: HttpService, private router: Router) {
         this.caseNumber = this.dataService.getCase().caseNr;
+
     }
 
     ngOnInit() {
     };
 
+    /**
+   * Checks if entered case number exists with help of dosearch.
+   * If so set sets case number to the entered case number and call redirect.
+   * Else gives alert that case doesn't exist.
+   * @param enteredCaseNr Case number the user enters.
+   * @param caseNummber Case number of this case
+   * 
+   * @returns Nothing is returned.
+   */
     async setCaseNr() { 
-        console.log("Entered number is " + this.enteredCaseNr);
-        console.log("return of doSearch " + this.httpService.doSearch(this.enteredCaseNr, "/annro873"));
         if(await this.httpService.doSearch(this.enteredCaseNr, "/annro873") == true) {
             console.log("Valid Casenum");
             this.caseNumber = this.enteredCaseNr;
@@ -59,7 +66,6 @@ export class CardFormFetchCaseComponent implements OnInit {
     }
 
     redirect() {
-        console.log("routing");
-        this.Routes.navigate(['/edit']);
+        this.router.navigate(['/edit']);
     }
 }
