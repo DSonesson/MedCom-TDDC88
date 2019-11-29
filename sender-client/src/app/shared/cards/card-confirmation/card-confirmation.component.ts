@@ -23,6 +23,13 @@ export class CardConfirmationComponent implements OnInit {
     this.case = this.dataService.getCase();
   }
 
+clearData() {
+
+  this.dataService.clearUserData();
+
+}
+
+
   ngOnInit() {
   }
 

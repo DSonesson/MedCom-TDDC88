@@ -6,6 +6,7 @@
 
 /* Imports */
 import { Component, OnInit } from '@angular/core';
+import { CaseDataService } from 'app/shared/case-data.service';
 
 @Component({
   selector: 'app-confirmation',
@@ -13,8 +14,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./confirmation.component.scss']
 })
 
+
+
 export class ConfirmationComponent implements OnInit {
   private pageHeader: String;
+  
+constructor(public dataService: CaseDataService) { }
   
   /**
   * The text attributes for the card
@@ -24,7 +29,11 @@ export class ConfirmationComponent implements OnInit {
   private importantContent: String;
   private content: String;
   
-  constructor() {}
+  
+clearData() {
+this.dataService.clearUserData();
+
+}
 
   ngOnInit() {
     this.pageHeader = "Ärendebekräftelse";

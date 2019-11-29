@@ -25,7 +25,7 @@
                 Each menu item has a url, icon and title (the page id)
             !-->
         <li *ngFor="let menuItem of menuItems" routerLinkActive="active"  class="nav-item">
-             <a [routerLink]="[menuItem.path]" class="nav-link btn-rotate">
+             <a [routerLink]="[menuItem.path]" class="nav-link btn-rotate" (click)="clearData(menuItem.path)">
                 <i class="nc-icon {{menuItem.icon}}"></i>
                 <p>{{menuItem.title}}</p>
             </a>
