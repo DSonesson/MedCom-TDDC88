@@ -35,8 +35,7 @@ export class CardFormFetchCaseComponent implements OnInit {
     @Input ("title") title;
 
     constructor(public dataService: CaseDataService, private httpService: HttpService, private router: Router) {
-        this.caseNumber = this.dataService.getCase().caseNr;
-
+        
     }
 
     ngOnInit() {
@@ -54,7 +53,7 @@ export class CardFormFetchCaseComponent implements OnInit {
     async setCaseNr() { 
         if(await this.httpService.doSearch(this.enteredCaseNr, "/annro873") == true) {
             console.log("Valid Casenum");
-            this.caseNumber = this.enteredCaseNr;
+            this.dataService.getCase().caseNr = this.enteredCaseNr;
             this.redirect();
         }
         else {
