@@ -97,16 +97,15 @@ export class UploadService {
           var questionAndAnswers: string = i+1 + ". " + this.dataService.getCase().patientForm[i].question + "\r\n" + yesNoString + formData + "\r\n" + "\r\n";  
           content = content.concat(questionAndAnswers);
         }
-        if (this.dataService.getCase().transportInfo.length > 0) {
+        if (this.dataService.getCase().transportInfo != null && this.dataService.getCase().transportInfo.length > 0) {
           content = content + "Hur ska patienten transporteras? " + "\r\n" + this.dataService.getCase().transportInfo + "\r\n" + "\r\n";
         }
         else {
-          content = content + "Det finns ingen information för hur patienten ska transporteras." + "\r\n";
+          content = content + "Det finns ingen information för hur patienten ska transporteras." + "\r\n" + "\r\n";
         }
 
         if (this.dataService.getCase().dateofArrival && this.dataService.getCase().hasSavedDate) {
-          content = content + "Förväntad ankomsttid till Brännskadecentrum i Linköping?" + "\r\n" + this.dataService.getCase().dateofArrival
-          + " klockan " + this.dataService.getCase().timeofArrival[0] + ":" + this.dataService.getCase().timeofArrival[1] + "\r\n";
+          content = content + "Förväntad ankomsttid till Brännskadecentrum i Linköping?" + "\r\n" + this.dataService.getCase().dateofArrival;
         }
         else {
           content = content + "Det finns ingen information för hur patientens ankomsttid.";

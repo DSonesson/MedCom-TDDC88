@@ -48,7 +48,7 @@ export class CardTableComponent implements OnInit {
                     </div>`;
 
     saveButton1=false;
-    dateOfArrival =  new FormControl(new Date());
+    dateOfArrival = new Date();
     timeofArrival: string[] = [];
     transportInfo: string;
     constructor(public dataService: CaseDataService) {
@@ -92,6 +92,9 @@ export class CardTableComponent implements OnInit {
         this.dataService.getCase().transportInfo = this.userForm.get('patientComments').value;
         this.dataService.getCase().timeofArrival[0] = this.userForm.get('hourArrival').value;
         this.dataService.getCase().timeofArrival[1] = this.userForm.get('minArrival').value;
+
+        this.dateOfArrival.setHours(this.userForm.get('hourArrival').value);
+        this.dateOfArrival.setMinutes(this.userForm.get('minArrival').value);
       }
 
       dateChange(event: any){

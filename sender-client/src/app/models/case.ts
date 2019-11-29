@@ -10,7 +10,7 @@ export class Case {
     randomtest: string;
     patientForm: Array<{question: string, storedValue: boolean, value: boolean, noCheckBoxes?: boolean, complementary?: string, complementaryFormData?: string[], ymlFormat?: string[]}>;
     transportInfo: string;
-    dateofArrival =  new FormControl(new Date());
+    dateofArrival =  new Date();
     hasSavedDate: boolean = false;
     timeofArrival: string[] = ["", ""];
 
@@ -33,10 +33,10 @@ export class Case {
             {question: "Är patienten vid medvetande?", storedValue: false, value: false},
             {question: "Om patienten är eller har varit medvetslös - har analys av COHb gjorts?", storedValue: false, value: false},
             {question: "Är patienten intuberad?", storedValue: false, value: false},
-            {question: "Vilka läkemedel är pågående?", storedValue: false, value: false},
+            {question: "Vilka läkemedel är pågående?", storedValue: false, value: false, noCheckBoxes: true, complementary: "formAnswer", complementaryFormData: ["", ""], ymlFormat: ["Läkemedel: ", ""]},
             {question: "Pågår vätskebehandling enligt Parklands formel?", storedValue: false, value: false},
             {question: "Finns uppgift på vikt och längd?", storedValue: false, value: false, complementary: "formHeightWeight", complementaryFormData: ["", "", "", ""], ymlFormat: ["Längd: ", " cm: Vikt: ", "", " kg"]},
-            {question: "Hur mycket vätska har infunderats innan avfärd?", storedValue: false, value: false, noCheckBoxes: true, complementary: "infunderatForm", complementaryFormData: ["", ""], ymlFormat: ["Mängd: ", ""]},
+            {question: "Hur mycket vätska har infunderats innan avfärd?", storedValue: false, value: false, noCheckBoxes: true, complementary: "formAnswer", complementaryFormData: ["", ""], ymlFormat: ["Mängd: ", ""]},
             {question: "Hur stor totaldiures har patient haft till ", storedValue: false, value: false, noCheckBoxes: true, complementary: "totaldiuresForm", complementaryFormData: ["", "", "", ""], ymlFormat: ["klockan: ", "? Volym: ", "", " ml"]},
             {question: "Har patienten fått Tetanusvaccination?", storedValue: false, value: false},
             {question: "Är patienten bandaderad med salvkompressförband (t.ex Jelonet) eller torra, rena kompresser?", storedValue: false, value: false},
