@@ -11,20 +11,12 @@
                 <h5 class="card-title">{{ title }}</h5>
                 <p class="card-description">{{ description }}</p>
             </div>
-
-            <form [formGroup]="caseNrForm">
                 <div class="card-body">
                     <section>
                         <div class="col-md-12 px-1">
-                            <div class="form-group editable card-form">
-                                <label>Ärendenummer</label>
-                                <!--
-                            <p [hidden]="saveButton1">{{user.name}}</p>
-                               -->
-
-                                <input id="caseNr" [hidden]="!saveButton1" type="text" class="form-control"
-                                    placeholder="Ex. 1234567" required>
-
+                            <div class="editable card-form">
+                                <label for="enteredCaseNr">Ärendenummer</label>
+                                <input id="enteredCaseNr" type="text" class="form-control" placeholder="Ex. 1234567" [(ngModel)]="enteredCaseNr" required>
                             </div>
 
                         </div>
@@ -33,13 +25,10 @@
                 </div>
 
 
-            </form>
             <div class="card-footer update ml-auto mr-auto btn-on-card">
-                <a [routerLink]="'/edit'">
-                    <button id="submit" type="submit" class="btn btn-info  btn-round">
+                    <button id="submit" type="submit" class="btn btn-info btn-round" (click)="setCaseNr()">
                         <span>Hämta</span>
                     </button>
-                </a>
             </div>
         </div>
     </div>
