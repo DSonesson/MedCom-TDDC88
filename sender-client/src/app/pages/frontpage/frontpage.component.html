@@ -13,6 +13,8 @@
 
 <app-card-form (onSaveForm)="setValidity($event)" [isSummary]="isSummary" [title]="formTitle" [description]="formDescription" ></app-card-form>
 <app-card-image [isValid]="isValid" Message="Välj bild" (imageUploaded)="setUploadBoolean($event)" [title]="imageCardTitle" [description]="imageCardDescription"></app-card-image>
+<app-card-form-fetch-case [title]="title" [description]="description"></app-card-form-fetch-case>
+
 
 <div class="row">
   <div class="col-md-12">
