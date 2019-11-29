@@ -31,6 +31,9 @@ export class CardFormFetchCaseComponent implements OnInit {
     enteredCaseNr : string;
     caseNumber: string;
 
+    @Input ("description") description;
+    @Input ("title") title;
+
     constructor(public dataService: CaseDataService, private httpService: HttpService, private router: Router) {
         this.caseNumber = this.dataService.getCase().caseNr;
 
