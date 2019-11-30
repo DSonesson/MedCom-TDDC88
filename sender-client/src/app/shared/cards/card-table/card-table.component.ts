@@ -80,7 +80,7 @@ export class CardTableComponent implements OnInit {
     * Saves the clicked on checkbox value to the Case and disables the one next to it if it is checked
     * @param checkboxId Id of the clicked checkbox.
     * @param setBoolean An input parameter deciding what boolean value to be saved to the case.
-    * @param setBoolean An event to check if the clicked checkbox is true or false to know whether to store the value or not
+    * @param event An event to check if the clicked checkbox is true or false to know whether to store the value or not
     */
     setCheckboxes(checkboxId: number, setBoolean: boolean, event: any) {
         this.checkboxes[checkboxId].value = setBoolean;
