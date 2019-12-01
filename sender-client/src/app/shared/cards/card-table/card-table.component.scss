@@ -1,0 +1,27 @@
+.inline-input {
+    display: inline-block;
+    width: 70px;
+}
+.timePicker {
+    display: inline-block;
+    margin-left: 30px;
+    width: 150px;
+    border-bottom: 1px solid grey;
+}
+.material-icons {
+    margin-top: -1px;
+    vertical-align: top;
+    margin-left: 15px;
+    margin-right: -1px;
+    float: right;
+}
+.timePickerInput {
+    width: 45px; 
+    display: inline-block; 
+    text-align: center;
+    border: 0px;
+    height: 20px;
+}
+.timePickerInput:focus {
+    outline: 0;
+}

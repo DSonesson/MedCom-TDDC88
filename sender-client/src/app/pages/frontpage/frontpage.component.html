@@ -4,21 +4,24 @@
  * @author Alexander Anserud <alean378@student.liu.se>
 -->
 
+<app-page-header [pageHeader]="pageHeader"></app-page-header>
+
 <!-- Step text-->
 <div class="card" style="background-color: transparent; box-shadow: none;">
      <h4 style="display: flex; justify-content: flex-end;"> Steg 1 av 3 </h4>
 </div>
-  
-<app-card-form (onSaveForm)="setValidity($event)"></app-card-form>
 
-<app-card-image [isValid]="isValid" Message="Välj bild" (imageUploaded)="setUploadBoolean($event)"></app-card-image>
+<app-card-form (onSaveForm)="setValidity($event)" [isSummary]="isSummary" [title]="formTitle" [description]="formDescription" ></app-card-form>
+<app-card-image [isValid]="isValid" Message="Välj bild" (imageUploaded)="setUploadBoolean($event)" [title]="imageCardTitle" [description]="imageCardDescription"></app-card-image>
+<app-card-form-fetch-case [title]="title" [description]="description"></app-card-form-fetch-case>
+
 
 <div class="row">
-  <div class="col-md-12" >
-          <a [routerLink]="'/summary'">
-              <button id="nextButton" type="Next" class="btn btn-info  btn-round" style="float: right;">
-                  <span >Nästa</span>
-              </button>
-          </a>
+  <div class="col-md-12">
+    <a [routerLink]="'/summary'">
+      <button [disabled]="!isValid || !isUploaded" id="nextButton" type="Next" class="btn btn-info  btn-round" style="float: right;">
+        <span>Nästa</span>
+      </button>
+    </a>
   </div>
 </div>

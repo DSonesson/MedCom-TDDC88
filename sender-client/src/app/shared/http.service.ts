@@ -62,9 +62,15 @@ export class HttpService {
     const req = this.url + '/upload'
     const uploadPath = '/SHARED/filecloudteam/BrivaPoC/' + uploadFolder;
 
+<<<<<<< HEAD
     const httpParams = {
       'path': uploadPath,
       'offset':'0',
+=======
+    const params = {
+      'path': "/annro873/" +  uploadPath,
+      'offset':'0', 
+>>>>>>> e7295da3ab11a4ef447ee19e2c668eab37f4ad69
       'complete':'1',
       'filename':fileToUpload.name,
       'appname':'explorer'

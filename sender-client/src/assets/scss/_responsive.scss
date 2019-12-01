@@ -88,7 +88,7 @@
             width: 22px;
             height: 1px;
             border-radius: 1px;
-            background: $default-color;
+            background: white;
 
             & + .navbar-toggler-bar{
                 margin-top: 7px;
@@ -243,6 +243,8 @@
             i.nc-icon{
                 opacity: .5;
             }
+            background: $regular-blue-main;
+            color: white;
         }
     }
 
@@ -390,6 +392,8 @@
               }
             }
           }
+            background: $regular-blue-main !important;
+            color: white !important;
         }
       }
     }

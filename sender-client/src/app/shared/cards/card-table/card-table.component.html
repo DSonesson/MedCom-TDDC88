@@ -12,12 +12,10 @@
                 <p class="card-description"></p>
             </div>
 
-            <form [formGroup]="userForm">
                 <div class="card-body">
                     <section>
                         <div class="col-md-12 px-1">
-                                <p>Använd denna checklista under det akuta omhändertagande och faxa sedan till Brännskadecentrum när patienten lämnar avdelningen.
-                                    Om någon av de rutor etc etc...
+                                <p>Använd detta formulär under det akuta omhändertagande och faxa sedan till Brännskadecentrum när patienten lämnar avdelningen.
                                 </p>
                             <div class="card">
 
@@ -28,34 +26,67 @@
         <th>Ja</th>
         <th>Nej</th>
       </thead>
-      <tbody>
-        <tr *ngFor="let checkbox of checkboxes; let i=index;">
+      <tbody *ngFor="let checkbox of checkboxes; let i = index">
+        <tr>
           <td>{{checkbox.question}}</td>
-          <td><div class="form-check">
+          <td><div class="form-check" *ngIf="!checkbox.noCheckBoxes">
   <label class="form-check-label">
-      <input id="checkbox0" class="form-check-input" type="checkbox" [ngModel]="checkbox.value && checkbox.storedValue" [ngModelOptions]="{standalone: true}" (change)="setCheckboxes(i, true)">
+      <input id="checkbox0" class="form-check-input" type="checkbox" [ngModel]="checkbox.value && checkbox.storedValue" [disabled]="checkbox.noCheckBoxes" [ngModelOptions]="{standalone: true}" (change)="setCheckboxes(i, true, $event)">
 
       <span class="form-check-sign">
           <span class="check"></span>
       </span>
   </label>
 </div></td>
-<td><div class="form-check">
+<td><div class="form-check" *ngIf="!checkbox.noCheckBoxes">
     <label class="form-check-label">
-        <input id="checkbox1" class="form-check-input" type="checkbox" [ngModel]="checkbox.value == false && checkbox.storedValue" [ngModelOptions]="{standalone: true}" (change)="setCheckboxes(i, false)">
+        <input id="checkbox1" class="form-check-input" type="checkbox" [ngModel]="checkbox.value == false && checkbox.storedValue" [disabled]="checkbox.noCheckBoxes" [ngModelOptions]="{standalone: true}" (change)="setCheckboxes(i, false, $event)">
 
         <span class="form-check-sign">
             <span class="check"></span>
         </span>
     </label>
   </div></td>
-
 </tr>
+<tr *ngIf="checkbox.complementary && checkbox.storedValue && checkbox.value || checkbox.noCheckBoxes">
+    <td style="border-top: 0; padding-top: 0">
+        <div *ngIf="checkbox.complementary == 'formHeightWeight'" id="formHeightWeight" class="complement">
+            Längd: <input type="text" class="form-control inline-input" placeholder="" value="{{checkbox.complementaryFormData[0]}}" (input)="checkBoxFormsChanged(i, $event, 0)"> cm.
+            Vikt: <input type="text" class="form-control inline-input" placeholder="" value="{{checkbox.complementaryFormData[1]}}" (input)="checkBoxFormsChanged(i, $event, 1)"> kg.
+        </div>
 
+        <div *ngIf="checkbox.complementary == 'formAnswer'" id="formAnswer" class="complement">
+            <input type="text" class="form-control inline-input" placeholder="" value="{{checkbox.complementaryFormData[0]}}" (input)="checkBoxFormsChanged(i, $event, 0)" style="width: 150px">
+        </div>
+
+        <div *ngIf="checkbox.complementary == 'totaldiuresForm'" id="totaldiuresForm" class="complement">
+            klockan: <input type="text" class="form-control inline-input" placeholder="" value="{{checkbox.complementaryFormData[0]}}" (input)="checkBoxFormsChanged(i, $event, 0)"> ?
+            Volym: <input type="text" class="form-control inline-input" placeholder="" value="{{checkbox.complementaryFormData[1]}}" (input)="checkBoxFormsChanged(i, $event, 1)"> ml
+        </div>
+    </td>
+</tr>
       </tbody>
     </table>
   </div>
 </div>
+<form [formGroup]="userForm">
+<div>Hur ska patienten transporteras?</div>
+  <textarea id="patientComments" formControlName="patientComments" class="form-control" rows="2" [(ngModel)]="transportInfo" value="{{transportInfo}}" (input)="textFormChanged()"></textarea>
+  <div style="margin-top: 15px; margin-bottom: 10px;">Förväntad ankomsttid till Brännskadecentrum i Linköping?</div>
+  
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Datum" [(ngModel)]="dateOfArrival" (dateChange)="dateChange($event)" [ngModelOptions]="{standalone: true}">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <div class="timePicker">
+  <input id="hourArrival" formControlName="hourArrival" type="number" maxlength="2" min="0" max="23" class="form-control" placeholder="00" [(ngModel)]="timeofArrival[0]" value="{{timeofArrival[0]}}" (input)="textFormChanged()" class="timePickerInput">: 
+  <input id="minArrival" formControlName="minArrival" type="number" maxlength="2" min="0" max="59" class="form-control" placeholder="00" [(ngModel)]="timeofArrival[1]" value="{{timeofArrival[1]}}" (input)="textFormChanged()" class="timePickerInput" style="margin-left: 10px">
+   <i class="material-icons">
+        access_time
+        </i>  
+</div>
+</form>
 
                         </div>
                     </section>
@@ -63,7 +94,6 @@
                 </div>
 
 
-            </form>
 
         </div>
     </div>

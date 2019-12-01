@@ -80,6 +80,15 @@ export class HeaderComponent implements OnInit{
       ;
     }
 
+    clearData(path: string){
+
+      if(path == '/frontpage') {
+      this.dataService.clearUserData();
+      }
+
+    }
+
+
     /**
      * Functionality to open/close the navbar
      * @version 1.0
@@ -92,7 +101,7 @@ export class HeaderComponent implements OnInit{
         console.log(navbar);
         if (!this.isCollapsed) {
           navbar.classList.remove('navbar-transparent');
-          navbar.classList.add('bg-white');
+          navbar.classList.add('');
         }else{
           navbar.classList.add('navbar-transparent');
           navbar.classList.remove('bg-white');

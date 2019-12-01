@@ -4,18 +4,21 @@
  * @author Alexander Anserud <alean378@student.liu.se>
 -->
 
+<app-page-header [pageHeader]="pageHeader"></app-page-header>
+
 <!-- Step text-->
 <div class="card" style="background-color: transparent; box-shadow: none;">
         <h4 style="display: flex; justify-content: flex-end;"> Steg 3 av 3 </h4>
 </div>
 
-<app-card-confirmation></app-card-confirmation>
+<app-card-confirmation [title]="formTitle" [description]="formDescription" [importantContent]="importantContent" [content]="content"></app-card-confirmation>
 
 <div class="row">
 
+
         <div class="col-md-12">
             <a [routerLink]="'/frontpage'">
-                <button id="startsida" type="Startsida" class="btn btn-info  btn-round" style="float: left;">
+                <button id="startsida" type="Startsida" class="btn btn-info  btn-round" style="float: left;"(click)="clearData()" >
                     <span>Startsida</span>
                 </button>
             </a>
@@ -28,3 +31,4 @@
         </div>
 
     </div>
+
