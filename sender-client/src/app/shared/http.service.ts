@@ -71,7 +71,7 @@ export class HttpService {
     }
 
 
-    
+
 
     const httpHeaders = new HttpHeaders ({
       "Authorization" : token,
@@ -144,7 +144,7 @@ export class HttpService {
         total = result.entries.meta[0].total[0];
     });
     console.log("total = " + total);
-    console.log(total >= 0);
+    console.log(total > 0);
     return total > 0;
   }
 
