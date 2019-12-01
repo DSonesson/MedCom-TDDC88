@@ -69,11 +69,9 @@ export class UploadService {
     this.ymlFile = new File([content], this.caseNr + ".yml");
   }
 
-  /**
-   * Generates a YAML-file containing the data that is stored to the case object and formatted in a specific way.
-   *
-   * @returns Nothing is returned.
-   */
+    /**
+    * A method to save the patient form data in a YML file and upload it to FileCloud
+    */
   generatePatientFormYML() {
     var content: string = "Patientformulär för case: " + this.caseNr + "\r\n" + "\r\n";
         for(let i=0; i<this.dataService.getCase().patientForm.length; i++){
