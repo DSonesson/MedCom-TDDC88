@@ -6,7 +6,9 @@ import { stringify } from 'querystring';
 import { NgxXml2jsonService } from 'ngx-xml2json';
 import xml2js from 'xml2js';
 
-
+/**
+ * This is a service that handles the HTTP-requests to the FileCloud-API
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -70,7 +72,7 @@ export class HttpService {
    * Upload a file to the specific path in FileCloud server.
    * @param fileToUpload The file that needs to be uploaded.
    * @param uploadPath The path where to upload the file in FileCloud server.
-   * 
+   *
    * @returns Nothing is returned.
    */
   postFile(fileToUpload: File, uploadPath: string) {
@@ -89,7 +91,7 @@ export class HttpService {
 
     const params = {
       'path': "/annro873/" +  uploadPath,
-      'offset':'0', 
+      'offset':'0',
       'complete':'1',
       'filename':fileToUpload.name,
       'appname':'explorer'
@@ -104,10 +106,10 @@ export class HttpService {
   /**
    * Create a folder named as the case number in FileCloud server.
    * @param caseNumber A case number which is the name of the folder to be created.
-   * 
+   *
    * @returns Nothing is returned.
    */
-  createFolder(caseNumber: string) { 
+  createFolder(caseNumber: string) {
 
     // const req = 'https://company3.filecloudonline.com' + '/app/explorer/createfolder'
     const req = this.url + '/app/explorer/createfolder'
@@ -154,7 +156,7 @@ export class HttpService {
     //     trim: true,
     //     explicitArray: true
     // });
-    
+
     xml2js.parseString(searchData, function (err, result) {
         console.log(result.entries.meta[0].total[0]);
         total = result.entries.meta[0].total[0];

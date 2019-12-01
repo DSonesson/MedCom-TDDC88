@@ -9,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 import { Routes } from '@angular/router';
 import { UploadService } from 'app/shared/upload.service';
 
-
+/**
+ * This is the component that is first showed for the user and it displays
+ * a couple of fields for the user to add information and images to the case.
+ */
 @Component({
   selector: 'frontpage',
   templateUrl: './frontpage.component.html',
@@ -19,9 +22,9 @@ import { UploadService } from 'app/shared/upload.service';
 export class FrontpageComponent implements OnInit {
   private pageHeader: String;
   // are form values valid
-  public isValid: boolean; 
+  public isValid: boolean;
   // is image uploaded locally
-  public isUploaded: boolean; 
+  public isUploaded: boolean;
   // boolean for choosing whether to display save button or not
   public isSummary: boolean;
 
@@ -34,14 +37,14 @@ export class FrontpageComponent implements OnInit {
   private imageCardDescription: String;
   private title: string;
   private description: string;
-  
-  
+
+
 
   constructor() {}
 
-  
-  
-  
+
+
+
   /**
     * sets boolean isValid to same value as in child component card-form.component
     */
@@ -49,7 +52,7 @@ export class FrontpageComponent implements OnInit {
     this.isValid = isValid;
   }
 
-  
+
 
   /**
     * sets boolean isUploaded to same value as in child component card-image.component
@@ -64,7 +67,7 @@ export class FrontpageComponent implements OnInit {
     this.isUploaded = false;
     this.title = "Hämta ditt ärende";
     this.description ="Här kan du hämta information om ett ärende du tidigare skickat in, genom att skriva in ditt ärendenummer och klicka på “Hämta”.";
-    
+
     this.formTitle = "Kontaktuppgifter";
     this.formDescription = "Här fyller du som avsändare i dina kontaktuppgifter.";
     this.imageCardTitle = "Ladda upp bild";
