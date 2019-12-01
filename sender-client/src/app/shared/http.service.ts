@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { stringify } from 'querystring';
 import { NgxXml2jsonService } from 'ngx-xml2json';
 import xml2js from 'xml2js';
+// import * as token from '../../../../../token.json'
+import * as token from '../../app/token.json'
 
 
 @Injectable({
@@ -207,14 +209,18 @@ export class HttpService {
   //   });
   // }
 
-  // getTokenTest() {
-  //   const clientId = "regionostergotland.se-2019-11-briva"
-  //   const grantType = "client_credentials"
-  //   const clientSecret = "TjJO5eEDUCmTT6wSClz28btkrHmMSm3QargesbrzDqMwVySzvgY_lP81cSeq_qVI"
-  //   this.getToken(clientId, grantType, clientSecret).then(data => {
-  //     console.log(data)
-  //   })
-  // }
+  getTokenTest() {
+    // const clientId = "regionostergotland.se-2019-11-briva"
+    // const grantType = "client_credentials"
+    // const clientSecret = "TjJO5eEDUCmTT6wSClz28btkrHmMSm3QargesbrzDqMwVySzvgY_lP81cSeq_qVI"
+    // this.getToken(clientId, grantType, clientSecret).then(data => {
+    //   console.log(data)
+    // })
+    console.log(token)
+    this.getToken(token.clientId, token.grantType, token.clientSecret).then(data => {
+      console.log(data)
+    })
+  }
 
   async getToken(clientId: string, grantType: string, clientSecret: string) : Promise<string> {
     // const url = 'https://idp.lio.se';
