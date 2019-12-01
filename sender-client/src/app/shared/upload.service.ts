@@ -41,19 +41,20 @@ export class UploadService {
     this.dataService.getCase().caseNr = this.caseNr;
     this.uploadFolder = this.caseNr;
 
+    console.log("Upload folder: ", this.uploadFolder)
     this.generateYML();
 
     //TODO: Make sure that userLogin() is succesfull before the other once are done.
     console.log("Starting login with token: ", token)
     const result = await this.httpService.userLogin(token);
     console.log("RESULTS FROM LOGIN: ", result)
-    const result1 = await this.httpService.createFolder(this.uploadPath, token);
-    console.log("Result from createFolder:" , result)
+    const result1 = await this.httpService.createFolder(this.uploadFolder, token);
+    console.log("Result from createFolder:" , result1)
 
     this.httpService.postFile(this.ymlFile, this.uploadFolder, token);
-    //for (var image of this.case.images) {
-    //  this.httpService.postFile(image.file, this.uploadPath);
-    //}
+    for (var image of this.case.images) {
+      this.httpService.postFile(image.file, this.uploadFolder, token);
+    }
   }
 
   //TODO or remove?

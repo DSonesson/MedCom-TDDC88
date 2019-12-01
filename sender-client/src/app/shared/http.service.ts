@@ -63,12 +63,15 @@ export class HttpService {
     const uploadPath = '/SHARED/filecloudteam/BrivaPoC/' + uploadFolder;
 
     const httpParams = {
-      'path':uploadPath,
+      'path': uploadPath,
       'offset':'0',
       'complete':'1',
       'filename':fileToUpload.name,
       'appname':'explorer'
     }
+
+
+    
 
     const httpHeaders = new HttpHeaders ({
       "Authorization" : token,
