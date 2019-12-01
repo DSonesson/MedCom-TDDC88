@@ -3,6 +3,7 @@ import { CaseDataService } from './case-data.service';
 import { CaseNrService} from './case-nr.service';
 import { Case } from '../models/case';
 import { HttpService } from './http.service';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -26,8 +27,19 @@ export class UploadService {
    * Creates a instance of UploadService
    * and sets case to another case retrieved from CaseDataService.
    */
-  constructor(public dataService: CaseDataService, private caseNrService: CaseNrService, private httpService: HttpService) {
+  constructor(public dataService: CaseDataService,
+              private caseNrService: CaseNrService,
+              private httpService: HttpService,
+              private router: Router) {
     this.case = this.dataService.getCase();
+  }
+
+
+
+  redirect(path) {
+    console.log("Routing to: ", path)
+    this.router.navigate([path]);
+
   }
 
   /**
@@ -55,6 +67,8 @@ export class UploadService {
     for (var image of this.case.images) {
       this.httpService.postFile(image.file, this.uploadFolder, token);
     }
+
+    this.redirect("/confirmation");
   }
 
   //TODO or remove?
@@ -81,7 +95,7 @@ export class UploadService {
    *
    * @returns Nothing is returned.
    */
-  generatePatientFormYML() {
+  async generatePatientFormYML(token) {
     var content: string = "Patientformulär för case: " + this.caseNr + "\r\n" + "\r\n";
         for(let i=0; i<this.dataService.getCase().patientForm.length; i++){
           var yesNoString = "Svar: Ej ifyllt. ";
@@ -121,8 +135,10 @@ export class UploadService {
     this.ymlPatientForm = new File([content], "patientformular-" + this.dataService.getCase().caseNr + ".yml");
     console.log(this.ymlPatientForm);
 
-    this.httpService.userLogin("nothing");
-    //this.httpService.postFile(this.ymlPatientForm, this.dataService.getCase().caseNr);
+    const result3 = await this.httpService.userLogin(token);
+    console.log("Result from login:", result3)
+    this.httpService.postFile(this.ymlPatientForm, this.dataService.getCase().caseNr, token);
+    this.redirect("/confirmation");
   }
 
 }

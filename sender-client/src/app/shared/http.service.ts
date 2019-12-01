@@ -31,22 +31,6 @@ export class HttpService {
     return this.http.request('POST', req, {headers, 'responseType':"text"}).toPromise();
   }
 
-  private userLogin1():Promise<string> {
-    const req = this.url + '/core/loginguest'
-    const headers = new HttpHeaders({
-      'Content-Type':  'application/x-www-form-urlencoded',
-      'Accept':  'application/xml',
-      'Response-Type': 'text',
-      'Access-Control-Allow-Origin': '*',
-      'observe': 'response'
-    })
-    const params = {
-      'userid':'annro873','password':'vLieZJzd'
-    }
-
-    return this.http.request('POST', req, {headers, params, 'responseType':"text"}).toPromise();
-  }
-
   /**
    * Upload a file to the specific path in FileCloud server.
    * @param fileToUpload The file that needs to be uploaded.
@@ -62,15 +46,9 @@ export class HttpService {
     const req = this.url + '/upload'
     const uploadPath = '/SHARED/filecloudteam/BrivaPoC/' + uploadFolder;
 
-<<<<<<< HEAD
     const httpParams = {
       'path': uploadPath,
       'offset':'0',
-=======
-    const params = {
-      'path': "/annro873/" +  uploadPath,
-      'offset':'0', 
->>>>>>> e7295da3ab11a4ef447ee19e2c668eab37f4ad69
       'complete':'1',
       'filename':fileToUpload.name,
       'appname':'explorer'
@@ -120,30 +98,16 @@ export class HttpService {
     return this.http.post(req, "", {headers: httpHeaders, params: httpParams, responseType: "text", withCredentials: true}).toPromise();
   }
 
-  async doSearch(caseNr:string, searchloc:string) : Promise<boolean> {
+  async doSearch(caseNr:string, token) : Promise<boolean> {
 
-    const loginData = await this.userLogin1();
-    console.log(loginData);
+    const searchloc = '/SHARED/filecloudteam/BrivaPoC'
+    const loginData = await this.userLogin(token);
+    console.log(loginData)
 
-    const searchData = await this.search(caseNr, searchloc);
+    const searchData = await this.search(caseNr, searchloc, token);
     console.log(searchData);
 
-    // var parser = require('xml2js').parseString;
-    // const parser = new xml2js.Parser({ strict: false, trim: true });
     var total = 0;
-    // parser.parseString(searchData, (err, result) => {
-    //   console.log(result);
-    //   total = 1;
-    // });
-    // parser(searchData, (err, result) => {
-    //   console.log(result);
-    //   total = 1;
-    // });
-
-    // const parser = new xml2js.Parser({
-    //     trim: true,
-    //     explicitArray: true
-    // });
 
     xml2js.parseString(searchData, function (err, result) {
         console.log(result.entries.meta[0].total[0]);
@@ -154,21 +118,19 @@ export class HttpService {
     return total > 0;
   }
 
-  private search(caseNr:string, searchloc:string) : Promise<string> {
-    const req = this.url + '/core/dosearch'
-
-    const headers = new HttpHeaders({
-      'Content-Type':  'application/x-www-form-urlencoded',
-      'Accept':  'application/xml',
-      'Response-Type': 'text',
-      'Access-Control-Allow-Origin': '*',
+  private search(caseNr:string, searchloc:string, token) : Promise<string> {
+    const req = this.url + '/search'
+    console.log("Searching for: ", caseNr)
+    const httpHeaders = new HttpHeaders({
+      "Authorization" : token,
+      "Content-type": "application/x-www-form-urlencoded"
     })
 
-    const params = {
+    const httpParams = {
       'searchstring': caseNr,
       'searchloc': searchloc,
     }
 
-    return this.http.request('POST', req, {headers, params, 'responseType':"text"}).toPromise();
+    return this.http.post(req, "", {headers: httpHeaders, params: httpParams, responseType: "text", withCredentials: true}).toPromise();
   }
 }
