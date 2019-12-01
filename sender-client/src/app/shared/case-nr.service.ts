@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 
+/**
+ * This service generates a case number.
+ */
 @Injectable({
   providedIn: 'root'
 })
