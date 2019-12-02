@@ -1,12 +1,16 @@
 # SenderClient
 
-Describe the project.
+This is an application which lets the user send information and images.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.6.
 
 ## Installation
 
-List step by step what needs to be installed to get the project running (the developing enviroment).
+Use the package manager npm provided by [NodeJs](https://nodejs.org/en/), to install the the necessary dependencies of the project.
+
+```bash
+npm install
+```
 
 ## Development server
 

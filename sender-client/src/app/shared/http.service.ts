@@ -6,7 +6,9 @@ import { stringify } from 'querystring';
 import { NgxXml2jsonService } from 'ngx-xml2json';
 import xml2js from 'xml2js';
 
-
+/**
+ * This is a service that handles the HTTP-requests to the FileCloud-API
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -73,10 +75,11 @@ export class HttpService {
    *
    * @returns Nothing is returned.
    */
+
   createFolder(caseNumber: string, token):Promise<string> {
     console.log("Staring create folder.", token)
     const req = this.url + '/createfolder'
-
+    
     const httpHeaders = new HttpHeaders ({
       "Authorization" : token,
       "Content-type": "application/x-www-form-urlencoded"
