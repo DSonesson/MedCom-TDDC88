@@ -5,7 +5,7 @@
  * @author Henrik Johansson <henjo114@student.liu.se>
  */
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { UploadService } from 'app/shared/upload.service';
 import { AuthAssistantService} from 'app/shared/auth-assistant.service';
 
@@ -18,15 +18,18 @@ import { AuthAssistantService} from 'app/shared/auth-assistant.service';
 export class EditCaseComponent implements OnInit {
 
   constructor(private uploadService: UploadService,
-              public authService: AuthAssistantService) { }
+              public authService: AuthAssistantService,
+              private ngZone: NgZone) { }
 
   ngOnInit() { }
 
   uploadPatientForm() {
     console.log("OKOK")
     this.authService.getAssistant().loginIfRequired().then( () => {
-      console.log("Token in upload: ", this.authService.getAssistant().getAuthHeader())
-      this.uploadService.generatePatientFormYML(this.authService.getAssistant().getAuthHeader());
+      this.ngZone.run( () => {
+        console.log("Token in upload: ", this.authService.getAssistant().getAuthHeader())
+        this.uploadService.generatePatientFormYML(this.authService.getAssistant().getAuthHeader());
+      })
     })
   }
 }

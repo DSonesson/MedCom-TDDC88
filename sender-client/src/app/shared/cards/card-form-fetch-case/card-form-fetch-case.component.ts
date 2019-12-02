@@ -6,7 +6,7 @@
  */
 
 /* Imports */
-import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter, NgZone } from '@angular/core';
 
 import { CaseDataService } from '../../../shared/case-data.service';
 import { User } from '../../../models/user';
@@ -39,7 +39,8 @@ export class CardFormFetchCaseComponent implements OnInit {
     constructor(public dataService: CaseDataService,
                 private httpService: HttpService,
                 private router: Router,
-                private authService: AuthAssistantService) {
+                private authService: AuthAssistantService,
+                private ngZone: NgZone) {
 
     }
 
@@ -57,10 +58,12 @@ export class CardFormFetchCaseComponent implements OnInit {
    */
     async setCaseNr() {
       this.authService.getAssistant().loginIfRequired().then( () => {
-          this.search();
+          this.ngZone.run( () => {
+            this.search();
+          })
         })
     }
-        
+
     async search() {
       if(await this.httpService.doSearch(this.enteredCaseNr, this.authService.getAssistant().getAuthHeader()) == true) {
           console.log("Valid Casenum");
