@@ -7,23 +7,87 @@
 <app-page-header [pageHeader]="pageHeader"></app-page-header>
 
 <!-- Step text-->
-<div class="card" style="background-color: transparent; box-shadow: none;">
-        <h4 style="display: flex; justify-content: flex-end;"> Steg 2 av 3 </h4>
+<div class="card mb-0" style="background-color: transparent; box-shadow: none;">
+  <h4 class="mb-2 mt-0" style="display: flex; justify-content: flex-end;">
+    Steg 2 av 3
+  </h4>
 </div>
 
-<div *ngIf="!displayForm"><app-card-default (displayForm)="setDisplayForm($event)" [title]="formTitle" [description]="formDescription"></app-card-default></div>
-<div *ngIf="displayForm"><app-card-form [isSummary]="!isSummary" (onSaveForm)="setValidity($event)" (displayForm)="setDisplayForm($event)" [title]="formTitle" [description]="formDescription"></app-card-form></div>
-<app-card-image [isValid]="isValid" Message="Lägg till fler bilder" (imageUploaded)="setUploadBoolean($event)" [title]="imageCardTitle" [description]="imageCardDescription"></app-card-image>
+<div class="progress bg-transparent mb-3">
+  <div
+    class="progress-bar mr-1 rounded"
+    role="progressbar"
+    aria-valuenow="25"
+    aria-valuemin="0"
+    aria-valuemax="100"
+    style="width: 25%; background-color: #46E09D"
+  ></div>
+  <div
+    class="progress-bar mr-1 rounded"
+    role="progressbar"
+    aria-valuenow="25"
+    aria-valuemin="0"
+    aria-valuemax="100"
+    style="width: 25%; background-color: #00C96D"
+  ></div>
+  <div
+    class="progress-bar mr-1 rounded"
+    role="progressbar"
+    aria-valuenow="25"
+    aria-valuemin="0"
+    aria-valuemax="100"
+    style="width: 25%; background-color: #00A452"
+  ></div>
+</div>
+
+<div *ngIf="!displayForm">
+  <app-card-default
+    (displayForm)="setDisplayForm($event)"
+    [title]="formTitle"
+    [description]="formDescription"
+  ></app-card-default>
+</div>
+<div *ngIf="displayForm">
+  <app-card-form
+    [isSummary]="!isSummary"
+    (onSaveForm)="setValidity($event)"
+    (displayForm)="setDisplayForm($event)"
+    [title]="formTitle"
+    [description]="formDescription"
+  ></app-card-form>
+</div>
+<app-card-image
+  [isValid]="isValid"
+  Message="Lägg till fler bilder"
+  (imageUploaded)="setUploadBoolean($event)"
+  [title]="imageCardTitle"
+  [description]="imageCardDescription"
+></app-card-image>
 
 <div class="row">
-   <div class="col-md-12">
-      <!-- Cancel button -->
-        <button id="cancelButton" type="previous" class="btn btn-info  btn-round" style="float: left;" mat-raised-button (click)="openDialog()" >Avbryt</button>
-           <a [routerLink]="'/confirmation'">
-            <button [disabled]="!isUploaded || !isValid || displayForm" id="skickaButton" type="Skicka Ärende" class="btn btn-info  btn-round" style="float: right;" (click)="startUpload()">
-                <span>Skicka Ärende</span>
-            </button>
-        </a>
-    </div>
-
+  <div class="col-md-12">
+    <!-- Cancel button -->
+    <button
+      id="cancelButton"
+      type="previous"
+      class="btn btn-info  btn-round"
+      style="float: left;"
+      mat-raised-button
+      (click)="openDialog()"
+    >
+      Avbryt
+    </button>
+    <a [routerLink]="'/confirmation'">
+      <button
+        [disabled]="!isUploaded || !isValid || displayForm"
+        id="skickaButton"
+        type="Skicka Ärende"
+        class="btn btn-info  btn-round"
+        style="float: right;"
+        (click)="startUpload()"
+      >
+        <span>Skicka Ärende</span>
+      </button>
+    </a>
+  </div>
 </div>
