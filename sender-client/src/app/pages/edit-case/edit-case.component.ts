@@ -7,6 +7,8 @@
 
 import { Component, OnInit } from '@angular/core';
 import { UploadService } from 'app/shared/upload.service';
+import { AuthAssistantService} from 'app/shared/auth-assistant.service';
+
 
 @Component({
   selector: 'edit',
@@ -15,13 +17,16 @@ import { UploadService } from 'app/shared/upload.service';
 })
 export class EditCaseComponent implements OnInit {
 
-  constructor(private uploadService: UploadService) { }
+  constructor(private uploadService: UploadService,
+              public authService: AuthAssistantService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   uploadPatientForm() {
-    this.uploadService.generatePatientFormYML();
+    console.log("OKOK")
+    this.authService.getAssistant().loginIfRequired().then( () => {
+      console.log("Token in upload: ", this.authService.getAssistant().getAuthHeader())
+      this.uploadService.generatePatientFormYML(this.authService.getAssistant().getAuthHeader());
+    })
   }
-
 }

@@ -13,6 +13,8 @@ import { User } from '../../../models/user';
 import { Case } from '../../../models/case';
 import { HttpService } from '../../http.service';
 import { Router } from '@angular/router';
+import { AuthAssistantService} from 'app/shared/auth-assistant.service';
+
 
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -34,8 +36,11 @@ export class CardFormFetchCaseComponent implements OnInit {
     @Input ("description") description;
     @Input ("title") title;
 
-    constructor(public dataService: CaseDataService, private httpService: HttpService, private router: Router) {
-        
+    constructor(public dataService: CaseDataService,
+                private httpService: HttpService,
+                private router: Router,
+                private authService: AuthAssistantService) {
+
     }
 
     ngOnInit() {
@@ -47,21 +52,25 @@ export class CardFormFetchCaseComponent implements OnInit {
    * Else gives alert that case doesn't exist.
    * @param enteredCaseNr Case number the user enters.
    * @param caseNummber Case number of this case
-   * 
+   *
    * @returns Nothing is returned.
    */
-    async setCaseNr() { 
-        if(await this.httpService.doSearch(this.enteredCaseNr, "/annro873") == true) {
-            console.log("Valid Casenum");
-            this.dataService.getCase().caseNr = this.enteredCaseNr;
-            this.redirect();
-        }
-        else {
-            alert("Finns inte");
-        }
+    async setCaseNr() {
+      this.authService.getAssistant().loginIfRequired().then( () => {
+          this.search();
+        })
     }
-    
-    
+        
+    async search() {
+      if(await this.httpService.doSearch(this.enteredCaseNr, this.authService.getAssistant().getAuthHeader()) == true) {
+          console.log("Valid Casenum");
+          this.dataService.getCase().caseNr = this.enteredCaseNr;
+          this.redirect();
+      }else {
+          alert("Finns inte");
+      }
+    }
+
     async doesExist(caseNr: string) : Promise<boolean> {
         let result = await this.httpService.doSearch(this.enteredCaseNr, "/annro873");
         return result;

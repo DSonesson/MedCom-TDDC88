@@ -3,6 +3,7 @@ import { CaseDataService } from './case-data.service';
 import { CaseNrService} from './case-nr.service';
 import { Case } from '../models/case';
 import { HttpService } from './http.service';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -16,6 +17,7 @@ export class UploadService {
   caseNr: string;
   /** The upload path for the case*/
   uploadPath: string;
+  uploadFolder: string;
   /** The YAML-file to store case data and to be uploaded to FileCLoud*/
   ymlFile: File;
   /** Another YAML-file to store case data and to be uploaded to FileCLoud(specific formatting)*/
@@ -25,8 +27,19 @@ export class UploadService {
    * Creates a instance of UploadService
    * and sets case to another case retrieved from CaseDataService.
    */
-  constructor(public dataService: CaseDataService, private caseNrService: CaseNrService, private httpService: HttpService) {
+  constructor(public dataService: CaseDataService,
+              private caseNrService: CaseNrService,
+              private httpService: HttpService,
+              private router: Router) {
     this.case = this.dataService.getCase();
+  }
+
+
+
+  redirect(path) {
+    console.log("Routing to: ", path)
+    this.router.navigate([path]);
+
   }
 
   /**
@@ -35,25 +48,32 @@ export class UploadService {
    *
    * @returns Nothing is returned.
    */
-  startUpload() {
+  async startUpload(token) {
     this.caseNr = this.caseNrService.getCaseNr(this.case.user.phone);
     this.dataService.getCase().caseNr = this.caseNr;
-    this.uploadPath = this.caseNr;
+    this.uploadFolder = this.caseNr;
 
+    console.log("Upload folder: ", this.uploadFolder)
     this.generateYML();
 
     //TODO: Make sure that userLogin() is succesfull before the other once are done.
-    this.httpService.userLogin();
-    this.httpService.createFolder(this.uploadPath);
-    //This should be looped once several files are stored.
-    this.httpService.postFile(this.ymlFile, this.uploadPath);
+    console.log("Starting login with token: ", token)
+    const result = await this.httpService.userLogin(token);
+    console.log("RESULTS FROM LOGIN: ", result)
+    const result1 = await this.httpService.createFolder(this.uploadFolder, token);
+    console.log("Result from createFolder:" , result1)
+
+    this.httpService.postFile(this.ymlFile, this.uploadFolder, token);
     for (var image of this.case.images) {
-      this.httpService.postFile(image.file, this.uploadPath);
+      this.httpService.postFile(image.file, this.uploadFolder, token);
     }
+
+    this.redirect("/confirmation");
   }
 
   //TODO or remove?
   realUpload() {
+
   }
 
   /**
@@ -69,10 +89,13 @@ export class UploadService {
     this.ymlFile = new File([content], this.caseNr + ".yml");
   }
 
-    /**
-    * A method to save the patient form data in a YML file and upload it to FileCloud
-    */
-  generatePatientFormYML() {
+
+  /**
+   * Generates a YAML-file containing the data that is stored to the case object and formatted in a specific way.
+   *
+   * @returns Nothing is returned.
+   */
+  async generatePatientFormYML(token) {
     var content: string = "Patientformulär för case: " + this.caseNr + "\r\n" + "\r\n";
         for(let i=0; i<this.dataService.getCase().patientForm.length; i++){
           var yesNoString = "Svar: Ej ifyllt. ";
@@ -85,14 +108,14 @@ export class UploadService {
           else {
             var yesNoString = "";
           }
-          
+
           var formData = "";
           if (this.dataService.getCase().patientForm[i].complementary) {
             for(let k=0; k<this.dataService.getCase().patientForm[i].complementaryFormData.length; k++){
             formData = formData.concat(this.dataService.getCase().patientForm[i].ymlFormat[k] + this.dataService.getCase().patientForm[i].complementaryFormData[k]);
           }
         }
-          var questionAndAnswers: string = i+1 + ". " + this.dataService.getCase().patientForm[i].question + "\r\n" + yesNoString + formData + "\r\n" + "\r\n";  
+          var questionAndAnswers: string = i+1 + ". " + this.dataService.getCase().patientForm[i].question + "\r\n" + yesNoString + formData + "\r\n" + "\r\n";
           content = content.concat(questionAndAnswers);
         }
         if (this.dataService.getCase().transportInfo != null && this.dataService.getCase().transportInfo.length > 0) {
@@ -112,8 +135,10 @@ export class UploadService {
     this.ymlPatientForm = new File([content], "patientformular-" + this.dataService.getCase().caseNr + ".yml");
     console.log(this.ymlPatientForm);
 
-    this.httpService.userLogin();
-    this.httpService.postFile(this.ymlPatientForm, this.dataService.getCase().caseNr);
+    const result3 = await this.httpService.userLogin(token);
+    console.log("Result from login:", result3)
+    this.httpService.postFile(this.ymlPatientForm, this.dataService.getCase().caseNr, token);
+    this.redirect("/confirmation");
   }
 
 }

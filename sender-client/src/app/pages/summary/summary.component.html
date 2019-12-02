@@ -13,7 +13,7 @@
   </h4>
 </div>
 
-<div class="progress bg-transparent mb-3">
+<div class="progress bg-transparent mb-4">
   <div
     class="progress-bar mr-1 rounded"
     role="progressbar"
@@ -77,17 +77,15 @@
     >
       Avbryt
     </button>
-    <a [routerLink]="'/confirmation'">
-      <button
-        [disabled]="!isUploaded || !isValid || displayForm"
-        id="skickaButton"
-        type="Skicka Ärende"
-        class="btn btn-info  btn-round"
-        style="float: right;"
-        (click)="startUpload()"
-      >
-        <span>Skicka Ärende</span>
-      </button>
-    </a>
+    <button
+      [disabled]="!isUploaded || !isValid || displayForm"
+      id="skickaButton"
+      type="Skicka Ärende"
+      class="btn btn-info  btn-round"
+      style="float: right;"
+      (click)="startUpload()"
+    >
+      <span>Skicka Ärende</span>
+    </button>
   </div>
 </div>
