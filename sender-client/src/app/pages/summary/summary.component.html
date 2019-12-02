@@ -19,11 +19,9 @@
    <div class="col-md-12">
       <!-- Cancel button -->
         <button id="cancelButton" type="previous" class="btn btn-info  btn-round" style="float: left;" mat-raised-button (click)="openDialog()" >Avbryt</button>
-           <a [routerLink]="'/confirmation'">
-            <button [disabled]="!isUploaded || !isValid || displayForm" id="skickaButton" type="Skicka Ärende" class="btn btn-info  btn-round" style="float: right;" (click)="startUpload()">
-                <span>Skicka Ärende</span>
-            </button>
-        </a>
+        <button [disabled]="!isUploaded || !isValid || displayForm" id="skickaButton" type="Skicka Ärende" class="btn btn-info  btn-round" style="float: right;" (click)="startUpload()">
+            <span>Skicka Ärende</span>
+        </button>
     </div>
 
 </div>

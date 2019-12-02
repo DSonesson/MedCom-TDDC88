@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "https://medcom3.filecloudonline.com/",
+    "target": "https://api.regionostergotland.se/file/fileservice/v1",
     "protocol": "https:",
     "secure": false,
     "pathRewrite": {"^/api" : ""},

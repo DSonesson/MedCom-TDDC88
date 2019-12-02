@@ -14,58 +14,23 @@ import xml2js from 'xml2js';
 })
 export class HttpService {
 
-  url = 'http://localhost:4200/api';
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/x-www-form-urlencoded',
-      'Accept':  'application/xml',
-      'Response-Type': 'text',
-      'Access-Control-Allow-Origin': '*',
-    })
-  };
+  //url = 'http://localhost:4200/api';
+  url = 'https://api.regionostergotland.se/file/fileservice/v1';
 
-  constructor(private http: HttpClient) {
-  }
+  private response: any;
+
+  constructor(private http: HttpClient) { }
 
   /**
    * User login the FileCloud server.
    */
-  userLogin() {
-    const req = this.url + '/core/loginguest'
+  userLogin(token):Promise<string> {
+    const req = this.url + '/login';
     const headers = new HttpHeaders({
-      'Content-Type':  'application/x-www-form-urlencoded',
-      'Accept':  'application/xml',
-      'Response-Type': 'text',
-      'Access-Control-Allow-Origin': '*',
-      observe: 'response'
-      // 'Access-Control-Allow-Methods': 'PUT, GET, POST, DELETE, OPTIONS',
-      // 'Access-Control-Allow-Headers': 'Content-Type',
-      //'Cookie': 'X-XSRF-TOKEN=aqt1uuezrl4q9uu03ipl'
-      // "User-Agent":"Chrome/56.0.2924.87"
+      'Authorization': token
     })
-    const params = {
-      'userid':'annro873','password':'vLieZJzd'
-    }
 
-    this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
-      console.log(resp);
-    })
-  }
-
-  private userLogin1():Promise<string> {
-    const req = this.url + '/core/loginguest'
-    const headers = new HttpHeaders({
-      'Content-Type':  'application/x-www-form-urlencoded',
-      'Accept':  'application/xml',
-      'Response-Type': 'text',
-      'Access-Control-Allow-Origin': '*',
-      'observe': 'response'
-    })
-    const params = {
-      'userid':'annro873','password':'vLieZJzd'
-    }
-
-    return this.http.request('POST', req, {headers, params, 'responseType':"text"}).toPromise();
+    return this.http.request('POST', req, {headers, 'responseType':"text"}).toPromise();
   }
 
   /**
@@ -75,31 +40,32 @@ export class HttpService {
    *
    * @returns Nothing is returned.
    */
-  postFile(fileToUpload: File, uploadPath: string) {
-    const appname = "Chrome/56.0.2924.87";
-    // const endpoint = this.url + '/core/upload' + '?appname=' + appname + '&path=' + uploadPath + '&offset=0&complete=1&filename=' + fileToUpload.name;
+  postFile(fileToUpload: File, uploadFolder: string, token) {
 
     const formData: FormData = new FormData();
-
     formData.append('Image', fileToUpload, fileToUpload.name);
 
-    const req = this.url + '/core/upload'
-    const headers = new HttpHeaders({
-      'Response-Type': 'text',
-      'Access-Control-Allow-Origin': '*',
-    })
+    const req = this.url + '/upload'
+    const uploadPath = '/SHARED/filecloudteam/BrivaPoC/' + uploadFolder;
 
-    const params = {
-      'path': "/annro873/" +  uploadPath,
+    const httpParams = {
+      'path': uploadPath,
       'offset':'0',
       'complete':'1',
       'filename':fileToUpload.name,
       'appname':'explorer'
     }
 
-    this.http.request('POST', req, {'body': formData, headers, params, 'responseType':"text"})
-    .subscribe(resp => {
-      console.log(resp)
+
+
+
+    const httpHeaders = new HttpHeaders ({
+      "Authorization" : token,
+    })
+
+
+    this.http.post(req, formData, {headers: httpHeaders, params: httpParams, responseType: "text", withCredentials: true}).subscribe(resp => {
+      console.log("postfile: ",resp)
     })
   }
 
@@ -109,53 +75,42 @@ export class HttpService {
    *
    * @returns Nothing is returned.
    */
-  createFolder(caseNumber: string) {
 
-    // const req = 'https://company3.filecloudonline.com' + '/app/explorer/createfolder'
-    const req = this.url + '/app/explorer/createfolder'
-
-    const headers = new HttpHeaders({
-      'Content-Type':  'application/x-www-form-urlencoded',
-      'Accept':  'application/xml',
-      'Response-Type': 'text',
-      'Access-Control-Allow-Origin': '*',
+  createFolder(caseNumber: string, token):Promise<string> {
+    console.log("Staring create folder.", token)
+    const req = this.url + '/createfolder'
+    
+    const httpHeaders = new HttpHeaders ({
+      "Authorization" : token,
+      "Content-type": "application/x-www-form-urlencoded"
     })
 
-    const params = {
+    const httpParams = {
       'name': caseNumber,
-      'path': '/annro873'
+      'path': '/SHARED/filecloudteam/BrivaPoC'
     }
 
-    this.http.request('POST', req, {headers, params, 'responseType':"text"}).subscribe(resp => {
-      console.log(resp)
-    })
+    //TODO, find a way to use this or remove it.
+    var httpOptions = {
+      headers: httpHeaders,
+      params: httpParams,
+      responseType: "text",
+      withCredentials: true
+    }
 
+    return this.http.post(req, "", {headers: httpHeaders, params: httpParams, responseType: "text", withCredentials: true}).toPromise();
   }
 
-  async doSearch(caseNr:string, searchloc:string) : Promise<boolean> {
+  async doSearch(caseNr:string, token) : Promise<boolean> {
 
-    const loginData = await this.userLogin1();
-    console.log(loginData);
+    const searchloc = '/SHARED/filecloudteam/BrivaPoC'
+    const loginData = await this.userLogin(token);
+    console.log(loginData)
 
-    const searchData = await this.search(caseNr, searchloc);
+    const searchData = await this.search(caseNr, searchloc, token);
     console.log(searchData);
 
-    // var parser = require('xml2js').parseString;
-    // const parser = new xml2js.Parser({ strict: false, trim: true });
     var total = 0;
-    // parser.parseString(searchData, (err, result) => {
-    //   console.log(result);
-    //   total = 1;
-    // });
-    // parser(searchData, (err, result) => {
-    //   console.log(result);
-    //   total = 1;
-    // });
-
-    // const parser = new xml2js.Parser({
-    //     trim: true,
-    //     explicitArray: true
-    // });
 
     xml2js.parseString(searchData, function (err, result) {
         console.log(result.entries.meta[0].total[0]);
@@ -166,47 +121,19 @@ export class HttpService {
     return total > 0;
   }
 
-  private search(caseNr:string, searchloc:string) : Promise<string> {
-    const req = this.url + '/core/dosearch'
-
-    const headers = new HttpHeaders({
-      'Content-Type':  'application/x-www-form-urlencoded',
-      'Accept':  'application/xml',
-      'Response-Type': 'text',
-      'Access-Control-Allow-Origin': '*',
+  private search(caseNr:string, searchloc:string, token) : Promise<string> {
+    const req = this.url + '/search'
+    console.log("Searching for: ", caseNr)
+    const httpHeaders = new HttpHeaders({
+      "Authorization" : token,
+      "Content-type": "application/x-www-form-urlencoded"
     })
 
-    const params = {
+    const httpParams = {
       'searchstring': caseNr,
       'searchloc': searchloc,
     }
 
-    return this.http.request('POST', req, {headers, params, 'responseType':"text"}).toPromise();
+    return this.http.post(req, "", {headers: httpHeaders, params: httpParams, responseType: "text", withCredentials: true}).toPromise();
   }
-
-  // private parseXML(data) {
-  //   return new Promise(resolve => {
-  //     var k: string | number,
-  //       arr = [],
-  //       parser = new xml2js.Parser(
-  //         {
-  //           trim: true,
-  //           explicitArray: true
-  //         });
-  //     parser.parseString(data, function (err, result) {
-  //       var obj = result.Employee;
-  //       for (k in obj.emp) {
-  //         var item = obj.emp[k];
-  //         arr.push({
-  //           id: item.id[0],
-  //           name: item.name[0],
-  //           gender: item.gender[0],
-  //           mobile: item.mobile[0]
-  //         });
-  //       }
-  //       resolve(arr);
-  //     });
-  //   });
-  // }
-
 }
