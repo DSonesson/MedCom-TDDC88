@@ -1,4 +1,5 @@
 import { Injectable, Predicate } from '@angular/core';
+  const req = 'http://localhost:8080/token';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -216,7 +217,7 @@ export class HttpService {
     // this.getToken(clientId, grantType, clientSecret).then(data => {
     //   console.log(data)
     // })
-    console.log(token)
+    // console.log(token)
     this.getToken(token.clientId, token.grantType, token.clientSecret).then(data => {
       console.log(data)
     })
@@ -225,7 +226,7 @@ export class HttpService {
   async getToken(clientId: string, grantType: string, clientSecret: string) : Promise<string> {
     // const url = 'https://idp.lio.se';
     // const url = 'http://localhost:4200/api1';  
-    const req = '/api1/oauth/v2/token';
+    const req = '/api1/auth/token';
       const headers = new HttpHeaders({
         'Content-Type': 'application/x-www-form-urlencoded',
         'Accept': 'application/json',
@@ -248,10 +249,12 @@ export class HttpService {
       .set('client_id', clientId)
       .set('grant_type', grantType)
       .set('client_secret', clientSecret);
-      const rsp = await this.http.post<TokenJson>(req, payload).toPromise<TokenJson>()
+      // const rsp = await this.http.post<TokenJson>(req, payload).toPromise<TokenJson>()
+      const rsp = await this.http.get<TokenJson>(req).toPromise<TokenJson>()
+      // const rsp = await this.http.get<TokenJson>("http://localhost:8080/auth/token").toPromise<TokenJson>()
 
       console.log(rsp);
-      console.log(rsp.access_token)
+      console.log(rsp.accessToken)
 
       // this.http.post<string>(req, payload).subscribe(data => {
       //   const str = JSON.stringify(data);
@@ -266,14 +269,14 @@ export class HttpService {
       //   // token = result.access_token;
       // });
       
-      return rsp.access_token;
+      return rsp.accessToken;
   }
 
 }
 
 interface TokenJson {
-  access_token:string
-  expires_in: number
+  accessToken:string
+  expiresIn: number
   scope: string
-  token_type: string
+  tokenType: string
 }

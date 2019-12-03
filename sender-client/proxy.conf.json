@@ -1,12 +1,13 @@
 {
+
   "/api1/*": {
-    "target": "https://idp.lio.se/",
-    "protocol": "https:",
+    "target": "http://localhost:8080/ ",
+    "protocol": "http:",
     "secure": false,
     "pathRewrite": {"^/api1" : ""},
     "changeOrigin": true
-  }, 
-  
+  },
+   
   "/api/*": {
     "target": "https://medcom3.filecloudonline.com/",
     "protocol": "https:",
