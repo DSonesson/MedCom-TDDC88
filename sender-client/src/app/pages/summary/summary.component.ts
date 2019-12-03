@@ -5,7 +5,7 @@
  */
 
 /* Imports */
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { UploadService } from 'app/shared/upload.service';
 import { MatIconRegistry } from "@angular/material/icon";
 import { DomSanitizer } from "@angular/platform-browser";
@@ -43,22 +43,23 @@ export class SummaryComponent implements OnInit {
    */
   constructor(private uploadService: UploadService, private dialog: MatDialog,
               public dataService: CaseDataService, private matIconRegistry: MatIconRegistry,
-              private domSanitizer: DomSanitizer, public authService: AuthAssistantService
-    ) {
-      this.matIconRegistry.addSvgIcon(
-        "edit",
-        this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/edit.svg")
-      );
+              private domSanitizer: DomSanitizer, public authService: AuthAssistantService,
+              private ngZone: NgZone)
+    {
+        this.matIconRegistry.addSvgIcon(
+          "edit",
+          this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/edit.svg")
+        );
      }
 
 
   startUpload() {
     this.authService.getAssistant().loginIfRequired().then( () => {
-        //console.log("Success: ", this.authService.getAssistant().getAuthHeader())
-        console.log("Authentication complete, starting upload. Token: ", this.authService.getAssistant().getAuthHeader())
-        this.uploadService.startUpload(this.authService.getAssistant().getAuthHeader());
-        console.log("start upload complete.")
-        //TODO: Route to confirmation here
+        this.ngZone.run( () => {
+          console.log("Authentication complete, starting upload. Token: ", this.authService.getAssistant().getAuthHeader())
+          this.uploadService.startUpload(this.authService.getAssistant().getAuthHeader());
+          console.log("start upload complete.")
+        })
       }).fail( (error) => {
         console.log("ERROR: ", error)});
   }
