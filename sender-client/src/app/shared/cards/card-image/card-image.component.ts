@@ -50,6 +50,7 @@ export class CardImageComponent implements OnInit {
  imageCounter = this.dataService.getCase().images.length -1;
  imagesAvailable = false;
  src: any;
+ imagejustRemoved: boolean;
 
 /**
  * This method is called when an image is choosen in the file select dialog in the browser.
@@ -100,6 +101,14 @@ removeImage(index: number){
     this.imagesAvailable = false;
     this.imageUploaded.emit(this.imagesAvailable);
   }
+  this.imagejustRemoved = true;
+}
+
+clearInputOnClick(event: Event) {
+  if(this.imagejustRemoved) {
+  const element = event.target as HTMLInputElement;
+  element.value = '';
+  }
 }
 
 
@@ -130,6 +139,8 @@ addImage() {
    this._album.push(album);
     };
     reader.readAsDataURL(this.dataService.getCase().images[this.imageCounter].file);
+    
+    this.imagejustRemoved = false;
 }
 
 /**
