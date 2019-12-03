@@ -86,7 +86,7 @@ export class UploadService {
       + "Name: " + this.case.user.name + "\r\n"
       + "Email: " + this.case.user.email + "\r\n"
       + "Phone: " + this.case.user.phone + "\r\n";
-    this.ymlFile = new File([content], this.caseNr + ".yml");
+    this.ymlFile = new File([content], this.caseNr + ".txt");
   }
 
 
@@ -132,7 +132,7 @@ export class UploadService {
           content = content + "Det finns ingen information för hur patientens ankomsttid.";
         }
 
-    this.ymlPatientForm = new File([content], "patientformular-" + this.dataService.getCase().caseNr + ".yml");
+    this.ymlPatientForm = new File([content], "patientformular-" + this.dataService.getCase().caseNr + ".txt");
     console.log(this.ymlPatientForm);
 
     const result3 = await this.httpService.userLogin(token);

@@ -21,7 +21,13 @@
     text-align: center;
     border: 0px;
     height: 20px;
+    border:0px !important;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 14px;
 }
 .timePickerInput:focus {
     outline: 0;
+}
+.dateInput {
+    border: 0px !important;
 }

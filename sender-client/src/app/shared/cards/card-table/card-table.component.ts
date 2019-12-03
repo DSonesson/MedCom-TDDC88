@@ -46,6 +46,8 @@ export class CardTableComponent implements OnInit {
     dateOfArrival = new Date();
     timeofArrival: string[] = [];
     transportInfo: string;
+    hourIncorrect: boolean;
+    dateToday = new Date();
 
     /**
     * The constructor fetches the relevant data from CaseDataService and creates
@@ -113,6 +115,8 @@ export class CardTableComponent implements OnInit {
         this.dataService.getCase().timeofArrival[0] = this.userForm.get('hourArrival').value;
         this.dataService.getCase().timeofArrival[1] = this.userForm.get('minArrival').value;
 
+        let hourPicker = document.getElementsByClassName('timePicker') as HTMLCollectionOf<HTMLElement>;
+
         if (this.userForm.get('hourArrival').value != null && this.userForm.get('hourArrival').value > 1 ||
         this.userForm.get('minArrival').value != null && this.userForm.get('minArrival').value > 1) {
 
@@ -120,9 +124,18 @@ export class CardTableComponent implements OnInit {
           this.userForm.get('minArrival').value < 60 && this.userForm.get('minArrival').value >= 0) {
           this.dateOfArrival.setHours(this.userForm.get('hourArrival').value);
           this.dateOfArrival.setMinutes(this.userForm.get('minArrival').value);
+
+          this.hourIncorrect = false;
+
+          if (hourPicker.length != 0) {
+            hourPicker[0].style.borderBottom = "1px solid #2AD753";
+          }
           }
           else {
-          alert("Fel format för tid. Korrekt format: HH:MM");
+            if (hourPicker.length != 0) {
+              hourPicker[0].style.borderBottom = "1px solid red";
+              this.hourIncorrect = true;
+            }
           }
         }
     }
