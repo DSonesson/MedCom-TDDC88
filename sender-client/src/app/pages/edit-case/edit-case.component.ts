@@ -8,6 +8,7 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { UploadService } from 'app/shared/upload.service';
 import { AuthAssistantService} from 'app/shared/auth-assistant.service';
+import { CaseDataService } from 'app/shared/case-data.service';
 
 
 @Component({
@@ -19,10 +20,14 @@ export class EditCaseComponent implements OnInit {
 
   constructor(private uploadService: UploadService,
               public authService: AuthAssistantService,
-              private ngZone: NgZone) { }
+              private ngZone: NgZone,
+              public dataService: CaseDataService) { }
 
   ngOnInit() { }
 
+  /**
+   * Uploads the patient form data to FileCloud as a txt file.
+   */
   uploadPatientForm() {
     console.log("OKOK")
     this.authService.getAssistant().loginIfRequired().then( () => {
@@ -31,5 +36,13 @@ export class EditCaseComponent implements OnInit {
         this.uploadService.generatePatientFormYML(this.authService.getAssistant().getAuthHeader());
       })
     })
+    this.clearData();
+  }
+
+  /**
+   * Clears all the data in the complementary form
+   */
+  clearData() {
+    this.dataService.clearPatientFormData();
   }
 }
