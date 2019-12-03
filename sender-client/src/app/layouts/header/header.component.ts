@@ -80,7 +80,14 @@ export class HeaderComponent implements OnInit{
       ;
     }
 
+    /**
+     * This method checks if the path clicked is the frontpage and if it is clears the user data.
+     * The method also collapses the menu so that it is easier to see that the page has changed for the user.
+     * @param path The path that the link goes to.
+     */
     clearData(path: string){
+
+      this.isCollapsed = true;
 
       if(path == '/frontpage') {
       this.dataService.clearUserData();
