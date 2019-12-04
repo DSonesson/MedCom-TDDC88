@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ConfirmationComponent } from './confirmation.component';
 import {CardConfirmationComponent} from "../../shared/cards/card-confirmation/card-confirmation.component";
 import {RouterTestingModule} from "@angular/router/testing";
+import {PageHeaderComponent} from "../../shared/cards/page-header/page-header.component";
 
 describe('ConfirmationComponent', () => {
   let component: ConfirmationComponent;
@@ -11,7 +12,7 @@ describe('ConfirmationComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      declarations: [ ConfirmationComponent, CardConfirmationComponent ]
+      declarations: [ ConfirmationComponent, CardConfirmationComponent, PageHeaderComponent ]
     })
     .compileComponents();
   }));

@@ -10,6 +10,7 @@ import {CardFormComponent} from "../../shared/cards/card-form/card-form.componen
 import {CardImageComponent} from "../../shared/cards/card-image/card-image.component";
 import {MatIconModule} from "@angular/material/icon";
 import {ReactiveFormsModule} from "@angular/forms";
+import {PageHeaderComponent} from "../../shared/cards/page-header/page-header.component";
 
 describe('SummaryComponent', () => {
   let component: SummaryComponent;
@@ -18,7 +19,7 @@ describe('SummaryComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule, HttpClientTestingModule, LightboxModule, MatDialogModule, MatIconModule, ReactiveFormsModule],
-      declarations: [ SummaryComponent, CardDefaultComponent, CardFormComponent, CardImageComponent  ]
+      declarations: [ SummaryComponent, CardDefaultComponent, CardFormComponent, CardImageComponent, PageHeaderComponent  ]
     })
     .compileComponents();
   }));

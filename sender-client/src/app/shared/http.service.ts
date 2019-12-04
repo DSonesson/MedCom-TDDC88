@@ -79,7 +79,7 @@ export class HttpService {
   createFolder(caseNumber: string, token):Promise<string> {
     console.log("Staring create folder.", token)
     const req = this.url + '/createfolder'
-    
+
     const httpHeaders = new HttpHeaders ({
       "Authorization" : token,
       "Content-type": "application/x-www-form-urlencoded"

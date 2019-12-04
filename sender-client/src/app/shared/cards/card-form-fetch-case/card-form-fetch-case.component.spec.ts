@@ -1,8 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CardFormFetchCaseComponent } from './card-form-fetch-case.component';
-import { ReactiveFormsModule } from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterTestingModule} from "@angular/router/testing";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe('CardFormFetchCaseComponent', () => {
   let component: CardFormFetchCaseComponent;
@@ -10,7 +11,7 @@ describe('CardFormFetchCaseComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, RouterTestingModule],
+      imports: [ReactiveFormsModule, RouterTestingModule, FormsModule, HttpClientTestingModule],
       declarations: [ CardFormFetchCaseComponent ]
     })
     .compileComponents();

@@ -35,7 +35,7 @@ export class CardFormComponent implements OnInit {
     @Output() onSaveForm = new EventEmitter<boolean>();
     caseNumber: any;
     @Output() displayForm = new EventEmitter<boolean>();
-  
+
 
     private card_content = `                    <div class="col-md-12 px-1">
                         
@@ -55,12 +55,12 @@ export class CardFormComponent implements OnInit {
                     </div>`;
 
   saveButton1 = false;
-  private nameChanged: boolean;
+  nameChanged: boolean;
   private emailChanged: boolean;
   private phoneChanged: boolean;
 
   /**
-   * The title and description of the card 
+   * The title and description of the card
    */
   @Input ("title") title: String;
   @Input ("description") description: String;
@@ -99,7 +99,7 @@ export class CardFormComponent implements OnInit {
 
 /**
     * Emits a boolean to summary page for summary page to know which component to display.
-    * 
+    *
     */
    setDisplayForm() {
     this.displayForm.emit(false);

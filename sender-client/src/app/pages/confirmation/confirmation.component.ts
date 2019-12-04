@@ -17,10 +17,10 @@ import { CaseDataService } from 'app/shared/case-data.service';
 
 
 export class ConfirmationComponent implements OnInit {
-  private pageHeader: String;
-  
+  pageHeader: String;
+
 constructor(public dataService: CaseDataService) { }
-  
+
   /**
   * The text attributes for the card
   */
@@ -28,8 +28,8 @@ constructor(public dataService: CaseDataService) { }
   private formDescription: String;
   private importantContent: String;
   private content: String;
-  
-  
+
+
 clearData() {
 this.dataService.clearUserData();
 
