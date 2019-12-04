@@ -8,8 +8,12 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { UploadService } from 'app/shared/upload.service';
 import { AuthAssistantService} from 'app/shared/auth-assistant.service';
+import { CaseDataService } from 'app/shared/case-data.service';
 
-
+/**
+ * This component lets the user add
+ * patient information, to a case.
+ */
 @Component({
   selector: 'edit',
   templateUrl: './edit-case.component.html',
@@ -17,11 +21,15 @@ import { AuthAssistantService} from 'app/shared/auth-assistant.service';
 })
 export class EditCaseComponent implements OnInit {
 
+  private pageHeader: String;
+
   constructor(private uploadService: UploadService,
               public authService: AuthAssistantService,
-              private ngZone: NgZone) { }
+              private ngZone: NgZone, public dataService: CaseDataService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.pageHeader = "Patientinformation";
+  }
 
   uploadPatientForm() {
     console.log("OKOK")
@@ -31,5 +39,9 @@ export class EditCaseComponent implements OnInit {
         this.uploadService.generatePatientFormYML(this.authService.getAssistant().getAuthHeader());
       })
     })
+  }
+
+  removeUserData(){
+    this.dataService.clearUserData();
   }
 }
