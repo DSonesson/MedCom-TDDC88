@@ -16,7 +16,7 @@ This is an sample page to illustrate, each new "page" will have a new folder for
                         <div class="row">
                           <div id="images" *ngFor="let image of imagePreview; let i=index;" class="col-sm image-preview">
                             <img id="image{{i}}" [src]="image" (click)="enlargeImage(i)">
-                            <div id="x{{i}}" class="remove-button" (click)="removeImage(i)">X</div>
+                            <div id="x{{i}}" class="remove-button" (click)="openDialog(i)">X</div>
                           </div>
                         </div>
                       </div>
