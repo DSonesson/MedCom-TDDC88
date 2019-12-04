@@ -1,6 +1,6 @@
 export class Image {
     path: string;
-    file: File;
+    file: Blob;
 
     constructor() {
         this.dummyData();
@@ -9,7 +9,7 @@ export class Image {
 
     dummyData() {
         this.path = "";
-        this.file = new File([""], "test.png")
+        this.file = new Blob(["test"], { type: 'unknown' });
     }
 
   }
