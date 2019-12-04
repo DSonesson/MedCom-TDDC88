@@ -80,8 +80,8 @@
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
   <div class="timePicker">
-  <input id="hourArrival" formControlName="hourArrival" type="number" maxlength="2" min="0" max="23" class="form-control" placeholder="00" [(ngModel)]="timeofArrival[0]" value="{{timeofArrival[0]}}" (input)="textFormChanged()" class="timePickerInput" autocomplete="off">: 
-  <input id="minArrival" formControlName="minArrival" type="number" maxlength="2" min="0" max="59" class="form-control" placeholder="00" [(ngModel)]="timeofArrival[1]" value="{{timeofArrival[1]}}" (input)="textFormChanged()" class="timePickerInput" style="margin-left: 10px" autocomplete="off">
+  <input id="hourArrival" formControlName="hourArrival" type="number" maxlength="2" min="0" max="23" class="timePickerInput" placeholder="00" [(ngModel)]="timeofArrival[0]" value="{{timeofArrival[0]}}" (input)="textFormChanged(); addZeroBeforeInput(true)" (blur)="addZeroBeforeInput(true)" autocomplete="off">: 
+  <input id="minArrival" formControlName="minArrival" type="number" maxlength="2" min="0" max="59" class="timePickerInput" placeholder="00" [(ngModel)]="timeofArrival[1]" value="{{timeofArrival[1]}}" (input)="textFormChanged(); addZeroBeforeInput(false)" (blur)="addZeroBeforeInput(false)" style="margin-left: 10px" autocomplete="off">
    <i class="material-icons">
         access_time
         </i>  
