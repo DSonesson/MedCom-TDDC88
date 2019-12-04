@@ -1,5 +1,6 @@
 import { Injectable, Predicate } from '@angular/core';
-import { HttpClient, HttpParams} from '@angular/common/http';
+  const req = 'http://localhost:8080/token';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { stringify } from 'querystring';
@@ -31,6 +32,22 @@ export class HttpService {
     })
 
     return this.http.request('POST', req, {headers, 'responseType':"text"}).toPromise();
+  }
+
+  private userLogin1(): Promise<string> {
+    const req = this.url + '/core/loginguest'
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept': 'application/xml',
+      'Response-Type': 'text',
+      'Access-Control-Allow-Origin': '*',
+      'observe': 'response'
+    })
+    const params = {
+      'userid': 'annro873', 'password': 'vLieZJzd'
+    }
+
+    return this.http.request('POST', req, { headers, params, 'responseType': "text" }).toPromise();
   }
 
   /**
@@ -113,8 +130,8 @@ export class HttpService {
     var total = 0;
 
     xml2js.parseString(searchData, function (err, result) {
-        console.log(result.entries.meta[0].total[0]);
-        total = result.entries.meta[0].total[0];
+      console.log(result.entries.meta[0].total[0]);
+      total = result.entries.meta[0].total[0];
     });
     console.log("total = " + total);
     console.log(total > 0);
@@ -136,4 +153,26 @@ export class HttpService {
 
     return this.http.post(req, "", {headers: httpHeaders, params: httpParams, responseType: "text", withCredentials: true}).toPromise();
   }
+
+  async getToken() : Promise<string> {
+    const req = '/api1/auth/token';
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Accept': 'application/json',
+        'Response-Type': 'text',
+        'Access-Control-Allow-Origin': '*'
+      });
+
+      const rsp = await this.http.get<TokenJson>(req).toPromise<TokenJson>()
+      
+      return rsp.accessToken;
+  }
+
+}
+
+interface TokenJson {
+  accessToken:string
+  expiresIn: number
+  scope: string
+  tokenType: string
 }

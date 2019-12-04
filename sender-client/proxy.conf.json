@@ -1,4 +1,12 @@
 {
+  "/api1/*": {
+    "target": "http://localhost:8080/ ",
+    "protocol": "http:",
+    "secure": false,
+    "pathRewrite": {"^/api1" : ""},
+    "changeOrigin": true
+  },
+   
   "/api/*": {
     "target": "https://api.regionostergotland.se/file/fileservice/v1",
     "protocol": "https:",
@@ -7,3 +15,4 @@
     "changeOrigin": true
   }
 }
+
