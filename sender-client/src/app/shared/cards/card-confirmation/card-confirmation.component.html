@@ -9,14 +9,15 @@
                 <section>
                     <div class="col-md-12 px-1">
                             <div class="form-group editable card-form">
-                                <label>Ärendenummer</label>
-                                <p id="caseNr">{{ case.caseNr }}</p>
-                                <label>Ärendestatus</label>
-                                <p>Skickat</p>
+
+                                <label style="font-size: 20px">Ärendenummer</label>
+                                <p name ="Ärendenummer" id="caseNr"  style="font-size: 30px">{{ case.caseNr }}</p>
+                                <label style="font-size: 20px">Ärendestatus</label>
+                                <p name="Ärendestatus" style="font-size: 20px">Skickat</p>
                                 
                                 <h5 style="font-weight: bold;"> {{ importantContent }}</h5>
                                 <p>{{ content }}</p>
-                                
+
                                 <img src = "../../../assets/img/checkMark.png" class="center">
                             </div>
                     </div>

@@ -13,6 +13,7 @@ import { MatDialog } from '@angular/material';
 import { PopupComponent } from 'app/shared/cards/popup/popup.component';
 import { CaseDataService } from 'app/shared/case-data.service';
 import { AuthAssistantService} from 'app/shared/auth-assistant.service';
+import { Router } from '@angular/router';
 
 
 /**
@@ -46,8 +47,8 @@ export class SummaryComponent implements OnInit {
   constructor(private uploadService: UploadService, private dialog: MatDialog,
               public dataService: CaseDataService, private matIconRegistry: MatIconRegistry,
               private domSanitizer: DomSanitizer, public authService: AuthAssistantService,
-              private ngZone: NgZone,
-              private router: Router)
+              private ngZone: NgZone,  private router: Router)
+
     {
         this.loadingAuth = false;
         this.matIconRegistry.addSvgIcon(
@@ -103,12 +104,8 @@ public setDisplayForm(displayForm: boolean): void {
  }
 
  /**
-  * Function of what happends when the
-  * user presses the cancel button. A popup
-  * appears with the information defined in data. If
-  * the result from afterClosed is true the current
-  * user data is cleared and the user is redirectet to
-  * the front page (linked in the popup component).
+  * When the user presses the cancel button a popup
+  * appears with the information defined in data.
   */
   openDialog() {
     let dialogRef = this.dialog.open(PopupComponent, {
@@ -121,10 +118,10 @@ public setDisplayForm(displayForm: boolean): void {
       console.log("Dialog result: " + result);
       if (result) {
         this.dataService.clearUserData();
+        this.router.navigate(["/frontpage"]);
       }
     });
   }
-
 
 
   /**
