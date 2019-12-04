@@ -35,8 +35,10 @@
                 </div>
 
                 <label>Email</label>
+
                 <input name= "Email" id="email" formControlName="email" type="text" class="form-control"
-                  placeholder="anders.andersson@gmail.com" [(ngModel)]="user.email" value="{{ user.email }}"
+                  placeholder="namn@exempel.com" [(ngModel)]="user.email" value="{{ user.email }}"
+
                   (input)="somethingChanged()" required (blur)="setInputFieldChanged($event)" />
 
                 <div id="errorEmail" *ngIf="email.errors && email.errors.required && email.touched"
@@ -49,7 +51,9 @@
                 </div>
 
                 <label>Telefon</label>
-                <input namn= "Telefon" id="phone" formControlName="phone" type="text" class="form-control" placeholder="+46X XXX XX XX"
+
+                <input name="Telefon" id="phone" formControlName="phone" type="text" class="form-control" placeholder="0701234567"
+
                   [(ngModel)]="user.phone" value="{{ user.phone }}" (input)="somethingChanged()" required
                   (blur)="setInputFieldChanged($event)" />
                 <div id="errorPhone" *ngIf="phone.errors && phone.errors.required && phone.touched"

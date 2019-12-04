@@ -335,13 +335,13 @@
     background-color: $white-color !important;
 }
 
-.page-title{margin-top:-50px; background: #4F94D5; color: white; 
+.page-title{margin-top:-50px; background: transparent; color: white; 
 
     h2{
-        font-size:24px !important;
+        font-size: 24px !important;
         padding:10px;
         padding-top:20px;
         padding-bottom: 15px;
-        color: white;
+        color: $dark-blue-main;
     }
 }
