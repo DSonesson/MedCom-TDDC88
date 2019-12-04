@@ -68,7 +68,7 @@ getMethod(fn: () => void) {
   }
 
   clearPatientFormData() {
-    this.caseData.dateofArrival = undefined;
+    this.caseData.dateofArrival = new Date();
     this.caseData.hasSavedDate = false;
     this.caseData.patientForm = [
       {question: "Har patienten en kroppstemperatur > 36° C?", storedValue: false, value: false},
