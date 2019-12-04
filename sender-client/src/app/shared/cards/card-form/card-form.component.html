@@ -19,10 +19,10 @@
               <div class="form-group editable card-form">
                 <div *ngIf="editCase">
                   <label>Ärendenummer</label>
-                  <p id="caseNr">{{ caseNumber }}</p>
+                  <p name="Ärendenummer" id="caseNr">{{ caseNumber }}</p>
                 </div>
                 <label>Namn</label>
-                <input id="name" formControlName="name" type="text" class="form-control" placeholder="Anders Andersson"
+                <input name = "Namn" id="name" formControlName="name" type="text" class="form-control" placeholder="Anders Andersson"
                   [(ngModel)]="user.name" value="{{ user.name }}" (input)="somethingChanged()" required
                   (blur)="setInputFieldChanged($event)" />
                 <div id="errorName" *ngIf="name.errors && name.errors.required && name.touched"
@@ -35,8 +35,10 @@
                 </div>
 
                 <label>Email</label>
-                <input id="email" formControlName="email" type="text" class="form-control"
-                  placeholder="anders.andersson@gmail.com" [(ngModel)]="user.email" value="{{ user.email }}"
+
+                <input name= "Email" id="email" formControlName="email" type="text" class="form-control"
+                  placeholder="namn@exempel.com" [(ngModel)]="user.email" value="{{ user.email }}"
+
                   (input)="somethingChanged()" required (blur)="setInputFieldChanged($event)" />
 
                 <div id="errorEmail" *ngIf="email.errors && email.errors.required && email.touched"
@@ -49,7 +51,9 @@
                 </div>
 
                 <label>Telefon</label>
-                <input id="phone" formControlName="phone" type="text" class="form-control" placeholder="+46X XXX XX XX"
+
+                <input name="Telefon" id="phone" formControlName="phone" type="text" class="form-control" placeholder="0701234567"
+
                   [(ngModel)]="user.phone" value="{{ user.phone }}" (input)="somethingChanged()" required
                   (blur)="setInputFieldChanged($event)" />
                 <div id="errorPhone" *ngIf="phone.errors && phone.errors.required && phone.touched"
@@ -65,7 +69,7 @@
 
 
 
-        
+
         </section>
 
 
@@ -85,7 +89,7 @@
         <i class="nc-icon circle-icon nc-ruler-pencil"></i>
         <span [hidden]="saveButton1">Spara</span>
       </button>
-     
+
     </div>
   </div>
 </div>
@@ -98,3 +102,7 @@
     Name:
     <input type="text" [formControl]="nameControl">
   </label> -->
+  <!-- <br/>
+  <button (click)='httpService.getToken()'>Get Token</button> -->
+  <!-- <br/>
+  <button (click)='httpService.getTokenTest()'>Get Token1</button> -->

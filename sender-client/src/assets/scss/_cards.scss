@@ -1,4 +1,10 @@
+.footer_buttons {
 
+  color: $card-black-color;
+  margin: auto;
+  position: relative;
+  max-width: 500px;
+}
 
 .card{
     
@@ -23,7 +29,7 @@
   margin-bottom: 20px;
   position: relative;
   border: 0 none;
-            max-width: 500px;
+  max-width: 500px;
   -webkit-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;
   -moz-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;
   -o-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;

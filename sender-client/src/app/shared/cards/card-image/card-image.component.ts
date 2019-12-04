@@ -10,6 +10,8 @@ import { Case } from 'app/models/case';
 import { Image } from 'app/models/image';
 import { HttpService } from 'app/shared/http.service';
 import { Lightbox } from 'ngx-lightbox';
+import { MatDialog } from '@angular/material';
+import { PopupComponent } from '../popup/popup.component';
 
 /**
  * A component for selecting, previewing and deleteing images before upload
@@ -40,7 +42,7 @@ export class CardImageComponent implements OnInit {
  * Sets imagepreview to an array
  * Loads images if there are any stored in the Case
  */
-  constructor(public dataService: CaseDataService, public _lightbox: Lightbox) {
+  constructor(public dataService: CaseDataService, public _lightbox: Lightbox, private dialog: MatDialog) {
     this.imagePreview = [];
     this.loadImages();
    }
@@ -187,7 +189,6 @@ enlargeImage(index: number): void {
 /**
  * Method used by case-data.service to empty all the image arrays. 
  */
-
 clearImages() {
 
   this._album = [];
@@ -196,6 +197,25 @@ clearImages() {
   this.imageCounter = -1;
  
 
+}
+
+/**
+ * A popup to confirm the user wants to remove the image
+ * @param {number} index The index of the image that is being removed 
+ */
+openDialog(index: number) {
+  let dialogRef = this.dialog.open(PopupComponent, {
+    data:{ content: "Är du säker på att du vill ta bort bilden?", yesBtn: "Ja", noBtn: "Nej" },
+    width: "500px",
+    height: "250px",
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    console.log("Dialog result: " + result);
+    if (result) {
+      this.removeImage(index);
+    }
+  });
 }
 
   ngOnInit() {

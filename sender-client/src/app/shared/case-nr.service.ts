@@ -21,6 +21,10 @@ export class CaseNrService {
    * @returns The computed 8 digit case number as a string.
    */
   getCaseNr(teleNum:string):string {
+    if (isNaN(Number(teleNum)))
+    {
+      return "Uncorrect telephone number!";
+    }
     var dateNow = new Date();
     var timeStamp = String(dateNow.getTime()).substr(0,10)
     let id = Number(timeStamp.substr(2,12) +  teleNum.substr(4,6))
@@ -38,6 +42,10 @@ export class CaseNrService {
       id = (id - last) / 64
     }
 
+   if(uuid.length!=8)
+    {
+      return "Uncorrect telephone number!"; 
+    }
     return uuid
   }
 }
