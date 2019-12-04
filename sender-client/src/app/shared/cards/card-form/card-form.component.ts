@@ -55,7 +55,7 @@ export class CardFormComponent implements OnInit {
                     </div>`;
 
   saveButton1 = false;
-  private nameChanged: boolean;
+  nameChanged: boolean;
   private emailChanged: boolean;
   private phoneChanged: boolean;
 
