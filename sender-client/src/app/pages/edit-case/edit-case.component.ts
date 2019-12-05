@@ -24,13 +24,17 @@ export class EditCaseComponent implements OnInit {
   private pageHeader: String;
 
   constructor(private uploadService: UploadService,
-              public authService: AuthAssistantService,
+              public authService: AuthAssistantService,          
               private ngZone: NgZone, public dataService: CaseDataService) { }
+
 
   ngOnInit() {
     this.pageHeader = "Patientinformation";
   }
 
+  /**
+   * Uploads the patient form data to FileCloud as a txt file.
+   */
   uploadPatientForm() {
     console.log("OKOK")
     this.authService.getAssistant().loginIfRequired().then( () => {
@@ -39,6 +43,14 @@ export class EditCaseComponent implements OnInit {
         this.uploadService.generatePatientFormYML(this.authService.getAssistant().getAuthHeader());
       })
     })
+    this.clearData();
+  }
+
+  /**
+   * Clears all the data in the complementary form
+   */
+  clearData() {
+    this.dataService.clearPatientFormData();
   }
 
   removeUserData(){

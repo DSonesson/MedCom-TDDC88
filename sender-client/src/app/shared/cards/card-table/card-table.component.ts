@@ -14,6 +14,7 @@ import { User } from '../../../models/user';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, Validators, FormGroup, ValidatorFn, AbstractControl } from '@angular/forms';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-card-table',
@@ -115,7 +116,7 @@ export class CardTableComponent implements OnInit {
         this.dataService.getCase().timeofArrival[0] = this.userForm.get('hourArrival').value;
         this.dataService.getCase().timeofArrival[1] = this.userForm.get('minArrival').value;
 
-        let hourPicker = document.getElementsByClassName('timePicker') as HTMLCollectionOf<HTMLElement>;
+        let timePicker = document.getElementsByClassName('timePicker') as HTMLCollectionOf<HTMLElement>;
 
         if (this.userForm.get('hourArrival').value != null && this.userForm.get('hourArrival').value > 1 ||
         this.userForm.get('minArrival').value != null && this.userForm.get('minArrival').value > 1) {
@@ -127,19 +128,35 @@ export class CardTableComponent implements OnInit {
 
           this.hourIncorrect = false;
 
-          if (hourPicker.length != 0) {
-            hourPicker[0].style.borderBottom = "1px solid #2AD753";
+          if (timePicker.length != 0) {
+            timePicker[0].style.borderBottom = "1px solid #2AD753";
           }
           }
           else {
-            if (hourPicker.length != 0) {
-              hourPicker[0].style.borderBottom = "1px solid red";
+            if (timePicker.length != 0) {
+              timePicker[0].style.borderBottom = "1px solid red";
               this.hourIncorrect = true;
             }
           }
         }
     }
 
+    /**
+     * Add a 0 before the time entered if the time is below 10 to get a correct time format
+     * @param setHours Checks if hours or minutes should be set
+     */
+    addZeroBeforeInput(setHours: boolean) {
+      if (setHours) {
+        if (this.userForm.get('hourArrival').value < 10) {
+          this.timeofArrival[0] = "0" + parseInt(this.timeofArrival[0]);
+        }
+      }
+      else {
+        if (this.userForm.get('minArrival').value < 10) {
+          this.timeofArrival[1] = "0" + parseInt(this.timeofArrival[1]);
+        } 
+      }
+    }
     /**
     * A method to save the date when changed
     * @param event The date value
