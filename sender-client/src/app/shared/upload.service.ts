@@ -19,9 +19,9 @@ export class UploadService {
   uploadPath: string;
   uploadFolder: string;
   /** The YAML-file to store case data and to be uploaded to FileCLoud*/
-  ymlFile: File;
+  txtFile: Blob;
   /** Another YAML-file to store case data and to be uploaded to FileCLoud(specific formatting)*/
-  ymlPatientForm: File;
+  txtPatientForm: Blob;
 
   /**
    * Creates a instance of UploadService
@@ -54,7 +54,7 @@ export class UploadService {
     this.uploadFolder = this.caseNr;
 
     console.log("Upload folder: ", this.uploadFolder)
-    this.generateYML();
+    this.generateTXT();
 
     //TODO: Make sure that userLogin() is succesfull before the other once are done.
     console.log("Starting login with token: ", token)
@@ -63,7 +63,7 @@ export class UploadService {
     const result1 = await this.httpService.createFolder(this.uploadFolder, token);
     console.log("Result from createFolder:" , result1)
 
-    this.httpService.postFile(this.ymlFile, this.uploadFolder, token);
+    this.httpService.postFile(this.txtFile, this.uploadFolder, token, this.caseNr);
     for (var image of this.case.images) {
       this.httpService.postFile(image.file, this.uploadFolder, token);
     }
@@ -81,12 +81,12 @@ export class UploadService {
    *
    * @returns Nothing is returned.
    */
-  generateYML() {
+  generateTXT() {
     var content = "Case number: " + this.caseNr + "\r\n"
       + "Name: " + this.case.user.name + "\r\n"
       + "Email: " + this.case.user.email + "\r\n"
       + "Phone: " + this.case.user.phone + "\r\n";
-    this.ymlFile = new File([content], this.caseNr + ".txt");
+    this.txtFile = new Blob([content], { type: 'plain/text' });
   }
 
 
@@ -132,12 +132,12 @@ export class UploadService {
           content = content + "Det finns ingen information för hur patientens ankomsttid.";
         }
 
-    this.ymlPatientForm = new File([content], "patientformular-" + this.dataService.getCase().caseNr + ".txt");
-    console.log(this.ymlPatientForm);
+    this.txtPatientForm = new Blob([content], { type: 'plain/text' });
+    console.log(this.txtPatientForm);
 
     const result3 = await this.httpService.userLogin(token);
     console.log("Result from login:", result3)
-    this.httpService.postFile(this.ymlPatientForm, this.dataService.getCase().caseNr, token);
+    this.httpService.postFile(this.txtPatientForm, this.uploadFolder, token, "patientformular");
     this.redirect("/confirmation");
   }
 

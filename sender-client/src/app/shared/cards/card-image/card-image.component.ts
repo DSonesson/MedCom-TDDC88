@@ -79,6 +79,8 @@ saveImageToCase(event){
 
   this.image = new Image;
   this.image.file = event.target.files[0];
+  this.image.name = event.target.files[0].name;
+  console.log(event.target.files[0].name);
 
   this.dataService.getCase().images.push(this.image);
 
@@ -106,6 +108,10 @@ removeImage(index: number){
   this.imagejustRemoved = true;
 }
 
+/**
+ * The method deletes the current file selected in the input file so that a deleted image can be selected again
+ * @param event Is a variable that fetches the current file selected from the input field
+ */
 clearInputOnClick(event: Event) {
   if(this.imagejustRemoved) {
   const element = event.target as HTMLInputElement;

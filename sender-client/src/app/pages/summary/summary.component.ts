@@ -34,6 +34,7 @@ export class SummaryComponent implements OnInit {
   private formDescription: String;
   private imageCardTitle: String;
   private imageCardDescription: String;
+  private loadingAuth: Boolean;
 
   /**
    * @param uploadService
@@ -52,6 +53,7 @@ export class SummaryComponent implements OnInit {
     private ngZone: NgZone,
     private router: Router
   ) {
+    this.loadingAuth = false;
     this.matIconRegistry.addSvgIcon(
       "edit",
       this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/edit.svg")
@@ -59,6 +61,7 @@ export class SummaryComponent implements OnInit {
   }
 
   startUpload() {
+    this.loadingAuth = true;
     this.authService
       .getAssistant()
       .loginIfRequired()
