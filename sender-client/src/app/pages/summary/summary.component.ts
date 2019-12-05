@@ -143,7 +143,7 @@ export class SummaryComponent implements OnInit {
     this.isValid = true;
     this.isUploaded = true;
     this.displayForm = false;
-    this.pageHeader = "Summering av ärende";
+    this.pageHeader = "Ärendesummering";
 
     this.formTitle = "Kontrollera dina uppgifter";
     this.formDescription = "Kontrollera att din ifyllda information stämmer.";
