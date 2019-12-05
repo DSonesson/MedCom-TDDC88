@@ -57,10 +57,10 @@ export class HttpService {
    *
    * @returns Nothing is returned.
    */
-  postFile(fileToUpload: File, uploadFolder: string, token) {
+  postFile(fileToUpload: Blob, uploadFolder: string, token, fileName: string = "file") {
 
     const formData: FormData = new FormData();
-    formData.append('Image', fileToUpload, fileToUpload.name);
+    formData.append('Image', fileToUpload, fileName);
 
     const req = this.url + '/upload'
     const uploadPath = '/SHARED/filecloudteam/BrivaPoC/' + uploadFolder;
@@ -69,7 +69,7 @@ export class HttpService {
       'path': uploadPath,
       'offset':'0',
       'complete':'1',
-      'filename':fileToUpload.name,
+      'filename':fileName,
       'appname':'explorer'
     }
 
