@@ -277,3 +277,9 @@
   margin-bottom: -35px;
   position: relative;
 }
+
+.btn-custom {
+  &:hover {
+    background-color: #003258;
+  }
+}

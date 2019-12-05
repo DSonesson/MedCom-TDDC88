@@ -1,7 +1,7 @@
 <!--
 This is an sample page to illustrate, each new "page" will have a new folder for instance "startsida", "upload image" and so on
 -->
-<div class="row" style="margin-top:30px">
+<div class="row" style="margin-top:50px; margin-bottom: 90px">
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
@@ -39,11 +39,11 @@ This is an sample page to illustrate, each new "page" will have a new folder for
         <button
           id="uploadPicture"
           type="submit"
-          class="btn btn-info btn-round"
+          class="btn btn-info btn-round btn-custom"
           [disabled]="!isValid"
           (click)="openFileSelect()"
         >
-          <i class="nc-icon circle-icon nc-ruler-pencil"></i>
+          <i class="nc-icon circle-icon nc-camera-compact xS"></i>
 
           <input
             id="inputUploadPicture"
@@ -55,8 +55,12 @@ This is an sample page to illustrate, each new "page" will have a new folder for
             class="upload-input"
             #selectFile
           />
-          <span [hidden]="!imagesAvailable">{{ Message }}</span>
-          <span [hidden]="imagesAvailable">{{ Message }} </span>
+          <span [hidden]="!imagesAvailable" style="vertical-align: super">{{
+            Message
+          }}</span>
+          <span [hidden]="imagesAvailable" style="vertical-align: super"
+            >{{ Message }}
+          </span>
         </button>
       </div>
     </div>
