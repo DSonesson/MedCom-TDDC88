@@ -15,6 +15,7 @@ import { CaseDataService } from 'app/shared/case-data.service';
 import { AuthAssistantService} from 'app/shared/auth-assistant.service';
 import { Router } from '@angular/router';
 
+
 /**
  * This component shows the data the
  * user has specified and let the user
@@ -34,6 +35,7 @@ export class SummaryComponent implements OnInit {
   private formDescription: String;
   private imageCardTitle: String;
   private imageCardDescription: String;
+  private loadingAuth: Boolean;
 
 /**
    * @param uploadService
@@ -46,7 +48,9 @@ export class SummaryComponent implements OnInit {
               public dataService: CaseDataService, private matIconRegistry: MatIconRegistry,
               private domSanitizer: DomSanitizer, public authService: AuthAssistantService,
               private ngZone: NgZone,  private router: Router)
+
     {
+        this.loadingAuth = false;
         this.matIconRegistry.addSvgIcon(
           "edit",
           this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/edit.svg")
@@ -54,7 +58,9 @@ export class SummaryComponent implements OnInit {
      }
 
 
+
   startUpload() {
+    this.loadingAuth = true;
     this.authService.getAssistant().loginIfRequired().then( () => {
         this.ngZone.run( () => {
           console.log("Authentication complete, starting upload. Token: ", this.authService.getAssistant().getAuthHeader())
