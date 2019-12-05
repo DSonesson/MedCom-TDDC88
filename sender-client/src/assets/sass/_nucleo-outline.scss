@@ -26,7 +26,6 @@ License - nucleoapp.com/license/
 	base class definition
 -------------------------*/
 .nc-icon {
-  color: #2e6a98;
   display: inline-block;
   font: normal normal normal 14px/1 "nucleo-icons";
   font-size: inherit;
@@ -52,6 +51,9 @@ License - nucleoapp.com/license/
 .nc-icon.xS {
   font-size: 2.1em;
   font-weight: 1000;
+}
+.nc-icon.bold {
+  font-weight: bolder;
 }
 /*----------------------------------
   add a square/circle background

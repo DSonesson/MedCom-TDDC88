@@ -86,11 +86,23 @@
       [disabled]="!isUploaded || !isValid || displayForm"
       id="skickaButton"
       type="Skicka Ärende"
-      class="btn btn-info  btn-round"
+      class="btn btn-info btn-round px-0"
       style="display: block; width: 10rem; height: 3.5rem; float: right;"
       (click)="startUpload()"
     >
-      <span>Skicka Ärende</span>
+      <div class="container">
+        <div class="row">
+          <div class="col-9" style="padding: 0 0 0 20px">
+            <span class="p-0">Skicka Ärende</span>
+          </div>
+          <div class="col-3" style="padding: 5px 20px 0 0">
+            <i
+              class="nc-icon nc-minimal-right bold"
+              style="font-size: 20px"
+            ></i>
+          </div>
+        </div>
+      </div>
     </button>
   </div>
 </div>
