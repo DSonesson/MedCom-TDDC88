@@ -72,30 +72,44 @@
   [description]="imageCardDescription"
 ></app-card-image>
 
+<div class="row" style="margin-top: 20px">
+  <div class="col" style="text-align:center; float: left;">
+       <button type="Skicka Ärende" class="btn btn-info btn-round" style="display: block; width: 10rem; height: 3.5rem" (click)="openDialog()">
+           <span>Avbryt </span>
+       </button>
+   </div>
+   <div class="col" style="text-align:center;">
+       <button [disabled]="!isUploaded || !isValid || displayForm" id="skickaButton" type="Skicka Ärende" class="btn btn-info  btn-round" style="display: block; width: 10rem; height: 3.5rem; float: right;" (click)="startUpload()">
+           <span>Skicka Ärende</span>
+       </button>
+   </div>
+</div>
 
 
 
+
+<!--
 <div class="row" style="margin-top:40px;">
     <div class="col-md-12">
       <div class="footer_buttons">
-            <div class="row">
-    <div class="col-md-6" style="text-align: left;">
-        <a [routerLink]="'/frontpage'">
-            <button id="skickaButton" type="Spara" class="btn btn-info  btn-round" style="display: inline-block">
-                <span>Startsida</span>
-            </button>
-        </a>
-          </div>
-            <div class="col-md-6" style="text-align: right;">
-          <button id="skickaButton" type="Spara" class="btn btn-info  btn-round" style="display: inline-block" (click)="uploadPatientForm()">
-              <span>Spara ärende</span>
-          </button>
-    </div>
-</div>
-
+          <div class="row">
+              <div class="col-md-6" style="text-align: left;">
+                <a [routerLink]="'/frontpage'">
+                      <button id="skickaButton" type="Spara" class="btn btn-info  btn-round" style="display: inline-block">
+                          <span>Startsida</span>
+                      </button>
+                </a>
+              </div>
+              <div class="col-md-6" style="text-align: right;">
+                <button id="skickaButton" type="Spara" class="btn btn-info  btn-round" style="display: inline-block" (click)="uploadPatientForm()">
+                    <span>Spara ärende</span>
+                </button>
+              </div>
+            </div>
         </div>
     </div>
 </div>
+
 
 
 <!--
@@ -118,5 +132,5 @@
   </span>
 </div>
 
--->
 
+-->

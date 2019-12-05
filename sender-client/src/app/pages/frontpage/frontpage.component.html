@@ -14,52 +14,49 @@
 </div> -->
 
 <div class="row" style="margin-top:40px;">
-    <div class="col-md-12">
-      <div class="footer_buttons">
- <div class="row">
-  <div class="col-md-12 mx-auto">
-    <div class="progress bg-transparent mb-4 progress-main">
-      <div
-        class="progress-bar rounded progress-cell"
-        role="progressbar"
-        aria-valuenow="33"
-        aria-valuemin="0"
-        aria-valuemax="100"
-        style="width: 33%; box-shadow: 0 0 3px 3px #005538; margin-right: 7px"
-        [ngStyle]="{
-          'background-color': isUploaded ? '#00A452' : 'transparent',
-          color: isUploaded ? 'whitesmoke' : '#20252A'
-        }"
-      >
-        <p class="mb-0">
-          Steg 1 av 3
-        </p>
+  <div class="col-md-12">
+    <div class="footer_buttons">
+      <div class="row">
+        <div class="col-md-12 mx-auto">
+          <div class="progress bg-transparent mb-4 progress-main">
+            <div
+              class="progress-bar rounded progress-cell"
+              role="progressbar"
+              aria-valuenow="33"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              style="width: 33%; box-shadow: 0 0 3px 3px #005538; margin-right: 7px"
+              [ngStyle]="{
+                'background-color': isUploaded ? '#00A452' : 'transparent',
+                color: isUploaded ? 'whitesmoke' : '#20252A'
+              }"
+            >
+              <p class="mb-0">
+                Steg 1 av 3
+              </p>
+            </div>
+            <div
+              class="progress-bar mr-1 rounded progress-cell"
+              role="progressbar"
+              aria-valuenow="33"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              style="width: 33%; border: solid 1px #6b757c; background: #d1d1d1"
+            ></div>
+            <div
+              class="progress-bar mr-1 rounded progress-cell"
+              role="progressbar"
+              aria-valuenow="33"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              style="width: 33%; border: solid 1px #6b757c; background: #d1d1d1"
+            ></div>
+          </div>
+        </div>
       </div>
-      <div
-        class="progress-bar mr-1 rounded progress-cell"
-        role="progressbar"
-        aria-valuenow="33"
-        aria-valuemin="0"
-        aria-valuemax="100"
-        style="width: 33%; border: solid 1px #6b757c; background: #d1d1d1"
-      ></div>
-      <div
-        class="progress-bar mr-1 rounded progress-cell"
-        role="progressbar"
-        aria-valuenow="33"
-        aria-valuemin="0"
-        aria-valuemax="100"
-        style="width: 33%; border: solid 1px #6b757c; background: #d1d1d1"
-      ></div>
     </div>
   </div>
 </div>
-
-        </div>
-    </div>
-</div>
-
-
 
 <app-card-form
   (onSaveForm)="setValidity($event)"
@@ -75,28 +72,24 @@
   [description]="imageCardDescription"
 ></app-card-image>
 
-
 <div class="row">
-    <div class="col-md-12">
-      <div class="footer_buttons">
-            <div class="row">
-              <div class="col-md-12">
-                <a [routerLink]="'/summary'">
-                  <button
-                    [disabled]="!isValid || !isUploaded"
-                    id="nextButton"
-                    type="Next"
-                    class="btn btn-info  btn-round"
-                    style="float: right;"
-                  >
-                    <span>Nästa</span>
-                  </button>
-                </a>
-              </div>
-            </div>
+  <div class="col-md-12">
+    <div class="footer_buttons">
+      <div class="row">
+        <div class="col-md-12">
+          <a [routerLink]="'/summary'">
+            <button
+              [disabled]="!isValid || !isUploaded"
+              id="nextButton"
+              type="Next"
+              class="btn btn-info  btn-round"
+              style="float: right;"
+            >
+              <span>Nästa</span>
+            </button>
+          </a>
         </div>
+      </div>
     </div>
+  </div>
 </div>
-
-
-
