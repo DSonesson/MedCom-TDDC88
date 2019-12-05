@@ -1,3 +1,8 @@
 <!-- Page title -->
 <app-page-header [pageHeader]="pageHeader"></app-page-header>
-<app-card-form-fetch-case [title]="title" [description]="description"></app-card-form-fetch-case>
+<app-card-form-fetch-case (fetchEvent) = "freezeScreen($event)" [title]="title" [description]="description"></app-card-form-fetch-case>
+<span id="loading" *ngIf="loadingAuth">
+    <div style="margin-top: 20px; display:block">
+    </div>
+  </span>
+

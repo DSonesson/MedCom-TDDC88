@@ -35,6 +35,8 @@ export class CardFormFetchCaseComponent implements OnInit {
 
     @Input ("description") description;
     @Input ("title") title;
+    @Output() fetchEvent = new EventEmitter<Boolean>();
+
 
     constructor(public dataService: CaseDataService,
                 private httpService: HttpService,
@@ -57,6 +59,7 @@ export class CardFormFetchCaseComponent implements OnInit {
    * @returns Nothing is returned.
    */
     async setCaseNr() {
+      this.fetchEvent.next(true);
       this.authService.getAssistant().loginIfRequired().then( () => {
           this.ngZone.run( () => {
             this.search();
