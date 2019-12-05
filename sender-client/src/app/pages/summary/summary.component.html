@@ -6,44 +6,40 @@
 
 <app-page-header [pageHeader]="pageHeader"></app-page-header>
 
-<div class="row" style="margin-top:40px;">
-    <div class="col-md-12">
-      <div class="footer_buttons">
-
-            <div class="row">
-              <div class="col-md-12 mx-auto">
-                <div class="progress bg-transparent mb-4 progress-main">
-                  <div
-                    class="progress-bar rounded progress-cell"
-                    role="progressbar"
-                    aria-valuenow="33"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    style="background-color: #00A452; width: 33%; border: solid 2px #005538"
-                  ></div>
-                  <div
-                    class="progress-bar rounded progress-cell"
-                    role="progressbar"
-                    aria-valuenow="33"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    style="width: 33%; box-shadow: 0 0 3px 3px #005538; margin: 0 7px 0 7px; background-color: #00A452; color: whitesmoke"
-                  >
-                    <p class="mb-0">
-                      Steg 2 av 3
-                    </p>
-                  </div>
-                  <div
-                    class="progress-bar mr-1 rounded progress-cell"
-                    role="progressbar"
-                    aria-valuenow="33"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    style="width: 33%; border: solid 1px #6b757c; background: #d1d1d1"
-                  ></div>
-                </div>
-              </div>
-            </div>
+<div
+  class="row mx-auto progress-row"
+  style="margin-top:10px; margin-bottom: 25px; max-width: 500px;"
+>
+  <div class="col-md-12" style="padding: 0">
+    <div class="progress bg-transparent mb-4 progress-main">
+      <div
+        class="progress-bar rounded progress-cell"
+        role="progressbar"
+        aria-valuenow="33"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        style="background-color: #00A452; width: 33%; border: solid 2px #005538"
+      ></div>
+      <div
+        class="progress-bar rounded progress-cell"
+        role="progressbar"
+        aria-valuenow="33"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        style="width: 33%; box-shadow: 0 0 3px 3px #005538; margin: 0 7px 0 7px; background-color: #00A452; color: whitesmoke"
+      >
+        <p class="mb-0">
+          Steg 2 av 3
+        </p>
+      </div>
+      <div
+        class="progress-bar mr-1 rounded progress-cell"
+        role="progressbar"
+        aria-valuenow="33"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        style="width: 33%; border: solid 1px #6b757c; background: #d1d1d1"
+      ></div>
     </div>
   </div>
 </div>
@@ -55,6 +51,7 @@
     [description]="formDescription"
   ></app-card-default>
 </div>
+
 <div *ngIf="displayForm">
   <app-card-form
     [isSummary]="!isSummary"
@@ -64,6 +61,7 @@
     [description]="formDescription"
   ></app-card-form>
 </div>
+
 <app-card-image
   [isValid]="isValid"
   Message="Lägg till fler bilder"
@@ -72,21 +70,30 @@
   [description]="imageCardDescription"
 ></app-card-image>
 
-<div class="row" style="margin-top: 20px">
+<div class="row footer_buttons">
   <div class="col" style="text-align:center; float: left;">
-       <button type="Skicka Ärende" class="btn btn-info btn-round" style="display: block; width: 10rem; height: 3.5rem" (click)="openDialog()">
-           <span>Avbryt </span>
-       </button>
-   </div>
-   <div class="col" style="text-align:center;">
-       <button [disabled]="!isUploaded || !isValid || displayForm" id="skickaButton" type="Skicka Ärende" class="btn btn-info  btn-round" style="display: block; width: 10rem; height: 3.5rem; float: right;" (click)="startUpload()">
-           <span>Skicka Ärende</span>
-       </button>
-   </div>
+    <button
+      type="Skicka Ärende"
+      class="btn btn-info btn-round"
+      style="display: block; width: 10rem; height: 3.5rem"
+      (click)="openDialog()"
+    >
+      <span>Avbryt </span>
+    </button>
+  </div>
+  <div class="col" style="text-align:center;">
+    <button
+      [disabled]="!isUploaded || !isValid || displayForm"
+      id="skickaButton"
+      type="Skicka Ärende"
+      class="btn btn-info  btn-round"
+      style="display: block; width: 10rem; height: 3.5rem; float: right;"
+      (click)="startUpload()"
+    >
+      <span>Skicka Ärende</span>
+    </button>
+  </div>
 </div>
-
-
-
 
 <!--
 <div class="row" style="margin-top:40px;">

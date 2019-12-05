@@ -6,13 +6,11 @@
 
 <app-page-header [pageHeader]="pageHeader"></app-page-header>
 
-<div class="row" style="margin-top:40px;">
-    <div class="col-md-12">
-      <div class="footer_buttons">
-
-
-<div class="row">
-  <div class="col-md-12 mx-auto">
+<div
+  class="row mx-auto progress-row"
+  style="margin-top:10px; margin-bottom: 25px; max-width: 500px;"
+>
+  <div class="col-md-12" style="padding: 0">
     <div class="progress bg-transparent mb-4 progress-main">
       <div
         class="progress-bar rounded progress-cell"
@@ -45,9 +43,6 @@
     </div>
   </div>
 </div>
-    </div>
-  </div>
-</div>
 <app-card-confirmation
   [title]="formTitle"
   [description]="formDescription"
@@ -55,26 +50,28 @@
   [content]="content"
 ></app-card-confirmation>
 
-<div class="row">
-  <div class="col-md-12">
+<div class="row footer_buttons">
+  <div class="col pr-0">
     <a [routerLink]="'/frontpage'">
       <button
         id="startsida"
         type="Startsida"
         class="btn btn-info  btn-round"
-        style="float: left;"
+        style="float: left; height: 3.5rem; max-width: calc(50vw - 30px)"
         (click)="clearData()"
       >
         <span>Startsida</span>
       </button>
     </a>
+  </div>
 
+  <div class="col pl-0">
     <a [routerLink]="'/edit'">
       <button
         id="kompletteraÄrende"
         type="KompletteraÄrende"
         class="btn btn-info  btn-round"
-        style="float: right;"
+        style="float: right; height: 3.5rem; max-width: calc(50vw - 30px)"
       >
         <span>Komplettera Ärende</span>
       </button>
