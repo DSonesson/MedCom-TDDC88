@@ -10,7 +10,10 @@ import { UploadService } from 'app/shared/upload.service';
 import { AuthAssistantService} from 'app/shared/auth-assistant.service';
 import { CaseDataService } from 'app/shared/case-data.service';
 
-
+/**
+ * This component lets the user add
+ * patient information, to a case.
+ */
 @Component({
   selector: 'edit',
   templateUrl: './edit-case.component.html',
@@ -18,12 +21,16 @@ import { CaseDataService } from 'app/shared/case-data.service';
 })
 export class EditCaseComponent implements OnInit {
 
-  constructor(private uploadService: UploadService,
-              public authService: AuthAssistantService,
-              private ngZone: NgZone,
-              public dataService: CaseDataService) { }
+  private pageHeader: String;
 
-  ngOnInit() { }
+  constructor(private uploadService: UploadService,
+              public authService: AuthAssistantService,          
+              private ngZone: NgZone, public dataService: CaseDataService) { }
+
+
+  ngOnInit() {
+    this.pageHeader = "Patientinformation";
+  }
 
   /**
    * Uploads the patient form data to FileCloud as a txt file.
@@ -44,5 +51,9 @@ export class EditCaseComponent implements OnInit {
    */
   clearData() {
     this.dataService.clearPatientFormData();
+  }
+
+  removeUserData(){
+    this.dataService.clearUserData();
   }
 }
