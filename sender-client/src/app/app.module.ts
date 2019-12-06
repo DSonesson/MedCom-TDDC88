@@ -40,7 +40,7 @@ import { AuthAssistantService} from './shared/auth-assistant.service';
     BrowserAnimationsModule,
     LightboxModule,
     RouterModule.forRoot(AppRoutes,{
-      useHash: true
+      useHash: true, scrollPositionRestoration: 'enabled'
     }),
     HeaderModule,
     ToastrModule.forRoot(),

@@ -27,17 +27,17 @@
 
   .alert {
     background: #e12026 !important;
-    margin-top: -14px;
+    margin-top: -10px;
     padding-top: 4px;
     padding-bottom: 4px;
   }
 
   border-radius: $border-radius-extreme;
-  box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 10px 4px rgba(0, 0, 0, 0.15);
   background-color: #ffffff;
   color: $card-black-color;
   margin: auto;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   position: relative;
   border: 0 none;
   max-width: 500px;
@@ -71,6 +71,7 @@
     color: white;
     text-align: left;
     font-family: Georgia;
+    border-radius: 5px 5px 0 0;
   }
   .card-description {
     font-size: 16px;
@@ -98,7 +99,7 @@
       font-size: 24px;
     }
     .card-description {
-      margin-top: 0px;
+      margin-top: 8px;
     }
   }
 
