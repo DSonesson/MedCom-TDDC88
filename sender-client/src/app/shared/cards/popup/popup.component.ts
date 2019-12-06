@@ -15,7 +15,7 @@ export class PopupComponent implements OnInit {
   /**
    * Gets the data for what to show as a description and
    * what to put in the two buttons
-   * @param data 
+   * @param {any} data 
    */
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
 
