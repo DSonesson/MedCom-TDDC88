@@ -35,7 +35,7 @@ export class ConfirmationComponent implements OnInit {
     this.formTitle = "Ditt ärende har skickats!";
     this.formDescription =
       "Brännskadejouren har nu tagit emot ditt ärende. Om du vill lägga till information till ärendet, klicka på “Komplettera ärende”.";
-    this.importantContent = "Viktigt: Kom ihåg att spara ditt ärendenummer!";
+    this.importantContent = "Kom ihåg att spara ditt ärendenummer!";
     this.content = "Det behövs för att kunna se ditt ärende senare.";
   }
 }

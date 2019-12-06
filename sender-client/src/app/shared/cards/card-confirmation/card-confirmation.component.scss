@@ -1,5 +1,41 @@
 img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dashed-line {
+  border: none;
+  border-top: 1px dotted #20252a;
+  color: #fff;
+  background-color: #fff;
+  height: 1px;
+  width: 100%;
+}
+
+.case-satus-description {
+  font-size: 18px;
+  margin-bottom: 0;
+  margin-left: 15px;
+}
+.case-status-text {
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.info-warning {
+  color: #ffbc03;
+  font-weight: bolder;
+  font-size: 22px;
+  margin-right: 3px;
+}
+.alert-text {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.information-text {
+  margin: 0 15px 0 15px;
+  text-align: center;
 }
