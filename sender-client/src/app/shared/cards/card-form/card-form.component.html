@@ -22,77 +22,122 @@
                   <p name="Ärendenummer" id="caseNr">{{ caseNumber }}</p>
                 </div>
                 <label>Namn</label>
-                <input name = "Namn" id="name" formControlName="name" type="text" class="form-control" placeholder="Anders Andersson"
-                  [(ngModel)]="user.name" value="{{ user.name }}" (input)="somethingChanged()" required
-                  (blur)="setInputFieldChanged($event)" />
-                <div id="errorName" *ngIf="name.errors && name.errors.required && name.touched"
-                  class="alert alert-danger">
+                <input
+                  name="Namn"
+                  id="name"
+                  formControlName="name"
+                  type="text"
+                  class="form-control"
+                  placeholder="Namn Efternamn"
+                  [(ngModel)]="user.name"
+                  value="{{ user.name }}"
+                  (input)="somethingChanged()"
+                  required
+                  (blur)="setInputFieldChanged($event)"
+                />
+                <div
+                  id="errorName"
+                  *ngIf="name.errors && name.errors.required && name.touched"
+                  class="alert alert-danger"
+                >
                   Namn är obligatoriskt.
                 </div>
-                <div id="errorName" *ngIf="name.errors && name.errors.minlength && nameChanged"
-                  class="alert alert-danger">
+                <div
+                  id="errorName"
+                  *ngIf="name.errors && name.errors.minlength && nameChanged"
+                  class="alert alert-danger"
+                >
                   Måste minst vara fyra bokstäver långt.
                 </div>
 
                 <label>Email</label>
 
-                <input name= "Email" id="email" formControlName="email" type="text" class="form-control"
-                  placeholder="namn@exempel.com" [(ngModel)]="user.email" value="{{ user.email }}"
+                <input
+                  name="Email"
+                  id="email"
+                  formControlName="email"
+                  type="text"
+                  class="form-control"
+                  placeholder="namn@exempel.com"
+                  [(ngModel)]="user.email"
+                  value="{{ user.email }}"
+                  (input)="somethingChanged()"
+                  required
+                  (blur)="setInputFieldChanged($event)"
+                />
 
-                  (input)="somethingChanged()" required (blur)="setInputFieldChanged($event)" />
-
-                <div id="errorEmail" *ngIf="email.errors && email.errors.required && email.touched"
-                  class="alert alert-danger">
+                <div
+                  id="errorEmail"
+                  *ngIf="email.errors && email.errors.required && email.touched"
+                  class="alert alert-danger"
+                >
                   Email är obligatoriskt.
                 </div>
-                <div id="errorEmail" *ngIf="email.errors && email.errors.email && emailChanged"
-                  class="alert alert-danger">
+                <div
+                  id="errorEmail"
+                  *ngIf="email.errors && email.errors.email && emailChanged"
+                  class="alert alert-danger"
+                >
                   Ogiltigt emailadress.
                 </div>
 
                 <label>Telefon</label>
 
-                <input name="Telefon" id="phone" formControlName="phone" type="text" class="form-control" placeholder="0701234567"
-
-                  [(ngModel)]="user.phone" value="{{ user.phone }}" (input)="somethingChanged()" required
-                  (blur)="setInputFieldChanged($event)" />
-                <div id="errorPhone" *ngIf="phone.errors && phone.errors.required && phone.touched"
-                  class="alert alert-danger">
+                <input
+                  name="Telefon"
+                  id="phone"
+                  formControlName="phone"
+                  type="text"
+                  class="form-control"
+                  placeholder="0701234567"
+                  [(ngModel)]="user.phone"
+                  value="{{ user.phone }}"
+                  (input)="somethingChanged()"
+                  required
+                  (blur)="setInputFieldChanged($event)"
+                />
+                <div
+                  id="errorPhone"
+                  *ngIf="phone.errors && phone.errors.required && phone.touched"
+                  class="alert alert-danger"
+                >
                   Telefonnummer är obligatoriskt.
                 </div>
-                <div id="errorPhone" *ngIf="phone.errors && phone.errors.phoneError && phoneChanged"
-                  class="alert alert-danger">
+                <div
+                  id="errorPhone"
+                  *ngIf="
+                    phone.errors && phone.errors.phoneError && phoneChanged
+                  "
+                  class="alert alert-danger"
+                >
                   Ogiltigt telefonnummer.
                 </div>
               </div>
             </div>
-
-
-
-
-        </section>
-
-
-    </div>
-
-
-    </form>
-    <div class="card-footer update ml-auto mr-auto btn-on-card">
-      <!-- <button type="submit" [disabled]="!isValid()" class="btn btn-info  btn-round" (click)="onSave(saveButton1)"  >
+          </section>
+        </div>
+      </form>
+      <div class="card-footer update ml-auto mr-auto btn-on-card">
+        <!-- <button type="submit" [disabled]="!isValid()" class="btn btn-info  btn-round" (click)="onSave(saveButton1)"  >
       <span >Nästa</span>
   </button> -->
+      </div>
 
-    </div>
-
-    <div *ngIf="isSummary" class="card-footer update ml-auto mr-auto btn-on-card">
-      <button type="submit" class="btn btn-info  btn-round" (click)="setDisplayForm()">
-        <i class="nc-icon circle-icon nc-ruler-pencil"></i>
-        <span [hidden]="saveButton1">Spara</span>
-      </button>
-
+      <div
+        *ngIf="isSummary"
+        class="card-footer update ml-auto mr-auto btn-on-card"
+      >
+        <button
+          type="submit"
+          class="btn btn-info  btn-round"
+          (click)="setDisplayForm()"
+        >
+          <i class="nc-icon circle-icon nc-ruler-pencil"></i>
+          <span [hidden]="saveButton1">Spara</span>
+        </button>
+      </div>
     </div>
   </div>
-</div>
 </div>
 <br />
 <!-- <input type="text" placeholder="case number" #caseNumber/>
@@ -102,7 +147,7 @@
     Name:
     <input type="text" [formControl]="nameControl">
   </label> -->
-  <!-- <br/>
+<!-- <br/>
   <button (click)='httpService.getToken()'>Get Token</button> -->
-  <!-- <br/>
+<!-- <br/>
   <button (click)='httpService.getTokenTest()'>Get Token1</button> -->
