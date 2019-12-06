@@ -62,24 +62,32 @@ export class SummaryComponent implements OnInit {
 
   startUpload() {
     this.loadingAuth = true;
-    this.authService
-      .getAssistant()
-      .loginIfRequired()
-      .then(() => {
-        this.ngZone.run(() => {
-          console.log(
-            "Authentication complete, starting upload. Token: ",
-            this.authService.getAssistant().getAuthHeader()
-          );
-          this.uploadService.startUpload(
-            this.authService.getAssistant().getAuthHeader()
-          );
-          console.log("start upload complete.");
-        });
+    if (this.authService.getAssistant().isAuthenticated()) {
+      this.ngZone.run( () => {
+        console.log("Authentication complete, starting upload. Token: ", this.authService.getAssistant().getAuthHeader())
+        this.uploadService.startUpload(this.authService.getAssistant().getAuthHeader());
+        console.log("start upload complete.")
       })
-      .fail(error => {
-        console.log("ERROR: ", error);
-      });
+    } else {
+      this.authService.getAssistant().login().then( () => {
+        this.ngZone.run( () => {
+          console.log("Authentication complete, starting upload. Token: ", this.authService.getAssistant().getAuthHeader())
+          this.uploadService.startUpload(this.authService.getAssistant().getAuthHeader());
+          console.log("start upload complete.")
+        })
+      })
+    }
+
+/*
+    loginIfRequired().then( () => {
+        this.ngZone.run( () => {
+          console.log("Authentication complete, starting upload. Token: ", this.authService.getAssistant().getAuthHeader())
+          this.uploadService.startUpload(this.authService.getAssistant().getAuthHeader());
+          console.log("start upload complete.")
+        })
+      }).fail( (error) => {
+        console.log("ERROR: ", error)});
+  */
   }
 
   // are form values valid
