@@ -31,6 +31,7 @@ import { EditCaseComponent } from 'app/pages/edit-case/edit-case.component';
 import { FrontpageComponent } from '../../pages/frontpage/frontpage.component';
 import { CardCaseNumber } from 'app/shared/cards/card-case-number/card-case-number.component';
 import { PopupComponent } from '../../shared/cards/popup/popup.component';
+import { AutMethodPopupComponent } from '../../shared/cards/aut-method-popup/aut-method-popup.component';
 import { ContentComponent } from './content.component';
 
 import {A11yModule} from '@angular/cdk/a11y';
@@ -146,8 +147,9 @@ import { PageHeaderComponent } from '../../shared/cards/page-header/page-header.
       CardCaseNumber,
       PopupComponent,
       PageHeaderComponent,
+      AutMethodPopupComponent,
   ],
-  entryComponents: [PopupComponent],
+  entryComponents: [PopupComponent, AutMethodPopupComponent],
 })
 
 export class ContentModule {}

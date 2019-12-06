@@ -14,6 +14,7 @@ import { PopupComponent } from "app/shared/cards/popup/popup.component";
 import { CaseDataService } from "app/shared/case-data.service";
 import { AuthAssistantService } from "app/shared/auth-assistant.service";
 import { Router } from "@angular/router";
+import { AutMethodPopupComponent } from 'app/shared/cards/aut-method-popup/aut-method-popup.component';
 
 /**
  * This component shows the data the
@@ -36,6 +37,7 @@ export class SummaryComponent implements OnInit {
   private imageCardDescription: String;
   private loadingAuth: Boolean;
 
+  private otp;
   /**
    * @param uploadService
    * @param dialog
@@ -51,7 +53,8 @@ export class SummaryComponent implements OnInit {
     private domSanitizer: DomSanitizer,
     public authService: AuthAssistantService,
     private ngZone: NgZone,
-    private router: Router
+    private router: Router,
+    private dialogMethod: MatDialog 
   ) {
     this.loadingAuth = false;
     this.matIconRegistry.addSvgIcon(
@@ -139,6 +142,30 @@ export class SummaryComponent implements OnInit {
       if (result) {
         this.dataService.clearUserData();
         this.router.navigate(["/frontpage"]);
+      }
+    });
+  }
+
+  /**
+   * When the user presses the submit button a popup
+   * appears which lets the user choose authentication method.
+   */
+  openMethodDialog() {
+    let dialogRefM = this.dialogMethod.open(AutMethodPopupComponent, {
+      width: "500px",
+      height: "500px"
+    });
+
+    dialogRefM.afterClosed().subscribe(result => {
+      //console.log("Dialog result: " + result);
+      if (result === false) {
+        console.log("Method BankID");
+        this.startUpload();
+      } else if (result != undefined) {
+        console.log("Method code " + result);
+        this.otp = result;
+        //TODO call the code api!
+        //this.router.navigate(["/confirmation"]);
       }
     });
   }
