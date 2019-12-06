@@ -11,6 +11,9 @@ Use the package manager npm provided by [NodeJs](https://nodejs.org/en/), to ins
 ```bash
 npm install
 ```
+## Code Documentation
+
+You can find documentation for the code in the documentation folder, by opening the index.html file. The documentation has been generated using Compodoc.
 
 ## Development server
 

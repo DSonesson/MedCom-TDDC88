@@ -1,3 +1,7 @@
+/**
+ * This is the image class,
+ * which defines data for a image
+ */
 export class Image {
     path: string;
     file: Blob;

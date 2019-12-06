@@ -21,8 +21,8 @@ export const ROUTES: RouteInfo[] = [
 ];
 
 /** 
- * This component holds the content,
- * of the application. 
+ * This component holds and swaps 
+ * the content of the application. 
  */
 @Component({
   selector: 'app-content',

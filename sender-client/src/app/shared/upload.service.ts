@@ -5,7 +5,9 @@ import { Case } from '../models/case';
 import { HttpService } from './http.service';
 import { Router } from '@angular/router';
 
-
+/**
+ * This service uploads a case to fileCloud
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -24,8 +26,11 @@ export class UploadService {
   txtPatientForm: Blob;
 
   /**
-   * Creates a instance of UploadService
-   * and sets case to another case retrieved from CaseDataService.
+   * Sets case to another case retrieved from CaseDataService.
+   * @param {CaseDataService} dataService 
+   * @param {CaseNrService} caseNrService 
+   * @param {HttpService} httpService 
+   * @param {Router} router 
    */
   constructor(public dataService: CaseDataService,
               private caseNrService: CaseNrService,
@@ -35,7 +40,10 @@ export class UploadService {
   }
 
 
-
+/**
+ * Redirects to the input path
+ * @param path 
+ */
   redirect(path) {
     console.log("Routing to: ", path)
     this.router.navigate([path]);
@@ -45,8 +53,7 @@ export class UploadService {
   /**
    * Fetches data from case and generates a YAML-file containing the data. Then the YAML-file
    * together with the added images gets uploaded to FileCloud.
-   *
-   * @returns Nothing is returned.
+   * @param token 
    */
   async startUpload(token) {
     this.caseNr = this.caseNrService.getCaseNr(this.case.user.phone);
@@ -78,8 +85,6 @@ export class UploadService {
 
   /**
    * Generates a YAML-file containing the data that is stored to the case object.
-   *
-   * @returns Nothing is returned.
    */
   generateTXT() {
     var content = "Case number: " + this.caseNr + "\r\n"
@@ -91,9 +96,8 @@ export class UploadService {
 
 
   /**
-   * Generates a YAML-file containing the data that is stored to the case object and formatted in a specific way.
-   *
-   * @returns Nothing is returned.
+   * Generates a YAML-file containing the data that is 
+   * stored to the case object and formatted in a specific way.
    */
   async generatePatientFormYML(token) {
     var content: string = "Patientformulär för case: " + this.caseNr + "\r\n" + "\r\n";

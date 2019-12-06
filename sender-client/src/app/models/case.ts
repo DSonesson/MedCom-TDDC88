@@ -3,6 +3,10 @@ import { Image } from './image';
 import { Patient } from './patient';
 import { FormControl } from '@angular/forms';
 
+/**
+ * This is the case class, 
+ * which defines the data for a case
+ */
 export class Case {
     /** The user that is sending the case */
     user: User;

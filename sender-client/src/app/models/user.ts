@@ -1,3 +1,7 @@
+/**
+ * This is the user class, 
+ * which defines the data for a user
+ */
 export class User {
     /** The name of a user */
     name: string;

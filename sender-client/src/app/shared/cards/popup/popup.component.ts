@@ -3,7 +3,8 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 
 /**
  * This component is used as
- * a popup 
+ * a popup, displaying a description, 
+ * a yes button and a no button
  */
 @Component({
   selector: 'app-popup',

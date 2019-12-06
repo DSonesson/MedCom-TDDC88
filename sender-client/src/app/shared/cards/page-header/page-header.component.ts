@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 /**
- * This component is used for page titles.
+ * This card is used for page titles.
  */
 @Component({
   selector: 'app-page-header',

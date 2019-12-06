@@ -8,9 +8,6 @@ import { Injectable } from '@angular/core';
 })
 export class CaseNrService {
 
-  /**
-   * Creates a instance of CaseNrService.
-   */
   constructor() { }
 
 

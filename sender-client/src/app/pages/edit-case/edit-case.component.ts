@@ -21,13 +21,22 @@ import { CaseDataService } from 'app/shared/case-data.service';
 })
 export class EditCaseComponent implements OnInit {
 
+  /** The title of this component */
   private pageHeader: String;
 
+  /**
+   * @param {UploadService} uploadService 
+   * @param {AuthAssistantService} authService 
+   * @param {NgZone} ngZone 
+   * @param {CaseDataService} dataService 
+   */
   constructor(private uploadService: UploadService,
               public authService: AuthAssistantService,          
               private ngZone: NgZone, public dataService: CaseDataService) { }
 
-
+/**
+ * Sets the pageHeader 
+ */
   ngOnInit() {
     this.pageHeader = "Patientinformation";
   }
@@ -53,6 +62,9 @@ export class EditCaseComponent implements OnInit {
     this.dataService.clearPatientFormData();
   }
 
+  /**
+   * Clear the user data
+   */
   removeUserData(){
     this.dataService.clearUserData();
   }

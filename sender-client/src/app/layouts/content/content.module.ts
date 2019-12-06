@@ -15,8 +15,6 @@ import { MatDialogModule } from '@angular/material';
 
 
 /* All pages components will be placed here */
-import { PageComponent }    from '../../pages/page/page.component';
-import { Page2Component }    from '../../pages/page2/page2.component';
 import { CardFormComponent }    from '../../shared/cards/card-form/card-form.component';
 import { ConfirmationComponent } from '../../pages/confirmation/confirmation.component';
 import { SummaryComponent } from '../../pages/summary/summary.component';
@@ -33,6 +31,7 @@ import { CardCaseNumber } from 'app/shared/cards/card-case-number/card-case-numb
 import { PopupComponent } from '../../shared/cards/popup/popup.component';
 import { AutMethodPopupComponent } from '../../shared/cards/aut-method-popup/aut-method-popup.component';
 import { ContentComponent } from './content.component';
+import { PageHeaderComponent } from '../../shared/cards/page-header/page-header.component';
 
 import {A11yModule} from '@angular/cdk/a11y';
 import {DragDropModule} from '@angular/cdk/drag-drop';
@@ -74,7 +73,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { PageHeaderComponent } from '../../shared/cards/page-header/page-header.component';
+
 
 @NgModule({
   imports: [
@@ -130,8 +129,6 @@ import { PageHeaderComponent } from '../../shared/cards/page-header/page-header.
     ScrollingModule,
   ],
   declarations: [
-      PageComponent,
-      Page2Component,
       CardFormComponent,
       CardImageComponent,
       CardDefaultComponent,

@@ -15,15 +15,14 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, Validators, FormGroup, ValidatorFn, AbstractControl } from '@angular/forms';
 
+/**
+ * This card displays the case number
+ */
 @Component({
   selector: 'app-card-case-number',
   templateUrl: './card-case-number.component.html',
   styleUrls: ['./card-case-number.component.scss']
 })
-
-
-
-
 
 /* Component Class Holder */
 export class CardCaseNumber implements OnInit {
@@ -32,25 +31,17 @@ export class CardCaseNumber implements OnInit {
     @Input('editCase') editCase: boolean;
     caseNumber: any;
 
+    /**
+     * @param {CaseDataService} dataService 
+     */
     constructor(public dataService: CaseDataService) {
-
-    this.user = this.dataService.getCase().user;
-    this.caseNumber = this.dataService.getCase().caseNr;
-
+      this.user = this.dataService.getCase().user;
+      this.caseNumber = this.dataService.getCase().caseNr;
     }
+
     ngOnInit() {
     };
 
-    /**
-    * return boolean which is true if all form values are valid or not
-    * @returns boolean which is true if all form values are valid or not
-    */
-    isValid() {
-    }
-
-
-
     onSave($event){
-
-}
+    }
 }

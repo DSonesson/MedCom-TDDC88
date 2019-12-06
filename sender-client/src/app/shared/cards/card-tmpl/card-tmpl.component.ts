@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-
+/** Only a template, not used in application */
 @Component({
   selector: 'app-card-tmpl',
   templateUrl: './card-tmpl.component.html',

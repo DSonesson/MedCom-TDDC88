@@ -20,8 +20,7 @@ export class CaseDataService {
   caseData: Case;
 
   /**
-   * Creates a instance of CaseDataService
-   * and sets caseData to new Case
+   * Sets caseData to new Case
    */
   constructor() {
         this.caseData = new Case();    
@@ -35,17 +34,15 @@ export class CaseDataService {
     return this.caseData;
   }
  
-  /**
+/**
  * Method that will be used to clear images.
  */
-
   private removeImages: () => void;
 
-  /**
+/**
  * method for fetching and setting the clear images method from card-image
  * to removeImages
  */
-
 getMethod(fn: () => void) {
 
   this.removeImages = fn;
@@ -54,8 +51,8 @@ getMethod(fn: () => void) {
 
 
   /**
-   * Overwrites the data the user has specified
-   * in front and summary page 
+   * Clear data the user has specified
+   * in front and summary page  
    */
   clearUserData(){
     this.caseData.user.name = "";
@@ -67,6 +64,9 @@ getMethod(fn: () => void) {
     
   }
 
+  /**
+   * Clear the patient data form
+   */
   clearPatientFormData() {
     this.caseData.dateofArrival = new Date();
     this.caseData.hasSavedDate = false;
