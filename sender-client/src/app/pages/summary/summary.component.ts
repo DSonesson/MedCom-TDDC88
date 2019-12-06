@@ -61,7 +61,24 @@ export class SummaryComponent implements OnInit {
 
   startUpload() {
     this.loadingAuth = true;
-    this.authService.getAssistant().loginIfRequired().then( () => {
+    if (this.authService.getAssistant().isAuthenticated()) {
+      this.ngZone.run( () => {
+        console.log("Authentication complete, starting upload. Token: ", this.authService.getAssistant().getAuthHeader())
+        this.uploadService.startUpload(this.authService.getAssistant().getAuthHeader());
+        console.log("start upload complete.")
+      })
+    } else {
+      this.authService.getAssistant().login().then( () => {
+        this.ngZone.run( () => {
+          console.log("Authentication complete, starting upload. Token: ", this.authService.getAssistant().getAuthHeader())
+          this.uploadService.startUpload(this.authService.getAssistant().getAuthHeader());
+          console.log("start upload complete.")
+        })
+      })
+    }
+
+/*
+    loginIfRequired().then( () => {
         this.ngZone.run( () => {
           console.log("Authentication complete, starting upload. Token: ", this.authService.getAssistant().getAuthHeader())
           this.uploadService.startUpload(this.authService.getAssistant().getAuthHeader());
@@ -69,6 +86,7 @@ export class SummaryComponent implements OnInit {
         })
       }).fail( (error) => {
         console.log("ERROR: ", error)});
+  */
   }
 
 
