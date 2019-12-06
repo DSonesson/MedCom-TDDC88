@@ -13,19 +13,13 @@ export class FetchcaseComponent implements OnInit {
   */
   private title: String;
   private description: String;
-  private loadingAuth: Boolean;
 
   
   constructor() {
   }
 
-  freezeScreen(bool){
-    if (bool){ 
-      this.loadingAuth = true;
-    }
-  }
+ 
   ngOnInit() {
-    this.loadingAuth = false;
     this.pageHeader = "Ärendehantering";
     this.title = "Hämta ditt ärende";
     this.description ="Här kan du hämta information om ett ärende du tidigare skickat in, genom att skriva in ditt ärendenummer och klicka på “Hämta”.";
