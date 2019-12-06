@@ -73,7 +73,7 @@ export class CardFormComponent implements OnInit {
     this.caseNumber = this.dataService.getCase().caseNr;
   }
 
-  phoneExp = new RegExp("(\+46[0-9]{10})|^([0-9]{10})");
+  phoneExp = new RegExp('(\+46[0-9]{10})|^([0-9]{10})');
   // phoneExp = new RegExp('^(([+]\d{2}[ ][1-9]\d{0,2}[ ])|([0]\d{1,3}[-]))((\d{2}([ ]\d{2}){2})|(\d{3}([ ]\d{3})*([ ]\d{2})+))$')
   userForm: FormGroup;
   ngOnInit() {
