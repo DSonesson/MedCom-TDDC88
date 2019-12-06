@@ -93,7 +93,7 @@ export class HeaderComponent implements OnInit {
    * @param path The path that the link goes to.
    */
   clearData(path: string) {
-    this.isCollapsed = true;
+    //this.isCollapsed = true;
 
     if (path == "/frontpage") {
       this.dataService.clearUserData();
