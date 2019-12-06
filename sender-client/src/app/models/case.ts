@@ -4,10 +4,16 @@ import { Patient } from './patient';
 import { FormControl } from '@angular/forms';
 
 export class Case {
+    /** The user that is sending the case */
     user: User;
+    /** The images of the case */
     images: Image[];
+    /** The case number */
     caseNr: string;
+
     randomtest: string;
+
+    /** The patient form, used for adding patient information */
     patientForm: Array<{question: string, storedValue: boolean, value: boolean, noCheckBoxes?: boolean, complementary?: string, complementaryFormData?: string[], ymlFormat?: string[]}>;
     transportInfo: string;
     dateofArrival =  new Date();
