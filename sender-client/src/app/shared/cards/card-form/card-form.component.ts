@@ -6,38 +6,38 @@
  */
 
 /* Imports */
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
 
-import { CaseDataService } from '../../../shared/case-data.service';
-import { User } from '../../../models/user';
+import { CaseDataService } from "../../../shared/case-data.service";
+import { User } from "../../../models/user";
 
-import { NgModule } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormControl, Validators, FormGroup, ValidatorFn, AbstractControl } from '@angular/forms';
-import { HttpService } from 'app/shared/http.service';
+import { NgModule } from "@angular/core";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import {
+  FormControl,
+  Validators,
+  FormGroup,
+  ValidatorFn,
+  AbstractControl
+} from "@angular/forms";
+import { HttpService } from "app/shared/http.service";
 
 @Component({
-  selector: 'app-card-form',
-  templateUrl: './card-form.component.html',
-  styleUrls: ['./card-form.component.scss']
+  selector: "app-card-form",
+  templateUrl: "./card-form.component.html",
+  styleUrls: ["./card-form.component.scss"]
 })
-
-
-
-
 
 /* Component Class Holder */
 export class CardFormComponent implements OnInit {
+  user: User;
+  @Input() isSummary: boolean;
+  @Input("editCase") editCase: boolean;
+  @Output() onSaveForm = new EventEmitter<boolean>();
+  caseNumber: any;
+  @Output() displayForm = new EventEmitter<boolean>();
 
-    user: User;
-    @Input() isSummary: boolean;
-    @Input('editCase') editCase: boolean;
-    @Output() onSaveForm = new EventEmitter<boolean>();
-    caseNumber: any;
-    @Output() displayForm = new EventEmitter<boolean>();
-  
-
-    private card_content = `                    <div class="col-md-12 px-1">
+  private card_content = `                    <div class="col-md-12 px-1">
                         
                         <div class="form-group editable card-form">
                             <label>Namn</label>
@@ -55,20 +55,20 @@ export class CardFormComponent implements OnInit {
                     </div>`;
 
   saveButton1 = false;
-  private nameChanged: boolean;
+  nameChanged: boolean;
   private emailChanged: boolean;
   private phoneChanged: boolean;
 
   /**
-   * The title and description of the card 
+   * The title and description of the card
    */
-  @Input ("title") title: String;
-  @Input ("description") description: String;
+  @Input("title") title: String;
+  @Input("description") description: String;
 
-
-    constructor(public dataService: CaseDataService, public httpService : HttpService) {
-
-
+  constructor(
+    public dataService: CaseDataService,
+    public httpService: HttpService
+  ) {
     this.user = this.dataService.getCase().user;
     this.caseNumber = this.dataService.getCase().caseNr;
   }
@@ -86,22 +86,21 @@ export class CardFormComponent implements OnInit {
       ]),
       email: new FormControl(this.user.email, [
         Validators.required,
-        Validators.email
+        Validators.email,
+        Validators.pattern(/.+@.+\..+/)
       ]),
       phone: new FormControl(this.user.phone, [
         Validators.required,
         phoneValidator(this.phoneExp)
       ])
     });
-
   }
 
-
-/**
-    * Emits a boolean to summary page for summary page to know which component to display.
-    * 
-    */
-   setDisplayForm() {
+  /**
+   * Emits a boolean to summary page for summary page to know which component to display.
+   *
+   */
+  setDisplayForm() {
     this.displayForm.emit(false);
   }
 

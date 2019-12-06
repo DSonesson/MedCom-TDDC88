@@ -20,7 +20,10 @@ import { HeaderModule} from './layouts/header/header.module';
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
 import { ContentComponent } from './layouts/content/content.component';
-import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { AuthInterceptorService } from './shared/helper/auth-interceptor.service';
+import { AuthAssistantService} from './shared/auth-assistant.service';
 
 
 /* Meta Data for App File s */
@@ -28,7 +31,7 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     ContentComponent,
-    
+
   ],
   imports: [
     HttpClientModule,
@@ -37,15 +40,16 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
     BrowserAnimationsModule,
     LightboxModule,
     RouterModule.forRoot(AppRoutes,{
-      useHash: true
+      useHash: true, scrollPositionRestoration: 'enabled'
     }),
     HeaderModule,
     ToastrModule.forRoot(),
     FooterModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [
+      { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true } ]
 })
 
 /* Module Class Holder */
 export class AppModule { }
- 

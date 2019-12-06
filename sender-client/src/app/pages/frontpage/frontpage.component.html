@@ -6,18 +6,11 @@
 
 <app-page-header [pageHeader]="pageHeader"></app-page-header>
 
-<!-- Step text-->
-<!-- <div class="card mb-0" style="background-color: transparent; box-shadow: none;">
-  <h4 class="mb-2 mt-0" style="display: flex; justify-content: flex-end;">
-    Steg 1 av 3
-  </h4>
-</div> -->
-
-<div class="row" style="margin-top:40px;">
-    <div class="col-md-12">
-      <div class="footer_buttons">
- <div class="row">
-  <div class="col-md-12 mx-auto">
+<div
+  class="row mx-auto progress-row"
+  style="margin-top:10px; margin-bottom: 25px; max-width: 500px;"
+>
+  <div class="col-md-12" style="padding: 0">
     <div class="progress bg-transparent mb-4 progress-main">
       <div
         class="progress-bar rounded progress-cell"
@@ -55,12 +48,6 @@
   </div>
 </div>
 
-        </div>
-    </div>
-</div>
-
-
-
 <app-card-form
   (onSaveForm)="setValidity($event)"
   [isSummary]="isSummary"
@@ -74,33 +61,25 @@
   [title]="imageCardTitle"
   [description]="imageCardDescription"
 ></app-card-image>
-<app-card-form-fetch-case
-  [title]="title"
-  [description]="description"
-></app-card-form-fetch-case>
-
 
 <div class="row">
-    <div class="col-md-12">
-      <div class="footer_buttons">
-            <div class="row">
-              <div class="col-md-12">
-                <a [routerLink]="'/summary'">
-                  <button
-                    [disabled]="!isValid || !isUploaded"
-                    id="nextButton"
-                    type="Next"
-                    class="btn btn-info  btn-round"
-                    style="float: right;"
-                  >
-                    <span>Nästa</span>
-                  </button>
-                </a>
-              </div>
-            </div>
-        </div>
+  <div class="col-md-12">
+    <div class="footer_buttons">
+      <a [routerLink]="'/summary'">
+        <button
+          [disabled]="!isValid || !isUploaded"
+          id="nextButton"
+          type="Next"
+          class="btn btn-info btn-round"
+          style="float: right;"
+        >
+          <span>Nästa</span>
+          <i
+            class="nc-icon nc-minimal-right bold"
+            style="top: 5; font-size:14px"
+          ></i>
+        </button>
+      </a>
     </div>
+  </div>
 </div>
-
-
-
