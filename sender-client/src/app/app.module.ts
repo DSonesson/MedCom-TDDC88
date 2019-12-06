@@ -37,7 +37,7 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
     BrowserAnimationsModule,
     LightboxModule,
     RouterModule.forRoot(AppRoutes,{
-      useHash: true
+      useHash: true, scrollPositionRestoration: 'enabled'
     }),
     HeaderModule,
     ToastrModule.forRoot(),
