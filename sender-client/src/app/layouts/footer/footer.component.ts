@@ -7,7 +7,10 @@
 /* Imports */
 import { Component, HostBinding } from '@angular/core';
 
-/* Component metadata  */
+/** 
+ * This is the footer component
+ * of the application
+ */
 @Component({
     moduleId: module.id,
     selector: 'footer-cmp',
