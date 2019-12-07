@@ -8,23 +8,41 @@
 <app-card-case-number editCase="true"></app-card-case-number>
 <app-card-table></app-card-table>
 
-
-<div class="row">
-    <div class="col-md-12">
-      <div class="footer_buttons">
-            <div class="row">
-                <div class="col-md-12" style="text-align: center;">
-                    <a [routerLink]="'/frontpage'">
-                        <button id="skickaButton" type="Spara" class="btn btn-info  btn-round" style="display: inline-block" (click)="removeUserData()">
-                            <span>Startsida</span>
-                        </button>
-                    </a>
-                      <button id="skickaButton" type="Spara" class="btn btn-info  btn-round" style="display: inline-block" (click)="uploadPatientForm()">
-                          <span>Spara ärende</span>
-                      </button>
-                </div>
+<div class="row footer_buttons">
+  <div class="col" style="text-align: center; float: left;">
+    <a [routerLink]="'/frontpage'">
+      <button
+        id="skickaButton"
+        type="Spara"
+        class="btn btn-info  btn-round"
+        style="display: inline-block; min-height: 56px"
+        (click)="removeUserData()"
+      >
+        <div class="container">
+          <div class="row">
+            <div class="col-2" style="padding: 0 0 0 0">
+              <i
+                class="nc-icon nc-minimal-left bold"
+                style="font-size: 20px"
+              ></i>
             </div>
+            <div class="col-10" style="padding: 3px 0 0 0">
+              <span class="pl-1 pr-0">Startsida</span>
+            </div>
+          </div>
         </div>
-    </div>
+      </button>
+    </a>
+  </div>
+  <div class="col">
+    <button
+      id="skickaButton"
+      type="Spara"
+      class="btn btn-info  btn-round"
+      style="display: inline-block"
+      (click)="uploadPatientForm()"
+    >
+      <span class="p-0">Spara ändringar</span>
+    </button>
+  </div>
 </div>
-

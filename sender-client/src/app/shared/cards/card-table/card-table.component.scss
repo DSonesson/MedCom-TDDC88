@@ -1,38 +1,41 @@
 .inline-input {
-    display: inline-block;
-    width: 70px;
+  display: inline-block;
+  width: 70px;
 }
 .timePicker {
-    display: inline-block;
-    margin-left: 30px;
-    width: 150px;
-    border-bottom: 1px solid grey;
+  display: inline-block;
+  margin-left: 30px;
+  width: 150px;
+  border-bottom: 1px solid grey;
 }
 .material-icons {
-    margin-top: -1px;
-    vertical-align: top;
-    margin-left: 15px;
-    margin-right: -1px;
-    float: right;
+  margin-top: -1px;
+  vertical-align: top;
+  margin-left: 15px;
+  margin-right: -1px;
+  float: right;
 }
 .timePickerInput {
-    width: 45px; 
-    display: inline-block; 
-    text-align: center;
-    border: 0px;
-    height: 20px;
-    border:0px !important;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-    font-size: 14px;
+  width: 45px;
+  display: inline-block;
+  text-align: center;
+  border: 0px;
+  height: 20px;
+  border: 0px !important;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
 }
 .timePickerInput:focus {
-    outline: 0;
+  outline: 0;
 }
 .dateInput {
-    border: 0px !important;
+  border: 0px !important;
 }
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.inside-card {
+  box-shadow: none;
 }
