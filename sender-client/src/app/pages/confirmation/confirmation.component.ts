@@ -18,9 +18,8 @@ import { CaseDataService } from "app/shared/case-data.service";
   styleUrls: ["./confirmation.component.scss"]
 })
 export class ConfirmationComponent implements OnInit {
-
   /**
-   * @param {CaseDataService} dataService 
+   * @param {CaseDataService} dataService
    */
   constructor(public dataService: CaseDataService) {}
 
@@ -46,14 +45,9 @@ export class ConfirmationComponent implements OnInit {
   ngOnInit() {
     this.pageHeader = "Ärendebekräftelse";
     this.formTitle = "Ditt ärende har skickats!";
-<<<<<<< HEAD
     this.formDescription =
       "Brännskadejouren har nu tagit emot ditt ärende. Om du vill lägga till information till ärendet, klicka på “Komplettera ärende”.";
     this.importantContent = "Kom ihåg att spara ditt ärendenummer!";
-=======
-    this.formDescription = "Brännskadejouren har nu tagit emot ditt ärende. Om du vill lägga till information till ärendet, klicka på “Komplettera ärende”.";
-    this.importantContent = "Viktigt: Kom ihåg att spara ditt ärendenummer!";
->>>>>>> front-end
     this.content = "Det behövs för att kunna se ditt ärende senare.";
   }
 }
