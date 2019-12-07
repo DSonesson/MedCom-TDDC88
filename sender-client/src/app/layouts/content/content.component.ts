@@ -20,14 +20,14 @@ export const ROUTES: RouteInfo[] = [
     { path: '/page3',    title: 'information',  icon:'nc-alert-circle-i',   class: '' },,
 ];
 
-/* Component metadata  */
+/** 
+ * This component holds and swaps 
+ * the content of the application. 
+ */
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html'
 })
-
-
-
 
 /* Component Class Holder */
 export class ContentComponent implements OnInit {

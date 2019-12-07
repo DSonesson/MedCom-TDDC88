@@ -10,8 +10,8 @@ import { Routes } from '@angular/router';
 import { UploadService } from 'app/shared/upload.service';
 
 /**
- * This is the component that is first showed for the user and it displays
- * a couple of fields for the user to add information and images to the case.
+ * This is the frontpage component and it displays a couple of
+ * fields for the user to add information and images to a new case.
  */
 @Component({
   selector: 'frontpage',
@@ -20,12 +20,12 @@ import { UploadService } from 'app/shared/upload.service';
 })
 
 export class FrontpageComponent implements OnInit {
-  private pageHeader: String;
-  // are form values valid
+
+  /** are form values valid */
   public isValid: boolean;
-  // is image uploaded locally
+  /** is image uploaded locally */
   public isUploaded: boolean;
-  // boolean for choosing whether to display save button or not
+  /** boolean for choosing whether to display save button or not */
   public isSummary: boolean;
 
   /**
@@ -37,6 +37,7 @@ export class FrontpageComponent implements OnInit {
   private imageCardDescription: String;
   private title: string;
   private description: string;
+  private pageHeader: String;
 
 
 
@@ -47,6 +48,7 @@ export class FrontpageComponent implements OnInit {
 
   /**
     * sets boolean isValid to same value as in child component card-form.component
+    * @param {boolean} isValid 
     */
   public setValidity(isValid: boolean): void {
     this.isValid = isValid;
@@ -56,11 +58,15 @@ export class FrontpageComponent implements OnInit {
 
   /**
     * sets boolean isUploaded to same value as in child component card-image.component
+    * @param {boolean} isUploaded 
     */
   public setUploadBoolean(isUploaded: boolean): void {
     this.isUploaded = isUploaded;
   }
 
+  /**
+   * Sets the text attributes and validation booleans.
+   */
   ngOnInit() {
     this.pageHeader = "Anmäl brännskada";
     this.isValid = false;

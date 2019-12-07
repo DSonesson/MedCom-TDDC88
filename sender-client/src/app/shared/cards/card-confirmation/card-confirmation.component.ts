@@ -2,6 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { CaseDataService } from '../../case-data.service';
 import { Case } from '../../../models/case';
 
+/**
+ * This card displays a confirmation that the case is sent
+ * and the case number
+ */
 @Component({
   selector: 'app-card-confirmation',
   templateUrl: './card-confirmation.component.html',
@@ -19,16 +23,19 @@ export class CardConfirmationComponent implements OnInit {
   @Input ("importantContent") importantContent: String;
   @Input ("content") content: String;
   
+  /**
+   * @param {CaseDataService} dataService 
+   */
   constructor(public dataService: CaseDataService) { 
     this.case = this.dataService.getCase();
   }
 
-clearData() {
-
-  this.dataService.clearUserData();
-
-}
-
+  /**
+   * Clear the user data
+   */
+  clearData() {
+    this.dataService.clearUserData();
+  }
 
   ngOnInit() {
   }

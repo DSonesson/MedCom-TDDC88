@@ -16,6 +16,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, Validators, FormGroup, ValidatorFn, AbstractControl } from '@angular/forms';
 import { element } from 'protractor';
 
+/**
+ * This card lets the user fill out a form
+ * about the patient
+ */
 @Component({
   selector: 'app-card-table',
   templateUrl: './card-table.component.html',

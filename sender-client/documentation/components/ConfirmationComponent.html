@@ -1,0 +1,762 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>medcom-brannskador documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">medcom-brannskador documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>ConfirmationComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/confirmation/confirmation.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>This component displays a confirmation
+that the case has been sent.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-confirmation</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./confirmation.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./confirmation.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#content">content</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dataService">dataService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#formDescription">formDescription</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#formTitle">formTitle</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#importantContent">importantContent</a>
+                            </li>
+                            <li>
+                                <a href="#pageHeader">pageHeader</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#clearData">clearData</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(dataService: <a href="../injectables/CaseDataService.html">CaseDataService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/pages/confirmation/confirmation.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>dataService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CaseDataService.html" target="_self" >CaseDataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearData"></a>
+                    <span class="name">
+                        <b>
+                            clearData
+                        </b>
+                        <a href="#clearData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>clearData()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">src/app/pages/confirmation/confirmation.component.ts:39</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Clear the user data.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">src/app/pages/confirmation/confirmation.component.ts:46</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Sets the text attributes.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="content"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            content</b>
+                            <a href="#content"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/pages/confirmation/confirmation.component.ts:34</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dataService"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            dataService</b>
+                            <a href="#dataService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../injectables/CaseDataService.html" target="_self" >CaseDataService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/confirmation/confirmation.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="formDescription"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            formDescription</b>
+                            <a href="#formDescription"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/pages/confirmation/confirmation.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="formTitle"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            formTitle</b>
+                            <a href="#formTitle"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/pages/confirmation/confirmation.component.ts:31</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="importantContent"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            importantContent</b>
+                            <a href="#importantContent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/pages/confirmation/confirmation.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="pageHeader"></a>
+                        <span class="name">
+                            <b>
+                            pageHeader</b>
+                            <a href="#pageHeader"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/pages/confirmation/confirmation.component.ts:30</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The text attributes for the card</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &quot;@angular/core&quot;;
+import { CaseDataService } from &quot;app/shared/case-data.service&quot;;
+
+/**
+ * This component displays a confirmation
+ * that the case has been sent.
+ */
+@Component({
+  selector: &quot;app-confirmation&quot;,
+  templateUrl: &quot;./confirmation.component.html&quot;,
+  styleUrls: [&quot;./confirmation.component.scss&quot;]
+})
+export class ConfirmationComponent implements OnInit {
+
+  /**
+   * @param {CaseDataService} dataService 
+   */
+  constructor(public dataService: CaseDataService) {}
+
+  /**
+   * The text attributes for the card
+   */
+  pageHeader: String;
+  private formTitle: String;
+  private formDescription: String;
+  private importantContent: String;
+  private content: String;
+
+  /**
+   * Clear the user data.
+   */
+  clearData() {
+    this.dataService.clearUserData();
+  }
+
+  /**
+   * Sets the text attributes.
+   */
+  ngOnInit() {
+    this.pageHeader &#x3D; &quot;Ärendebekräftelse&quot;;
+    this.formTitle &#x3D; &quot;Ditt ärende har skickats!&quot;;
+    this.formDescription &#x3D; &quot;Brännskadejouren har nu tagit emot ditt ärende. Om du vill lägga till information till ärendet, klicka på “Komplettera ärende”.&quot;;
+    this.importantContent &#x3D; &quot;Viktigt: Kom ihåg att spara ditt ärendenummer!&quot;;
+    this.content &#x3D; &quot;Det behövs för att kunna se ditt ärende senare.&quot;;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!--
+ * Confirmation-page View File
+ * @version 1.0
+ * @author Alexander Anserud &lt;alean378@student.liu.se&gt;
+--&gt;
+
+&lt;app-page-header [pageHeader]&#x3D;&quot;pageHeader&quot;&gt;&lt;/app-page-header&gt;
+
+&lt;div
+  class&#x3D;&quot;row mx-auto progress-row&quot;
+  style&#x3D;&quot;margin-top:10px; margin-bottom: 25px; max-width: 500px;&quot;
+&gt;
+  &lt;div class&#x3D;&quot;col-md-12&quot; style&#x3D;&quot;padding: 0&quot;&gt;
+    &lt;div class&#x3D;&quot;progress bg-transparent mb-4 progress-main&quot;&gt;
+      &lt;div
+        class&#x3D;&quot;progress-bar rounded progress-cell&quot;
+        role&#x3D;&quot;progressbar&quot;
+        aria-valuenow&#x3D;&quot;33&quot;
+        aria-valuemin&#x3D;&quot;0&quot;
+        aria-valuemax&#x3D;&quot;100&quot;
+        style&#x3D;&quot;background-color: #00A452; width: 33%; border: solid 2px #005538&quot;
+      &gt;&lt;/div&gt;
+      &lt;div
+        class&#x3D;&quot;progress-bar rounded progress-cell&quot;
+        role&#x3D;&quot;progressbar&quot;
+        aria-valuenow&#x3D;&quot;33&quot;
+        aria-valuemin&#x3D;&quot;0&quot;
+        aria-valuemax&#x3D;&quot;100&quot;
+        style&#x3D;&quot;background-color: #00A452; width: 33%; border: solid 2px #005538; margin-left: 7px&quot;
+      &gt;&lt;/div&gt;
+      &lt;div
+        class&#x3D;&quot;progress-bar mr-1 rounded progress-cell&quot;
+        role&#x3D;&quot;progressbar&quot;
+        aria-valuenow&#x3D;&quot;33&quot;
+        aria-valuemin&#x3D;&quot;0&quot;
+        aria-valuemax&#x3D;&quot;100&quot;
+        style&#x3D;&quot;width: 33%; box-shadow: 0 0 3px 3px #005538; margin: 0 7px 0 7px; background-color: #00A452; color: whitesmoke&quot;
+      &gt;
+        &lt;p class&#x3D;&quot;mb-0&quot;&gt;
+          Steg 3 av 3
+        &lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;app-card-confirmation
+  [title]&#x3D;&quot;formTitle&quot;
+  [description]&#x3D;&quot;formDescription&quot;
+  [importantContent]&#x3D;&quot;importantContent&quot;
+  [content]&#x3D;&quot;content&quot;
+&gt;&lt;/app-card-confirmation&gt;
+
+&lt;div class&#x3D;&quot;row footer_buttons&quot;&gt;
+  &lt;div class&#x3D;&quot;col pr-0&quot;&gt;
+    &lt;a [routerLink]&#x3D;&quot;&#x27;/frontpage&#x27;&quot;&gt;
+      &lt;button
+        id&#x3D;&quot;startsida&quot;
+        type&#x3D;&quot;Startsida&quot;
+        class&#x3D;&quot;btn btn-info  btn-round&quot;
+        style&#x3D;&quot;float: left; height: 3.5rem; max-width: calc(50vw - 30px)&quot;
+        (click)&#x3D;&quot;clearData()&quot;
+      &gt;
+        &lt;span&gt;Startsida&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;col pl-0&quot;&gt;
+    &lt;a [routerLink]&#x3D;&quot;&#x27;/edit&#x27;&quot;&gt;
+      &lt;button
+        id&#x3D;&quot;kompletteraÄrende&quot;
+        type&#x3D;&quot;KompletteraÄrende&quot;
+        class&#x3D;&quot;btn btn-info  btn-round&quot;
+        style&#x3D;&quot;float: right; height: 3.5rem; max-width: calc(50vw - 30px)&quot;
+      &gt;
+        &lt;span&gt;Komplettera Ärende&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./confirmation.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.progress-main {
+  background-color: transparent;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  height: fit-content;
+  padding: 3px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- * Confirmation-page View File * @version 1.0 * @author Alexander Anserud <alean378@student.liu.se>--><app-page-header [pageHeader]="pageHeader"></app-page-header><div  class="row mx-auto progress-row"  style="margin-top:10px; margin-bottom: 25px; max-width: 500px;">  <div class="col-md-12" style="padding: 0">    <div class="progress bg-transparent mb-4 progress-main">      <div        class="progress-bar rounded progress-cell"        role="progressbar"        aria-valuenow="33"        aria-valuemin="0"        aria-valuemax="100"        style="background-color: #00A452; width: 33%; border: solid 2px #005538"      ></div>      <div        class="progress-bar rounded progress-cell"        role="progressbar"        aria-valuenow="33"        aria-valuemin="0"        aria-valuemax="100"        style="background-color: #00A452; width: 33%; border: solid 2px #005538; margin-left: 7px"      ></div>      <div        class="progress-bar mr-1 rounded progress-cell"        role="progressbar"        aria-valuenow="33"        aria-valuemin="0"        aria-valuemax="100"        style="width: 33%; box-shadow: 0 0 3px 3px #005538; margin: 0 7px 0 7px; background-color: #00A452; color: whitesmoke"      >        <p class="mb-0">          Steg 3 av 3        </p>      </div>    </div>  </div></div><app-card-confirmation  [title]="formTitle"  [description]="formDescription"  [importantContent]="importantContent"  [content]="content"></app-card-confirmation><div class="row footer_buttons">  <div class="col pr-0">    <a [routerLink]="\'/frontpage\'">      <button        id="startsida"        type="Startsida"        class="btn btn-info  btn-round"        style="float: left; height: 3.5rem; max-width: calc(50vw - 30px)"        (click)="clearData()"      >        <span>Startsida</span>      </button>    </a>  </div>  <div class="col pl-0">    <a [routerLink]="\'/edit\'">      <button        id="kompletteraÄrende"        type="KompletteraÄrende"        class="btn btn-info  btn-round"        style="float: right; height: 3.5rem; max-width: calc(50vw - 30px)"      >        <span>Komplettera Ärende</span>      </button>    </a>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutMethodPopupComponent', 'selector': 'app-aut-method-popup'},{'name': 'CardCaseNumber', 'selector': 'app-card-case-number'},{'name': 'CardConfirmationComponent', 'selector': 'app-card-confirmation'},{'name': 'CardDefaultComponent', 'selector': 'app-card-default'},{'name': 'CardFormComponent', 'selector': 'app-card-form'},{'name': 'CardFormFetchCaseComponent', 'selector': 'app-card-form-fetch-case'},{'name': 'CardImageComponent', 'selector': 'app-card-image'},{'name': 'CardTableComponent', 'selector': 'app-card-table'},{'name': 'CardTmplComponent', 'selector': 'app-card-tmpl'},{'name': 'ConfirmationComponent', 'selector': 'app-confirmation'},{'name': 'ContentComponent', 'selector': 'app-content'},{'name': 'EditCaseComponent', 'selector': 'edit'},{'name': 'FetchcaseComponent', 'selector': 'app-fetchcase'},{'name': 'FooterComponent', 'selector': 'footer-cmp'},{'name': 'FrontpageComponent', 'selector': 'frontpage'},{'name': 'HeaderComponent', 'selector': 'header-cmp'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PopupComponent', 'selector': 'app-popup'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ConfirmationComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ConfirmationComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -17,7 +17,9 @@ import { Router } from "@angular/router";
 import { Location } from "@angular/common";
 import { CaseDataService } from "../../shared/case-data.service";
 
-/* Meta data for Header */
+/**
+ * This is the header component
+ */
 @Component({
   moduleId: module.id,
   selector: "header-cmp",
@@ -41,8 +43,6 @@ export class HeaderComponent implements OnInit {
 
   /**
    * Constructor to setup basic locaiton and element variables
-   * @input
-   * @output
    * @author Alexander Anserud <alean378@student.liu.se>
    */
   constructor(
@@ -67,12 +67,12 @@ export class HeaderComponent implements OnInit {
     this.toggleButton = navbar.getElementsByClassName("navbar-toggle")[0];
     this.router.events.subscribe(event => {});
   }
-  /* Get title of the page, default is for the  */
   /**
+   * Get title of the page
    * Used in the header to help the user see which page they are on
    * @version 1.0
    * @author Alexander Anserud <alean378@student.liu.se>
-   * @return The current title, default is Startsida
+   * @returns The current title, default is Startsida
    */
   getTitle() {
     var titlee = this.location.prepareExternalUrl(this.location.path());
@@ -90,10 +90,10 @@ export class HeaderComponent implements OnInit {
   /**
    * This method checks if the path clicked is the frontpage and if it is clears the user data.
    * The method also collapses the menu so that it is easier to see that the page has changed for the user.
-   * @param path The path that the link goes to.
+   * @param {string} path The path that the link goes to.
    */
   clearData(path: string) {
-    this.isCollapsed = true;
+    //this.isCollapsed = true;
 
     if (path == "/frontpage") {
       this.dataService.clearUserData();
@@ -106,7 +106,6 @@ export class HeaderComponent implements OnInit {
    * @version 1.0
    * @author Alexander Anserud <alean378@student.liu.se>
    */
-
   collapse() {
     this.isCollapsed = !this.isCollapsed;
     const navbar = document.getElementsByTagName("nav")[0];

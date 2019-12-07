@@ -3,6 +3,10 @@ import { CaseDataService } from '../../case-data.service';
 import { Case } from '../../../models/case';
 import { Lightbox } from 'ngx-lightbox';
 
+/**
+ * This card shows fields of 
+ * name, email and phone number 
+ */
 @Component({
   selector: 'app-card-default',
   templateUrl: './card-default.component.html',

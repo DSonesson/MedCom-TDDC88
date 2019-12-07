@@ -1,0 +1,24 @@
+<!-- Popup window -->
+<div style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: space-evenly;">
+    
+    <h4 mat-dialog-title style="text-align: center;">Välj autentiseringsmetod</h4>
+
+    <mat-dialog-actions>
+        <button mat-button mat-dialog-close [mat-dialog-close]="false" class="btn btn-info btn-round">Fortsätt med mobilt BankID</button>  
+    </mat-dialog-actions>
+
+    <h4 mat-dialog-title style="text-align: center;"></h4>  
+    <h4 mat-dialog-title style="text-align: center;">eller</h4>  
+
+    <div mat-dialog-content style="display: flex; flex-direction: column; align-items:center; justify-content:flex-start">
+        <p>Om du har fått ett lösenord från din kontaktperson, ange det nedan:</p>
+        <mat-form-field>
+            <input matInput [(ngModel)]="code">
+        </mat-form-field>
+    </div>
+
+    <mat-dialog-actions>
+        <button mat-button mat-dialog-close [mat-dialog-close]="code" class="btn btn-info btn-round" >Skicka kod</button>  
+    </mat-dialog-actions>
+
+</div>

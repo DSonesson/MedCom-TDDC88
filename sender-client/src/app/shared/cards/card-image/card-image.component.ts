@@ -23,11 +23,11 @@ import { PopupComponent } from "../popup/popup.component";
 })
 export class CardImageComponent implements OnInit {
   private _album: any = [];
-  // recieves from card-image if the form has valid values
+  /** recieves from card-image if the form has valid values */
   @Input() isValid: boolean;
 
   @Input() Message: String;
-  // communicates if images are uploaded or not
+  /** communicates if images are uploaded or not */
   @Output() imageUploaded = new EventEmitter<boolean>();
 
   /**
@@ -40,6 +40,9 @@ export class CardImageComponent implements OnInit {
    * Creates an instance of CaseDataService and a private instance of Lightbox
    * Sets imagepreview to an array
    * Loads images if there are any stored in the Case
+   * @param {CaseDataService} dataService 
+   * @param {Lightbox} _lightbox 
+   * @param {MatDialog} dialog 
    */
   constructor(
     public dataService: CaseDataService,
@@ -187,7 +190,6 @@ export class CardImageComponent implements OnInit {
    * This method is called when clicking on an image to show an enlarged version over the rest of the page.
    * @param {number} This is the index in the _album array where the image is stored. The variable is used so that the lightbox
    * knows which image to display.
-   *
    */
   enlargeImage(index: number): void {
     this._lightbox.open(this._album, index);

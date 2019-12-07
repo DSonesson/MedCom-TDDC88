@@ -88,7 +88,7 @@
       type="Skicka Ärende"
       class="btn btn-info btn-round px-0"
       style="display: block; width: 10rem; height: 3.5rem; float: right;"
-      (click)="startUpload()"
+      (click)="openMethodDialog()"
     >
       <div class="container">
         <div class="row">
@@ -106,6 +106,3 @@
     </button>
   </div>
 </div>
-<span id="loading" *ngIf="loadingAuth">
-  <div style="margin-top: 20px; display:block"></div>
-</span>
