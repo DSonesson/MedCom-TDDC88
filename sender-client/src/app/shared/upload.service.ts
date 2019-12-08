@@ -51,7 +51,7 @@ export class UploadService {
   }
 
   /**
-   * Fetches data from case and generates a YAML-file containing the data. Then the YAML-file
+   * Fetches data from case and generates a text-file containing the data. Then the text-file
    * together with the added images gets uploaded to FileCloud.
    * @param token 
    */
@@ -70,9 +70,9 @@ export class UploadService {
     const result1 = await this.httpService.createFolder(this.uploadFolder, token);
     console.log("Result from createFolder:" , result1)
 
-    this.httpService.postFile(this.txtFile, this.uploadFolder, token, this.caseNr);
+    this.httpService.postFile(this.txtFile, this.uploadFolder, token, this.caseNr + ".txt");
     for (var image of this.case.images) {
-      this.httpService.postFile(image.file, this.uploadFolder, token);
+      this.httpService.postFile(this.convertBlobToBinaryImage(image.base64), this.uploadFolder, token, image.name);
     }
 
     this.redirect("/confirmation");
@@ -82,9 +82,32 @@ export class UploadService {
   realUpload() {
 
   }
+  /**
+   * Converts the image to the correct format (binary) so that it can be opened
+   * @param base64 Base64 string version of the image
+   */
+    convertBlobToBinaryImage(base64: string): Blob {
+
+    var dataURI: string = base64;
+    var removeBase64 = dataURI.split(';base64,')[0];
+    var type = removeBase64.split(':')[1];
+    console.log(type);
+
+
+    var binary = dataURI.split(',')[1];
+    var array = [];
+  for (var i = 0; i < binary.length; i++) {
+     array.push(binary.charCodeAt(i));
+  }
+  var blobFile = new Blob([new Uint8Array(array)], {
+    type: type
+});
+return blobFile;
+}
 
   /**
-   * Generates a YAML-file containing the data that is stored to the case object.
+   * Generates a text-file containing the data that is stored to the case object.
+   * @param token
    */
   generateTXT() {
     var content = "Case number: " + this.caseNr + "\r\n"
@@ -96,10 +119,11 @@ export class UploadService {
 
 
   /**
-   * Generates a YAML-file containing the data that is 
+   * Generates a text-file containing the data that is 
    * stored to the case object and formatted in a specific way.
+   * @param token
    */
-  async generatePatientFormYML(token) {
+  async generatePatientFormTXT(token) {
     var content: string = "Patientformulär för case: " + this.caseNr + "\r\n" + "\r\n";
         for(let i=0; i<this.dataService.getCase().patientForm.length; i++){
           var yesNoString = "Svar: Ej ifyllt. ";
@@ -141,7 +165,7 @@ export class UploadService {
 
     const result3 = await this.httpService.userLogin(token);
     console.log("Result from login:", result3)
-    this.httpService.postFile(this.txtPatientForm, this.uploadFolder, token, "patientformular");
+    this.httpService.postFile(this.txtPatientForm, this.uploadFolder, token, "patientformular.txt");
     this.redirect("/confirmation");
   }
 

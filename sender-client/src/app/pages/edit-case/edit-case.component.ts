@@ -49,7 +49,7 @@ export class EditCaseComponent implements OnInit {
     this.authService.getAssistant().loginIfRequired().then( () => {
       this.ngZone.run( () => {
         console.log("Token in upload: ", this.authService.getAssistant().getAuthHeader())
-        this.uploadService.generatePatientFormYML(this.authService.getAssistant().getAuthHeader());
+        this.uploadService.generatePatientFormTXT(this.authService.getAssistant().getAuthHeader());
       })
     })
     this.clearData();

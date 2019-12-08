@@ -67,7 +67,7 @@ export class HttpService {
       'path': uploadPath,
       'offset':'0',
       'complete':'1',
-      'filename':fileName,
+      'filename': fileName,
       'appname':'explorer'
     }
 
