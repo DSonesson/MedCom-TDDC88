@@ -541,32 +541,50 @@ export class CardConfirmationComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;row&quot;&gt;
-    &lt;div class&#x3D;&quot;col-md-12&quot;&gt;
-        &lt;div class&#x3D;&quot;card&quot;&gt;
-            &lt;div class&#x3D;&quot;card-header&quot;&gt;
-                &lt;h5 class&#x3D;&quot;card-title&quot;&gt;{{title}}&lt;/h5&gt;
-                &lt;p class&#x3D;&quot;card-description&quot;&gt;{{description}}&lt;/p&gt;
-            &lt;/div&gt;
-            &lt;div class&#x3D;&quot;card-body&quot;&gt;
-                &lt;section&gt;
-                    &lt;div class&#x3D;&quot;col-md-12 px-1&quot;&gt;
-                            &lt;div class&#x3D;&quot;form-group editable card-form&quot;&gt;
-
-                                &lt;label style&#x3D;&quot;font-size: 20px&quot;&gt;Ärendenummer&lt;/label&gt;
-                                &lt;p name &#x3D;&quot;Ärendenummer&quot; id&#x3D;&quot;caseNr&quot;  style&#x3D;&quot;font-size: 30px&quot;&gt;{{ case.caseNr }}&lt;/p&gt;
-                                &lt;label style&#x3D;&quot;font-size: 20px&quot;&gt;Ärendestatus&lt;/label&gt;
-                                &lt;p name&#x3D;&quot;Ärendestatus&quot; style&#x3D;&quot;font-size: 20px&quot;&gt;Skickat&lt;/p&gt;
-                                
-                                &lt;h5 style&#x3D;&quot;font-weight: bold;&quot;&gt; {{ importantContent }}&lt;/h5&gt;
-                                &lt;p&gt;{{ content }}&lt;/p&gt;
-
-                                &lt;img src &#x3D; &quot;../../../assets/img/checkMark.png&quot; class&#x3D;&quot;center&quot;&gt;
-                            &lt;/div&gt;
-                    &lt;/div&gt;
-                &lt;/section&gt;
-            &lt;/div&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;row&quot; style&#x3D;&quot;margin-bottom: 50px&quot;&gt;
+  &lt;div class&#x3D;&quot;col-md-12&quot;&gt;
+    &lt;div class&#x3D;&quot;card&quot;&gt;
+      &lt;div class&#x3D;&quot;card-body&quot;&gt;
+        &lt;div class&#x3D;&quot;container&quot;&gt;
+          &lt;div class&#x3D;&quot;row justify-content-center pt-3&quot;&gt;
+            &lt;h3 class&#x3D;&quot;mb-0&quot;&gt;{{ title }}&lt;/h3&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;row justify-content-center&quot;&gt;
+            &lt;img
+              class&#x3D;&quot;my-3&quot;
+              src&#x3D;&quot;../../../../assets/img/ConfirmationSymbol.png&quot;
+            /&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;row&quot;&gt;
+            &lt;p class&#x3D;&quot;case-satus-description&quot;&gt;Ärendenummer:&lt;/p&gt;
+            &lt;span class&#x3D;&quot;case-status-text&quot; name&#x3D;&quot;Ärendenummer&quot; id&#x3D;&quot;caseNr&quot;&gt;
+              {{ case.caseNr }}&lt;/span
+            &gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;row&quot;&gt;
+            &lt;p class&#x3D;&quot;case-satus-description&quot;&gt;Ärendestatus:&lt;/p&gt;
+            &lt;span class&#x3D;&quot;case-status-text&quot;&gt; Skickat&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;hr class&#x3D;&quot;dashed-line&quot; /&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;container&quot;&gt;
+          &lt;div class&#x3D;&quot;row justify-content-center&quot;&gt;
+            &lt;p class&#x3D;&quot;alert-text&quot;&gt;
+              &lt;span class&#x3D;&quot;align-middle&quot;&gt;
+                &lt;i class&#x3D;&quot;nc-icon nc-alert-circle-i info-warning&quot;&gt;&lt;/i&gt;
+              &lt;/span&gt;
+              {{ importantContent }}
+            &lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;row&quot;&gt;
+            &lt;p class&#x3D;&quot;information-text&quot;&gt;
+              {{ description }}
+            &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
     </div>
@@ -576,9 +594,45 @@ export class CardConfirmationComponent implements OnInit {
                     <code>./card-confirmation.component.scss</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dashed-line {
+  border: none;
+  border-top: 1px dotted #20252a;
+  color: #fff;
+  background-color: #fff;
+  height: 1px;
+  width: 100%;
+}
+
+.case-satus-description {
+  font-size: 18px;
+  margin-bottom: 0;
+  margin-left: 15px;
+}
+.case-status-text {
+  font-size: 18px;
+  font-weight: 700;
+  margin-left: 10px;
+}
+.info-warning {
+  color: #ffbc03;
+  font-weight: bold;
+  font-size: 22px;
+  margin-right: 3px;
+}
+.alert-text {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.information-text {
+  margin: 0 15px 15px 15px;
+  text-align: center;
 }
 </code></pre>
     </div>
@@ -608,8 +662,8 @@ export class CardConfirmationComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="row">    <div class="col-md-12">        <div class="card">            <div class="card-header">                <h5 class="card-title">{{title}}</h5>                <p class="card-description">{{description}}</p>            </div>            <div class="card-body">                <section>                    <div class="col-md-12 px-1">                            <div class="form-group editable card-form">                                <label style="font-size: 20px">Ärendenummer</label>                                <p name ="Ärendenummer" id="caseNr"  style="font-size: 30px">{{ case.caseNr }}</p>                                <label style="font-size: 20px">Ärendestatus</label>                                <p name="Ärendestatus" style="font-size: 20px">Skickat</p>                                                                <h5 style="font-weight: bold;"> {{ importantContent }}</h5>                                <p>{{ content }}</p>                                <img src = "../../../assets/img/checkMark.png" class="center">                            </div>                    </div>                </section>            </div>    </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutMethodPopupComponent', 'selector': 'app-aut-method-popup'},{'name': 'CardCaseNumber', 'selector': 'app-card-case-number'},{'name': 'CardConfirmationComponent', 'selector': 'app-card-confirmation'},{'name': 'CardDefaultComponent', 'selector': 'app-card-default'},{'name': 'CardFormComponent', 'selector': 'app-card-form'},{'name': 'CardFormFetchCaseComponent', 'selector': 'app-card-form-fetch-case'},{'name': 'CardImageComponent', 'selector': 'app-card-image'},{'name': 'CardTableComponent', 'selector': 'app-card-table'},{'name': 'CardTmplComponent', 'selector': 'app-card-tmpl'},{'name': 'ConfirmationComponent', 'selector': 'app-confirmation'},{'name': 'ContentComponent', 'selector': 'app-content'},{'name': 'EditCaseComponent', 'selector': 'edit'},{'name': 'FetchcaseComponent', 'selector': 'app-fetchcase'},{'name': 'FooterComponent', 'selector': 'footer-cmp'},{'name': 'FrontpageComponent', 'selector': 'frontpage'},{'name': 'HeaderComponent', 'selector': 'header-cmp'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PopupComponent', 'selector': 'app-popup'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
+        var COMPONENT_TEMPLATE = '<div><div class="row" style="margin-bottom: 50px">  <div class="col-md-12">    <div class="card">      <div class="card-body">        <div class="container">          <div class="row justify-content-center pt-3">            <h3 class="mb-0">{{ title }}</h3>          </div>          <div class="row justify-content-center">            <img              class="my-3"              src="../../../../assets/img/ConfirmationSymbol.png"            />          </div>          <div class="row">            <p class="case-satus-description">Ärendenummer:</p>            <span class="case-status-text" name="Ärendenummer" id="caseNr">              {{ case.caseNr }}</span            >          </div>          <div class="row">            <p class="case-satus-description">Ärendestatus:</p>            <span class="case-status-text"> Skickat</span>          </div>          <hr class="dashed-line" />        </div>        <div class="container">          <div class="row justify-content-center">            <p class="alert-text">              <span class="align-middle">                <i class="nc-icon nc-alert-circle-i info-warning"></i>              </span>              {{ importantContent }}            </p>          </div>          <div class="row">            <p class="information-text">              {{ description }}            </p>          </div>        </div>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutMethodPopupComponent', 'selector': 'app-aut-method-popup'},{'name': 'CardCaseNumber', 'selector': 'app-card-case-number'},{'name': 'CardConfirmationComponent', 'selector': 'app-card-confirmation'},{'name': 'CardDefaultComponent', 'selector': 'app-card-default'},{'name': 'CardFormComponent', 'selector': 'app-card-form'},{'name': 'CardFormFetchCaseComponent', 'selector': 'app-card-form-fetch-case'},{'name': 'CardImageComponent', 'selector': 'app-card-image'},{'name': 'CardTableComponent', 'selector': 'app-card-table'},{'name': 'CardTmplComponent', 'selector': 'app-card-tmpl'},{'name': 'ConfirmationComponent', 'selector': 'app-confirmation'},{'name': 'ContentComponent', 'selector': 'app-content'},{'name': 'EditCaseComponent', 'selector': 'edit'},{'name': 'FetchcaseComponent', 'selector': 'app-fetchcase'},{'name': 'FooterComponent', 'selector': 'footer-cmp'},{'name': 'FrontpageComponent', 'selector': 'frontpage'},{'name': 'HeaderComponent', 'selector': 'header-cmp'},{'name': 'InformationComponent', 'selector': 'app-information'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PopupComponent', 'selector': 'app-popup'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'CardConfirmationComponent'};
 </script>

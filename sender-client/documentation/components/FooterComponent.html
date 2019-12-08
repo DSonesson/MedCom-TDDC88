@@ -221,23 +221,27 @@ export class FooterComponent{
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;!-- 3. Footer Start  --&gt;
 &lt;footer class&#x3D;&quot;footer&quot;&gt;
-    &lt;div class&#x3D;&quot;container-fluid&quot;&gt;
-         &lt;div class&#x3D;&quot;row&quot;&gt;
-     &lt;div class&#x3D;&quot;col-4&quot;&gt;
-                  &lt;object width&#x3D;&quot;100px;&quot; data&#x3D;&quot;assets/img/logotype_symbol.svg&quot; type&#x3D;&quot;image/svg+xml&quot;&gt;&lt;/object&gt;
-             
-             &lt;/div&gt;
- 
-             
-              
-        &lt;div class&#x3D;&quot;col-8&quot;&gt;
-                Brännskador är en webapplikation för svenska sjukvården att enkel men säkert skicka bilder för skundär expertbedömning. 
-             &lt;/div&gt;
-        &lt;/div&gt;
+  &lt;div class&#x3D;&quot;container-fluid&quot;&gt;
+    &lt;div class&#x3D;&quot;row&quot; style&#x3D;&quot;align-items: center&quot;&gt;
+      &lt;div
+        class&#x3D;&quot;col-3 pr-0&quot;
+        style&#x3D;&quot;display: flex; align-items: center; justify-content: center&quot;
+      &gt;
+        &lt;object
+          width&#x3D;&quot;70px;&quot;
+          data&#x3D;&quot;assets/img/logotype_symbol.svg&quot;
+          type&#x3D;&quot;image/svg+xml&quot;
+        &gt;&lt;/object&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;col-9&quot;&gt;
+        &lt;span class&#x3D;&quot;align-middle&quot;&gt;
+          Brännskador är en webapplikation för svenska sjukvården att enkelt men
+          säkert skicka bilder för skundär expertbedömning.
+        &lt;/span&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
+  &lt;/div&gt;
 &lt;/footer&gt;
-
-
 </code></pre>
     </div>
 
@@ -267,8 +271,8 @@ export class FooterComponent{
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!-- 3. Footer Start  --><footer class="footer">    <div class="container-fluid">         <div class="row">     <div class="col-4">                  <object width="100px;" data="assets/img/logotype_symbol.svg" type="image/svg+xml"></object>                          </div>                                    <div class="col-8">                Brännskador är en webapplikation för svenska sjukvården att enkel men säkert skicka bilder för skundär expertbedömning.              </div>        </div>    </div></footer></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutMethodPopupComponent', 'selector': 'app-aut-method-popup'},{'name': 'CardCaseNumber', 'selector': 'app-card-case-number'},{'name': 'CardConfirmationComponent', 'selector': 'app-card-confirmation'},{'name': 'CardDefaultComponent', 'selector': 'app-card-default'},{'name': 'CardFormComponent', 'selector': 'app-card-form'},{'name': 'CardFormFetchCaseComponent', 'selector': 'app-card-form-fetch-case'},{'name': 'CardImageComponent', 'selector': 'app-card-image'},{'name': 'CardTableComponent', 'selector': 'app-card-table'},{'name': 'CardTmplComponent', 'selector': 'app-card-tmpl'},{'name': 'ConfirmationComponent', 'selector': 'app-confirmation'},{'name': 'ContentComponent', 'selector': 'app-content'},{'name': 'EditCaseComponent', 'selector': 'edit'},{'name': 'FetchcaseComponent', 'selector': 'app-fetchcase'},{'name': 'FooterComponent', 'selector': 'footer-cmp'},{'name': 'FrontpageComponent', 'selector': 'frontpage'},{'name': 'HeaderComponent', 'selector': 'header-cmp'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PopupComponent', 'selector': 'app-popup'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
+        var COMPONENT_TEMPLATE = '<div><!-- 3. Footer Start  --><footer class="footer">  <div class="container-fluid">    <div class="row" style="align-items: center">      <div        class="col-3 pr-0"        style="display: flex; align-items: center; justify-content: center"      >        <object          width="70px;"          data="assets/img/logotype_symbol.svg"          type="image/svg+xml"        ></object>      </div>      <div class="col-9">        <span class="align-middle">          Brännskador är en webapplikation för svenska sjukvården att enkelt men          säkert skicka bilder för skundär expertbedömning.        </span>      </div>    </div>  </div></footer></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutMethodPopupComponent', 'selector': 'app-aut-method-popup'},{'name': 'CardCaseNumber', 'selector': 'app-card-case-number'},{'name': 'CardConfirmationComponent', 'selector': 'app-card-confirmation'},{'name': 'CardDefaultComponent', 'selector': 'app-card-default'},{'name': 'CardFormComponent', 'selector': 'app-card-form'},{'name': 'CardFormFetchCaseComponent', 'selector': 'app-card-form-fetch-case'},{'name': 'CardImageComponent', 'selector': 'app-card-image'},{'name': 'CardTableComponent', 'selector': 'app-card-table'},{'name': 'CardTmplComponent', 'selector': 'app-card-tmpl'},{'name': 'ConfirmationComponent', 'selector': 'app-confirmation'},{'name': 'ContentComponent', 'selector': 'app-content'},{'name': 'EditCaseComponent', 'selector': 'edit'},{'name': 'FetchcaseComponent', 'selector': 'app-fetchcase'},{'name': 'FooterComponent', 'selector': 'footer-cmp'},{'name': 'FrontpageComponent', 'selector': 'frontpage'},{'name': 'HeaderComponent', 'selector': 'header-cmp'},{'name': 'InformationComponent', 'selector': 'app-information'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PopupComponent', 'selector': 'app-popup'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'FooterComponent'};
 </script>

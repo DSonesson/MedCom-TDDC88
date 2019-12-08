@@ -623,26 +623,44 @@ export class EditCaseComponent implements OnInit {
 &lt;app-card-case-number editCase&#x3D;&quot;true&quot;&gt;&lt;/app-card-case-number&gt;
 &lt;app-card-table&gt;&lt;/app-card-table&gt;
 
-
-&lt;div class&#x3D;&quot;row&quot;&gt;
-    &lt;div class&#x3D;&quot;col-md-12&quot;&gt;
-      &lt;div class&#x3D;&quot;footer_buttons&quot;&gt;
-            &lt;div class&#x3D;&quot;row&quot;&gt;
-                &lt;div class&#x3D;&quot;col-md-12&quot; style&#x3D;&quot;text-align: center;&quot;&gt;
-                    &lt;a [routerLink]&#x3D;&quot;&#x27;/frontpage&#x27;&quot;&gt;
-                        &lt;button id&#x3D;&quot;skickaButton&quot; type&#x3D;&quot;Spara&quot; class&#x3D;&quot;btn btn-info  btn-round&quot; style&#x3D;&quot;display: inline-block&quot; (click)&#x3D;&quot;removeUserData()&quot;&gt;
-                            &lt;span&gt;Startsida&lt;/span&gt;
-                        &lt;/button&gt;
-                    &lt;/a&gt;
-                      &lt;button id&#x3D;&quot;skickaButton&quot; type&#x3D;&quot;Spara&quot; class&#x3D;&quot;btn btn-info  btn-round&quot; style&#x3D;&quot;display: inline-block&quot; (click)&#x3D;&quot;uploadPatientForm()&quot;&gt;
-                          &lt;span&gt;Spara ärende&lt;/span&gt;
-                      &lt;/button&gt;
-                &lt;/div&gt;
+&lt;div class&#x3D;&quot;row footer_buttons&quot;&gt;
+  &lt;div class&#x3D;&quot;col&quot; style&#x3D;&quot;text-align: center; float: left;&quot;&gt;
+    &lt;a [routerLink]&#x3D;&quot;&#x27;/frontpage&#x27;&quot;&gt;
+      &lt;button
+        id&#x3D;&quot;skickaButton&quot;
+        type&#x3D;&quot;Spara&quot;
+        class&#x3D;&quot;btn btn-info  btn-round&quot;
+        style&#x3D;&quot;display: inline-block; min-height: 56px&quot;
+        (click)&#x3D;&quot;removeUserData()&quot;
+      &gt;
+        &lt;div class&#x3D;&quot;container&quot;&gt;
+          &lt;div class&#x3D;&quot;row&quot;&gt;
+            &lt;div class&#x3D;&quot;col-2&quot; style&#x3D;&quot;padding: 0 0 0 0&quot;&gt;
+              &lt;i
+                class&#x3D;&quot;nc-icon nc-minimal-left bold&quot;
+                style&#x3D;&quot;font-size: 20px&quot;
+              &gt;&lt;/i&gt;
             &lt;/div&gt;
+            &lt;div class&#x3D;&quot;col-10&quot; style&#x3D;&quot;padding: 3px 0 0 0&quot;&gt;
+              &lt;span class&#x3D;&quot;pl-1 pr-0&quot;&gt;Startsida&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
         &lt;/div&gt;
-    &lt;/div&gt;
+      &lt;/button&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;col&quot;&gt;
+    &lt;button
+      id&#x3D;&quot;skickaButton&quot;
+      type&#x3D;&quot;Spara&quot;
+      class&#x3D;&quot;btn btn-info  btn-round&quot;
+      style&#x3D;&quot;display: inline-block&quot;
+      (click)&#x3D;&quot;uploadPatientForm()&quot;
+    &gt;
+      &lt;span class&#x3D;&quot;p-0&quot;&gt;Spara ändringar&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
-
 </code></pre>
     </div>
 
@@ -678,8 +696,8 @@ export class EditCaseComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!-- * Edit-case page * @version 1.0 * @author Albin Lindén <albli248@student.liu.se> * @author Henrik Johansson <henjo114@student.liu.se>--><app-page-header [pageHeader]="pageHeader"></app-page-header><app-card-case-number editCase="true"></app-card-case-number><app-card-table></app-card-table><div class="row">    <div class="col-md-12">      <div class="footer_buttons">            <div class="row">                <div class="col-md-12" style="text-align: center;">                    <a [routerLink]="\'/frontpage\'">                        <button id="skickaButton" type="Spara" class="btn btn-info  btn-round" style="display: inline-block" (click)="removeUserData()">                            <span>Startsida</span>                        </button>                    </a>                      <button id="skickaButton" type="Spara" class="btn btn-info  btn-round" style="display: inline-block" (click)="uploadPatientForm()">                          <span>Spara ärende</span>                      </button>                </div>            </div>        </div>    </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutMethodPopupComponent', 'selector': 'app-aut-method-popup'},{'name': 'CardCaseNumber', 'selector': 'app-card-case-number'},{'name': 'CardConfirmationComponent', 'selector': 'app-card-confirmation'},{'name': 'CardDefaultComponent', 'selector': 'app-card-default'},{'name': 'CardFormComponent', 'selector': 'app-card-form'},{'name': 'CardFormFetchCaseComponent', 'selector': 'app-card-form-fetch-case'},{'name': 'CardImageComponent', 'selector': 'app-card-image'},{'name': 'CardTableComponent', 'selector': 'app-card-table'},{'name': 'CardTmplComponent', 'selector': 'app-card-tmpl'},{'name': 'ConfirmationComponent', 'selector': 'app-confirmation'},{'name': 'ContentComponent', 'selector': 'app-content'},{'name': 'EditCaseComponent', 'selector': 'edit'},{'name': 'FetchcaseComponent', 'selector': 'app-fetchcase'},{'name': 'FooterComponent', 'selector': 'footer-cmp'},{'name': 'FrontpageComponent', 'selector': 'frontpage'},{'name': 'HeaderComponent', 'selector': 'header-cmp'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PopupComponent', 'selector': 'app-popup'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
+        var COMPONENT_TEMPLATE = '<div><!-- * Edit-case page * @version 1.0 * @author Albin Lindén <albli248@student.liu.se> * @author Henrik Johansson <henjo114@student.liu.se>--><app-page-header [pageHeader]="pageHeader"></app-page-header><app-card-case-number editCase="true"></app-card-case-number><app-card-table></app-card-table><div class="row footer_buttons">  <div class="col" style="text-align: center; float: left;">    <a [routerLink]="\'/frontpage\'">      <button        id="skickaButton"        type="Spara"        class="btn btn-info  btn-round"        style="display: inline-block; min-height: 56px"        (click)="removeUserData()"      >        <div class="container">          <div class="row">            <div class="col-2" style="padding: 0 0 0 0">              <i                class="nc-icon nc-minimal-left bold"                style="font-size: 20px"              ></i>            </div>            <div class="col-10" style="padding: 3px 0 0 0">              <span class="pl-1 pr-0">Startsida</span>            </div>          </div>        </div>      </button>    </a>  </div>  <div class="col">    <button      id="skickaButton"      type="Spara"      class="btn btn-info  btn-round"      style="display: inline-block"      (click)="uploadPatientForm()"    >      <span class="p-0">Spara ändringar</span>    </button>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutMethodPopupComponent', 'selector': 'app-aut-method-popup'},{'name': 'CardCaseNumber', 'selector': 'app-card-case-number'},{'name': 'CardConfirmationComponent', 'selector': 'app-card-confirmation'},{'name': 'CardDefaultComponent', 'selector': 'app-card-default'},{'name': 'CardFormComponent', 'selector': 'app-card-form'},{'name': 'CardFormFetchCaseComponent', 'selector': 'app-card-form-fetch-case'},{'name': 'CardImageComponent', 'selector': 'app-card-image'},{'name': 'CardTableComponent', 'selector': 'app-card-table'},{'name': 'CardTmplComponent', 'selector': 'app-card-tmpl'},{'name': 'ConfirmationComponent', 'selector': 'app-confirmation'},{'name': 'ContentComponent', 'selector': 'app-content'},{'name': 'EditCaseComponent', 'selector': 'edit'},{'name': 'FetchcaseComponent', 'selector': 'app-fetchcase'},{'name': 'FooterComponent', 'selector': 'footer-cmp'},{'name': 'FrontpageComponent', 'selector': 'frontpage'},{'name': 'HeaderComponent', 'selector': 'header-cmp'},{'name': 'InformationComponent', 'selector': 'app-information'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PopupComponent', 'selector': 'app-popup'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'EditCaseComponent'};
 </script>

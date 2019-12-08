@@ -900,40 +900,39 @@ setDisplayForm() {
  * @author Oscar Baart &lt;oscba989@student.liu.se&gt;
 --&gt;
 &lt;div class&#x3D;&quot;row&quot;&gt;
-    &lt;div class&#x3D;&quot;col-md-12&quot;&gt;
-        &lt;div class&#x3D;&quot;card&quot;&gt;
-            &lt;div class&#x3D;&quot;card-header&quot;&gt;
-                &lt;h5 class&#x3D;&quot;card-title&quot;&gt;{{title}}&lt;/h5&gt;
-                &lt;p class&#x3D;&quot;card-description&quot;&gt;{{description}}&lt;/p&gt;
-             &lt;div&gt; &lt;mat-icon class&#x3D;&quot;edit-button&quot; (click)&#x3D;&quot;setDisplayForm()&quot;svgIcon&#x3D;&quot;edit&quot;&gt;&lt;/mat-icon&gt; &lt;/div&gt;
+  &lt;div class&#x3D;&quot;col-md-12&quot;&gt;
+    &lt;div class&#x3D;&quot;card&quot;&gt;
+      &lt;div class&#x3D;&quot;card-header&quot;&gt;
+        &lt;h5 class&#x3D;&quot;card-title&quot;&gt;{{ title }}&lt;/h5&gt;
+        &lt;p class&#x3D;&quot;card-description&quot;&gt;{{ description }}&lt;/p&gt;
+      &lt;/div&gt;
 
+      &lt;div class&#x3D;&quot;card-body&quot;&gt;
+        &lt;section&gt;
+          &lt;div class&#x3D;&quot;col-md-12 px-1&quot;&gt;
+            &lt;div class&#x3D;&quot;form-group editable card-form&quot;&gt;
+              &lt;label&gt;Namn&lt;/label&gt;
+              &lt;p name&#x3D;&quot;Namn&quot; id&#x3D;&quot;namn&quot;&gt;{{ case.user.name }}&lt;/p&gt;
+              &lt;label&gt;Email&lt;/label&gt;
+              &lt;p name&#x3D;&quot;Email&quot; id&#x3D;&quot;email&quot;&gt;{{ case.user.email }}&lt;/p&gt;
+              &lt;label&gt;Telefon&lt;/label&gt;
+              &lt;p name&#x3D;&quot;Telefon&quot; id&#x3D;&quot;telefon&quot;&gt;{{ case.user.phone }}&lt;/p&gt;
             &lt;/div&gt;
-
-
-            &lt;div class&#x3D;&quot;card-body&quot;&gt;
-                &lt;section&gt;
-                    &lt;div class&#x3D;&quot;col-md-12 px-1&quot;&gt;
-
-                        &lt;div class&#x3D;&quot;form-group editable card-form&quot;&gt;
-                            &lt;label&gt;Namn&lt;/label&gt;
-                            &lt;p name &#x3D;&quot;Namn&quot; id&#x3D;&quot;namn&quot;&gt;{{case.user.name}}&lt;/p&gt;
-                            &lt;label&gt;Email&lt;/label&gt;
-                            &lt;p name&#x3D;&quot;Email&quot; id&#x3D;&quot;email&quot;&gt;{{case.user.email}}&lt;/p&gt;
-                            &lt;label&gt;Telefon&lt;/label&gt;
-                            &lt;p name&#x3D;&quot;Telefon&quot; id&#x3D;&quot;telefon&quot;&gt;{{case.user.phone}}&lt;/p&gt;
-                        &lt;/div&gt;
-
-
-
-                    &lt;/div&gt;
-                &lt;/section&gt;
-
-            &lt;/div&gt;
-
-
-
-        &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/section&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;card-footer update ml-auto mr-auto btn-on-card&quot;&gt;
+        &lt;button
+          type&#x3D;&quot;submit&quot;
+          class&#x3D;&quot;btn btn-info btn-round&quot;
+          (click)&#x3D;&quot;setDisplayForm()&quot;
+        &gt;
+          &lt;i class&#x3D;&quot;nc-icon circle-icon nc-ruler-pencil&quot;&gt;&lt;/i&gt;
+          &lt;span [hidden]&#x3D;&quot;saveButton1&quot;&gt;Redigera&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
     </div>
@@ -1021,8 +1020,8 @@ cursor: pointer;
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!-- * Card Form View File, displays the summary of the given informations * @version 1.0 * @author Oscar Baart <oscba989@student.liu.se>--><div class="row">    <div class="col-md-12">        <div class="card">            <div class="card-header">                <h5 class="card-title">{{title}}</h5>                <p class="card-description">{{description}}</p>             <div> <mat-icon class="edit-button" (click)="setDisplayForm()"svgIcon="edit"></mat-icon> </div>            </div>            <div class="card-body">                <section>                    <div class="col-md-12 px-1">                        <div class="form-group editable card-form">                            <label>Namn</label>                            <p name ="Namn" id="namn">{{case.user.name}}</p>                            <label>Email</label>                            <p name="Email" id="email">{{case.user.email}}</p>                            <label>Telefon</label>                            <p name="Telefon" id="telefon">{{case.user.phone}}</p>                        </div>                    </div>                </section>            </div>        </div>    </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutMethodPopupComponent', 'selector': 'app-aut-method-popup'},{'name': 'CardCaseNumber', 'selector': 'app-card-case-number'},{'name': 'CardConfirmationComponent', 'selector': 'app-card-confirmation'},{'name': 'CardDefaultComponent', 'selector': 'app-card-default'},{'name': 'CardFormComponent', 'selector': 'app-card-form'},{'name': 'CardFormFetchCaseComponent', 'selector': 'app-card-form-fetch-case'},{'name': 'CardImageComponent', 'selector': 'app-card-image'},{'name': 'CardTableComponent', 'selector': 'app-card-table'},{'name': 'CardTmplComponent', 'selector': 'app-card-tmpl'},{'name': 'ConfirmationComponent', 'selector': 'app-confirmation'},{'name': 'ContentComponent', 'selector': 'app-content'},{'name': 'EditCaseComponent', 'selector': 'edit'},{'name': 'FetchcaseComponent', 'selector': 'app-fetchcase'},{'name': 'FooterComponent', 'selector': 'footer-cmp'},{'name': 'FrontpageComponent', 'selector': 'frontpage'},{'name': 'HeaderComponent', 'selector': 'header-cmp'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PopupComponent', 'selector': 'app-popup'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
+        var COMPONENT_TEMPLATE = '<div><!-- * Card Form View File, displays the summary of the given informations * @version 1.0 * @author Oscar Baart <oscba989@student.liu.se>--><div class="row">  <div class="col-md-12">    <div class="card">      <div class="card-header">        <h5 class="card-title">{{ title }}</h5>        <p class="card-description">{{ description }}</p>      </div>      <div class="card-body">        <section>          <div class="col-md-12 px-1">            <div class="form-group editable card-form">              <label>Namn</label>              <p name="Namn" id="namn">{{ case.user.name }}</p>              <label>Email</label>              <p name="Email" id="email">{{ case.user.email }}</p>              <label>Telefon</label>              <p name="Telefon" id="telefon">{{ case.user.phone }}</p>            </div>          </div>        </section>      </div>      <div class="card-footer update ml-auto mr-auto btn-on-card">        <button          type="submit"          class="btn btn-info btn-round"          (click)="setDisplayForm()"        >          <i class="nc-icon circle-icon nc-ruler-pencil"></i>          <span [hidden]="saveButton1">Redigera</span>        </button>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutMethodPopupComponent', 'selector': 'app-aut-method-popup'},{'name': 'CardCaseNumber', 'selector': 'app-card-case-number'},{'name': 'CardConfirmationComponent', 'selector': 'app-card-confirmation'},{'name': 'CardDefaultComponent', 'selector': 'app-card-default'},{'name': 'CardFormComponent', 'selector': 'app-card-form'},{'name': 'CardFormFetchCaseComponent', 'selector': 'app-card-form-fetch-case'},{'name': 'CardImageComponent', 'selector': 'app-card-image'},{'name': 'CardTableComponent', 'selector': 'app-card-table'},{'name': 'CardTmplComponent', 'selector': 'app-card-tmpl'},{'name': 'ConfirmationComponent', 'selector': 'app-confirmation'},{'name': 'ContentComponent', 'selector': 'app-content'},{'name': 'EditCaseComponent', 'selector': 'edit'},{'name': 'FetchcaseComponent', 'selector': 'app-fetchcase'},{'name': 'FooterComponent', 'selector': 'footer-cmp'},{'name': 'FrontpageComponent', 'selector': 'frontpage'},{'name': 'HeaderComponent', 'selector': 'header-cmp'},{'name': 'InformationComponent', 'selector': 'app-information'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PopupComponent', 'selector': 'app-popup'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'CardDefaultComponent'};
 </script>
