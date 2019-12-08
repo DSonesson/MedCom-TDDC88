@@ -1,17 +1,27 @@
-.testing {
-  color: red;
-  font-size: 35px;
+.dashed-line {
+  border: none;
+  border-top: 1px dotted #20252a;
+  color: #fff;
+  background-color: #fff;
+  height: 1px;
+  width: 70%;
+  margin-bottom: -30px;
+  margin-top: 35px;
 }
 
-.text-body {
+.textBody {
   width: 60%;
 }
 
-.text-page {
+.textPage {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.top-page-section {
+  margin-top: -23px;
 }
 
 .page-section {
@@ -25,7 +35,73 @@
 }
 
 .info-page-header {
-  font-size: 1.7em;
   text-align: center;
   margin-bottom: 15px;
+  font-size: 1.7em;
+}
+
+.info-page-sub-header {
+  font-weight: bold;
+  hyphens: auto;
+}
+.illustration-row {
+  margin: 25px 0px;
+}
+
+.step-h5 {
+  margin-bottom: 3px;
+}
+
+.illustration-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.illustration-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  font-size: 60px;
+  color: whitesmoke;
+  line-height: 120px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.col-5,
+.col-7 {
+  padding: 0;
+}
+
+.lightning-image {
+  width: 30vw;
+}
+
+.lightning-container {
+  background-size: 120px;
+  background-repeat: no-repeat;
+  padding: 40px 30px 0px 30px;
+  min-height: 120px;
+  background-image: url("../../../assets/img/LightningEdited.png");
+}
+
+.lock-container {
+  background-size: 150px;
+  background-repeat: no-repeat;
+  background-position: right top;
+  padding: 40px 30px 0 30px;
+  min-height: 150px;
+  background-image: url("../../../assets/img/LockEdited.png");
+}
+
+.profile-container {
+  background-size: 320px;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 320px;
+  margin-top: 50px;
+  padding-top: 200px;
+  color: white;
+  background-image: url("../../../assets/img/ProfileEdited.png");
 }
