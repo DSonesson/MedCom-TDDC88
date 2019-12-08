@@ -1,3 +1,8 @@
+.info-page-wrapper {
+  max-width: 500px;
+  margin: auto;
+}
+
 .dashed-line {
   border: none;
   border-top: 1px dotted #20252a;
@@ -81,18 +86,20 @@
 .lightning-container {
   background-size: 120px;
   background-repeat: no-repeat;
-  padding: 40px 30px 0px 30px;
+  padding: 40px 30px 20px 30px;
   min-height: 120px;
   background-image: url("../../../assets/img/LightningEdited.png");
+  max-width: 450px;
 }
 
 .lock-container {
   background-size: 150px;
   background-repeat: no-repeat;
   background-position: right top;
-  padding: 40px 30px 0 30px;
+  padding: 40px 30px 0px 30px;
   min-height: 150px;
   background-image: url("../../../assets/img/LockEdited.png");
+  max-width: 450px;
 }
 
 .profile-container {
@@ -104,4 +111,5 @@
   padding-top: 200px;
   color: white;
   background-image: url("../../../assets/img/ProfileEdited.png");
+  max-width: 450px;
 }
