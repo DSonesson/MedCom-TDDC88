@@ -4,38 +4,37 @@
  * @author Oscar Baart <oscba989@student.liu.se>
 -->
 <div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="card-title">{{title}}</h5>
-                <p class="card-description">{{description}}</p>
-             <div> <mat-icon class="edit-button" (click)="setDisplayForm()"svgIcon="edit"></mat-icon> </div>
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">{{ title }}</h5>
+        <p class="card-description">{{ description }}</p>
+      </div>
 
+      <div class="card-body">
+        <section>
+          <div class="col-md-12 px-1">
+            <div class="form-group editable card-form">
+              <label>Namn</label>
+              <p name="Namn" id="namn">{{ case.user.name }}</p>
+              <label>Email</label>
+              <p name="Email" id="email">{{ case.user.email }}</p>
+              <label>Telefon</label>
+              <p name="Telefon" id="telefon">{{ case.user.phone }}</p>
             </div>
-
-
-            <div class="card-body">
-                <section>
-                    <div class="col-md-12 px-1">
-
-                        <div class="form-group editable card-form">
-                            <label>Namn</label>
-                            <p name ="Namn" id="namn">{{case.user.name}}</p>
-                            <label>Email</label>
-                            <p name="Email" id="email">{{case.user.email}}</p>
-                            <label>Telefon</label>
-                            <p name="Telefon" id="telefon">{{case.user.phone}}</p>
-                        </div>
-
-
-
-                    </div>
-                </section>
-
-            </div>
-
-
-
-        </div>
+          </div>
+        </section>
+      </div>
+      <div class="card-footer update ml-auto mr-auto btn-on-card">
+        <button
+          type="submit"
+          class="btn btn-info btn-round"
+          (click)="setDisplayForm()"
+        >
+          <i class="nc-icon circle-icon nc-ruler-pencil"></i>
+          <span [hidden]="saveButton1">Redigera</span>
+        </button>
+      </div>
     </div>
+  </div>
 </div>

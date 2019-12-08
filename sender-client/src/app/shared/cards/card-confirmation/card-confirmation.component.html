@@ -1,27 +1,45 @@
-<div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="card-title">{{title}}</h5>
-                <p class="card-description">{{description}}</p>
-            </div>
-            <div class="card-body">
-                <section>
-                    <div class="col-md-12 px-1">
-                            <div class="form-group editable card-form">
-
-                                <label style="font-size: 20px">Ärendenummer</label>
-                                <p name ="Ärendenummer" id="caseNr"  style="font-size: 30px">{{ case.caseNr }}</p>
-                                <label style="font-size: 20px">Ärendestatus</label>
-                                <p name="Ärendestatus" style="font-size: 20px">Skickat</p>
-                                
-                                <h5 style="font-weight: bold;"> {{ importantContent }}</h5>
-                                <p>{{ content }}</p>
-
-                                <img src = "../../../assets/img/checkMark.png" class="center">
-                            </div>
-                    </div>
-                </section>
-            </div>
+<div class="row" style="margin-bottom: 50px">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="container">
+          <div class="row justify-content-center pt-3">
+            <h3 class="mb-0">{{ title }}</h3>
+          </div>
+          <div class="row justify-content-center">
+            <img
+              class="my-3"
+              src="../../../../assets/img/ConfirmationSymbol.png"
+            />
+          </div>
+          <div class="row">
+            <p class="case-satus-description">Ärendenummer:</p>
+            <span class="case-status-text" name="Ärendenummer" id="caseNr">
+              {{ case.caseNr }}</span
+            >
+          </div>
+          <div class="row">
+            <p class="case-satus-description">Ärendestatus:</p>
+            <span class="case-status-text"> Skickat</span>
+          </div>
+          <hr class="dashed-line" />
+        </div>
+        <div class="container">
+          <div class="row justify-content-center">
+            <p class="alert-text">
+              <span class="align-middle">
+                <i class="nc-icon nc-alert-circle-i info-warning"></i>
+              </span>
+              {{ importantContent }}
+            </p>
+          </div>
+          <div class="row">
+            <p class="information-text">
+              {{ description }}
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
