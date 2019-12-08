@@ -2,3 +2,30 @@
   color: red;
   font-size: 35px;
 }
+
+.text-body {
+  width: 60%;
+}
+
+.text-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-section {
+  margin: 70px 0px 0px 0px;
+  height: 100%;
+}
+
+.header-section {
+  padding: 0px 6vw 0px 6vw;
+  text-align: justify;
+}
+
+.info-page-header {
+  font-size: 1.7em;
+  text-align: center;
+  margin-bottom: 15px;
+}
