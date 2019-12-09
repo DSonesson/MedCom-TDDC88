@@ -155,16 +155,10 @@ export class HttpService {
   }
 
   async getToken() : Promise<string> {
-    const req = '/api1/auth/token';
-      const headers = new HttpHeaders({
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Accept': 'application/json',
-        'Response-Type': 'text',
-        'Access-Control-Allow-Origin': '*'
-      });
+      const req = '/api1/auth/token';
 
       const rsp = await this.http.get<TokenJson>(req).toPromise<TokenJson>()
-      
+      console.log(rsp);
       return rsp.accessToken;
   }
 

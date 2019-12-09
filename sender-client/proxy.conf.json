@@ -1,6 +1,6 @@
 {
   "/api1/*": {
-    "target": "company-3-1-tddc88-2019.edu.liu.se:8080",
+    "target": "http://company-3-1-tddc88-2019.edu.liu.se:8080",
     "protocol": "http:",
     "secure": false,
     "pathRewrite": {"^/api1" : ""},
