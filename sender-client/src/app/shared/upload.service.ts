@@ -72,7 +72,9 @@ export class UploadService {
 
     this.httpService.postFile(this.txtFile, this.uploadFolder, token, this.caseNr + ".txt");
     for (var image of this.case.images) {
-      this.httpService.postFile(this.convertBlobToBinaryImage(image.base64), this.uploadFolder, token, image.name);
+      var blobImage = this.prepareBase64ForConversion(image.base64);
+      this.httpService.postFile(blobImage, this.uploadFolder, token, image.name);
+      console.log("Image. Size: " + blobImage.size + " Type: " + blobImage.type);
     }
 
     this.redirect("/confirmation");
@@ -83,26 +85,54 @@ export class UploadService {
 
   }
   /**
-   * Converts the image to the correct format (binary) so that it can be opened
+   * Gets the image type and prepares the base64 string to convert to a Blob image type
    * @param base64 Base64 string version of the image
    */
-    convertBlobToBinaryImage(base64: string): Blob {
+    prepareBase64ForConversion(base64: string): Blob {
 
     var dataURI: string = base64;
     var removeBase64 = dataURI.split(';base64,')[0];
     var type = removeBase64.split(':')[1];
     console.log(type);
 
+    var b64Data = dataURI.split(',')[1];
+    //Always send 512 as the third parameter
+    return this.base64toBlob(b64Data, type, 512);
+    }
 
-    var binary = dataURI.split(',')[1];
-    var array = [];
-  for (var i = 0; i < binary.length; i++) {
-     array.push(binary.charCodeAt(i));
-  }
-  var blobFile = new Blob([new Uint8Array(array)], {
-    type: type
-});
-return blobFile;
+  /**
+   * Converts a prepared base64 string to an image
+   * @param b64Data Image data
+   * @param contentType What type of image is being uploaded
+   * @param sliceSize
+   */
+    base64toBlob(b64Data, contentType, sliceSize): Blob {
+    contentType = contentType || '';
+    sliceSize = sliceSize || 512;
+
+    var byteCharacters = atob(b64Data);
+    var byteArrays = [];
+
+    for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+        var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+        var byteNumbers = new Array(slice.length);
+        for (var i = 0; i < slice.length; i++) {
+            byteNumbers[i] = slice.charCodeAt(i);
+        }
+
+        var byteArray = new Uint8Array(byteNumbers);
+
+        byteArrays.push(byteArray);
+    }
+
+  var blob = new Blob(byteArrays, {type: contentType});
+  
+  //Code below is for testing that the images are not corrupt after converting from base64 to Blob
+  const url= window.URL.createObjectURL(blob);
+  window.open(url);
+
+  return blob;
 }
 
   /**
