@@ -149,6 +149,7 @@ export class CardImageComponent implements OnInit {
     reader.onload = () => {
       this.imagePreview[this.imageCounter] = reader.result;
       this.src = reader.result;
+      this.dataService.getCase().images[this.imageCounter].base64 = this.src;
       const album = {
         src: this.src
       };
@@ -158,7 +159,6 @@ export class CardImageComponent implements OnInit {
     reader.readAsDataURL(
       this.dataService.getCase().images[this.imageCounter].file
     );
-
     this.imagejustRemoved = false;
   }
 
