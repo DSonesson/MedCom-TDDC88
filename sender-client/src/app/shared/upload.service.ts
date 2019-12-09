@@ -128,9 +128,10 @@ export class UploadService {
 
   var blob = new Blob(byteArrays, {type: contentType});
   
-  //Code below is for testing that the images are not corrupt after converting from base64 to Blob
-  const url= window.URL.createObjectURL(blob);
-  window.open(url);
+  //Code below is for testing that the images are not corrupt after converting from base64 to Blob, opens images in new tab after conversion
+  //It should be commented out in the live version
+  //const url= window.URL.createObjectURL(blob);
+  //window.open(url);
 
   return blob;
 }
