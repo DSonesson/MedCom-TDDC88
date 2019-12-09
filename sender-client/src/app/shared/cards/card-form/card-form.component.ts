@@ -22,6 +22,10 @@ import {
 } from "@angular/forms";
 import { HttpService } from "app/shared/http.service";
 
+/**
+ * This card lets the user edit fields of 
+ * name, email and phone number 
+ */
 @Component({
   selector: "app-card-form",
   templateUrl: "./card-form.component.html",
@@ -65,6 +69,10 @@ export class CardFormComponent implements OnInit {
   @Input("title") title: String;
   @Input("description") description: String;
 
+  /**
+   * @param {CaseDataService} dataService 
+   * @param {HttpService} httpService 
+   */
   constructor(
     public dataService: CaseDataService,
     public httpService: HttpService

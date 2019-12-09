@@ -43,6 +43,7 @@
     </div>
   </div>
 </div>
+
 <app-card-confirmation
   [title]="formTitle"
   [description]="formDescription"
@@ -56,11 +57,23 @@
       <button
         id="startsida"
         type="Startsida"
-        class="btn btn-info  btn-round"
+        class="btn btn-info btn-round px-0"
         style="float: left; height: 3.5rem; max-width: calc(50vw - 30px)"
         (click)="clearData()"
       >
-        <span>Startsida</span>
+        <div class="container">
+          <div class="row">
+            <div class="col-3" style="padding: 5px 0 0 10px">
+              <i
+                class="nc-icon nc-minimal-left bold"
+                style="font-size: 20px"
+              ></i>
+            </div>
+            <div class="col-9" style="padding: 6px 20px 0px 5px">
+              <span class="p-0" style="font-size: 14px">Startsida</span>
+            </div>
+          </div>
+        </div>
       </button>
     </a>
   </div>
@@ -70,10 +83,24 @@
       <button
         id="kompletteraÄrende"
         type="KompletteraÄrende"
-        class="btn btn-info  btn-round"
+        class="btn btn-info btn-round px-0"
         style="float: right; height: 3.5rem; max-width: calc(50vw - 30px)"
       >
-        <span>Komplettera Ärende</span>
+        <div class="container">
+          <div class="row">
+            <div class="col-9" style="padding: 0 0 0 10px">
+              <span class="p-0" style="font-size: 14px"
+                >Komplettera Ärende</span
+              >
+            </div>
+            <div class="col-3" style="padding: 6px 10px 0 5px">
+              <i
+                class="nc-icon nc-minimal-right bold"
+                style="font-size: 20px"
+              ></i>
+            </div>
+          </div>
+        </div>
       </button>
     </a>
   </div>

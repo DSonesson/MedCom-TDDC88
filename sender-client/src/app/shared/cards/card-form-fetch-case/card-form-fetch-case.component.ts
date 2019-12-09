@@ -20,6 +20,9 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, Validators, FormGroup, ValidatorFn, AbstractControl } from '@angular/forms';
 
+/**
+ * This card lets the user search for a case
+ */
 @Component({
   selector: 'app-card-form-fetch-case',
   templateUrl: './card-form-fetch-case.component.html',
@@ -49,15 +52,6 @@ export class CardFormFetchCaseComponent implements OnInit {
     ngOnInit() {
     };
 
-    /**
-   * Checks if entered case number exists with help of dosearch.
-   * If so set sets case number to the entered case number and call redirect.
-   * Else gives alert that case doesn't exist.
-   * @param enteredCaseNr Case number the user enters.
-   * @param caseNummber Case number of this case
-   *
-   * @returns Nothing is returned.
-   */
     async setCaseNr() {
       this.fetchEvent.next(true);
       this.authService.getAssistant().loginIfRequired().then( () => {
@@ -67,6 +61,11 @@ export class CardFormFetchCaseComponent implements OnInit {
         })
     }
 
+  /**
+   * Checks if entered case number exists with help of dosearch.
+   * If so set sets case number to the entered case number and call redirect.
+   * Else gives alert that case doesn't exist.
+   */
     async search() {
       if(await this.httpService.doSearch(this.enteredCaseNr, this.authService.getAssistant().getAuthHeader()) == true) {
           console.log("Valid Casenum");
@@ -82,6 +81,7 @@ export class CardFormFetchCaseComponent implements OnInit {
         return result;
     }
 
+    /** Change route to edit component */
     redirect() {
         this.router.navigate(['/edit']);
     }

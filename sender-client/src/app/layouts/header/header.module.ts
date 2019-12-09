@@ -11,7 +11,10 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header.component';
 
-/* Module metadata  */
+/**
+ * This is the header component
+ * of the application.
+ */
 @NgModule({
     imports: [ RouterModule, CommonModule, NgbModule ],
     declarations: [ HeaderComponent ],

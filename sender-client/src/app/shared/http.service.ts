@@ -54,8 +54,6 @@ export class HttpService {
    * Upload a file to the specific path in FileCloud server.
    * @param fileToUpload The file that needs to be uploaded.
    * @param uploadPath The path where to upload the file in FileCloud server.
-   *
-   * @returns Nothing is returned.
    */
   postFile(fileToUpload: Blob, uploadFolder: string, token, fileName: string = "file") {
 
@@ -89,10 +87,7 @@ export class HttpService {
   /**
    * Create a folder named as the case number in FileCloud server.
    * @param caseNumber A case number which is the name of the folder to be created.
-   *
-   * @returns Nothing is returned.
    */
-
   createFolder(caseNumber: string, token):Promise<string> {
     console.log("Staring create folder.", token)
     const req = this.url + '/createfolder'

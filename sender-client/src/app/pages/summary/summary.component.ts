@@ -14,6 +14,7 @@ import { PopupComponent } from "app/shared/cards/popup/popup.component";
 import { CaseDataService } from "app/shared/case-data.service";
 import { AuthAssistantService } from "app/shared/auth-assistant.service";
 import { Router } from "@angular/router";
+import { AutMethodPopupComponent } from 'app/shared/cards/aut-method-popup/aut-method-popup.component';
 
 /**
  * This component shows the data the
@@ -26,23 +27,30 @@ import { Router } from "@angular/router";
   styleUrls: ["./summary.component.scss"]
 })
 export class SummaryComponent implements OnInit {
+  
+  /** The text attributes for the cards */
   private pageHeader: String;
-  /**
-   * The text attributes for the cards
-   */
   private formTitle: String;
   private formDescription: String;
   private imageCardTitle: String;
   private imageCardDescription: String;
   private loadingAuth: Boolean;
 
-  /**
-   * @param uploadService
-   * @param dialog
-   * @param dataService
-   * @param MatIconRegistry
-   * @param domSanitizer
-   */
+  /** The one time password the user submits */
+  private otp;
+
+/**
+ * 
+ * @param uploadService 
+ * @param dialog For the cancel popup window  
+ * @param dataService 
+ * @param matIconRegistry 
+ * @param domSanitizer 
+ * @param authService 
+ * @param ngZone 
+ * @param router 
+ * @param dialogMethod For the authentication popup window 
+ */
   constructor(
     private uploadService: UploadService,
     private dialog: MatDialog,
@@ -51,7 +59,8 @@ export class SummaryComponent implements OnInit {
     private domSanitizer: DomSanitizer,
     public authService: AuthAssistantService,
     private ngZone: NgZone,
-    private router: Router
+    private router: Router,
+    private dialogMethod: MatDialog 
   ) {
     this.loadingAuth = false;
     this.matIconRegistry.addSvgIcon(
@@ -90,15 +99,16 @@ export class SummaryComponent implements OnInit {
   */
   }
 
-  // are form values valid
+  /** are form values valid */
   public isValid: boolean;
-  // is image uploaded locally
+  /** is image uploaded locally */
   public isUploaded: boolean;
-  // boolean for deciding which card form to show.
+  /** boolean for deciding which card form to show. */
   public displayForm: boolean;
 
   /**
    * sets boolean isValid to same value as in child component card-form.component
+   * @param {boolean} isValid 
    */
   public setValidity(isValid: boolean): void {
     this.isValid = isValid;
@@ -107,6 +117,7 @@ export class SummaryComponent implements OnInit {
   /**
    * sets boolean displayForm to same value as in child component from either card-form.component
    * or card-default.component.
+   * @param {boolean} displayForm 
    */
   public setDisplayForm(displayForm: boolean): void {
     this.displayForm = displayForm;
@@ -114,6 +125,7 @@ export class SummaryComponent implements OnInit {
 
   /**
    * sets boolean isUploaded to same value as in child component card-image.component
+   * @param {boolean} isUploaded 
    */
   public setUploadBoolean(isUploaded: boolean): void {
     this.isUploaded = isUploaded;
@@ -121,7 +133,7 @@ export class SummaryComponent implements OnInit {
 
   /**
    * When the user presses the cancel button a popup
-   * appears with the information defined in data.
+   * appears which lets the user cancel the case.
    */
   openDialog() {
     let dialogRef = this.dialog.open(PopupComponent, {
@@ -144,8 +156,33 @@ export class SummaryComponent implements OnInit {
   }
 
   /**
+   * When the user presses the submit button a popup
+   * appears which lets the user choose authentication method.
+   */
+  openMethodDialog() {
+    let dialogRefM = this.dialogMethod.open(AutMethodPopupComponent, {
+      width: "500px",
+      height: "500px"
+    });
+
+    dialogRefM.afterClosed().subscribe(result => {
+      //console.log("Dialog result: " + result);
+      if (result === false) {
+        console.log("Method BankID");
+        this.startUpload();
+      } else if (result != undefined) {
+        console.log("Method code " + result);
+        this.otp = result;
+        //TODO call the code api!
+        //this.router.navigate(["/confirmation"]);
+      }
+    });
+  }
+
+  /**
    * Set isValid and isUploaded to true since it
-   * must be for the user to acess this page
+   * must be for the user to acess this page.
+   * Sets the text attributes.
    */
   ngOnInit() {
     this.isValid = true;

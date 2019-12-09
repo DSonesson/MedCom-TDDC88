@@ -1,6 +1,13 @@
+/**
+ * This is the user class, 
+ * which defines the data for a user
+ */
 export class User {
+    /** The name of a user */
     name: string;
+    /** The e-mail of a user */
     email: string;
+    /** The phone nummber of a user. */
     phone: string;
 
     constructor() {
