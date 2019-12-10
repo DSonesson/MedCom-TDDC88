@@ -51,7 +51,7 @@ export class UploadService {
   }
 
   /**
-   * Fetches data from case and generates a YAML-file containing the data. Then the YAML-file
+   * Fetches data from case and generates a text-file containing the data. Then the text-file
    * together with the added images gets uploaded to FileCloud.
    * @param token 
    */
@@ -70,9 +70,11 @@ export class UploadService {
     const result1 = await this.httpService.createFolder(this.uploadFolder, token);
     console.log("Result from createFolder:" , result1)
 
-    this.httpService.postFile(this.txtFile, this.uploadFolder, token, this.caseNr);
+    this.httpService.postFile(this.txtFile, this.uploadFolder, token, this.caseNr + ".txt");
     for (var image of this.case.images) {
-      this.httpService.postFile(image.file, this.uploadFolder, token);
+      var blobImage = this.prepareBase64ForConversion(image.base64);
+      this.httpService.postFile(blobImage, this.uploadFolder, token, image.name);
+      console.log("Image. Size: " + blobImage.size + " Type: " + blobImage.type);
     }
 
     this.redirect("/confirmation");
@@ -82,9 +84,61 @@ export class UploadService {
   realUpload() {
 
   }
+  /**
+   * Gets the image type and prepares the base64 string to convert to a Blob image type
+   * @param base64 Base64 string version of the image
+   */
+    prepareBase64ForConversion(base64: string): Blob {
+
+    var dataURI: string = base64;
+    var removeBase64 = dataURI.split(';base64,')[0];
+    var type = removeBase64.split(':')[1];
+    console.log(type);
+
+    var b64Data = dataURI.split(',')[1];
+    //Always send 512 as the third parameter
+    return this.base64toBlob(b64Data, type, 512);
+    }
 
   /**
-   * Generates a YAML-file containing the data that is stored to the case object.
+   * Converts a prepared base64 string to an image
+   * @param b64Data Image data
+   * @param contentType What type of image is being uploaded
+   * @param sliceSize
+   */
+    base64toBlob(b64Data, contentType, sliceSize): Blob {
+    contentType = contentType || '';
+    sliceSize = sliceSize || 512;
+
+    var byteCharacters = atob(b64Data);
+    var byteArrays = [];
+
+    for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+        var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+        var byteNumbers = new Array(slice.length);
+        for (var i = 0; i < slice.length; i++) {
+            byteNumbers[i] = slice.charCodeAt(i);
+        }
+
+        var byteArray = new Uint8Array(byteNumbers);
+
+        byteArrays.push(byteArray);
+    }
+
+  var blob = new Blob(byteArrays, {type: contentType});
+  
+  //Code below is for testing that the images are not corrupt after converting from base64 to Blob, opens images in new tab after conversion
+  //It should be commented out in the live version
+  //const url= window.URL.createObjectURL(blob);
+  //window.open(url);
+
+  return blob;
+}
+
+  /**
+   * Generates a text-file containing the data that is stored to the case object.
+   * @param token
    */
   generateTXT() {
     var content = "Case number: " + this.caseNr + "\r\n"
@@ -96,10 +150,11 @@ export class UploadService {
 
 
   /**
-   * Generates a YAML-file containing the data that is 
+   * Generates a text-file containing the data that is 
    * stored to the case object and formatted in a specific way.
+   * @param token
    */
-  async generatePatientFormYML(token) {
+  async generatePatientFormTXT(token) {
     var content: string = "Patientformulär för case: " + this.caseNr + "\r\n" + "\r\n";
         for(let i=0; i<this.dataService.getCase().patientForm.length; i++){
           var yesNoString = "Svar: Ej ifyllt. ";
@@ -141,7 +196,7 @@ export class UploadService {
 
     const result3 = await this.httpService.userLogin(token);
     console.log("Result from login:", result3)
-    this.httpService.postFile(this.txtPatientForm, this.uploadFolder, token, "patientformular");
+    this.httpService.postFile(this.txtPatientForm, this.uploadFolder, token, "patientformular.txt");
     this.redirect("/confirmation");
   }
 

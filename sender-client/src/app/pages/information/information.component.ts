@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ * This component displays information about the application.
+ */
 @Component({
   selector: 'app-information',
   templateUrl: './information.component.html',

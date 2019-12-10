@@ -270,8 +270,8 @@ that the case has been sent.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">src/app/pages/confirmation/confirmation.component.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">src/app/pages/confirmation/confirmation.component.ts:38</a></div>
                 </td>
             </tr>
 
@@ -311,8 +311,8 @@ that the case has been sent.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="46"
-                            class="link-to-prism">src/app/pages/confirmation/confirmation.component.ts:46</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">src/app/pages/confirmation/confirmation.component.ts:45</a></div>
                 </td>
             </tr>
 
@@ -357,7 +357,7 @@ that the case has been sent.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/pages/confirmation/confirmation.component.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/pages/confirmation/confirmation.component.ts:33</a></div>
                             </td>
                         </tr>
 
@@ -385,7 +385,7 @@ that the case has been sent.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/confirmation/confirmation.component.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/pages/confirmation/confirmation.component.ts:24</a></div>
                             </td>
                         </tr>
 
@@ -413,7 +413,7 @@ that the case has been sent.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/pages/confirmation/confirmation.component.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/pages/confirmation/confirmation.component.ts:31</a></div>
                             </td>
                         </tr>
 
@@ -441,7 +441,7 @@ that the case has been sent.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/pages/confirmation/confirmation.component.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/pages/confirmation/confirmation.component.ts:30</a></div>
                             </td>
                         </tr>
 
@@ -469,7 +469,7 @@ that the case has been sent.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/pages/confirmation/confirmation.component.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/pages/confirmation/confirmation.component.ts:32</a></div>
                             </td>
                         </tr>
 
@@ -496,7 +496,7 @@ that the case has been sent.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/pages/confirmation/confirmation.component.ts:30</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/pages/confirmation/confirmation.component.ts:29</a></div>
                             </td>
                         </tr>
 
@@ -528,9 +528,8 @@ import { CaseDataService } from &quot;app/shared/case-data.service&quot;;
   styleUrls: [&quot;./confirmation.component.scss&quot;]
 })
 export class ConfirmationComponent implements OnInit {
-
   /**
-   * @param {CaseDataService} dataService 
+   * @param {CaseDataService} dataService
    */
   constructor(public dataService: CaseDataService) {}
 
@@ -556,8 +555,9 @@ export class ConfirmationComponent implements OnInit {
   ngOnInit() {
     this.pageHeader &#x3D; &quot;Ärendebekräftelse&quot;;
     this.formTitle &#x3D; &quot;Ditt ärende har skickats!&quot;;
-    this.formDescription &#x3D; &quot;Brännskadejouren har nu tagit emot ditt ärende. Om du vill lägga till information till ärendet, klicka på “Komplettera ärende”.&quot;;
-    this.importantContent &#x3D; &quot;Viktigt: Kom ihåg att spara ditt ärendenummer!&quot;;
+    this.formDescription &#x3D;
+      &quot;Brännskadejouren har nu tagit emot ditt ärende. Om du vill lägga till information till ärendet, klicka på “Komplettera ärende”.&quot;;
+    this.importantContent &#x3D; &quot;Kom ihåg att spara ditt ärendenummer!&quot;;
     this.content &#x3D; &quot;Det behövs för att kunna se ditt ärende senare.&quot;;
   }
 }
@@ -610,6 +610,7 @@ export class ConfirmationComponent implements OnInit {
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
+
 &lt;app-card-confirmation
   [title]&#x3D;&quot;formTitle&quot;
   [description]&#x3D;&quot;formDescription&quot;
@@ -623,11 +624,23 @@ export class ConfirmationComponent implements OnInit {
       &lt;button
         id&#x3D;&quot;startsida&quot;
         type&#x3D;&quot;Startsida&quot;
-        class&#x3D;&quot;btn btn-info  btn-round&quot;
+        class&#x3D;&quot;btn btn-info btn-round px-0&quot;
         style&#x3D;&quot;float: left; height: 3.5rem; max-width: calc(50vw - 30px)&quot;
         (click)&#x3D;&quot;clearData()&quot;
       &gt;
-        &lt;span&gt;Startsida&lt;/span&gt;
+        &lt;div class&#x3D;&quot;container&quot;&gt;
+          &lt;div class&#x3D;&quot;row&quot;&gt;
+            &lt;div class&#x3D;&quot;col-3&quot; style&#x3D;&quot;padding: 5px 0 0 10px&quot;&gt;
+              &lt;i
+                class&#x3D;&quot;nc-icon nc-minimal-left bold&quot;
+                style&#x3D;&quot;font-size: 20px&quot;
+              &gt;&lt;/i&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;col-9&quot; style&#x3D;&quot;padding: 6px 20px 0px 5px&quot;&gt;
+              &lt;span class&#x3D;&quot;p-0&quot; style&#x3D;&quot;font-size: 14px&quot;&gt;Startsida&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
       &lt;/button&gt;
     &lt;/a&gt;
   &lt;/div&gt;
@@ -637,10 +650,24 @@ export class ConfirmationComponent implements OnInit {
       &lt;button
         id&#x3D;&quot;kompletteraÄrende&quot;
         type&#x3D;&quot;KompletteraÄrende&quot;
-        class&#x3D;&quot;btn btn-info  btn-round&quot;
+        class&#x3D;&quot;btn btn-info btn-round px-0&quot;
         style&#x3D;&quot;float: right; height: 3.5rem; max-width: calc(50vw - 30px)&quot;
       &gt;
-        &lt;span&gt;Komplettera Ärende&lt;/span&gt;
+        &lt;div class&#x3D;&quot;container&quot;&gt;
+          &lt;div class&#x3D;&quot;row&quot;&gt;
+            &lt;div class&#x3D;&quot;col-9&quot; style&#x3D;&quot;padding: 0 0 0 10px&quot;&gt;
+              &lt;span class&#x3D;&quot;p-0&quot; style&#x3D;&quot;font-size: 14px&quot;
+                &gt;Komplettera Ärende&lt;/span
+              &gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;col-3&quot; style&#x3D;&quot;padding: 6px 10px 0 5px&quot;&gt;
+              &lt;i
+                class&#x3D;&quot;nc-icon nc-minimal-right bold&quot;
+                style&#x3D;&quot;font-size: 20px&quot;
+              &gt;&lt;/i&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
       &lt;/button&gt;
     &lt;/a&gt;
   &lt;/div&gt;
@@ -689,8 +716,8 @@ export class ConfirmationComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!-- * Confirmation-page View File * @version 1.0 * @author Alexander Anserud <alean378@student.liu.se>--><app-page-header [pageHeader]="pageHeader"></app-page-header><div  class="row mx-auto progress-row"  style="margin-top:10px; margin-bottom: 25px; max-width: 500px;">  <div class="col-md-12" style="padding: 0">    <div class="progress bg-transparent mb-4 progress-main">      <div        class="progress-bar rounded progress-cell"        role="progressbar"        aria-valuenow="33"        aria-valuemin="0"        aria-valuemax="100"        style="background-color: #00A452; width: 33%; border: solid 2px #005538"      ></div>      <div        class="progress-bar rounded progress-cell"        role="progressbar"        aria-valuenow="33"        aria-valuemin="0"        aria-valuemax="100"        style="background-color: #00A452; width: 33%; border: solid 2px #005538; margin-left: 7px"      ></div>      <div        class="progress-bar mr-1 rounded progress-cell"        role="progressbar"        aria-valuenow="33"        aria-valuemin="0"        aria-valuemax="100"        style="width: 33%; box-shadow: 0 0 3px 3px #005538; margin: 0 7px 0 7px; background-color: #00A452; color: whitesmoke"      >        <p class="mb-0">          Steg 3 av 3        </p>      </div>    </div>  </div></div><app-card-confirmation  [title]="formTitle"  [description]="formDescription"  [importantContent]="importantContent"  [content]="content"></app-card-confirmation><div class="row footer_buttons">  <div class="col pr-0">    <a [routerLink]="\'/frontpage\'">      <button        id="startsida"        type="Startsida"        class="btn btn-info  btn-round"        style="float: left; height: 3.5rem; max-width: calc(50vw - 30px)"        (click)="clearData()"      >        <span>Startsida</span>      </button>    </a>  </div>  <div class="col pl-0">    <a [routerLink]="\'/edit\'">      <button        id="kompletteraÄrende"        type="KompletteraÄrende"        class="btn btn-info  btn-round"        style="float: right; height: 3.5rem; max-width: calc(50vw - 30px)"      >        <span>Komplettera Ärende</span>      </button>    </a>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutMethodPopupComponent', 'selector': 'app-aut-method-popup'},{'name': 'CardCaseNumber', 'selector': 'app-card-case-number'},{'name': 'CardConfirmationComponent', 'selector': 'app-card-confirmation'},{'name': 'CardDefaultComponent', 'selector': 'app-card-default'},{'name': 'CardFormComponent', 'selector': 'app-card-form'},{'name': 'CardFormFetchCaseComponent', 'selector': 'app-card-form-fetch-case'},{'name': 'CardImageComponent', 'selector': 'app-card-image'},{'name': 'CardTableComponent', 'selector': 'app-card-table'},{'name': 'CardTmplComponent', 'selector': 'app-card-tmpl'},{'name': 'ConfirmationComponent', 'selector': 'app-confirmation'},{'name': 'ContentComponent', 'selector': 'app-content'},{'name': 'EditCaseComponent', 'selector': 'edit'},{'name': 'FetchcaseComponent', 'selector': 'app-fetchcase'},{'name': 'FooterComponent', 'selector': 'footer-cmp'},{'name': 'FrontpageComponent', 'selector': 'frontpage'},{'name': 'HeaderComponent', 'selector': 'header-cmp'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PopupComponent', 'selector': 'app-popup'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
+        var COMPONENT_TEMPLATE = '<div><!-- * Confirmation-page View File * @version 1.0 * @author Alexander Anserud <alean378@student.liu.se>--><app-page-header [pageHeader]="pageHeader"></app-page-header><div  class="row mx-auto progress-row"  style="margin-top:10px; margin-bottom: 25px; max-width: 500px;">  <div class="col-md-12" style="padding: 0">    <div class="progress bg-transparent mb-4 progress-main">      <div        class="progress-bar rounded progress-cell"        role="progressbar"        aria-valuenow="33"        aria-valuemin="0"        aria-valuemax="100"        style="background-color: #00A452; width: 33%; border: solid 2px #005538"      ></div>      <div        class="progress-bar rounded progress-cell"        role="progressbar"        aria-valuenow="33"        aria-valuemin="0"        aria-valuemax="100"        style="background-color: #00A452; width: 33%; border: solid 2px #005538; margin-left: 7px"      ></div>      <div        class="progress-bar mr-1 rounded progress-cell"        role="progressbar"        aria-valuenow="33"        aria-valuemin="0"        aria-valuemax="100"        style="width: 33%; box-shadow: 0 0 3px 3px #005538; margin: 0 7px 0 7px; background-color: #00A452; color: whitesmoke"      >        <p class="mb-0">          Steg 3 av 3        </p>      </div>    </div>  </div></div><app-card-confirmation  [title]="formTitle"  [description]="formDescription"  [importantContent]="importantContent"  [content]="content"></app-card-confirmation><div class="row footer_buttons">  <div class="col pr-0">    <a [routerLink]="\'/frontpage\'">      <button        id="startsida"        type="Startsida"        class="btn btn-info btn-round px-0"        style="float: left; height: 3.5rem; max-width: calc(50vw - 30px)"        (click)="clearData()"      >        <div class="container">          <div class="row">            <div class="col-3" style="padding: 5px 0 0 10px">              <i                class="nc-icon nc-minimal-left bold"                style="font-size: 20px"              ></i>            </div>            <div class="col-9" style="padding: 6px 20px 0px 5px">              <span class="p-0" style="font-size: 14px">Startsida</span>            </div>          </div>        </div>      </button>    </a>  </div>  <div class="col pl-0">    <a [routerLink]="\'/edit\'">      <button        id="kompletteraÄrende"        type="KompletteraÄrende"        class="btn btn-info btn-round px-0"        style="float: right; height: 3.5rem; max-width: calc(50vw - 30px)"      >        <div class="container">          <div class="row">            <div class="col-9" style="padding: 0 0 0 10px">              <span class="p-0" style="font-size: 14px"                >Komplettera Ärende</span              >            </div>            <div class="col-3" style="padding: 6px 10px 0 5px">              <i                class="nc-icon nc-minimal-right bold"                style="font-size: 20px"              ></i>            </div>          </div>        </div>      </button>    </a>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutMethodPopupComponent', 'selector': 'app-aut-method-popup'},{'name': 'CardCaseNumber', 'selector': 'app-card-case-number'},{'name': 'CardConfirmationComponent', 'selector': 'app-card-confirmation'},{'name': 'CardDefaultComponent', 'selector': 'app-card-default'},{'name': 'CardFormComponent', 'selector': 'app-card-form'},{'name': 'CardFormFetchCaseComponent', 'selector': 'app-card-form-fetch-case'},{'name': 'CardImageComponent', 'selector': 'app-card-image'},{'name': 'CardTableComponent', 'selector': 'app-card-table'},{'name': 'CardTmplComponent', 'selector': 'app-card-tmpl'},{'name': 'ConfirmationComponent', 'selector': 'app-confirmation'},{'name': 'ContentComponent', 'selector': 'app-content'},{'name': 'EditCaseComponent', 'selector': 'edit'},{'name': 'FetchcaseComponent', 'selector': 'app-fetchcase'},{'name': 'FooterComponent', 'selector': 'footer-cmp'},{'name': 'FrontpageComponent', 'selector': 'frontpage'},{'name': 'HeaderComponent', 'selector': 'header-cmp'},{'name': 'InformationComponent', 'selector': 'app-information'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PopupComponent', 'selector': 'app-popup'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ConfirmationComponent'};
 </script>

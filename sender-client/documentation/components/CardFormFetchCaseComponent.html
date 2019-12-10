@@ -802,34 +802,44 @@ export class CardFormFetchCaseComponent implements OnInit {
  * @author Alexander Anserud &lt;alean378@student.liu.se&gt;
 --&gt;
 
-&lt;div class&#x3D;&quot;row&quot; style &#x3D;&quot;margin: 30px;&quot;&gt;
-    &lt;div class&#x3D;&quot;col-md-12&quot;&gt;
-        &lt;div class&#x3D;&quot;card&quot;&gt;
-            &lt;div class&#x3D;&quot;card-header&quot;&gt;
-                &lt;h5 class&#x3D;&quot;card-title&quot;&gt;{{ title }}&lt;/h5&gt;
-                &lt;p class&#x3D;&quot;card-description&quot;&gt;{{ description }}&lt;/p&gt;
+&lt;div class&#x3D;&quot;row&quot; style&#x3D;&quot;margin-top: 40px;&quot;&gt;
+  &lt;div class&#x3D;&quot;col-md-12&quot;&gt;
+    &lt;div class&#x3D;&quot;card&quot;&gt;
+      &lt;div class&#x3D;&quot;card-header&quot;&gt;
+        &lt;h5 class&#x3D;&quot;card-title&quot;&gt;{{ title }}&lt;/h5&gt;
+        &lt;p class&#x3D;&quot;card-description&quot;&gt;{{ description }}&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;card-body&quot;&gt;
+        &lt;section&gt;
+          &lt;div class&#x3D;&quot;col-md-12 px-1&quot;&gt;
+            &lt;div class&#x3D;&quot;editable card-form&quot;&gt;
+              &lt;label for&#x3D;&quot;enteredCaseNr&quot;&gt;Ärendenummer&lt;/label&gt;
+              &lt;input
+                name&#x3D;&quot;Ärendenummer&quot;
+                id&#x3D;&quot;enteredCaseNr&quot;
+                type&#x3D;&quot;text&quot;
+                class&#x3D;&quot;form-control&quot;
+                placeholder&#x3D;&quot;Ex. 1234567&quot;
+                [(ngModel)]&#x3D;&quot;enteredCaseNr&quot;
+                required
+              /&gt;
             &lt;/div&gt;
-                &lt;div class&#x3D;&quot;card-body&quot;&gt;
-                    &lt;section&gt;
-                        &lt;div class&#x3D;&quot;col-md-12 px-1&quot;&gt;
-                            &lt;div class&#x3D;&quot;editable card-form&quot;&gt;
-                                &lt;label for&#x3D;&quot;enteredCaseNr&quot;&gt;Ärendenummer&lt;/label&gt;
-                                &lt;input name&#x3D;&quot;Ärendenummer&quot; id&#x3D;&quot;enteredCaseNr&quot; type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;Ex. 1234567&quot; [(ngModel)]&#x3D;&quot;enteredCaseNr&quot; required&gt;
-                            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/section&gt;
+      &lt;/div&gt;
 
-                        &lt;/div&gt;
-                    &lt;/section&gt;
-
-                &lt;/div&gt;
-
-
-            &lt;div class&#x3D;&quot;card-footer update ml-auto mr-auto btn-on-card&quot;&gt;
-                    &lt;button id&#x3D;&quot;submit&quot; type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-info btn-round&quot; (click)&#x3D;&quot;setCaseNr()&quot;&gt;
-                        &lt;span&gt;Hämta&lt;/span&gt;
-                    &lt;/button&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
+      &lt;div class&#x3D;&quot;card-footer update ml-auto mr-auto btn-on-card&quot;&gt;
+        &lt;button
+          id&#x3D;&quot;submit&quot;
+          type&#x3D;&quot;submit&quot;
+          class&#x3D;&quot;btn btn-info btn-round&quot;
+          (click)&#x3D;&quot;setCaseNr()&quot;
+        &gt;
+          &lt;span&gt;Hämta&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;!-- &lt;label&gt;
@@ -871,8 +881,8 @@ export class CardFormFetchCaseComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!-- * Fetch Case Form View File * @version 1.0 * @author Alexander Anserud <alean378@student.liu.se>--><div class="row" style ="margin: 30px;">    <div class="col-md-12">        <div class="card">            <div class="card-header">                <h5 class="card-title">{{ title }}</h5>                <p class="card-description">{{ description }}</p>            </div>                <div class="card-body">                    <section>                        <div class="col-md-12 px-1">                            <div class="editable card-form">                                <label for="enteredCaseNr">Ärendenummer</label>                                <input name="Ärendenummer" id="enteredCaseNr" type="text" class="form-control" placeholder="Ex. 1234567" [(ngModel)]="enteredCaseNr" required>                            </div>                        </div>                    </section>                </div>            <div class="card-footer update ml-auto mr-auto btn-on-card">                    <button id="submit" type="submit" class="btn btn-info btn-round" (click)="setCaseNr()">                        <span>Hämta</span>                    </button>            </div>        </div>    </div></div><!-- <label>    Name:    <input type="text" [formControl]="nameControl">  </label> --></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutMethodPopupComponent', 'selector': 'app-aut-method-popup'},{'name': 'CardCaseNumber', 'selector': 'app-card-case-number'},{'name': 'CardConfirmationComponent', 'selector': 'app-card-confirmation'},{'name': 'CardDefaultComponent', 'selector': 'app-card-default'},{'name': 'CardFormComponent', 'selector': 'app-card-form'},{'name': 'CardFormFetchCaseComponent', 'selector': 'app-card-form-fetch-case'},{'name': 'CardImageComponent', 'selector': 'app-card-image'},{'name': 'CardTableComponent', 'selector': 'app-card-table'},{'name': 'CardTmplComponent', 'selector': 'app-card-tmpl'},{'name': 'ConfirmationComponent', 'selector': 'app-confirmation'},{'name': 'ContentComponent', 'selector': 'app-content'},{'name': 'EditCaseComponent', 'selector': 'edit'},{'name': 'FetchcaseComponent', 'selector': 'app-fetchcase'},{'name': 'FooterComponent', 'selector': 'footer-cmp'},{'name': 'FrontpageComponent', 'selector': 'frontpage'},{'name': 'HeaderComponent', 'selector': 'header-cmp'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PopupComponent', 'selector': 'app-popup'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
+        var COMPONENT_TEMPLATE = '<div><!-- * Fetch Case Form View File * @version 1.0 * @author Alexander Anserud <alean378@student.liu.se>--><div class="row" style="margin-top: 40px;">  <div class="col-md-12">    <div class="card">      <div class="card-header">        <h5 class="card-title">{{ title }}</h5>        <p class="card-description">{{ description }}</p>      </div>      <div class="card-body">        <section>          <div class="col-md-12 px-1">            <div class="editable card-form">              <label for="enteredCaseNr">Ärendenummer</label>              <input                name="Ärendenummer"                id="enteredCaseNr"                type="text"                class="form-control"                placeholder="Ex. 1234567"                [(ngModel)]="enteredCaseNr"                required              />            </div>          </div>        </section>      </div>      <div class="card-footer update ml-auto mr-auto btn-on-card">        <button          id="submit"          type="submit"          class="btn btn-info btn-round"          (click)="setCaseNr()"        >          <span>Hämta</span>        </button>      </div>    </div>  </div></div><!-- <label>    Name:    <input type="text" [formControl]="nameControl">  </label> --></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutMethodPopupComponent', 'selector': 'app-aut-method-popup'},{'name': 'CardCaseNumber', 'selector': 'app-card-case-number'},{'name': 'CardConfirmationComponent', 'selector': 'app-card-confirmation'},{'name': 'CardDefaultComponent', 'selector': 'app-card-default'},{'name': 'CardFormComponent', 'selector': 'app-card-form'},{'name': 'CardFormFetchCaseComponent', 'selector': 'app-card-form-fetch-case'},{'name': 'CardImageComponent', 'selector': 'app-card-image'},{'name': 'CardTableComponent', 'selector': 'app-card-table'},{'name': 'CardTmplComponent', 'selector': 'app-card-tmpl'},{'name': 'ConfirmationComponent', 'selector': 'app-confirmation'},{'name': 'ContentComponent', 'selector': 'app-content'},{'name': 'EditCaseComponent', 'selector': 'edit'},{'name': 'FetchcaseComponent', 'selector': 'app-fetchcase'},{'name': 'FooterComponent', 'selector': 'footer-cmp'},{'name': 'FrontpageComponent', 'selector': 'frontpage'},{'name': 'HeaderComponent', 'selector': 'header-cmp'},{'name': 'InformationComponent', 'selector': 'app-information'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PopupComponent', 'selector': 'app-popup'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'CardFormFetchCaseComponent'};
 </script>

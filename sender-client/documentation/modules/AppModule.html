@@ -254,42 +254,41 @@
  */
 /* Imports */
 import { BrowserAnimationsModule } from &quot;@angular/platform-browser/animations&quot;;
-import { NgModule } from &#x27;@angular/core&#x27;;
-import { RouterModule } from &#x27;@angular/router&#x27;;
+import { NgModule } from &quot;@angular/core&quot;;
+import { RouterModule } from &quot;@angular/router&quot;;
 import { ToastrModule } from &quot;ngx-toastr&quot;;
-import { LightboxModule } from &#x27;ngx-lightbox&#x27;;
+import { LightboxModule } from &quot;ngx-lightbox&quot;;
 import { MatIconModule } from &quot;@angular/material/icon&quot;;
 
 /* Import modules */
-import { FooterModule } from &#x27;./layouts/footer/footer.module&#x27;;
-import { HeaderModule} from &#x27;./layouts/header/header.module&#x27;;
-
+import { FooterModule } from &quot;./layouts/footer/footer.module&quot;;
+import { HeaderModule } from &quot;./layouts/header/header.module&quot;;
 
 /* Import App Files */
-import { AppComponent } from &#x27;./app.component&#x27;;
-import { AppRoutes } from &#x27;./app.routing&#x27;;
-import { ContentComponent } from &#x27;./layouts/content/content.component&#x27;;
-import { HttpClientModule, HttpClientJsonpModule, HTTP_INTERCEPTORS } from &#x27;@angular/common/http&#x27;;
+import { AppComponent } from &quot;./app.component&quot;;
+import { AppRoutes } from &quot;./app.routing&quot;;
+import { ContentComponent } from &quot;./layouts/content/content.component&quot;;
+import {
+  HttpClientModule,
+  HttpClientJsonpModule,
+  HTTP_INTERCEPTORS
+} from &quot;@angular/common/http&quot;;
 
-import { AuthInterceptorService } from &#x27;./shared/helper/auth-interceptor.service&#x27;;
-import { AuthAssistantService} from &#x27;./shared/auth-assistant.service&#x27;;
-
+import { AuthInterceptorService } from &quot;./shared/helper/auth-interceptor.service&quot;;
+import { AuthAssistantService } from &quot;./shared/auth-assistant.service&quot;;
 
 /* Meta Data for App File s */
 @NgModule({
-  declarations: [
-    AppComponent,
-    ContentComponent,
-
-  ],
+  declarations: [AppComponent, ContentComponent],
   imports: [
     HttpClientModule,
     HttpClientJsonpModule,
     MatIconModule,
     BrowserAnimationsModule,
     LightboxModule,
-    RouterModule.forRoot(AppRoutes,{
-      useHash: true, scrollPositionRestoration: &#x27;enabled&#x27;
+    RouterModule.forRoot(AppRoutes, {
+      useHash: true,
+      scrollPositionRestoration: &quot;enabled&quot;
     }),
     HeaderModule,
     ToastrModule.forRoot(),
@@ -297,11 +296,16 @@ import { AuthAssistantService} from &#x27;./shared/auth-assistant.service&#x27;;
   ],
   bootstrap: [AppComponent],
   providers: [
-      { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true } ]
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }
+  ]
 })
 
 /* Module Class Holder */
-export class AppModule { }
+export class AppModule {}
 </code></pre>
     </div>
 </div>

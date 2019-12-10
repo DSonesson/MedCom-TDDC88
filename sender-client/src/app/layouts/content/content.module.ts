@@ -32,6 +32,9 @@ import { AutMethodPopupComponent } from "../../shared/cards/aut-method-popup/aut
 import { ContentComponent } from "./content.component";
 import { PageHeaderComponent } from "../../shared/cards/page-header/page-header.component";
 import { InformationComponent } from "../../pages/information/information.component";
+import { ProgressBarComponent } from "../../shared/cards/progress-bar/progress-bar.component";
+
+
 
 import { A11yModule } from "@angular/cdk/a11y";
 import { DragDropModule } from "@angular/cdk/drag-drop";
@@ -144,6 +147,7 @@ import { MatDatepickerModule } from "@angular/material/datepicker";
     CardCaseNumber,
     PopupComponent,
     PageHeaderComponent,
+      ProgressBarComponent,
     AutMethodPopupComponent
   ],
   entryComponents: [PopupComponent, AutMethodPopupComponent]

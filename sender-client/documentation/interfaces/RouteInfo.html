@@ -222,33 +222,44 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &quot;@angular/core&quot;;
 
 /* Declare route data for all pages (used in menu also) */
 export interface RouteInfo {
-    path: string;
-    title: string;
-    icon: string;
-    class: string;
+  path: string;
+  title: string;
+  icon: string;
+  class: string;
 }
 export const ROUTES: RouteInfo[] &#x3D; [
-    { path: &#x27;/frontpage&#x27;,     title: &#x27;Ny anmälan&#x27;,   icon:&#x27;nc-badge&#x27;,            class: &#x27;&#x27; },
-    { path: &#x27;/fetchcase&#x27;,    title: &#x27;hämta ärende&#x27;, icon:&#x27;nc-single-copy-04&#x27;,   class: &#x27;&#x27; },
-    { path: &#x27;/page3&#x27;,    title: &#x27;information&#x27;,  icon:&#x27;nc-alert-circle-i&#x27;,   class: &#x27;&#x27; },,
+  { path: &quot;/frontpage&quot;, title: &quot;Ny anmälan&quot;, icon: &quot;nc-badge&quot;, class: &quot;&quot; },
+  {
+    path: &quot;/fetchcase&quot;,
+    title: &quot;hämta ärende&quot;,
+    icon: &quot;nc-single-copy-04&quot;,
+    class: &quot;&quot;
+  },
+  {
+    path: &quot;/information&quot;,
+    title: &quot;information&quot;,
+    icon: &quot;nc-alert-circle-i&quot;,
+    class: &quot;&quot;
+  },
+  ,
 ];
 
-/** 
- * This component holds and swaps 
- * the content of the application. 
+/**
+ * This component holds and swaps
+ * the content of the application.
  */
 @Component({
-  selector: &#x27;app-content&#x27;,
-  templateUrl: &#x27;./content.component.html&#x27;
+  selector: &quot;app-content&quot;,
+  templateUrl: &quot;./content.component.html&quot;
 })
 
 /* Component Class Holder */
 export class ContentComponent implements OnInit {
-  ngOnInit() { }
+  ngOnInit() {}
 }
 </code></pre>
     </div>

@@ -1242,7 +1242,7 @@ export class CardTableComponent implements OnInit {
  * @author Alexander Anserud &lt;alean378@student.liu.se&gt;
 --&gt;
 
-&lt;div class&#x3D;&quot;row&quot;&gt;
+&lt;div class&#x3D;&quot;row&quot; style&#x3D;&quot;margin-bottom: 40px&quot;&gt;
     &lt;div class&#x3D;&quot;col-md-12&quot;&gt;
         &lt;div class&#x3D;&quot;card&quot;&gt;
             &lt;div class&#x3D;&quot;card-header&quot;&gt;
@@ -1250,100 +1250,88 @@ export class CardTableComponent implements OnInit {
                 &lt;p class&#x3D;&quot;card-description&quot;&gt;&lt;/p&gt;
             &lt;/div&gt;
 
-                &lt;div class&#x3D;&quot;card-body&quot;&gt;
-                    &lt;section&gt;
-                        &lt;div class&#x3D;&quot;col-md-12 px-1&quot;&gt;
-                                &lt;p&gt;Använd detta formulär under det akuta omhändertagande och faxa sedan till Brännskadecentrum när patienten lämnar avdelningen.
-                                &lt;/p&gt;
-                            &lt;div class&#x3D;&quot;card&quot;&gt;
-
-  &lt;div class&#x3D;&quot;table-full-width&quot;&gt;
-    &lt;table class&#x3D;&quot;table&quot;&gt;
-      &lt;thead class&#x3D;&quot;text-danger&quot;&gt;
-        &lt;th&gt;Fråga&lt;/th&gt;
-        &lt;th&gt;Ja&lt;/th&gt;
-        &lt;th&gt;Nej&lt;/th&gt;
-      &lt;/thead&gt;
-      &lt;tbody *ngFor&#x3D;&quot;let checkbox of checkboxes; let i &#x3D; index&quot;&gt;
-        &lt;tr&gt;
-          &lt;td&gt;{{checkbox.question}}&lt;/td&gt;
-          &lt;td&gt;&lt;div class&#x3D;&quot;form-check&quot; *ngIf&#x3D;&quot;!checkbox.noCheckBoxes&quot;&gt;
-  &lt;label class&#x3D;&quot;form-check-label&quot;&gt;
-      &lt;input id&#x3D;&quot;checkbox0&quot; class&#x3D;&quot;form-check-input&quot; type&#x3D;&quot;checkbox&quot; [ngModel]&#x3D;&quot;checkbox.value &amp;&amp; checkbox.storedValue&quot; [disabled]&#x3D;&quot;checkbox.noCheckBoxes&quot; [ngModelOptions]&#x3D;&quot;{standalone: true}&quot; (change)&#x3D;&quot;setCheckboxes(i, true, $event)&quot;&gt;
-
-      &lt;span class&#x3D;&quot;form-check-sign&quot;&gt;
-          &lt;span class&#x3D;&quot;check&quot;&gt;&lt;/span&gt;
-      &lt;/span&gt;
-  &lt;/label&gt;
-&lt;/div&gt;&lt;/td&gt;
-&lt;td&gt;&lt;div class&#x3D;&quot;form-check&quot; *ngIf&#x3D;&quot;!checkbox.noCheckBoxes&quot;&gt;
-    &lt;label class&#x3D;&quot;form-check-label&quot;&gt;
-        &lt;input id&#x3D;&quot;checkbox1&quot; class&#x3D;&quot;form-check-input&quot; type&#x3D;&quot;checkbox&quot; [ngModel]&#x3D;&quot;checkbox.value &#x3D;&#x3D; false &amp;&amp; checkbox.storedValue&quot; [disabled]&#x3D;&quot;checkbox.noCheckBoxes&quot; [ngModelOptions]&#x3D;&quot;{standalone: true}&quot; (change)&#x3D;&quot;setCheckboxes(i, false, $event)&quot;&gt;
-
-        &lt;span class&#x3D;&quot;form-check-sign&quot;&gt;
-            &lt;span class&#x3D;&quot;check&quot;&gt;&lt;/span&gt;
-        &lt;/span&gt;
-    &lt;/label&gt;
-  &lt;/div&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr *ngIf&#x3D;&quot;checkbox.complementary &amp;&amp; checkbox.storedValue &amp;&amp; checkbox.value || checkbox.noCheckBoxes&quot;&gt;
-    &lt;td style&#x3D;&quot;border-top: 0; padding-top: 0&quot;&gt;
-        &lt;div *ngIf&#x3D;&quot;checkbox.complementary &#x3D;&#x3D; &#x27;formHeightWeight&#x27;&quot; id&#x3D;&quot;formHeightWeight&quot; class&#x3D;&quot;complement&quot;&gt;
-            Längd: &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control inline-input&quot; placeholder&#x3D;&quot;&quot; value&#x3D;&quot;{{checkbox.complementaryFormData[0]}}&quot; (input)&#x3D;&quot;checkBoxFormsChanged(i, $event, 0)&quot;&gt; cm.
-            Vikt: &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control inline-input&quot; placeholder&#x3D;&quot;&quot; value&#x3D;&quot;{{checkbox.complementaryFormData[1]}}&quot; (input)&#x3D;&quot;checkBoxFormsChanged(i, $event, 1)&quot;&gt; kg.
-        &lt;/div&gt;
-
-        &lt;div *ngIf&#x3D;&quot;checkbox.complementary &#x3D;&#x3D; &#x27;formAnswer&#x27;&quot; id&#x3D;&quot;formAnswer&quot; class&#x3D;&quot;complement&quot;&gt;
-            &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control inline-input&quot; placeholder&#x3D;&quot;&quot; value&#x3D;&quot;{{checkbox.complementaryFormData[0]}}&quot; (input)&#x3D;&quot;checkBoxFormsChanged(i, $event, 0)&quot; style&#x3D;&quot;width: 150px&quot;&gt;
-        &lt;/div&gt;
-
-        &lt;div *ngIf&#x3D;&quot;checkbox.complementary &#x3D;&#x3D; &#x27;totaldiuresForm&#x27;&quot; id&#x3D;&quot;totaldiuresForm&quot; class&#x3D;&quot;complement&quot;&gt;
-            klockan: &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control inline-input&quot; placeholder&#x3D;&quot;&quot; value&#x3D;&quot;{{checkbox.complementaryFormData[0]}}&quot; (input)&#x3D;&quot;checkBoxFormsChanged(i, $event, 0)&quot;&gt; ?
-            Volym: &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control inline-input&quot; placeholder&#x3D;&quot;&quot; value&#x3D;&quot;{{checkbox.complementaryFormData[1]}}&quot; (input)&#x3D;&quot;checkBoxFormsChanged(i, $event, 1)&quot;&gt; ml
-        &lt;/div&gt;
-    &lt;/td&gt;
-&lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;form [formGroup]&#x3D;&quot;userForm&quot;&gt;
-&lt;div&gt;Hur ska patienten transporteras?&lt;/div&gt;
-  &lt;textarea id&#x3D;&quot;patientComments&quot; formControlName&#x3D;&quot;patientComments&quot; class&#x3D;&quot;form-control&quot; rows&#x3D;&quot;2&quot; [(ngModel)]&#x3D;&quot;transportInfo&quot; value&#x3D;&quot;{{transportInfo}}&quot; (input)&#x3D;&quot;textFormChanged()&quot;&gt;&lt;/textarea&gt;
-  &lt;div style&#x3D;&quot;margin-top: 15px; margin-bottom: 10px;&quot;&gt;Förväntad ankomsttid till Brännskadecentrum i Linköping?&lt;/div&gt;
-  
-  &lt;mat-form-field&gt;
-    &lt;input class&#x3D;&quot;dateInput&quot; matInput [matDatepicker]&#x3D;&quot;picker&quot; placeholder&#x3D;&quot;Datum&quot; [(ngModel)]&#x3D;&quot;dateOfArrival&quot; (dateChange)&#x3D;&quot;dateChange($event)&quot; [ngModelOptions]&#x3D;&quot;{standalone: true}&quot; [min]&#x3D;&quot;dateToday&quot;&gt;
-    &lt;mat-datepicker-toggle matSuffix [for]&#x3D;&quot;picker&quot;&gt;&lt;/mat-datepicker-toggle&gt;
-    &lt;mat-datepicker #picker&gt;&lt;/mat-datepicker&gt;
-  &lt;/mat-form-field&gt;
-  &lt;div class&#x3D;&quot;timePicker&quot;&gt;
-  &lt;input id&#x3D;&quot;hourArrival&quot; formControlName&#x3D;&quot;hourArrival&quot; type&#x3D;&quot;number&quot; maxlength&#x3D;&quot;2&quot; min&#x3D;&quot;0&quot; max&#x3D;&quot;23&quot; class&#x3D;&quot;timePickerInput&quot; placeholder&#x3D;&quot;00&quot; [(ngModel)]&#x3D;&quot;timeofArrival[0]&quot; value&#x3D;&quot;{{timeofArrival[0]}}&quot; (input)&#x3D;&quot;textFormChanged(); addZeroBeforeInput(true)&quot; (blur)&#x3D;&quot;addZeroBeforeInput(true)&quot; autocomplete&#x3D;&quot;off&quot;&gt;: 
-  &lt;input id&#x3D;&quot;minArrival&quot; formControlName&#x3D;&quot;minArrival&quot; type&#x3D;&quot;number&quot; maxlength&#x3D;&quot;2&quot; min&#x3D;&quot;0&quot; max&#x3D;&quot;59&quot; class&#x3D;&quot;timePickerInput&quot; placeholder&#x3D;&quot;00&quot; [(ngModel)]&#x3D;&quot;timeofArrival[1]&quot; value&#x3D;&quot;{{timeofArrival[1]}}&quot; (input)&#x3D;&quot;textFormChanged(); addZeroBeforeInput(false)&quot; (blur)&#x3D;&quot;addZeroBeforeInput(false)&quot; style&#x3D;&quot;margin-left: 10px&quot; autocomplete&#x3D;&quot;off&quot;&gt;
-   &lt;i class&#x3D;&quot;material-icons&quot;&gt;
-        access_time
-        &lt;/i&gt;  
-&lt;/div&gt;
-&lt;div id&#x3D;&quot;errorName&quot; *ngIf&#x3D;&quot;hourIncorrect&quot; class&#x3D;&quot;alert alert-danger&quot;&gt;
-    Skriv in ett korrekt klockslag.
-&lt;/div&gt;
-&lt;/form&gt;
-
+            &lt;div class&#x3D;&quot;card-body&quot;&gt;
+                &lt;section&gt;
+                    &lt;div class&#x3D;&quot;col-md-12 px-1&quot;&gt;
+                            &lt;p&gt;Använd detta formulär under det akuta omhändertagande och faxa sedan till Brännskadecentrum när patienten lämnar avdelningen.
+                            &lt;/p&gt;
+                            &lt;div class&#x3D;&quot;card inside-card&quot;&gt;
+                                &lt;div class&#x3D;&quot;table-full-width&quot;&gt;
+                                    &lt;table class&#x3D;&quot;table&quot;&gt;
+                                        &lt;thead class&#x3D;&quot;text-danger&quot;&gt;
+                                            &lt;th&gt;Fråga&lt;/th&gt;
+                                            &lt;th&gt;Ja&lt;/th&gt;
+                                            &lt;th&gt;Nej&lt;/th&gt;
+                                        &lt;/thead&gt;
+                                        &lt;tbody *ngFor&#x3D;&quot;let checkbox of checkboxes; let i &#x3D; index&quot;&gt;
+                                            &lt;tr&gt;
+                                            &lt;td&gt;{{checkbox.question}}&lt;/td&gt;
+                                            &lt;td&gt;&lt;div class&#x3D;&quot;form-check&quot; *ngIf&#x3D;&quot;!checkbox.noCheckBoxes&quot;&gt;
+                                                &lt;label class&#x3D;&quot;form-check-label&quot;&gt;
+                                                &lt;input id&#x3D;&quot;checkbox0&quot; class&#x3D;&quot;form-check-input&quot; type&#x3D;&quot;checkbox&quot; [ngModel]&#x3D;&quot;checkbox.value &amp;&amp; checkbox.storedValue&quot; [disabled]&#x3D;&quot;checkbox.noCheckBoxes&quot; [ngModelOptions]&#x3D;&quot;{standalone: true}&quot; (change)&#x3D;&quot;setCheckboxes(i, true, $event)&quot;&gt;
+                                                 &lt;span class&#x3D;&quot;form-check-sign&quot;&gt;
+                                                     &lt;span class&#x3D;&quot;check&quot;&gt;&lt;/span&gt;
+                                                    &lt;/span&gt;
+                                                &lt;/label&gt;
+                                            &lt;/div&gt;
+                                        &lt;/td&gt;
+                                        &lt;td&gt;
+                                            &lt;div class&#x3D;&quot;form-check&quot; *ngIf&#x3D;&quot;!checkbox.noCheckBoxes&quot;&gt;
+                                                &lt;label class&#x3D;&quot;form-check-label&quot;&gt;
+                                                    &lt;input id&#x3D;&quot;checkbox1&quot; class&#x3D;&quot;form-check-input&quot; type&#x3D;&quot;checkbox&quot; [ngModel]&#x3D;&quot;checkbox.value &#x3D;&#x3D; false &amp;&amp; checkbox.storedValue&quot; [disabled]&#x3D;&quot;checkbox.noCheckBoxes&quot; [ngModelOptions]&#x3D;&quot;{standalone: true}&quot; (change)&#x3D;&quot;setCheckboxes(i, false, $event)&quot;&gt;
+                                                    &lt;span class&#x3D;&quot;form-check-sign&quot;&gt;
+                                                        &lt;span class&#x3D;&quot;check&quot;&gt;&lt;/span&gt;
+                                                    &lt;/span&gt;
+                                                &lt;/label&gt;
+                                            &lt;/div&gt;
+                                        &lt;/td&gt;
+                                    &lt;/tr&gt;
+                                    &lt;tr *ngIf&#x3D;&quot;checkbox.complementary &amp;&amp; checkbox.storedValue &amp;&amp; checkbox.value || checkbox.noCheckBoxes&quot;&gt;
+                                        &lt;td style&#x3D;&quot;border-top: 0; padding-top: 0&quot;&gt;
+                                            &lt;div *ngIf&#x3D;&quot;checkbox.complementary &#x3D;&#x3D; &#x27;formHeightWeight&#x27;&quot; id&#x3D;&quot;formHeightWeight&quot; class&#x3D;&quot;complement&quot;&gt;
+                                                Längd: &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control inline-input&quot; placeholder&#x3D;&quot;&quot; value&#x3D;&quot;{{checkbox.complementaryFormData[0]}}&quot; (input)&#x3D;&quot;checkBoxFormsChanged(i, $event, 0)&quot;&gt; cm.
+                                                Vikt: &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control inline-input&quot; placeholder&#x3D;&quot;&quot; value&#x3D;&quot;{{checkbox.complementaryFormData[1]}}&quot; (input)&#x3D;&quot;checkBoxFormsChanged(i, $event, 1)&quot;&gt; kg.
+                                            &lt;/div&gt;
+                                            &lt;div *ngIf&#x3D;&quot;checkbox.complementary &#x3D;&#x3D; &#x27;formAnswer&#x27;&quot; id&#x3D;&quot;formAnswer&quot; class&#x3D;&quot;complement&quot;&gt;
+                                                &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control inline-input&quot; placeholder&#x3D;&quot;&quot; value&#x3D;&quot;{{checkbox.complementaryFormData[0]}}&quot; (input)&#x3D;&quot;checkBoxFormsChanged(i, $event, 0)&quot; style&#x3D;&quot;width: 150px&quot;&gt;
+                                            &lt;/div&gt;                                   
+                                            &lt;div *ngIf&#x3D;&quot;checkbox.complementary &#x3D;&#x3D; &#x27;totaldiuresForm&#x27;&quot; id&#x3D;&quot;totaldiuresForm&quot; class&#x3D;&quot;complement&quot;&gt;
+                                                klockan: &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control inline-input&quot; placeholder&#x3D;&quot;&quot; value&#x3D;&quot;{{checkbox.complementaryFormData[0]}}&quot; (input)&#x3D;&quot;checkBoxFormsChanged(i, $event, 0)&quot;&gt; ?
+                                                Volym: &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control inline-input&quot; placeholder&#x3D;&quot;&quot; value&#x3D;&quot;{{checkbox.complementaryFormData[1]}}&quot; (input)&#x3D;&quot;checkBoxFormsChanged(i, $event, 1)&quot;&gt; ml
+                                            &lt;/div&gt;
+                                        &lt;/td&gt;
+                                    &lt;/tr&gt;
+                                &lt;/tbody&gt;
+                            &lt;/table&gt;
                         &lt;/div&gt;
-                    &lt;/section&gt;
-
-                &lt;/div&gt;
-
-
-
+                    &lt;/div&gt;
+                        &lt;form [formGroup]&#x3D;&quot;userForm&quot;&gt;
+                            &lt;div&gt;Hur ska patienten transporteras?&lt;/div&gt;
+                            &lt;textarea id&#x3D;&quot;patientComments&quot; formControlName&#x3D;&quot;patientComments&quot; class&#x3D;&quot;form-control&quot; rows&#x3D;&quot;2&quot; [(ngModel)]&#x3D;&quot;transportInfo&quot; value&#x3D;&quot;{{transportInfo}}&quot; (input)&#x3D;&quot;textFormChanged()&quot;&gt;&lt;/textarea&gt;
+                            &lt;div style&#x3D;&quot;margin-top: 15px; margin-bottom: 10px;&quot;&gt;Förväntad ankomsttid till Brännskadecentrum i Linköping?&lt;/div&gt;
+    
+                            &lt;mat-form-field&gt;
+                                &lt;input class&#x3D;&quot;dateInput&quot; matInput [matDatepicker]&#x3D;&quot;picker&quot; placeholder&#x3D;&quot;Datum&quot; [(ngModel)]&#x3D;&quot;dateOfArrival&quot; (dateChange)&#x3D;&quot;dateChange($event)&quot; [ngModelOptions]&#x3D;&quot;{standalone: true}&quot; [min]&#x3D;&quot;dateToday&quot;&gt;
+                                &lt;mat-datepicker-toggle matSuffix [for]&#x3D;&quot;picker&quot;&gt;&lt;/mat-datepicker-toggle&gt;
+                                &lt;mat-datepicker #picker&gt;&lt;/mat-datepicker&gt;
+                            &lt;/mat-form-field&gt;
+                            &lt;div class&#x3D;&quot;timePicker&quot;&gt;
+                                &lt;input id&#x3D;&quot;hourArrival&quot; formControlName&#x3D;&quot;hourArrival&quot; type&#x3D;&quot;number&quot; maxlength&#x3D;&quot;2&quot; min&#x3D;&quot;0&quot; max&#x3D;&quot;23&quot; class&#x3D;&quot;timePickerInput&quot; placeholder&#x3D;&quot;00&quot; [(ngModel)]&#x3D;&quot;timeofArrival[0]&quot; value&#x3D;&quot;{{timeofArrival[0]}}&quot; (input)&#x3D;&quot;textFormChanged(); addZeroBeforeInput(true)&quot; (blur)&#x3D;&quot;addZeroBeforeInput(true)&quot; autocomplete&#x3D;&quot;off&quot;&gt;: 
+                                &lt;input id&#x3D;&quot;minArrival&quot; formControlName&#x3D;&quot;minArrival&quot; type&#x3D;&quot;number&quot; maxlength&#x3D;&quot;2&quot; min&#x3D;&quot;0&quot; max&#x3D;&quot;59&quot; class&#x3D;&quot;timePickerInput&quot; placeholder&#x3D;&quot;00&quot; [(ngModel)]&#x3D;&quot;timeofArrival[1]&quot; value&#x3D;&quot;{{timeofArrival[1]}}&quot; (input)&#x3D;&quot;textFormChanged(); addZeroBeforeInput(false)&quot; (blur)&#x3D;&quot;addZeroBeforeInput(false)&quot; style&#x3D;&quot;margin-left: 10px&quot; autocomplete&#x3D;&quot;off&quot;&gt;
+                                &lt;i class&#x3D;&quot;material-icons&quot;&gt;
+                                    access_time
+                                &lt;/i&gt;  
+                            &lt;/div&gt;
+                            &lt;div id&#x3D;&quot;errorName&quot; *ngIf&#x3D;&quot;hourIncorrect&quot; class&#x3D;&quot;alert alert-danger&quot;&gt;
+                                Skriv in ett korrekt klockslag.
+                            &lt;/div&gt;
+                        &lt;/form&gt;
+                    &lt;/div&gt;
+                &lt;/section&gt;
+            &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-
-&lt;!-- &lt;label&gt;
-    Name:
-    &lt;input type&#x3D;&quot;text&quot; [formControl]&#x3D;&quot;nameControl&quot;&gt;
-  &lt;/label&gt; --&gt;
 </code></pre>
     </div>
 
@@ -1352,43 +1340,47 @@ export class CardTableComponent implements OnInit {
                     <code>./card-table.component.scss</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">.inline-input {
-    display: inline-block;
-    width: 70px;
+  display: inline-block;
+  width: 70px;
 }
 .timePicker {
-    display: inline-block;
-    margin-left: 30px;
-    width: 150px;
-    border-bottom: 1px solid grey;
+  display: inline-block;
+  margin-left: 30px;
+  width: 150px;
+  border-bottom: 1px solid grey;
 }
 .material-icons {
-    margin-top: -1px;
-    vertical-align: top;
-    margin-left: 15px;
-    margin-right: -1px;
-    float: right;
+  margin-top: -1px;
+  vertical-align: top;
+  margin-left: 15px;
+  margin-right: -1px;
+  float: right;
 }
 .timePickerInput {
-    width: 45px; 
-    display: inline-block; 
-    text-align: center;
-    border: 0px;
-    height: 20px;
-    border:0px !important;
-    font-family: Roboto, &quot;Helvetica Neue&quot;, sans-serif;
-    font-size: 14px;
+  width: 45px;
+  display: inline-block;
+  text-align: center;
+  border: 0px;
+  height: 20px;
+  border: 0px !important;
+  font-family: Roboto, &quot;Helvetica Neue&quot;, sans-serif;
+  font-size: 14px;
 }
 .timePickerInput:focus {
-    outline: 0;
+  outline: 0;
 }
 .dateInput {
-    border: 0px !important;
+  border: 0px !important;
 }
-input[type&#x3D;number]::-webkit-inner-spin-button, 
-input[type&#x3D;number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}</code></pre>
+input[type&#x3D;&quot;number&quot;]::-webkit-inner-spin-button,
+input[type&#x3D;&quot;number&quot;]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.inside-card {
+  box-shadow: none;
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -1416,8 +1408,8 @@ input[type&#x3D;number]::-webkit-outer-spin-button {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!-- * Card Table View File, used for the registration of contact details * @version 1.0 * @author Alexander Anserud <alean378@student.liu.se>--><div class="row">    <div class="col-md-12">        <div class="card">            <div class="card-header">                <h5 class="card-title">Olycksfallsbeskrivning</h5>                <p class="card-description"></p>            </div>                <div class="card-body">                    <section>                        <div class="col-md-12 px-1">                                <p>Använd detta formulär under det akuta omhändertagande och faxa sedan till Brännskadecentrum när patienten lämnar avdelningen.                                </p>                            <div class="card">  <div class="table-full-width">    <table class="table">      <thead class="text-danger">        <th>Fråga</th>        <th>Ja</th>        <th>Nej</th>      </thead>      <tbody *ngFor="let checkbox of checkboxes; let i = index">        <tr>          <td>{{checkbox.question}}</td>          <td><div class="form-check" *ngIf="!checkbox.noCheckBoxes">  <label class="form-check-label">      <input id="checkbox0" class="form-check-input" type="checkbox" [ngModel]="checkbox.value && checkbox.storedValue" [disabled]="checkbox.noCheckBoxes" [ngModelOptions]="{standalone: true}" (change)="setCheckboxes(i, true, $event)">      <span class="form-check-sign">          <span class="check"></span>      </span>  </label></div></td><td><div class="form-check" *ngIf="!checkbox.noCheckBoxes">    <label class="form-check-label">        <input id="checkbox1" class="form-check-input" type="checkbox" [ngModel]="checkbox.value == false && checkbox.storedValue" [disabled]="checkbox.noCheckBoxes" [ngModelOptions]="{standalone: true}" (change)="setCheckboxes(i, false, $event)">        <span class="form-check-sign">            <span class="check"></span>        </span>    </label>  </div></td></tr><tr *ngIf="checkbox.complementary && checkbox.storedValue && checkbox.value || checkbox.noCheckBoxes">    <td style="border-top: 0; padding-top: 0">        <div *ngIf="checkbox.complementary == \'formHeightWeight\'" id="formHeightWeight" class="complement">            Längd: <input type="text" class="form-control inline-input" placeholder="" value="{{checkbox.complementaryFormData[0]}}" (input)="checkBoxFormsChanged(i, $event, 0)"> cm.            Vikt: <input type="text" class="form-control inline-input" placeholder="" value="{{checkbox.complementaryFormData[1]}}" (input)="checkBoxFormsChanged(i, $event, 1)"> kg.        </div>        <div *ngIf="checkbox.complementary == \'formAnswer\'" id="formAnswer" class="complement">            <input type="text" class="form-control inline-input" placeholder="" value="{{checkbox.complementaryFormData[0]}}" (input)="checkBoxFormsChanged(i, $event, 0)" style="width: 150px">        </div>        <div *ngIf="checkbox.complementary == \'totaldiuresForm\'" id="totaldiuresForm" class="complement">            klockan: <input type="text" class="form-control inline-input" placeholder="" value="{{checkbox.complementaryFormData[0]}}" (input)="checkBoxFormsChanged(i, $event, 0)"> ?            Volym: <input type="text" class="form-control inline-input" placeholder="" value="{{checkbox.complementaryFormData[1]}}" (input)="checkBoxFormsChanged(i, $event, 1)"> ml        </div>    </td></tr>      </tbody>    </table>  </div></div><form [formGroup]="userForm"><div>Hur ska patienten transporteras?</div>  <textarea id="patientComments" formControlName="patientComments" class="form-control" rows="2" [(ngModel)]="transportInfo" value="{{transportInfo}}" (input)="textFormChanged()"></textarea>  <div style="margin-top: 15px; margin-bottom: 10px;">Förväntad ankomsttid till Brännskadecentrum i Linköping?</div>    <mat-form-field>    <input class="dateInput" matInput [matDatepicker]="picker" placeholder="Datum" [(ngModel)]="dateOfArrival" (dateChange)="dateChange($event)" [ngModelOptions]="{standalone: true}" [min]="dateToday">    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>    <mat-datepicker #picker></mat-datepicker>  </mat-form-field>  <div class="timePicker">  <input id="hourArrival" formControlName="hourArrival" type="number" maxlength="2" min="0" max="23" class="timePickerInput" placeholder="00" [(ngModel)]="timeofArrival[0]" value="{{timeofArrival[0]}}" (input)="textFormChanged(); addZeroBeforeInput(true)" (blur)="addZeroBeforeInput(true)" autocomplete="off">:   <input id="minArrival" formControlName="minArrival" type="number" maxlength="2" min="0" max="59" class="timePickerInput" placeholder="00" [(ngModel)]="timeofArrival[1]" value="{{timeofArrival[1]}}" (input)="textFormChanged(); addZeroBeforeInput(false)" (blur)="addZeroBeforeInput(false)" style="margin-left: 10px" autocomplete="off">   <i class="material-icons">        access_time        </i>  </div><div id="errorName" *ngIf="hourIncorrect" class="alert alert-danger">    Skriv in ett korrekt klockslag.</div></form>                        </div>                    </section>                </div>        </div>    </div></div><!-- <label>    Name:    <input type="text" [formControl]="nameControl">  </label> --></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutMethodPopupComponent', 'selector': 'app-aut-method-popup'},{'name': 'CardCaseNumber', 'selector': 'app-card-case-number'},{'name': 'CardConfirmationComponent', 'selector': 'app-card-confirmation'},{'name': 'CardDefaultComponent', 'selector': 'app-card-default'},{'name': 'CardFormComponent', 'selector': 'app-card-form'},{'name': 'CardFormFetchCaseComponent', 'selector': 'app-card-form-fetch-case'},{'name': 'CardImageComponent', 'selector': 'app-card-image'},{'name': 'CardTableComponent', 'selector': 'app-card-table'},{'name': 'CardTmplComponent', 'selector': 'app-card-tmpl'},{'name': 'ConfirmationComponent', 'selector': 'app-confirmation'},{'name': 'ContentComponent', 'selector': 'app-content'},{'name': 'EditCaseComponent', 'selector': 'edit'},{'name': 'FetchcaseComponent', 'selector': 'app-fetchcase'},{'name': 'FooterComponent', 'selector': 'footer-cmp'},{'name': 'FrontpageComponent', 'selector': 'frontpage'},{'name': 'HeaderComponent', 'selector': 'header-cmp'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PopupComponent', 'selector': 'app-popup'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
+        var COMPONENT_TEMPLATE = '<div><!-- * Card Table View File, used for the registration of contact details * @version 1.0 * @author Alexander Anserud <alean378@student.liu.se>--><div class="row" style="margin-bottom: 40px">    <div class="col-md-12">        <div class="card">            <div class="card-header">                <h5 class="card-title">Olycksfallsbeskrivning</h5>                <p class="card-description"></p>            </div>            <div class="card-body">                <section>                    <div class="col-md-12 px-1">                            <p>Använd detta formulär under det akuta omhändertagande och faxa sedan till Brännskadecentrum när patienten lämnar avdelningen.                            </p>                            <div class="card inside-card">                                <div class="table-full-width">                                    <table class="table">                                        <thead class="text-danger">                                            <th>Fråga</th>                                            <th>Ja</th>                                            <th>Nej</th>                                        </thead>                                        <tbody *ngFor="let checkbox of checkboxes; let i = index">                                            <tr>                                            <td>{{checkbox.question}}</td>                                            <td><div class="form-check" *ngIf="!checkbox.noCheckBoxes">                                                <label class="form-check-label">                                                <input id="checkbox0" class="form-check-input" type="checkbox" [ngModel]="checkbox.value && checkbox.storedValue" [disabled]="checkbox.noCheckBoxes" [ngModelOptions]="{standalone: true}" (change)="setCheckboxes(i, true, $event)">                                                 <span class="form-check-sign">                                                     <span class="check"></span>                                                    </span>                                                </label>                                            </div>                                        </td>                                        <td>                                            <div class="form-check" *ngIf="!checkbox.noCheckBoxes">                                                <label class="form-check-label">                                                    <input id="checkbox1" class="form-check-input" type="checkbox" [ngModel]="checkbox.value == false && checkbox.storedValue" [disabled]="checkbox.noCheckBoxes" [ngModelOptions]="{standalone: true}" (change)="setCheckboxes(i, false, $event)">                                                    <span class="form-check-sign">                                                        <span class="check"></span>                                                    </span>                                                </label>                                            </div>                                        </td>                                    </tr>                                    <tr *ngIf="checkbox.complementary && checkbox.storedValue && checkbox.value || checkbox.noCheckBoxes">                                        <td style="border-top: 0; padding-top: 0">                                            <div *ngIf="checkbox.complementary == \'formHeightWeight\'" id="formHeightWeight" class="complement">                                                Längd: <input type="text" class="form-control inline-input" placeholder="" value="{{checkbox.complementaryFormData[0]}}" (input)="checkBoxFormsChanged(i, $event, 0)"> cm.                                                Vikt: <input type="text" class="form-control inline-input" placeholder="" value="{{checkbox.complementaryFormData[1]}}" (input)="checkBoxFormsChanged(i, $event, 1)"> kg.                                            </div>                                            <div *ngIf="checkbox.complementary == \'formAnswer\'" id="formAnswer" class="complement">                                                <input type="text" class="form-control inline-input" placeholder="" value="{{checkbox.complementaryFormData[0]}}" (input)="checkBoxFormsChanged(i, $event, 0)" style="width: 150px">                                            </div>                                                                               <div *ngIf="checkbox.complementary == \'totaldiuresForm\'" id="totaldiuresForm" class="complement">                                                klockan: <input type="text" class="form-control inline-input" placeholder="" value="{{checkbox.complementaryFormData[0]}}" (input)="checkBoxFormsChanged(i, $event, 0)"> ?                                                Volym: <input type="text" class="form-control inline-input" placeholder="" value="{{checkbox.complementaryFormData[1]}}" (input)="checkBoxFormsChanged(i, $event, 1)"> ml                                            </div>                                        </td>                                    </tr>                                </tbody>                            </table>                        </div>                    </div>                        <form [formGroup]="userForm">                            <div>Hur ska patienten transporteras?</div>                            <textarea id="patientComments" formControlName="patientComments" class="form-control" rows="2" [(ngModel)]="transportInfo" value="{{transportInfo}}" (input)="textFormChanged()"></textarea>                            <div style="margin-top: 15px; margin-bottom: 10px;">Förväntad ankomsttid till Brännskadecentrum i Linköping?</div>                                <mat-form-field>                                <input class="dateInput" matInput [matDatepicker]="picker" placeholder="Datum" [(ngModel)]="dateOfArrival" (dateChange)="dateChange($event)" [ngModelOptions]="{standalone: true}" [min]="dateToday">                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>                                <mat-datepicker #picker></mat-datepicker>                            </mat-form-field>                            <div class="timePicker">                                <input id="hourArrival" formControlName="hourArrival" type="number" maxlength="2" min="0" max="23" class="timePickerInput" placeholder="00" [(ngModel)]="timeofArrival[0]" value="{{timeofArrival[0]}}" (input)="textFormChanged(); addZeroBeforeInput(true)" (blur)="addZeroBeforeInput(true)" autocomplete="off">:                                 <input id="minArrival" formControlName="minArrival" type="number" maxlength="2" min="0" max="59" class="timePickerInput" placeholder="00" [(ngModel)]="timeofArrival[1]" value="{{timeofArrival[1]}}" (input)="textFormChanged(); addZeroBeforeInput(false)" (blur)="addZeroBeforeInput(false)" style="margin-left: 10px" autocomplete="off">                                <i class="material-icons">                                    access_time                                </i>                              </div>                            <div id="errorName" *ngIf="hourIncorrect" class="alert alert-danger">                                Skriv in ett korrekt klockslag.                            </div>                        </form>                    </div>                </section>            </div>        </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutMethodPopupComponent', 'selector': 'app-aut-method-popup'},{'name': 'CardCaseNumber', 'selector': 'app-card-case-number'},{'name': 'CardConfirmationComponent', 'selector': 'app-card-confirmation'},{'name': 'CardDefaultComponent', 'selector': 'app-card-default'},{'name': 'CardFormComponent', 'selector': 'app-card-form'},{'name': 'CardFormFetchCaseComponent', 'selector': 'app-card-form-fetch-case'},{'name': 'CardImageComponent', 'selector': 'app-card-image'},{'name': 'CardTableComponent', 'selector': 'app-card-table'},{'name': 'CardTmplComponent', 'selector': 'app-card-tmpl'},{'name': 'ConfirmationComponent', 'selector': 'app-confirmation'},{'name': 'ContentComponent', 'selector': 'app-content'},{'name': 'EditCaseComponent', 'selector': 'edit'},{'name': 'FetchcaseComponent', 'selector': 'app-fetchcase'},{'name': 'FooterComponent', 'selector': 'footer-cmp'},{'name': 'FrontpageComponent', 'selector': 'frontpage'},{'name': 'HeaderComponent', 'selector': 'header-cmp'},{'name': 'InformationComponent', 'selector': 'app-information'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PopupComponent', 'selector': 'app-popup'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'CardTableComponent'};
 </script>
