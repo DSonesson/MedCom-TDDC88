@@ -71,23 +71,23 @@
 ></app-card-image>
 
 <div class="row footer_buttons">
-  <div class="col" style="text-align:center; float: left;">
+  <div class="col p-0" style="text-align:center; float: left;">
     <button
       type="Skicka Ärende"
       class="btn btn-danger btn-round"
-      style="display: block; width: 10rem; height: 3.5rem"
+      style="display: block; max-width: 10rem; width: 40vw; height: 3.5rem"
       (click)="openDialog()"
     >
       <span>Avbryt </span>
     </button>
   </div>
-  <div class="col" style="text-align:center;">
+  <div class="col p-0" style="text-align:center;">
     <button
       [disabled]="!isUploaded || !isValid || displayForm"
       id="skickaButton"
       type="Skicka Ärende"
       class="btn btn-info btn-round px-0"
-      style="display: block; width: 10rem; height: 3.5rem; float: right;"
+      style="display: block; max-width: 10rem; width: 40vw; height: 3.5rem; float: right;"
       (click)="openMethodDialog()"
     >
       <div class="container">
