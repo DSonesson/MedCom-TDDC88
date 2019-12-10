@@ -110,12 +110,19 @@ export class HeaderComponent implements OnInit {
     this.isCollapsed = !this.isCollapsed;
     const navbar = document.getElementsByTagName("nav")[0];
     console.log(navbar);
+              var $toggle = document.getElementsByClassName('navbar-toggler')[0];
+        $toggle.classList.add('toggled');
     if (!this.isCollapsed) {
       navbar.classList.remove("navbar-transparent");
       navbar.classList.add("");
+      $toggle.classList.add('toggled');
+     
     } else {
       navbar.classList.add("navbar-transparent");
       navbar.classList.remove("bg-white");
+       $toggle.classList.remove('toggled');
+     
+
     }
   }
 }
